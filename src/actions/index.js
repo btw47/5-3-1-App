@@ -1,6 +1,14 @@
 import actionTypes from '../actionTypes';
 import { firebaseRef } from '../server/firebase';
 
+
+const exampleAction = payload => {
+  return {
+    type: actionTypes.TEST,
+    payload
+  }
+}
+
 //startListeningToAuth is called at the launch of the app => sets up real-time updates from the database
 export const startListeningToAuth = () => {
   return function(dispatch, getState) {
@@ -50,3 +58,4 @@ export const logoutUser = () => {
     firebaseRef.unauth();
   };
 };
+
