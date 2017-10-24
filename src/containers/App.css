@@ -1,15 +1,30 @@
 .logo {
-    width: 150px;
-    height: auto;
+  width: 150px;
+  height: auto;
 }
 
-.chart-img{
-    width: 450px;
-    height: auto;
+.chart-img {
+  width: 450px;
+  height: auto;
 }
 
-.teamPics{
-    width: 150px;
-    height: auto;
-    border-radius: 50%;
+.teamPics {
+  width: 150px;
+  height: auto;
+  border-radius: 50%;
+}
+.fb {
+  width: 35px;
+  height: auto;
+  border-radius: 25%;
+}
+.aboutus {
+  display: inline-block;
+  padding: 25px;
+}
+.lineright {
+  margin: 20px;
+}
+.cwtitle {
+  display: center;
 }
