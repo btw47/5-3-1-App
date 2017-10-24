@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import FullCalendar from "../components/calendar";
 
 export default class Dashboard extends Component {
   render() {
     return (
       <div className="Dashboard">
-        <h1>DASHBOARD WILL BE HERE CHILL</h1>
+        <FullCalendar />
       </div>
     );
   }

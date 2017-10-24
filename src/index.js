@@ -12,14 +12,7 @@ import App from './containers/App';
 import Dashboard from './containers/Dashboard';
 import registerServiceWorker from './registerServiceWorker';
 import rootReducer from './reducers/rootReducer';
-=======
-import React from "react";
-import ReactDOM from "react-dom";
-import { createStore, applyMiddleware } from "redux";
-import { Provider } from "react-redux";
-import { createLogger } from "redux-logger";
-import thunk from "redux-thunk";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import SignUp from './containers/SignUp';
 
 import App from "./containers/App";
 import registerServiceWorker from "./registerServiceWorker";
@@ -40,9 +33,8 @@ ReactDOM.render(
           <Route exact path="/" component={App} />
 <<<<<<< Updated upstream
           <Route path="/dashboard" component={Dashboard} />
-=======
+          <Route path="/SignUp" component={SignUp} />
           <Route path="/ConnectWithUs" component={ConnectWithUs} />
->>>>>>> Stashed changes
         </Switch>
       </div>
     </Router>
