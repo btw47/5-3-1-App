@@ -16,21 +16,21 @@ class ConnectWithUs extends Component {
             <li>
               Bradley Wong
               <br />
-              <img src={Brad} />
+              <img src={Brad} className="teamPics"/>
               <br />
               <a href="https://www.facebook.com/bradley.wong.50">Facebook</a>
             </li>
             <li>
               JD Headbanger
               <br />
-              <img src={JD} />
+              <img src={JD} className="teamPics"/>
               <br />
               <a href="https://www.facebook.com/headbangerjd">Facebook</a>
             </li>
             <li>
               James Bell
               <br />
-              <img src={James} />
+              <img src={James} className="teamPics"/>
               <br />
               <a href="https://www.facebook.com/JamesMB828">Facebook</a>
               <br />
@@ -39,7 +39,7 @@ class ConnectWithUs extends Component {
             <li>
               Ryan Fuchs
               <br />
-              <img src={Ryan} />
+              <img src={Ryan} className="teamPics"/>
               <br />
               <a href="https://www.facebook.com/ryan.fuchs.50">Facebook</a>
             </li>
