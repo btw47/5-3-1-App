@@ -1,3 +1,13 @@
-export const actionTypes = {
+const actionTypes = {
   TEST: 'TEST',
+  USER_AUTH: 'USER_AUTH',
+  ATTEMPTING_LOGIN: 'ATTEMPTING_LOGIN',
+  LOGIN_USER: 'LOGIN_USER',
+  LOGOUT: 'LOGOUT',
+  LOGGED_IN: 'LOGGED_IN',
+  ANONYMOUS: 'ANONYMOUS',
+  AWAITING_AUTH_RESPONSE: 'AWAITING_AUTH_RESPONSE',
+  DISPLAY_ERROR: 'DISPLAY_ERROR',
 };
+
+export default actionTypes;
