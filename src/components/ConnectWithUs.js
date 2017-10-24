@@ -1,4 +1,8 @@
 import React, { Component } from "react";
+import JD from "../images/JD.jpg";
+import Ryan from "../images/Ryan.jpg";
+import James from "../images/James.jpg";
+import Brad from "../images/Brad.jpg";
 
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 
@@ -12,24 +16,32 @@ class ConnectWithUs extends Component {
             <li>
               Bradley Wong
               <br />
-              <img src="https://www.facebook.com/photo.php?fbid=10214782319332417&set=a.1590497883198.2075140.1258380342&type=3&theater" />
+              <img src={Brad} />
+              <br />
+              <a href="https://www.facebook.com/bradley.wong.50">Facebook</a>
             </li>
             <li>
               JD Headbanger
               <br />
-              <img src="https://www.facebook.com/photo.php?fbid=10206851415724249&set=a.1263752414231.33786.1842367662&type=3&theater" />
+              <img src={JD} />
+              <br />
+              <a href="https://www.facebook.com/headbangerjd">Facebook</a>
             </li>
             <li>
               James Bell
               <br />
+              <img src={James} />
+              <br />
               <a href="https://www.facebook.com/JamesMB828">Facebook</a>
-              <img src="https://www.facebook.com/photo.php?fbid=10155430776282931&set=t.531747930&type=3&theater" />
+              <br />
+              <a href="https://github.com/MrNiceGuy1989">GitHub</a>
             </li>
             <li>
               Ryan Fuchs
               <br />
+              <img src={Ryan} />
+              <br />
               <a href="https://www.facebook.com/ryan.fuchs.50">Facebook</a>
-              <img src="https://www.facebook.com/photo.php?fbid=10206390957251759&set=a.1264977123532.32890.1802898403&type=3&theater" />
             </li>
           </h2>
         </div>
