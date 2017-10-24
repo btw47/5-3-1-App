@@ -22,12 +22,12 @@ ReactDOM.render(
   <Provider store={createStoreWithMiddleware(rootReducer)}>
     <Router>
       <div>
-        <Switch>
+
           <Route exact path="/" component={App} />
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/SignUp" component={SignUp} />
           <Route path="/ConnectWithUs" component={ConnectWithUs} />
-        </Switch>
+
       </div>
     </Router>
   </Provider>,
