@@ -1,9 +1,8 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import React, { Component } from "react";
-import InputBar from "../components/InputBar";
-import NavBar from "../components/NavBar";
-import Footer from "../components/Footer";
+import React, { Component } from 'react';
+import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
 
 import UserAuth from '../components/UserAuth';
 import * as actions from '../actions';
