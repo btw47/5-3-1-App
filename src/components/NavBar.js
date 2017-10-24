@@ -13,7 +13,7 @@ class NavBar extends Component {
             </NavLink>
             <br />
             <NavLink to="/Today">
-              <span>Today's Workout</span>
+              <span>Todays Workout</span>
             </NavLink>
             <br />
             <NavLink to="/Calender">
