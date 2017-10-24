@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Form } from 'redux-form';
-import { firebaseApp } from '../server/firebase';
 import { NavLink } from 'react-router-dom';
+import { database } from '../server/firebase';
+import firebase from 'firebase';
 
-export default class UserAuth extends Component {
+export default class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -26,18 +26,18 @@ export default class UserAuth extends Component {
     console.log(this.state);
   };
 
-  handleSubmit = () => {
+  handleSubmit = event => {
     const { email, password } = this.state;
-    firebaseApp
+    event.preventDefault();
+    firebase
       .auth()
-      .signInWithEmailAndPassword(email, password)
+      .createUserWithEmailAndPassword(email, password)
       .catch(error => {
         this.setState({ error });
       });
   };
 
   render() {
-    console.log(this.props);
     return (
       <form onSubmit={this.handleSubmit}>
         <input
@@ -53,8 +53,8 @@ export default class UserAuth extends Component {
         />
         <br />
         <button type="submit">Log In</button>
-        <NavLink to="/SignUp">
-          <span>Sign Up</span>
+        <NavLink to="/">
+          <span>Sign In</span>
         </NavLink>
       </form>
     );
