@@ -7,3 +7,9 @@
     width: 450px;
     height: auto;
 }
+
+.teamPics{
+    width: 150px;
+    height: auto;
+    border-radius: 50%;
+}
