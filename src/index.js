@@ -11,6 +11,7 @@ import App from './containers/App';
 import Dashboard from './containers/Dashboard';
 import registerServiceWorker from './registerServiceWorker';
 import rootReducer from './reducers/rootReducer';
+import SignUp from './containers/SignUp';
 
 const logger = createLogger();
 const createStoreWithMiddleware = applyMiddleware(thunk, logger)(createStore);
@@ -24,6 +25,7 @@ ReactDOM.render(
         <Switch>
           <Route exact path="/" component={App} />
           <Route path="/dashboard" component={Dashboard} />
+          <Route path="/SignUp" component={SignUp} />
         </Switch>
       </div>
     </Router>
