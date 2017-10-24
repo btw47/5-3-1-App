@@ -12,6 +12,8 @@ export default class UserAuth extends Component {
     };
   }
 
+  componentDidMount() {}
+
   handleUser = event => {
     this.setState({
       email: event.target.value,
@@ -27,13 +29,7 @@ export default class UserAuth extends Component {
   };
 
   handleSubmit = () => {
-    const { email, password } = this.state;
-    firebaseApp
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .catch(error => {
-        this.setState({ error });
-      });
+    console.log('SUBMITTED');
   };
 
   render() {
