@@ -9,6 +9,7 @@ import "./App.css";
 
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
+import ConnectWithUs from '../components/ConnectWithUs';
 
 import UserAuth from '../components/UserAuth';
 import * as actions from '../actions';
@@ -26,6 +27,7 @@ class App extends Component {
            <img src={logo} className="logo" alt=""/>
         </div>
         <UserAuth attemptLogin={attemptLogin} auth={state.auth} />
+        <ConnectWithUs />
         <OurMission />
         <Footer />
       </div>
