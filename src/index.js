@@ -5,8 +5,10 @@ import { Provider } from 'react-redux';
 import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import 'firebaseui/dist/firebaseui.css';
 
 import App from './containers/App';
+import Dashboard from './containers/Dashboard';
 import registerServiceWorker from './registerServiceWorker';
 import rootReducer from './reducers/rootReducer';
 
@@ -21,6 +23,7 @@ ReactDOM.render(
       <div>
         <Switch>
           <Route exact path="/" component={App} />
+          <Route path="/dashboard" component={Dashboard} />
         </Switch>
       </div>
     </Router>
