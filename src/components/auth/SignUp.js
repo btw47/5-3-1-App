@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import { database } from '../server/firebase';
+import { database } from '../../server/firebase';
 import firebase from 'firebase';
 
 export default class SignUp extends Component {
@@ -34,6 +34,9 @@ export default class SignUp extends Component {
       .createUserWithEmailAndPassword(email, password)
       .catch(error => {
         this.setState({ error });
+      })
+      .then(function() {
+        window.location = '/dashboard';
       });
   };
 
@@ -52,8 +55,8 @@ export default class SignUp extends Component {
           onChange={event => this.handlePassword(event)}
         />
         <br />
-        <button type="submit">Log In</button>
-        <NavLink to="/">
+        <button type="submit">Sign Up</button>
+        <NavLink to="/SignIn">
           <span>Sign In</span>
         </NavLink>
       </form>

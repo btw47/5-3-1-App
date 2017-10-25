@@ -29,6 +29,10 @@ class NavBar extends Component {
           <NavLink to="/Forums">
             <span>Lets Chat Forums</span>
           </NavLink>
+          <br />
+          <NavLink to="/SignIn">
+            <span>Sign In</span>
+          </NavLink>
         </nav>
       </div>
     );
