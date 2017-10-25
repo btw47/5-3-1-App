@@ -3,10 +3,10 @@ import firebaseui from 'firebaseui';
 import { Form } from 'redux-form';
 import { NavLink } from 'react-router-dom';
 import firebase from 'firebase';
-import { firebaseAuth, firebaseDb, firebaseApp } from '../server/firebase';
+import { firebaseAuth, firebaseDb, firebaseApp } from '../../server/firebase';
 import 'firebaseui/dist/firebaseui.css';
 
-let authUi = new firebaseui.auth.AuthUI(firebaseAuth);
+import AuthLinks from './AuthLinks';
 
 export default class UserAuth extends Component {
   constructor(props) {
@@ -16,23 +16,6 @@ export default class UserAuth extends Component {
       password: '',
     };
   }
-
-  componentDidMount() {
-    let uiConfig = {
-      signInSuccessUrl: '/dashboard',
-      signInFlow: 'redirect',
-      signInOptions: [
-        firebase.auth.EmailAuthProvider.PROVIDER_ID,
-        // firebase.auth.GithubAuthProvider.PROVIDER_ID,
-        // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-        // firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-        firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-      ],
-    };
-    authUi.start('#firebaseui-auth-container', uiConfig);
-  }
-
-  componentWillUnmount() {}
 
   handleUser = event => {
     this.setState({
@@ -49,8 +32,10 @@ export default class UserAuth extends Component {
   handleSubmit = () => {};
 
   render() {
+    const { authUI } = this.props;
+    // console.log(this.props);
     return (
-      <div id="firebaseui-auth-container">
+      <div>
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
@@ -65,10 +50,11 @@ export default class UserAuth extends Component {
           />
           <br />
           <button type="submit">Log In</button>
-          {/* <NavLink to="/SignUp">
+          <NavLink to="/SignUp">
             <span>Sign Up</span>
-          </NavLink> */}
+          </NavLink>
         </form>
+        <AuthLinks authUI={authUI} />
       </div>
     );
   }

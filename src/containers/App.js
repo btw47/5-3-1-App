@@ -10,19 +10,20 @@ import './App.css';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 
-import UserAuth from '../components/UserAuth';
+import UserAuth from '../components/auth/UserAuth';
 import * as actions from '../actions';
 
 class App extends Component {
   render() {
-    // const { state } = this.props;
+    const { state } = this.props;
+    // console.log('APP PROPS', state.auth.authUI);
     return (
       <div className="App">
         <NavBar />
         <div>
           <img src={logo} className="logo" alt="" />
         </div>
-        <UserAuth />
+        <UserAuth authUI={state.auth.authUI} />
         <OurMission />
         <Footer />
       </div>
