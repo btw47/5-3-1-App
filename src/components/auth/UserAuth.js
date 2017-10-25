@@ -52,6 +52,7 @@ export default class UserAuth extends Component {
   render() {
     const { authUI } = this.props;
     // console.log(this.props);
+    console.log(this.state);
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -72,6 +73,7 @@ export default class UserAuth extends Component {
             <span>Sign Up</span>
           </NavLink>
         </form>
+        {this.state.error && <h4>sorry you're wrong</h4>}
         <AuthLinks authUI={authUI} />
       </div>
     );
