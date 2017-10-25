@@ -1,9 +1,20 @@
 import React from 'react';
-import { firebaseApp } from '../../server/firebase';
+import firebase from 'firebase';
 
 const SignOut = props => {
   const handleClick = () => {
-    console.log('CLICKED');
+    firebase
+      .auth()
+      .signOut()
+      .then(
+        function() {
+          console.log('Signed Out');
+          window.location = '/';
+        },
+        function(error) {
+          console.error('Sign Out Error', error);
+        }
+      );
   };
 
   return (
