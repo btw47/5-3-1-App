@@ -1,11 +1,19 @@
 import actionTypes from '../actionTypes';
 
-// export const emailAuth = () => {
-//   let uiConfig = {
-//     signInSuccessUrl: '/dashboard',
-//     signInFlow: 'popup',
-//     signInOptions: [firebase.auth.EmailAuthProvider.PROVIDER_ID],
+// export function getPosts() {
+//   return dispatch => {
+//     database.on('value', snapshot => {
+//       dispatch({
+//         type: actionTypes.FETCH_POSTS,
+//         payload: snapshot.val(),
+//       });
+//     });
 //   };
-//
-//   authUi.start('#firebaseui-auth-container', uiConfig);
-// };
+// }
+
+export const loggedIn = () => {
+  console.log('LOGGED IN ACTION');
+  return {
+    type: actionTypes.LOGGED_IN,
+  };
+};

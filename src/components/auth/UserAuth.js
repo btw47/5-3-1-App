@@ -3,10 +3,10 @@ import firebaseui from 'firebaseui';
 import { Form } from 'redux-form';
 import { NavLink } from 'react-router-dom';
 import firebase from 'firebase';
-import { firebaseAuth, firebaseDb, firebaseApp } from '../server/firebase';
+import { firebaseAuth, firebaseDb, firebaseApp } from '../../server/firebase';
 import 'firebaseui/dist/firebaseui.css';
 
-let authUi = new firebaseui.auth.AuthUI(firebaseAuth);
+import AuthLinks from './AuthLinks';
 
 export default class UserAuth extends Component {
   constructor(props) {
@@ -18,21 +18,13 @@ export default class UserAuth extends Component {
   }
 
   componentDidMount() {
-    let uiConfig = {
-      signInSuccessUrl: '/dashboard',
-      signInFlow: 'redirect',
-      signInOptions: [
-        firebase.auth.EmailAuthProvider.PROVIDER_ID,
-        // firebase.auth.GithubAuthProvider.PROVIDER_ID,
-        // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-        // firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-        firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-      ],
-    };
-    authUi.start('#firebaseui-auth-container', uiConfig);
+    firebase.auth().onAuthStateChanged(user => {
+      console.log(user);
+      if (user) {
+        window.location = '/dashboard'; //After successful login, user will be redirected to home.html
+      }
+    });
   }
-
-  componentWillUnmount() {}
 
   handleUser = event => {
     this.setState({
@@ -46,11 +38,23 @@ export default class UserAuth extends Component {
     });
   };
 
-  handleSubmit = () => {};
+  handleSubmit = event => {
+    event.preventDefault();
+    const { email, password } = this.state;
+    firebaseApp
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .catch(error => {
+        this.setState({ error });
+      });
+  };
 
   render() {
+    const { authUI } = this.props;
+    // console.log(this.props);
+    console.log(this.props);
     return (
-      <div id="firebaseui-auth-container">
+      <div>
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
@@ -59,16 +63,18 @@ export default class UserAuth extends Component {
           />
           <br />
           <input
-            type="text"
+            type="password"
             placeholder="password"
             onChange={event => this.handlePassword(event)}
           />
           <br />
           <button type="submit">Log In</button>
-          {/* <NavLink to="/SignUp">
+          <NavLink to="/">
             <span>Sign Up</span>
-          </NavLink> */}
+          </NavLink>
         </form>
+        {this.state.error && <h4>sorry you're wrong</h4>}
+        {/* <AuthLinks authUI={authUI} /> */}
       </div>
     );
   }
