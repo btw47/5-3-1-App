@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import { database } from '../server/firebase';
+import { database } from '../../server/firebase';
 import firebase from 'firebase';
 
 export default class SignUp extends Component {
@@ -16,30 +16,39 @@ export default class SignUp extends Component {
     this.setState({
       email: event.target.value,
     });
-    console.log(this.state);
   };
 
   handlePassword = event => {
     this.setState({
       password: event.target.value,
     });
-    console.log(this.state);
   };
 
   handleSubmit = event => {
-    const { email, password } = this.state;
     event.preventDefault();
+
+    const { email, password } = this.state;
+
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .catch(error => {
         this.setState({ error });
+        console.log(error);
       });
+    // .then(function() {
+    //   window.location = '/dashboard';
+    // });
+
+    // this.props.loggedIn();
   };
 
   render() {
+    const { loggedIn } = this.props;
+
+    // console.log('SIGN UP PROPS', this.props);
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={() => this.handleSubmit()}>
         <input
           type="text"
           placeholder="email"
@@ -47,15 +56,12 @@ export default class SignUp extends Component {
         />
         <br />
         <input
-          type="text"
+          type="password"
           placeholder="password"
           onChange={event => this.handlePassword(event)}
         />
         <br />
-        <button type="submit">Log In</button>
-        <NavLink to="/">
-          <span>Sign In</span>
-        </NavLink>
+        <button type="submit">Sign Up</button>
       </form>
     );
   }
