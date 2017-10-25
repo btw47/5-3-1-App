@@ -17,6 +17,14 @@ export default class UserAuth extends Component {
     };
   }
 
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        window.location = '/dashboard'; //After successful login, user will be redirected to home.html
+      }
+    });
+  }
+
   handleUser = event => {
     this.setState({
       email: event.target.value,
@@ -29,7 +37,15 @@ export default class UserAuth extends Component {
     });
   };
 
-  handleSubmit = () => {};
+  handleSubmit = () => {
+    const { email, password } = this.state;
+    firebaseApp
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .catch(error => {
+        this.setState({ error });
+      });
+  };
 
   render() {
     const { authUI } = this.props;
