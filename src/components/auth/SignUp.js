@@ -53,7 +53,7 @@ export default class SignUp extends Component {
         />
         <br />
         <input
-          type="text"
+          type="password"
           placeholder="password"
           onChange={event => this.handlePassword(event)}
         />

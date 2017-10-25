@@ -63,7 +63,7 @@ export default class UserAuth extends Component {
           />
           <br />
           <input
-            type="text"
+            type="password"
             placeholder="password"
             onChange={event => this.handlePassword(event)}
           />
