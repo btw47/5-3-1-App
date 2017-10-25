@@ -8,7 +8,7 @@ import 'firebaseui/dist/firebaseui.css';
 
 import AuthLinks from './AuthLinks';
 
-export default class UserAuth extends Component {
+export default class SignIn extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -45,11 +45,25 @@ export default class UserAuth extends Component {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .catch(error => {
-        this.setState({ error });
+        console.log(error);
+        this.setState({ error: error });
       });
   };
 
+  renderError = () => {
+    if (this.state.error) {
+      switch (this.state.error.code) {
+        case 'auth/wrong-password':
+          return <div>wrong password idiot</div>;
+        case 'auth/invalid-email':
+          return <div>enter a valid email, idiot</div>;
+      }
+    }
+  };
+
   render() {
+    console.log('HANDLE SUBMIT STATE', this.state);
+
     const { authUI } = this.props;
     // console.log(this.props);
     console.log(this.props);
@@ -73,7 +87,7 @@ export default class UserAuth extends Component {
             <span>Sign Up</span>
           </NavLink>
         </form>
-        {this.state.error && <h4>sorry you're wrong</h4>}
+        {this.renderError()}
         {/* <AuthLinks authUI={authUI} /> */}
       </div>
     );

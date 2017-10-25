@@ -11,7 +11,7 @@ import Dashboard from './containers/Dashboard';
 import registerServiceWorker from './registerServiceWorker';
 import rootReducer from './reducers/rootReducer';
 import ConnectWithUs from './components/ConnectWithUs';
-import UserAuth from './components/auth/UserAuth';
+import SignIn from './components/auth/SignIn';
 
 const logger = createLogger();
 // const createStoreWithMiddleware = applyMiddleware(thunk, logger)(createStore);
@@ -25,7 +25,7 @@ ReactDOM.render(
         <Route exact path="/" component={App} />
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/ConnectWithUs" component={ConnectWithUs} />
-        <Route path="/SignIn" component={UserAuth} />
+        <Route path="/SignIn" component={SignIn} />
       </div>
     </Router>
   </Provider>,

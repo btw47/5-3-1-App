@@ -10,7 +10,7 @@ import './App.css';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 
-import UserAuth from '../components/auth/UserAuth';
+import SignIn from '../components/auth/SignIn';
 import SignUp from '../components/auth/SignUp';
 import * as actions from '../actions';
 
