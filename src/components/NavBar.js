@@ -5,10 +5,10 @@ import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 class NavBar extends Component {
   render() {
     return (
-      <Router>
+
         <div>
           <nav>
-            <NavLink to="/Home">
+            <NavLink to="/Dashboard">
               <span>User Home Page</span>
             </NavLink>
             <br />
@@ -33,7 +33,7 @@ class NavBar extends Component {
             </NavLink>
           </nav>
         </div>
-      </Router>
+
     );
   }
 }
