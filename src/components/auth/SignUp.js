@@ -34,12 +34,13 @@ export default class SignUp extends Component {
       .createUserWithEmailAndPassword(email, password)
       .catch(error => {
         this.setState({ error });
-      })
-      .then(function() {
-        window.location = '/dashboard';
+        console.log(error);
       });
+    // .then(function() {
+    //   window.location = '/dashboard';
+    // });
 
-    this.props.loggedIn();
+    // this.props.loggedIn();
   };
 
   render() {

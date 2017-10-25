@@ -67,15 +67,11 @@ class SignIn extends Component {
     }
   };
 
-  render() {
-    console.log('SIGN IN PROPS', this.props);
-
-    const { state, authUI } = this.props;
-    // console.log(this.props);
-    return (
-      <div>
-        <NavBar user={state.auth.user} />
-        <hr />
+  renderSignIn = () => {
+    if (window.location.search === '?mode=select') {
+      return <div />;
+    } else {
+      return (
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
@@ -94,8 +90,23 @@ class SignIn extends Component {
             <span>Sign Up</span>
           </NavLink>
         </form>
+      );
+    }
+  };
+
+  render() {
+    console.log('SIGN IN PROPS', this.props);
+
+    const { state } = this.props;
+    // console.log(this.props);
+    console.log(window.location);
+    return (
+      <div>
+        <NavBar user={state.auth.user} />
+        <hr />
+        {this.renderSignIn()}
         {this.renderError()}
-        {/* <AuthLinks authUI={authUI} /> */}
+        <AuthLinks authUI={state.auth.authUI} />
       </div>
     );
   }
