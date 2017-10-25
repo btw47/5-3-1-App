@@ -10,3 +10,10 @@ import actionTypes from '../actionTypes';
 //     });
 //   };
 // }
+
+export const loggedIn = () => {
+  console.log('LOGGED IN ACTION');
+  return {
+    type: actionTypes.LOGGED_IN,
+  };
+};

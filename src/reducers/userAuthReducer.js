@@ -15,6 +15,13 @@ const initialState = {
 
 export const loginReducer = (state = initialState, action) => {
   switch (action.type) {
+    case actionTypes.LOGGED_IN:
+      return {
+        ...state,
+        user: {
+          userStatus: actionTypes.LOGGED_IN,
+        },
+      };
     default:
       return state;
   }

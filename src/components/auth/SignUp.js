@@ -16,19 +16,19 @@ export default class SignUp extends Component {
     this.setState({
       email: event.target.value,
     });
-    console.log(this.state);
   };
 
   handlePassword = event => {
     this.setState({
       password: event.target.value,
     });
-    console.log(this.state);
   };
 
   handleSubmit = event => {
-    const { email, password } = this.state;
     event.preventDefault();
+
+    const { email, password } = this.state;
+
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
@@ -41,8 +41,11 @@ export default class SignUp extends Component {
   };
 
   render() {
+    const { loggedIn } = this.props;
+
+    // console.log('SIGN UP PROPS', this.props);
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={() => this.handleSubmit()}>
         <input
           type="text"
           placeholder="email"

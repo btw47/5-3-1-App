@@ -16,7 +16,7 @@ import * as actions from '../actions';
 
 class App extends Component {
   render() {
-    const { state } = this.props;
+    const { state, loggedIn } = this.props;
     // console.log('APP PROPS', state.auth.authUI);
     return (
       <div className="App">
@@ -25,7 +25,7 @@ class App extends Component {
           <img src={logo} className="logo" alt="" />
         </div>
         {/* <UserAuth authUI={state.auth.authUI} /> */}
-        <SignUp />
+        <SignUp loggedIn={loggedIn} />
         <OurMission />
         <Footer />
       </div>
