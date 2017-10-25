@@ -20,8 +20,14 @@ export default class UserAuth extends Component {
   componentDidMount() {
     let uiConfig = {
       signInSuccessUrl: '/dashboard',
-      signInFlow: 'popup',
-      signInOptions: [firebase.auth.EmailAuthProvider.PROVIDER_ID],
+      signInFlow: 'redirect',
+      signInOptions: [
+        firebase.auth.EmailAuthProvider.PROVIDER_ID,
+        // firebase.auth.GithubAuthProvider.PROVIDER_ID,
+        // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+        // firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+      ],
     };
     authUi.start('#firebaseui-auth-container', uiConfig);
   }
@@ -32,22 +38,17 @@ export default class UserAuth extends Component {
     this.setState({
       email: event.target.value,
     });
-    console.log(this.state);
   };
 
   handlePassword = event => {
     this.setState({
       password: event.target.value,
     });
-    console.log(this.state);
   };
 
-  handleSubmit = () => {
-    console.log('SUBMITTED');
-  };
+  handleSubmit = () => {};
 
   render() {
-    console.log(this.props);
     return (
       <div id="firebaseui-auth-container">
         <form onSubmit={this.handleSubmit}>
@@ -64,9 +65,9 @@ export default class UserAuth extends Component {
           />
           <br />
           <button type="submit">Log In</button>
-          <NavLink to="/SignUp">
+          {/* <NavLink to="/SignUp">
             <span>Sign Up</span>
-          </NavLink>
+          </NavLink> */}
         </form>
       </div>
     );
