@@ -1,8 +1,26 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import actionTypes from '../actionTypes';
+import SignOut from './auth/SignOut';
 
 class NavBar extends Component {
+  renderUserStatus = () => {
+    const { user } = this.props;
+
+    if (user.userStatus === actionTypes.ANONYMOUS) {
+      return (
+        <NavLink to="/SignIn">
+          <span>Sign In</span>
+        </NavLink>
+      );
+    } else if (user.userStatus === actionTypes.LOGGED_IN) {
+      return <SignOut />;
+    }
+  };
+
   render() {
+    console.log('NAVBAR PROPS', this.props);
+
     return (
       <div>
         <nav>
@@ -30,9 +48,7 @@ class NavBar extends Component {
             <span>Lets Chat Forums</span>
           </NavLink>
           <br />
-          <NavLink to="/SignIn">
-            <span>Sign In</span>
-          </NavLink>
+          {this.renderUserStatus()}
         </nav>
       </div>
     );

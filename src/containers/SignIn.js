@@ -10,6 +10,7 @@ import 'firebaseui/dist/firebaseui.css';
 
 import AuthLinks from '../components/auth/AuthLinks';
 import * as actions from '../actions';
+import NavBar from '../components/NavBar';
 
 class SignIn extends Component {
   constructor(props) {
@@ -69,10 +70,12 @@ class SignIn extends Component {
   render() {
     console.log('SIGN IN PROPS', this.props);
 
-    const { authUI } = this.props;
+    const { state, authUI } = this.props;
     // console.log(this.props);
     return (
       <div>
+        <NavBar user={state.auth.user} />
+        <hr />
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"

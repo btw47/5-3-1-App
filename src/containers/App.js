@@ -16,10 +16,10 @@ import * as actions from '../actions';
 class App extends Component {
   render() {
     const { state, loggedIn } = this.props;
-    // console.log('APP PROPS', state.auth.authUI);
+    console.log('APP PROPS', this.props);
     return (
       <div className="App">
-        <NavBar />
+        <NavBar user={state.auth.user} />
         <div>
           <img src={logo} className="logo" alt="" />
         </div>
