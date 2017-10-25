@@ -17,3 +17,10 @@ export const loggedIn = () => {
     type: actionTypes.LOGGED_IN,
   };
 };
+
+export const loggedOut = () => {
+  console.log('LOGGED OUT ACTION');
+  return {
+    type: actionTypes.LOGGED_OUT,
+  };
+};

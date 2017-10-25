@@ -3,12 +3,16 @@ import firebaseui from 'firebaseui';
 import { Form } from 'redux-form';
 import { NavLink } from 'react-router-dom';
 import firebase from 'firebase';
-import { firebaseAuth, firebaseDb, firebaseApp } from '../../server/firebase';
+import { firebaseAuth, firebaseDb, firebaseApp } from '../server/firebase';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import 'firebaseui/dist/firebaseui.css';
 
-import AuthLinks from './AuthLinks';
+import AuthLinks from '../components/auth/AuthLinks';
+import * as actions from '../actions';
+import NavBar from '../components/NavBar';
 
-export default class UserAuth extends Component {
+class SignIn extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -45,16 +49,29 @@ export default class UserAuth extends Component {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .catch(error => {
-        this.setState({ error });
+        console.log(error);
+        this.setState({ error: error });
       });
+
+    this.props.loggedIn();
   };
 
-  render() {
-    const { authUI } = this.props;
-    // console.log(this.props);
-    console.log(this.props);
-    return (
-      <div>
+  renderError = () => {
+    if (this.state.error) {
+      switch (this.state.error.code) {
+        case 'auth/wrong-password':
+          return <div>wrong password idiot</div>;
+        case 'auth/invalid-email':
+          return <div>enter a valid email, idiot</div>;
+      }
+    }
+  };
+
+  renderSignIn = () => {
+    if (window.location.search === '?mode=select') {
+      return <div />;
+    } else {
+      return (
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
@@ -73,9 +90,34 @@ export default class UserAuth extends Component {
             <span>Sign Up</span>
           </NavLink>
         </form>
-        {this.state.error && <h4>sorry you're wrong</h4>}
-        {/* <AuthLinks authUI={authUI} /> */}
+      );
+    }
+  };
+
+  render() {
+    console.log('SIGN IN PROPS', this.props);
+
+    const { state } = this.props;
+    // console.log(this.props);
+    console.log(window.location);
+    return (
+      <div>
+        <NavBar user={state.auth.user} />
+        <hr />
+        {this.renderSignIn()}
+        {this.renderError()}
+        <AuthLinks authUI={state.auth.authUI} />
       </div>
     );
   }
 }
+
+const mapStateToProps = state => {
+  return { state };
+};
+
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators(actions, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

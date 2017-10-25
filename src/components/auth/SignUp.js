@@ -34,10 +34,13 @@ export default class SignUp extends Component {
       .createUserWithEmailAndPassword(email, password)
       .catch(error => {
         this.setState({ error });
-      })
-      .then(function() {
-        window.location = '/dashboard';
+        console.log(error);
       });
+    // .then(function() {
+    //   window.location = '/dashboard';
+    // });
+
+    // this.props.loggedIn();
   };
 
   render() {
@@ -59,9 +62,6 @@ export default class SignUp extends Component {
         />
         <br />
         <button type="submit">Sign Up</button>
-        <NavLink to="/SignIn">
-          <span>Sign In</span>
-        </NavLink>
       </form>
     );
   }
