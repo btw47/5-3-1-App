@@ -22,6 +22,13 @@ export const loginReducer = (state = initialState, action) => {
           userStatus: actionTypes.LOGGED_IN,
         },
       };
+    case actionTypes.LOGGED_OUT:
+      return {
+        ...state,
+        user: {
+          userStatus: actionTypes.ANONYMOUS,
+        },
+      };
     default:
       return state;
   }

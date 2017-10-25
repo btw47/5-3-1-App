@@ -10,21 +10,19 @@ import './App.css';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 
-import UserAuth from '../components/auth/UserAuth';
 import SignUp from '../components/auth/SignUp';
 import * as actions from '../actions';
 
 class App extends Component {
   render() {
     const { state, loggedIn } = this.props;
-    // console.log('APP PROPS', state.auth.authUI);
+    console.log('APP PROPS', this.props);
     return (
       <div className="App">
-        <NavBar />
+        <NavBar user={state.auth.user} />
         <div>
           <img src={logo} className="logo" alt="" />
         </div>
-        {/* <UserAuth authUI={state.auth.authUI} /> */}
         <SignUp loggedIn={loggedIn} />
         <OurMission />
         <Footer />
