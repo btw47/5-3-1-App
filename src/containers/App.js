@@ -10,7 +10,6 @@ import './App.css';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 
-import SignIn from '../components/auth/SignIn';
 import SignUp from '../components/auth/SignUp';
 import * as actions from '../actions';
 
@@ -24,7 +23,6 @@ class App extends Component {
         <div>
           <img src={logo} className="logo" alt="" />
         </div>
-        {/* <UserAuth authUI={state.auth.authUI} /> */}
         <SignUp loggedIn={loggedIn} />
         <OurMission />
         <Footer />

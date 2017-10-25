@@ -11,7 +11,7 @@ import Dashboard from './containers/Dashboard';
 import registerServiceWorker from './registerServiceWorker';
 import rootReducer from './reducers/rootReducer';
 import ConnectWithUs from './components/ConnectWithUs';
-import SignIn from './components/auth/SignIn';
+import SignIn from './containers/SignIn';
 
 const logger = createLogger();
 // const createStoreWithMiddleware = applyMiddleware(thunk, logger)(createStore);

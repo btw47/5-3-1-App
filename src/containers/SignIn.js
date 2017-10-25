@@ -3,12 +3,15 @@ import firebaseui from 'firebaseui';
 import { Form } from 'redux-form';
 import { NavLink } from 'react-router-dom';
 import firebase from 'firebase';
-import { firebaseAuth, firebaseDb, firebaseApp } from '../../server/firebase';
+import { firebaseAuth, firebaseDb, firebaseApp } from '../server/firebase';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import 'firebaseui/dist/firebaseui.css';
 
-import AuthLinks from './AuthLinks';
+import AuthLinks from '../components/auth/AuthLinks';
+import * as actions from '../actions';
 
-export default class SignIn extends Component {
+class SignIn extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -48,6 +51,8 @@ export default class SignIn extends Component {
         console.log(error);
         this.setState({ error: error });
       });
+
+    this.props.loggedIn();
   };
 
   renderError = () => {
@@ -62,11 +67,10 @@ export default class SignIn extends Component {
   };
 
   render() {
-    console.log('HANDLE SUBMIT STATE', this.state);
+    console.log('SIGN IN PROPS', this.props);
 
     const { authUI } = this.props;
     // console.log(this.props);
-    console.log(this.props);
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -93,3 +97,13 @@ export default class SignIn extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return { state };
+};
+
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators(actions, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
