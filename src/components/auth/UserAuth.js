@@ -19,6 +19,7 @@ export default class UserAuth extends Component {
 
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => {
+      console.log(user);
       if (user) {
         window.location = '/dashboard'; //After successful login, user will be redirected to home.html
       }
@@ -37,7 +38,8 @@ export default class UserAuth extends Component {
     });
   };
 
-  handleSubmit = () => {
+  handleSubmit = event => {
+    event.preventDefault();
     const { email, password } = this.state;
     firebaseApp
       .auth()

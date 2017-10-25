@@ -8,7 +8,7 @@ const AuthLinks = props => {
   // console.log("AUTHLINKS PROPS", authUI);
   let uiConfig = {
     signInSuccessUrl: '/dashboard',
-    signInFlow: 'redirect',
+    signInFlow: 'popup',
     signInOptions: [
       firebase.auth.EmailAuthProvider.PROVIDER_ID,
       // firebase.auth.GithubAuthProvider.PROVIDER_ID,
