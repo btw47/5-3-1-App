@@ -1,6 +1,11 @@
 import actionTypes from '../actionTypes';
+import firebaseui from 'firebaseui';
+import { firebaseAuth } from '../server/firebase';
+
+let authUi = new firebaseui.auth.AuthUI(firebaseAuth);
 
 const initialState = {
+  authUI: authUi,
   user: {
     userStatus: actionTypes.ANONYMOUS,
     username: null,
@@ -10,25 +15,21 @@ const initialState = {
 
 export const loginReducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.ATTEMPTING_LOGIN:
+    case actionTypes.LOGGED_IN:
       return {
-        userStatus: actionTypes.AWAITING_AUTH_RESPONSE,
-        username: 'guest',
-        uid: null,
+        ...state,
+        user: {
+          userStatus: actionTypes.LOGGED_IN,
+        },
       };
-    case actionTypes.LOGOUT:
+    case actionTypes.LOGGED_OUT:
       return {
-        userStatus: actionTypes.ANONYMOUS,
-        username: 'guest',
-        uid: null,
-      };
-    case actionTypes.LOGIN_USER:
-      return {
-        userStatus: actionTypes.LOGGED_IN,
-        username: action.username,
-        uid: action.uid,
+        ...state,
+        user: {
+          userStatus: actionTypes.ANONYMOUS,
+        },
       };
     default:
-      return state || initialState.auth;
+      return state;
   }
 };

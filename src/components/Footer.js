@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 class Footer extends Component {
   render() {
     return (
-      <Router>
         <div>
           <nav>
             <NavLink to="/ConnectWithUs">
@@ -30,7 +29,6 @@ class Footer extends Component {
             <br />
           </nav>
         </div>
-      </Router>
     );
   }
 }

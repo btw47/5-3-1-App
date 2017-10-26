@@ -2,30 +2,30 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 
-import logo from "../images/weight-lifting-logo.png";
+import logo from '../images/weight-lifting-logo.png';
 import OurMission from '../components/ourMission';
-import Calendar from '../components/calendar';
-import "./App.css";
+
+import './App.css';
 
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
+import ConnectWithUs from '../components/ConnectWithUs';
 
-import UserAuth from '../components/UserAuth';
+import SignUp from '../components/auth/SignUp';
 import * as actions from '../actions';
 
 class App extends Component {
-
   render() {
-    const { attemptLogin, state } = this.props;
-
-    // console.log(this.props);
+    const { state, loggedIn } = this.props;
+    console.log('APP PROPS', this.props);
     return (
       <div className="App">
-      <NavBar />
+        <NavBar user={state.auth.user} />
         <div>
-           <img src={logo} className="logo" alt=""/>
+          <img src={logo} className="logo" alt="" />
         </div>
-        <UserAuth attemptLogin={attemptLogin} auth={state.auth} />
+        <SignUp loggedIn={loggedIn} />
+        <ConnectWithUs />
         <OurMission />
         <Footer />
       </div>
