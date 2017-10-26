@@ -1,56 +1,111 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
-import actionTypes from '../actionTypes';
-import SignOut from './auth/SignOut';
+import React, { Component } from "react";
+import logo from "../images/weight-lifting-logo.png";
+import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 
 class NavBar extends Component {
-  renderUserStatus = () => {
-    const { user } = this.props;
-
-    if (user.userStatus === actionTypes.ANONYMOUS) {
-      return (
-        <NavLink to="/SignIn">
-          <span>Sign In</span>
-        </NavLink>
-      );
-    } else if (user.userStatus === actionTypes.LOGGED_IN) {
-      return <SignOut />;
-    }
+  style = {
+    width: "50px"
   };
 
   render() {
     console.log('NAVBAR PROPS', this.props);
 
     return (
-      <div>
-        <nav>
-          <NavLink to="/Dashboard">
-            <span>User Home Page</span>
-          </NavLink>
-          <br />
-          <NavLink to="/Today">
-            <span>Todays Workout</span>
-          </NavLink>
-          <br />
-          <NavLink to="/Calender">
-            <span>My Calender</span>
-          </NavLink>
-          <br />
-          <NavLink to="/Progress">
-            <span>Progress Tracker MY GAINZ</span>
-          </NavLink>
-          <br />
-          <NavLink to="/Leaderboards">
-            <span>Leaderboards, Pairing</span>
-          </NavLink>
-          <br />
-          <NavLink to="/Forums">
-            <span>Lets Chat Forums</span>
-          </NavLink>
-          <br />
-          {this.renderUserStatus()}
+      <Router>
+        <nav className="navbar navbar-inverse">
+          <div className="container-fluid">
+            <div className="navbar-header">
+              <a className="navbar-brand" href="#">
+                <img src={logo} alt="logo" style={this.style} />
+              </a>
+            </div>
+            <ul className="nav navbar-nav">
+              <li className="active">
+                <a href="/Home">Home</a>
+              </li>
+              <li>
+                <a href="/Today">Todays Workout</a>
+              </li>
+              <li>
+                <a href="/Calender">My Calender</a>
+              </li>
+              <li>
+                <a href="/Progress">MY GAINZ</a>
+              </li>
+              <li>
+                <a href="/Leaderboards">Leaderboards</a>
+              </li>
+              <li>
+                <a href="/Forums">Lets Chat Forums</a>
+              </li>
+            </ul>
+          </div>
         </nav>
-      </div>
+      </Router>
+
+      //   <nav class="navbar navbar-default">
+      //     <div class="container-fluid">
+      //       <div class="navbar-header">
+      //         <button
+      //           type="button"
+      //           class="navbar-toggle collapsed"
+      //           data-toggle="collapse"
+      //           data-target="#navbar4"
+      //         >
+      //           <span class="sr-only">Toggle navigation</span>
+      //           <span class="icon-bar" />
+      //           <span class="icon-bar" />
+      //           <span class="icon-bar" />
+      //         </button>
+      //         <a class="navbar-brand" href="#">
+      //           <img style={this.style} src="../images/Brad.jpg" alt="logo" />
+      //         </a>
+      //       </div>
+      //       <div id="navbar4" class="navbar-collapse collapse">
+      //         <ul class="nav navbar-nav">
+      //           <li class="active">
+      //             <a href="#">Home</a>
+      //           </li>
+      //           <li>
+      //             <a href="#">About</a>
+      //           </li>
+      //           <li>
+      //             <a href="#">Contact</a>
+      //           </li>
+      //           <li class="dropdown">
+      //             <a
+      //               href="#"
+      //               class="dropdown-toggle"
+      //               data-toggle="dropdown"
+      //               role="button"
+      //               aria-expanded="false"
+      //             >
+      //               Dropdown <span class="caret" />
+      //             </a>
+      //             <ul class="dropdown-menu" role="menu">
+      //               <li>
+      //                 <a href="#">Action</a>
+      //               </li>
+      //               <li>
+      //                 <a href="#">Another action</a>
+      //               </li>
+      //               <li>
+      //                 <a href="#">Something else here</a>
+      //               </li>
+      //               <li class="divider" />
+      //               <li class="dropdown-header">Nav header</li>
+      //               <li>
+      //                 <a href="#">Separated link</a>
+      //               </li>
+      //               <li>
+      //                 <a href="#">One more separated link</a>
+      //               </li>
+      //             </ul>
+      //           </li>
+      //         </ul>
+      //       </div>
+      //     </div>
+      //   </nav>
     );
   }
 }
