@@ -44,16 +44,8 @@ class SignIn extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const { email, password } = this.state;
-    firebaseApp
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .catch(error => {
-        console.log(error);
-        this.setState({ error: error });
-      });
 
-    this.props.loggedIn();
+    this.props.userLogIn(this.state.email, this.state.password);
   };
 
   renderError = () => {
@@ -72,7 +64,7 @@ class SignIn extends Component {
       return <div />;
     } else {
       return (
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={event => this.handleSubmit(event)}>
           <input
             type="text"
             placeholder="email"
@@ -106,7 +98,7 @@ class SignIn extends Component {
         <hr />
         {this.renderSignIn()}
         {this.renderError()}
-        <AuthLinks authUI={state.auth.authUI} />
+        {/* <AuthLinks authUI={state.auth.authUI} /> */}
       </div>
     );
   }
