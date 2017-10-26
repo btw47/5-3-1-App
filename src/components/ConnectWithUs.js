@@ -18,7 +18,7 @@ class ConnectWithUs extends Component {
     };
     return (
       <Router>
-        <body className="content" style={styles}>
+        <div className="content" style={styles}>
           <div className="container">
             <h1 className="cwtitle">
               <img src={logo} className="logo" alt="" /> The 5-3-1 Pro Team
@@ -127,7 +127,7 @@ class ConnectWithUs extends Component {
               </div>
             </h2>
           </div>
-        </body>
+        </div>
       </Router>
     );
   }

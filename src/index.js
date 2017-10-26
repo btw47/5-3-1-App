@@ -17,7 +17,6 @@ import UpdateGoals from './containers/UpdateGoals';
 import actionTypes from './actionTypes';
 
 const logger = createLogger();
-// const createStoreWithMiddleware = applyMiddleware(thunk, logger)(createStore);
 
 export const store = createStore(
   rootReducer,
