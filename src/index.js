@@ -12,6 +12,7 @@ import registerServiceWorker from './registerServiceWorker';
 import rootReducer from './reducers/rootReducer';
 import ConnectWithUs from './components/ConnectWithUs';
 import SignIn from './containers/SignIn';
+import UpdateProfile from './containers/UpdateProfile';
 
 const logger = createLogger();
 // const createStoreWithMiddleware = applyMiddleware(thunk, logger)(createStore);
@@ -26,6 +27,7 @@ ReactDOM.render(
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/ConnectWithUs" component={ConnectWithUs} />
         <Route path="/SignIn" component={SignIn} />
+        <Route path="/UpdateProfile" component={UpdateProfile} />
       </div>
     </Router>
   </Provider>,

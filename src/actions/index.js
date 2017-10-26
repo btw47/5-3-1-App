@@ -1,4 +1,5 @@
 import actionTypes from '../actionTypes';
+import { firebaseApp } from '../server/firebase';
 
 // export function getPosts() {
 //   return dispatch => {
@@ -11,11 +12,22 @@ import actionTypes from '../actionTypes';
 //   };
 // }
 
-export const loggedIn = () => {
+const loggedIn = () => {
   console.log('LOGGED IN ACTION');
   return {
     type: actionTypes.LOGGED_IN,
   };
+};
+
+export const userLogIn = (email, password) => {
+  firebaseApp
+    .auth()
+    .signInWithEmailAndPassword(email, password)
+    .catch(error => {
+      console.log(error);
+    });
+
+  // loggedIn();
 };
 
 export const loggedOut = () => {
