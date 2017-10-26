@@ -1,20 +1,37 @@
 import React, { Component } from "react";
-import Calendar from "react-calendar";
+import moment from 'moment';
+import events from './events'
 
-class FullCalendar extends React.Component {
-  state = {
-    date: new Date()
-  };
+import BigCalendar from 'react-big-calendar';
 
-  onChange = date => this.setState({ date });
+BigCalendar.setLocalizer(
+  BigCalendar.momentLocalizer(moment)
+)
 
-  render() {
-    return (
-      <div>
-        <Calendar onChange={this.onChange} />
+// const getRange = ()
+
+class calendar extends Component{
+  constructor(props, context){
+    super(props, context)
+  }
+
+  render(){
+    return(
+      <div className="calendar">
+        <BigCalendar 
+          height = {100}
+          events = {events}
+          step = {60}
+          defaultView = 'week'
+          views = {['week', 'agenda']}
+          defaultDate={new Date}
+          onSelecting={(range: {start: Date, end: Date}) => true }
+          onSelectEvent={event => alert(event.title)}
+        />
       </div>
-    );
+    )
   }
 }
 
-export default FullCalendar;
+export default calendar;
+

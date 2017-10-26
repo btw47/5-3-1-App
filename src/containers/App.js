@@ -4,11 +4,12 @@ import React, { Component } from 'react';
 
 import logo from '../images/weight-lifting-logo.png';
 import OurMission from '../components/ourMission';
-import Calendar from '../components/calendar';
+
 import './App.css';
 
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
+import ConnectWithUs from '../components/ConnectWithUs';
 
 import SignUp from '../components/auth/SignUp';
 import * as actions from '../actions';
@@ -24,6 +25,7 @@ class App extends Component {
           <img src={logo} className="logo" alt="" />
         </div>
         <SignUp loggedIn={loggedIn} />
+        <ConnectWithUs />
         <OurMission />
         <Footer />
       </div>
