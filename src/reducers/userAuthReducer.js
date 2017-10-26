@@ -29,6 +29,12 @@ export const loginReducer = (state = initialState, action) => {
           userStatus: actionTypes.ANONYMOUS,
         },
       };
+    case actionTypes.AUTH_ERROR:
+      console.log('REDUCER AUTH ERROR');
+      return {
+        ...state,
+        error: action.payload,
+      };
     default:
       return state;
   }

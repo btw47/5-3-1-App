@@ -3,7 +3,6 @@ import firebaseui from 'firebaseui';
 import { Form } from 'redux-form';
 import { NavLink } from 'react-router-dom';
 import firebase from 'firebase';
-import { firebaseAuth, firebaseDb, firebaseApp } from '../server/firebase';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import 'firebaseui/dist/firebaseui.css';
@@ -22,12 +21,12 @@ class SignIn extends Component {
   }
 
   componentDidMount() {
-    firebase.auth().onAuthStateChanged(user => {
-      console.log(user);
-      if (user) {
-        window.location = '/dashboard'; //After successful login, user will be redirected to home.html
-      }
-    });
+    // firebase.auth().onAuthStateChanged(user => {
+    //   console.log(user);
+    //   if (user) {
+    //     window.location = '/dashboard'; //After successful login, user will be redirected to home.html
+    //   }
+    // });
   }
 
   handleUser = event => {
@@ -49,8 +48,9 @@ class SignIn extends Component {
   };
 
   renderError = () => {
-    if (this.state.error) {
-      switch (this.state.error.code) {
+    if (this.props.state.auth.error) {
+      console.log('SIGN IN ERROR');
+      switch (this.props.state.auth.error.code) {
         case 'auth/wrong-password':
           return <div>wrong password idiot</div>;
         case 'auth/invalid-email':
@@ -91,7 +91,6 @@ class SignIn extends Component {
 
     const { state } = this.props;
     // console.log(this.props);
-    console.log(window.location);
     return (
       <div>
         <NavBar user={state.auth.user} />

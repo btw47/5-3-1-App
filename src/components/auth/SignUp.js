@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import { database } from '../../server/firebase';
 import firebase from 'firebase';
 
 export default class SignUp extends Component {

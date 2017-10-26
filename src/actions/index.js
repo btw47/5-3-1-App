@@ -19,15 +19,25 @@ const loggedIn = () => {
   };
 };
 
-export const userLogIn = (email, password) => {
-  firebaseApp
-    .auth()
-    .signInWithEmailAndPassword(email, password)
-    .catch(error => {
-      console.log(error);
-    });
+const authError = error => {
+  console.log('AUTH ERROR ACTIONS');
+  return {
+    type: actionTypes.AUTH_ERROR,
+    payload: error,
+  };
+};
 
-  // loggedIn();
+export const userLogIn = (email, password) => {
+  return dispatch => {
+    firebaseApp
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(() => dispatch(loggedIn()))
+      .catch(error => {
+        console.log('ACTIONS ERROR', error);
+        dispatch(authError(error));
+      });
+  };
 };
 
 export const loggedOut = () => {
