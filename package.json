@@ -10,6 +10,7 @@
     "moment": "^2.19.1",
     "react": "^16.0.0",
     "react-big-calendar": "^0.16.1",
+    "react-body-backgroundcolor": "^1.0.1",
     "react-bootstrap": "^0.31.3",
     "react-calendar": "^2.2.0",
     "react-dnd": "^2.5.4",
