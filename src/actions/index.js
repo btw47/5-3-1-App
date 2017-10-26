@@ -39,7 +39,7 @@ export const createUser = (email, password) => {
     firebaseApp
       .auth()
       .createUserWithEmailAndPassword(email, password)
-      .then(() => dispatch(loggedIn()))
+      // .then(() => dispatch(loggedIn()))
       // .then(() => redirect())
       .catch(error => {
         dispatch(authError(error));
