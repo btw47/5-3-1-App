@@ -23,8 +23,35 @@
   padding: 25px;
 }
 .lineright {
-  margin: 20px;
+  position: center;
+  display: inline-block;
+  text-align: center;
 }
 .cwtitle {
-  display: center;
+  display: top;
+  text-align: center;
+  font-weight: bold;
+  font-size: 300%;
+  font-family: "Verdana";
+  color: blue;
+  text-decoration: underline;
+  font-style: italic;
+}
+.aboutus {
+  border: 5px solid black;
+  background-color: #d6dbd2;
+  margin: 10px;
+  position: inline;
+  font-family: "Trebuchet MS";
+  white-space: nowrap;
+  width: 500px;
+  height: auto;
+}
+.container {
+  background: #d6dbd2;
+  border: 5px solid black;
+}
+
+a.navbar-brand {
+  padding: 0;
 }
