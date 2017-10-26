@@ -1,24 +1,19 @@
 import actionTypes from '../actionTypes';
 import { firebaseApp } from '../server/firebase';
+import { store } from '../index.js';
 
-// export function getPosts() {
-//   return dispatch => {
-//     database.on('value', snapshot => {
-//       dispatch({
-//         type: actionTypes.FETCH_POSTS,
-//         payload: snapshot.val(),
-//       });
-//     });
-//   };
-// }
-
-const redirectToDashboard = () => {
-  window.location = '/dashboard';
+const redirect = () => {
+  let userState = store.getState().auth.user.userStatus;
+  if (userState === actionTypes.ANONYMOUS) {
+    window.location = '/';
+  } else if (userState === actionTypes.LOGGED_IN) {
+    window.location = '/dashboard';
+  }
 };
 
 //ACTION CREATORS-------------------
 
-export const loggedIn = () => {
+const loggedIn = () => {
   console.log('LOGGED IN ACTION');
   return {
     type: actionTypes.LOGGED_IN,
@@ -40,9 +35,22 @@ export const userLogIn = (email, password) => {
     firebaseApp
       .auth()
       .signInWithEmailAndPassword(email, password)
-      .then(() => dispatch(redirectToDashboard()))
+      .then(() => dispatch(loggedIn()))
+      .then(() => redirect())
       .catch(error => {
-        console.log('ACTIONS ERROR', error);
+        dispatch(authError(error));
+      });
+  };
+};
+
+export const createUser = (email, password) => {
+  return dispatch => {
+    firebaseApp
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then(() => dispatch(loggedIn()))
+      .then(() => redirect())
+      .catch(error => {
         dispatch(authError(error));
       });
   };

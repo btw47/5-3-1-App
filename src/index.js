@@ -14,11 +14,16 @@ import ConnectWithUs from './components/ConnectWithUs';
 import SignIn from './containers/SignIn';
 import UpdateProfile from './containers/UpdateProfile';
 import UpdateGoals from './containers/UpdateGoals';
+import actionTypes from './actionTypes';
 
 const logger = createLogger();
 // const createStoreWithMiddleware = applyMiddleware(thunk, logger)(createStore);
 
-const store = createStore(rootReducer, {}, applyMiddleware(thunk, logger));
+export const store = createStore(
+  rootReducer,
+  {},
+  applyMiddleware(thunk, logger)
+);
 
 ReactDOM.render(
   <Provider store={store}>

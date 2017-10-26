@@ -79,8 +79,6 @@ class SignIn extends Component {
   };
 
   render() {
-    console.log('SIGN IN PROPS', this.props);
-
     const { state } = this.props;
     return (
       <div>

@@ -11,10 +11,6 @@ import NavBar from '../components/NavBar';
 import SignOut from '../components/auth/SignOut';
 
 class Dashboard extends Component {
-  componentDidMount() {
-    this.props.loggedIn();
-  }
-
   render() {
     console.log('DASHBOARD PROPS', this.props);
     const { state } = this.props;
