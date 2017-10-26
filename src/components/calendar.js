@@ -1,48 +1,37 @@
 import React, { Component } from "react";
+import moment from 'moment';
 import events from './events'
-import { firebaseApp } from '../server/firebase';
-import { DragDropContext } from 'react-dnd';
+
 import BigCalendar from 'react-big-calendar';
-import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop';
 
-import "react-big-calendar/lib/addons/dragAndDrop/styles.less";
+BigCalendar.setLocalizer(
+  BigCalendar.momentLocalizer(moment)
+)
 
-const DragAndDropCalendar = withDragAndDrop(BigCalendar);
+// const getRange = ()
 
-class DnD extends React.Component {
-  constructor (props){
-    super(props)
-    this.state = {
-      events: events
-    }
-
-    this.moveEvent = this.moveEvent.bind(this)
+class calendar extends Component{
+  constructor(props, context){
+    super(props, context)
   }
 
-  moveEvent({event, start, end}){
-    const {events} = this.state;
-
-    const idx = events.indexOf(event);
-    const updatedEvent = {...event, start, end};
-  
-    const nextEvents = [...events]
-    nextEvents.splice(idx, 1, updatedEvent)
-
-    this.setState({
-      events: nextEvents
-    })
-  }
-
-  render() {
-    return (
-      <DragAndDropCalendar
-       selectabel
-       events={this.state.events}
-       defaultView='week'
-       onEventDrop={new Date(2017, 10, 24)}
-      /> 
+  render(){
+    return(
+      <div className="calendar">
+        <BigCalendar 
+          height = {100}
+          events = {events}
+          step = {60}
+          defaultView = 'week'
+          views = {['week', 'agenda']}
+          defaultDate={new Date}
+          onSelecting={(range: {start: Date, end: Date}) => true }
+          onSelectEvent={event => alert(event.title)}
+        />
+      </div>
     )
   }
 }
 
-export default DragDropContext(firebaseApp)(DnD)
+export default calendar;
+
