@@ -12,7 +12,13 @@ import { firebaseApp } from '../server/firebase';
 //   };
 // }
 
-const loggedIn = () => {
+const redirectToDashboard = () => {
+  window.location = '/dashboard';
+};
+
+//ACTION CREATORS-------------------
+
+export const loggedIn = () => {
   console.log('LOGGED IN ACTION');
   return {
     type: actionTypes.LOGGED_IN,
@@ -27,12 +33,14 @@ const authError = error => {
   };
 };
 
+//------------------------------------
+
 export const userLogIn = (email, password) => {
   return dispatch => {
     firebaseApp
       .auth()
       .signInWithEmailAndPassword(email, password)
-      .then(() => dispatch(loggedIn()))
+      .then(() => dispatch(redirectToDashboard()))
       .catch(error => {
         console.log('ACTIONS ERROR', error);
         dispatch(authError(error));
@@ -41,8 +49,10 @@ export const userLogIn = (email, password) => {
 };
 
 export const loggedOut = () => {
-  console.log('LOGGED OUT ACTION');
-  return {
-    type: actionTypes.LOGGED_OUT,
+  return dispatch => {
+    console.log('LOGGED OUT ACTION');
+    return {
+      type: actionTypes.LOGGED_OUT,
+    };
   };
 };

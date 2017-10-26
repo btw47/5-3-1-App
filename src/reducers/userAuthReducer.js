@@ -6,18 +6,12 @@ let authUi = new firebaseui.auth.AuthUI(firebaseAuth);
 
 const initialState = {
   authUI: authUi,
-  user: {
-    userStatus: actionTypes.ANONYMOUS,
-    username: null,
-    uid: null,
-  },
 };
 
 export const loginReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.LOGGED_IN:
       return {
-        ...state,
         user: {
           userStatus: actionTypes.LOGGED_IN,
         },
@@ -30,7 +24,6 @@ export const loginReducer = (state = initialState, action) => {
         },
       };
     case actionTypes.AUTH_ERROR:
-      console.log('REDUCER AUTH ERROR');
       return {
         ...state,
         error: action.payload,

@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import 'firebaseui/dist/firebaseui.css';
 
 import AuthLinks from '../components/auth/AuthLinks';
+import actionTypes from '../actionTypes';
 import * as actions from '../actions';
 import NavBar from '../components/NavBar';
 
@@ -18,15 +19,6 @@ class SignIn extends Component {
       email: '',
       password: '',
     };
-  }
-
-  componentDidMount() {
-    // firebase.auth().onAuthStateChanged(user => {
-    //   console.log(user);
-    //   if (user) {
-    //     window.location = '/dashboard'; //After successful login, user will be redirected to home.html
-    //   }
-    // });
   }
 
   handleUser = event => {
@@ -90,7 +82,6 @@ class SignIn extends Component {
     console.log('SIGN IN PROPS', this.props);
 
     const { state } = this.props;
-    // console.log(this.props);
     return (
       <div>
         <NavBar user={state.auth.user} />

@@ -20,13 +20,13 @@ class ConnectWithUs extends Component {
       <Router>
         <body className="content" style={styles}>
           <div className="container">
-            <h1 class="cwtitle">
+            <h1 className="cwtitle">
               <img src={logo} className="logo" alt="" /> The 5-3-1 Pro Team
               <img src={logo} className="logo" alt="" />
             </h1>
             <h2>
               <div className="lineright">
-                <ul class="myrow">
+                <ul className="myrow">
                   <li className="aboutus">
                     <div>
                       <h3>

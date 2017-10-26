@@ -38,7 +38,7 @@ export default class SignUp extends Component {
         this.setState({ error });
         console.log(error);
       });
-    this.props.loggedIn();
+    // this.props.loggedIn();
   };
 
   renderError = () => {
