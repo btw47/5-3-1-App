@@ -2,18 +2,9 @@ import actionTypes from '../actionTypes';
 import { firebaseApp } from '../server/firebase';
 import { store } from '../index.js';
 
-const redirect = () => {
-  let userState = store.getState().auth.user.userStatus;
-  if (userState === actionTypes.ANONYMOUS) {
-    window.location = '/';
-  } else if (userState === actionTypes.LOGGED_IN) {
-    window.location = '/dashboard';
-  }
-};
-
 //ACTION CREATORS-------------------
 
-const loggedIn = () => {
+export const loggedIn = () => {
   console.log('LOGGED IN ACTION');
   return {
     type: actionTypes.LOGGED_IN,
@@ -35,8 +26,8 @@ export const userLogIn = (email, password) => {
     firebaseApp
       .auth()
       .signInWithEmailAndPassword(email, password)
-      .then(() => dispatch(loggedIn()))
-      .then(() => redirect())
+      // .then(() => dispatch(loggedIn()))
+      // .then(() => redirect())
       .catch(error => {
         dispatch(authError(error));
       });
@@ -49,7 +40,7 @@ export const createUser = (email, password) => {
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then(() => dispatch(loggedIn()))
-      .then(() => redirect())
+      // .then(() => redirect())
       .catch(error => {
         dispatch(authError(error));
       });

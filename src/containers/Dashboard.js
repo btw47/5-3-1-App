@@ -4,6 +4,7 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 import './Dashboard.css';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions';
+import { NavLink } from 'react-router-dom';
 
 import Footer from '../components/Footer';
 import Calendar from '../components/calendar';
@@ -11,6 +12,10 @@ import NavBar from '../components/NavBar';
 import SignOut from '../components/auth/SignOut';
 
 class Dashboard extends Component {
+  componentWillMount() {
+    this.props.loggedIn();
+  }
+
   render() {
     console.log('DASHBOARD PROPS', this.props);
     const { state } = this.props;
@@ -19,6 +24,9 @@ class Dashboard extends Component {
         <NavBar user={state.auth.user} />
         <SignOut />
         <Calendar />
+        <NavLink to="/Compare" style={{ float: 'right' }}>
+          <span>Compare</span>
+        </NavLink>
         <Footer />
       </div>
     );

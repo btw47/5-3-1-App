@@ -15,6 +15,7 @@ import SignIn from './containers/SignIn';
 import UpdateProfile from './containers/UpdateProfile';
 import UpdateGoals from './containers/UpdateGoals';
 import actionTypes from './actionTypes';
+import Compare from './containers/Compare';
 
 const logger = createLogger();
 
@@ -34,6 +35,7 @@ ReactDOM.render(
         <Route path="/SignIn" component={SignIn} />
         <Route path="/UpdateProfile" component={UpdateProfile} />
         <Route path="/UpdateGoals" component={UpdateGoals} />
+        <Route path="/Compare" component={Compare} />
       </div>
     </Router>
   </Provider>,

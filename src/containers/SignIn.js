@@ -13,6 +13,14 @@ import * as actions from '../actions';
 import NavBar from '../components/NavBar';
 
 class SignIn extends Component {
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        window.location = '/dashboard'; //After successful login, user will be redirected to home.html
+      }
+    });
+  }
+
   constructor(props) {
     super(props);
     this.state = {
