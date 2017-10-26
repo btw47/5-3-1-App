@@ -40,12 +40,22 @@ export default class UpdateProfile extends Component {
     event.preventDefault();
 
     // const userId = 'kG9ajUxIzAPZjF80KKZQ0lYne7t1';
-    firebaseDb.ref('users/').push({
-      weight: this.state.weight,
-      oneRepMax: this.state.oneRepMax,
-      fullName: this.state.fullName,
-    });
+    if (!this.state.weight || !this.state.oneRepMax || !this.state.fullName) {
+      console.log('NOT FILLED OUT YO');
+    } else {
+      firebaseDb
+        .ref('users/')
+        .push({
+          weight: this.state.weight,
+          oneRepMax: this.state.oneRepMax,
+          fullName: this.state.fullName,
+        })
+        .then(function() {
+          window.location = '/UpdateGoals';
+        });
+    }
   };
+
   render() {
     return (
       <div className="update-profile">

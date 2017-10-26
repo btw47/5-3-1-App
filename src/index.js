@@ -13,6 +13,7 @@ import rootReducer from './reducers/rootReducer';
 import ConnectWithUs from './components/ConnectWithUs';
 import SignIn from './containers/SignIn';
 import UpdateProfile from './containers/UpdateProfile';
+import UpdateGoals from './containers/UpdateGoals';
 
 const logger = createLogger();
 // const createStoreWithMiddleware = applyMiddleware(thunk, logger)(createStore);
@@ -28,6 +29,7 @@ ReactDOM.render(
         <Route path="/ConnectWithUs" component={ConnectWithUs} />
         <Route path="/SignIn" component={SignIn} />
         <Route path="/UpdateProfile" component={UpdateProfile} />
+        <Route path="/UpdateGoals" component={UpdateGoals} />
       </div>
     </Router>
   </Provider>,
