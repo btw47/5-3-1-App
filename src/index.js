@@ -4,7 +4,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import App from './containers/App';
 import Dashboard from './containers/Dashboard';
@@ -14,11 +14,16 @@ import ConnectWithUs from './components/ConnectWithUs';
 import SignIn from './containers/SignIn';
 import UpdateProfile from './containers/UpdateProfile';
 import UpdateGoals from './containers/UpdateGoals';
+import actionTypes from './actionTypes';
+import Compare from './containers/Compare';
 
 const logger = createLogger();
-// const createStoreWithMiddleware = applyMiddleware(thunk, logger)(createStore);
 
-const store = createStore(rootReducer, {}, applyMiddleware(thunk, logger));
+export const store = createStore(
+  rootReducer,
+  {},
+  applyMiddleware(thunk, logger)
+);
 
 ReactDOM.render(
   <Provider store={store}>
@@ -30,6 +35,7 @@ ReactDOM.render(
         <Route path="/SignIn" component={SignIn} />
         <Route path="/UpdateProfile" component={UpdateProfile} />
         <Route path="/UpdateGoals" component={UpdateGoals} />
+        <Route path="/Compare" component={Compare} />
       </div>
     </Router>
   </Provider>,

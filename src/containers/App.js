@@ -15,8 +15,16 @@ import SignUp from '../components/auth/SignUp';
 import * as actions from '../actions';
 
 class App extends Component {
+  handleError = () => {
+    if (this.props.state.auth.error) {
+      return this.props.state.auth.error;
+    } else {
+      return null;
+    }
+  };
+
   render() {
-    const { state, loggedIn } = this.props;
+    const { state, loggedIn, createUser } = this.props;
     console.log('APP PROPS', this.props);
     return (
       <div className="App">
@@ -24,7 +32,7 @@ class App extends Component {
         <div>
           <img src={logo} className="logo" alt="" />
         </div>
-        <SignUp loggedIn={loggedIn} />
+        <SignUp createUser={createUser} error={this.handleError()} />
         <ConnectWithUs />
         <OurMission />
         <Footer />

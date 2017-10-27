@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import { database } from '../../server/firebase';
 import firebase from 'firebase';
 
 export default class SignUp extends Component {
@@ -28,27 +27,18 @@ export default class SignUp extends Component {
     event.preventDefault();
 
     const { email, password } = this.state;
-
-    firebase
-      .auth()
-      .createUserWithEmailAndPassword(email, password)
-      .then(function() {
-        window.location = '/dashboard';
-      })
-      .catch(error => {
-        this.setState({ error });
-        console.log(error);
-      });
-    this.props.loggedIn();
+    this.props.createUser(email, password);
   };
 
   renderError = () => {
-    if (this.state.error) {
-      switch (this.state.error.code) {
+    if (this.props.error) {
+      switch (this.props.error.code) {
         case 'auth/invalid-email':
-          return <div>enter a valid email, idiot</div>;
+          return <div>enter a real email idiot</div>;
+        case 'auth/weak-password':
+          return <div>you wanna get hacked? enter a longer password</div>;
         case 'auth/email-already-in-use':
-          return <div>email already being used</div>;
+          return <div>sorry this email has already been registered</div>;
       }
     }
   };
@@ -72,6 +62,9 @@ export default class SignUp extends Component {
         />
         <br />
         <button type="submit">Sign Up</button>
+        <NavLink to="/SignIn">
+          <span>Sign in</span>
+        </NavLink>
         {this.renderError()}
       </form>
     );
