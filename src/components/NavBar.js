@@ -2,12 +2,28 @@ import React, { Component } from 'react';
 import logo from '../images/weight-lifting-logo.png';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 
+import actionTypes from '../actionTypes';
+import SignOut from './auth/SignOut';
+
 class NavBar extends Component {
+  renderUserStatus = () => {
+    if (this.props.user.userStatus === actionTypes.LOGGED_IN) {
+      return <SignOut />;
+    } else {
+      return (
+        <li>
+          <a href="/SignIn">Sign In</a>
+        </li>
+      );
+    }
+  };
+
   style = {
     width: '50px',
   };
 
   render() {
+    console.log(this.props);
     return (
       <Router>
         <nav className="navbar navbar-inverse">
@@ -36,6 +52,7 @@ class NavBar extends Component {
               <li>
                 <a href="/Forums">Lets Chat Forums</a>
               </li>
+              {this.renderUserStatus()}
             </ul>
           </div>
         </nav>

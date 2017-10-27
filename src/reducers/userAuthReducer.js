@@ -23,6 +23,13 @@ export const loginReducer = (state = initialState, action) => {
           userStatus: actionTypes.LOGGED_IN,
         },
       };
+    case actionTypes.GET_USER_INFO:
+      return {
+        ...state,
+        user: {
+          uid: action.payload,
+        },
+      };
     case actionTypes.LOGGED_OUT:
       return {
         ...state,

@@ -57,7 +57,6 @@ export default class UpdateProfile extends Component {
   };
 
   render() {
-    console.log(this.state);
     return (
       <div className="update-profile">
         <h2>Enter your info below</h2>

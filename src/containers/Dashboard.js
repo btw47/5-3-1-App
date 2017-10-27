@@ -5,6 +5,7 @@ import './Dashboard.css';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions';
 import { NavLink } from 'react-router-dom';
+import firebase from 'firebase';
 
 import Footer from '../components/Footer';
 import Calendar from '../components/calendar';
@@ -14,6 +15,14 @@ import SignOut from '../components/auth/SignOut';
 class Dashboard extends Component {
   componentWillMount() {
     this.props.loggedIn();
+
+    firebase.auth().onAuthStateChanged(user => {
+      if (!user) {
+        window.location = '/';
+
+        this.props.getUserInfo();
+      }
+    });
   }
 
   render() {
@@ -22,7 +31,6 @@ class Dashboard extends Component {
     return (
       <div className="Dashboard">
         <NavBar user={state.auth.user} />
-        <SignOut />
         <Calendar />
         <NavLink to="/Compare" style={{ float: 'right' }}>
           <span>Compare</span>
