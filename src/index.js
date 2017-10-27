@@ -18,7 +18,7 @@ import Today from "./components/Today";
 import Progress from "./components/Progress";
 import Leaderboards from "./components/Leaderboards";
 import Forums from "./components/Fourms";
-import OurMission from "./components/OurMission";
+import ourMission from "./components/ourMission";
 import EmailSupport from "./components/EmailSupport";
 import LiveChat from "./components/LiveChat";
 
@@ -44,7 +44,7 @@ ReactDOM.render(
         <Route path="/Progress" component={Progress} />
         <Route path="/Leaderboards" component={Leaderboards} />
         <Route path="/Forums" component={Forums} />
-        <Route path="/OurMission" component={OurMission} />
+        <Route path="/ourMission" component={ourMission} />
         <Route path="/EmailSupport" component={EmailSupport} />
         <Route path="/LiveChat" component={LiveChat} />
       </div>

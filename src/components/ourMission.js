@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import chart from "../images/comp-app-chart.PNG";
 import "../containers/App.css";
 
-class OurMission extends Component {
+class ourMission extends Component {
   render() {
     return (
       <div>
@@ -51,4 +51,4 @@ class OurMission extends Component {
     );
   }
 }
-export default OurMission;
+export default ourMission;
