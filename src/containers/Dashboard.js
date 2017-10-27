@@ -7,7 +7,7 @@ import * as actions from '../actions';
 import { NavLink } from 'react-router-dom';
 
 import Footer from '../components/Footer';
-import Calendar from '../components/calendar';
+import WeekCalendar from '../components/calendar';
 import NavBar from '../components/NavBar';
 import SignOut from '../components/auth/SignOut';
 
@@ -23,11 +23,10 @@ class Dashboard extends Component {
       <div className="Dashboard">
         <NavBar user={state.auth.user} />
         <SignOut />
-        <Calendar />
+        <WeekCalendar />
         <NavLink to="/Compare" style={{ float: 'right' }}>
           <span>Compare</span>
         </NavLink>
-        <Footer />
       </div>
     );
   }
