@@ -27,6 +27,7 @@ export const loginReducer = (state = initialState, action) => {
       return {
         ...state,
         user: {
+          userStatus: actionTypes.LOGGED_IN,
           uid: action.payload,
         },
       };

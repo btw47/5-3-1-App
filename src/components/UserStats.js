@@ -10,6 +10,7 @@ const UserState = props => {
   return (
     <div>
       <img src={profilePicture} alt="user-image" style={style} />
+      <p>{props.userInfo.uid}</p>
     </div>
   );
 };

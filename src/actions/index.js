@@ -1,13 +1,9 @@
 import actionTypes from '../actionTypes';
 import firebase from 'firebase';
-import { firebaseApp } from '../server/firebase';
+import { firebaseApp, firebaseDb } from '../server/firebase';
 import { store } from '../index.js';
 
 //ACTION CREATORS-------------------
-
-// const redirect = () => {
-//   window.location = '/dashboard';
-// };
 
 export const loggedIn = () => {
   console.log('LOGGED IN ACTION');

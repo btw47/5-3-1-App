@@ -11,6 +11,7 @@ import Footer from '../components/Footer';
 import Calendar from '../components/calendar';
 import NavBar from '../components/NavBar';
 import SignOut from '../components/auth/SignOut';
+import UserStats from '../components/UserStats';
 
 class Dashboard extends Component {
   componentWillMount() {
@@ -32,6 +33,7 @@ class Dashboard extends Component {
     return (
       <div className="Dashboard">
         <NavBar user={state.auth.user} />
+        <UserStats userInfo={state.auth.user} />
         <Calendar />
         <NavLink to="/Compare" style={{ float: 'right' }}>
           <span>Compare</span>

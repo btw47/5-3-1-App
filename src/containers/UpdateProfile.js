@@ -43,9 +43,10 @@ export default class UpdateProfile extends Component {
     if (!this.state.weight || !this.state.oneRepMax || !this.state.fullName) {
       console.log('NOT FILLED OUT YO');
     } else {
+      // const userId = this.props
       firebaseDb
         .ref('users/')
-        .push({
+        .set({
           weight: this.state.weight,
           oneRepMax: this.state.oneRepMax,
           fullName: this.state.fullName,
