@@ -40,6 +40,8 @@ ReactDOM.render(
         <Route path="/SignIn" component={SignIn} />
         <Route path="/UpdateProfile" component={UpdateProfile} />
         <Route path="/UpdateGoals" component={UpdateGoals} />
+        <Route path="/Compare" component={Compare} />
+        <Route path="/Modify" component={Modify} />
         <Route path="/Today" component={Today} />
         <Route path="/Progress" component={Progress} />
         <Route path="/Leaderboards" component={Leaderboards} />

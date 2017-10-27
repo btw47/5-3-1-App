@@ -5,15 +5,27 @@ import './Dashboard.css';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions';
 import { NavLink } from 'react-router-dom';
+import firebase from 'firebase';
 
 import Footer from '../components/Footer';
 import WeekCalendar from '../components/calendar';
 import NavBar from '../components/NavBar';
 import SignOut from '../components/auth/SignOut';
+import UserStats from '../components/UserStats';
 
 class Dashboard extends Component {
   componentWillMount() {
     this.props.loggedIn();
+
+    firebase.auth().onAuthStateChanged(user => {
+      if (!user) {
+        window.location = '/';
+      } else if (user) {
+        const thisUser = firebase.auth().currentUser;
+
+        this.props.fetchUser(thisUser);
+      }
+    });
   }
 
   render() {
@@ -22,6 +34,7 @@ class Dashboard extends Component {
     return (
       <div className="Dashboard">
         <NavBar user={state.auth.user} />
+        <UserStats userInfo={state.user} fetchUser={this.props.fetchUser} />
         <SignOut />
         <WeekCalendar />
         <NavLink to="/Compare" style={{ float: 'right' }}>
