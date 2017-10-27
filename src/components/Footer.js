@@ -3,6 +3,10 @@ import React, { Component } from 'react';
 import { BrowserRouter as NavLink } from 'react-router-dom';
 
 class Footer extends Component {
+  style = {
+    width: "50px"
+  };
+
   render() {
     return (
       <div>

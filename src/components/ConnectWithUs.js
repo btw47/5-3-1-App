@@ -16,6 +16,7 @@ class ConnectWithUs extends Component {
     var styles = {
       backgroundColor: '#7c9183',
     };
+
     return (
       <Router>
         <div className="content" style={styles}>

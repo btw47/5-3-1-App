@@ -18,14 +18,13 @@ class NavBar extends Component {
               </a>
             </div>
             <ul className="nav navbar-nav">
-              <li className="active">
-                <a href="/Home">Home</a>
+              <li>
+                <a href="/">Home</a>
               </li>
               <li>
-                <a href="/Today">Todays Workout</a>
-              </li>
-              <li>
-                <a href="/Calender">My Calender</a>
+                <a href="/Today" class="fortheloveofgod">
+                  Todays Workout
+                </a>
               </li>
               <li>
                 <a href="/Progress">MY GAINZ</a>
@@ -34,76 +33,15 @@ class NavBar extends Component {
                 <a href="/Leaderboards">Leaderboards</a>
               </li>
               <li>
-                <a href="/Forums">Lets Chat Forums</a>
+                <a href="/Forums">Forums</a>
+              </li>
+              <li>
+                <a href="/Dashboard">Dashboard</a>
               </li>
             </ul>
           </div>
         </nav>
       </Router>
-
-      //   <nav class="navbar navbar-default">
-      //     <div class="container-fluid">
-      //       <div class="navbar-header">
-      //         <button
-      //           type="button"
-      //           class="navbar-toggle collapsed"
-      //           data-toggle="collapse"
-      //           data-target="#navbar4"
-      //         >
-      //           <span class="sr-only">Toggle navigation</span>
-      //           <span class="icon-bar" />
-      //           <span class="icon-bar" />
-      //           <span class="icon-bar" />
-      //         </button>
-      //         <a class="navbar-brand" href="#">
-      //           <img style={this.style} src="../images/Brad.jpg" alt="logo" />
-      //         </a>
-      //       </div>
-      //       <div id="navbar4" class="navbar-collapse collapse">
-      //         <ul class="nav navbar-nav">
-      //           <li class="active">
-      //             <a href="#">Home</a>
-      //           </li>
-      //           <li>
-      //             <a href="#">About</a>
-      //           </li>
-      //           <li>
-      //             <a href="#">Contact</a>
-      //           </li>
-      //           <li class="dropdown">
-      //             <a
-      //               href="#"
-      //               class="dropdown-toggle"
-      //               data-toggle="dropdown"
-      //               role="button"
-      //               aria-expanded="false"
-      //             >
-      //               Dropdown <span class="caret" />
-      //             </a>
-      //             <ul class="dropdown-menu" role="menu">
-      //               <li>
-      //                 <a href="#">Action</a>
-      //               </li>
-      //               <li>
-      //                 <a href="#">Another action</a>
-      //               </li>
-      //               <li>
-      //                 <a href="#">Something else here</a>
-      //               </li>
-      //               <li class="divider" />
-      //               <li class="dropdown-header">Nav header</li>
-      //               <li>
-      //                 <a href="#">Separated link</a>
-      //               </li>
-      //               <li>
-      //                 <a href="#">One more separated link</a>
-      //               </li>
-      //             </ul>
-      //           </li>
-      //         </ul>
-      //       </div>
-      //     </div>
-      //   </nav>
     );
   }
 }
