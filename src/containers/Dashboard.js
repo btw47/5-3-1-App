@@ -5,7 +5,7 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 import './Dashboard.css'
 
 import Footer from '../components/Footer';
-import Calendar from '../components/calendar';
+import WeekCalendar from '../components/calendar';
 import NavBar from '../components/NavBar';
 import SignOut from '../components/auth/SignOut';
 import * as actions from '../actions';
@@ -18,7 +18,7 @@ class Dashboard extends Component {
       <div className="Dashboard">
         <NavBar user={state.auth.user} />
         <SignOut />
-          <Calendar />
+        <WeekCalendar />
         <Footer/>
       </div>
     );
