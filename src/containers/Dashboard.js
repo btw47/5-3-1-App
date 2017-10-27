@@ -19,12 +19,13 @@ class Dashboard extends Component {
     firebase.auth().onAuthStateChanged(user => {
       if (!user) {
         window.location = '/';
+      } else if (user) {
+        const thisUser = firebase.auth().currentUser;
 
-        this.props.getUserInfo();
+        this.props.getUserInfo(thisUser);
       }
     });
   }
-
   render() {
     console.log('DASHBOARD PROPS', this.props);
     const { state } = this.props;
