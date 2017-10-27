@@ -1,8 +1,12 @@
 import actionTypes from '../actionTypes';
-import { firebaseApp } from '../server/firebase';
+import firebase from 'firebase';
+import { firebaseApp, firebaseDb } from '../server/firebase';
 import { store } from '../index.js';
 
 //ACTION CREATORS-------------------
+const updateProfile = () => {
+  window.location = '/UpdateProfile';
+};
 
 export const loggedIn = () => {
   console.log('LOGGED IN ACTION');
@@ -26,8 +30,6 @@ export const userLogIn = (email, password) => {
     firebaseApp
       .auth()
       .signInWithEmailAndPassword(email, password)
-      // .then(() => dispatch(loggedIn()))
-      // .then(() => redirect())
       .catch(error => {
         dispatch(authError(error));
       });
@@ -39,17 +41,52 @@ export const createUser = (email, password) => {
     firebaseApp
       .auth()
       .createUserWithEmailAndPassword(email, password)
-      // .then(() => dispatch(loggedIn()))
-      // .then(() => redirect())
+      .then(() => updateProfile())
       .catch(error => {
         dispatch(authError(error));
       });
   };
 };
 
+export function fetchUser(thisUser) {
+  console.log('FETCH USER INFO');
+  return dispatch => {
+    if (thisUser != null) {
+      var uid = thisUser.uid;
+    }
+
+    firebaseDb.ref('users/' + uid).on('value', snapshot => {
+      console.log('SNAPSHOT', snapshot.val());
+      const firebaseORM = snapshot.val().oneRepMax;
+
+      let liftList = [];
+      for (let lift in firebaseORM) {
+        liftList.push(lift);
+      }
+
+      const liftStats = liftList.map(a => {
+        let ormLift = {};
+        let liftName = a;
+        ormLift[liftName] = firebaseORM[a];
+        return ormLift;
+      });
+
+      dispatch({
+        type: actionTypes.FETCH_USER,
+        userID: uid,
+        fullName: snapshot.val().fullName,
+        weight: snapshot.val().weight,
+        ormBench: firebaseORM['benchORM'],
+        ormDeadlift: firebaseORM['deadliftORM'],
+        ormOverheadPress: firebaseORM['overheadPressORM'],
+        ormSquat: firebaseORM['squatORM'],
+      });
+    });
+  };
+}
+
 export const loggedOut = () => {
   return dispatch => {
-    console.log('LOGGED OUT ACTION');
     return {
       type: actionTypes.LOGGED_OUT,
     };

@@ -1,21 +1,26 @@
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
-import React, { Component } from "react";
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import React, { Component } from 'react';
+import firebase from 'firebase';
 
-import logo from "../images/weight-lifting-logo.png";
-import OurMission from "../components/ourMission";
-import Today from "../components/Today";
-
-import "./App.css";
-
-import NavBar from "../components/NavBar";
-import Footer from "../components/Footer";
-import ConnectWithUs from "../components/ConnectWithUs";
-
-import SignUp from "../components/auth/SignUp";
-import * as actions from "../actions";
+import logo from '../images/weight-lifting-logo.png';
+import OurMission from '../components/ourMission';
+import './App.css';
+import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
+import ConnectWithUs from '../components/ConnectWithUs';
+import SignUp from '../components/auth/SignUp';
+import * as actions from '../actions';
 
 class App extends Component {
+  // componentDidMount() {
+  //   firebase.auth().onAuthStateChanged(user => {
+  //     if (user) {
+  //       window.location = '/dashboard'; //After successful login, user will be redirected to user dashboard
+  //     }
+  //   });
+  // }
+
   handleError = () => {
     if (this.props.state.auth.error) {
       return this.props.state.auth.error;

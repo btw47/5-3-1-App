@@ -1,26 +1,28 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { createStore, applyMiddleware } from "redux";
-import { Provider } from "react-redux";
-import { createLogger } from "redux-logger";
-import thunk from "redux-thunk";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import { createLogger } from 'redux-logger';
+import thunk from 'redux-thunk';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import App from "./containers/App";
-import Dashboard from "./containers/Dashboard";
-import registerServiceWorker from "./registerServiceWorker";
-import rootReducer from "./reducers/rootReducer";
-import ConnectWithUs from "./components/ConnectWithUs";
-import SignIn from "./containers/SignIn";
-import UpdateProfile from "./containers/UpdateProfile";
-import UpdateGoals from "./containers/UpdateGoals";
-import Today from "./components/Today";
-import Progress from "./components/Progress";
-import Leaderboards from "./components/Leaderboards";
-import Forums from "./components/Fourms";
-import ourMission from "./components/ourMission";
-import EmailSupport from "./components/EmailSupport";
-import LiveChat from "./components/LiveChat";
+import App from './containers/App';
+import Dashboard from './containers/Dashboard';
+import registerServiceWorker from './registerServiceWorker';
+import rootReducer from './reducers/rootReducer';
+import ConnectWithUs from './components/ConnectWithUs';
+import SignIn from './containers/SignIn';
+import UpdateProfile from './containers/UpdateProfile';
+import UpdateGoals from './containers/UpdateGoals';
+import Today from './components/Today';
+import Progress from './components/Progress';
+import Leaderboards from './components/Leaderboards';
+import Forums from './components/Fourms';
+import ourMission from './components/ourMission';
+import EmailSupport from './components/EmailSupport';
+import LiveChat from './components/LiveChat';
+import Compare from './containers/Compare';
+import Modify from './containers/Modify';
 
 const logger = createLogger();
 
@@ -40,6 +42,8 @@ ReactDOM.render(
         <Route path="/SignIn" component={SignIn} />
         <Route path="/UpdateProfile" component={UpdateProfile} />
         <Route path="/UpdateGoals" component={UpdateGoals} />
+        <Route path="/Compare" component={Compare} />
+        <Route path="/Modify" component={Modify} />
         <Route path="/Today" component={Today} />
         <Route path="/Progress" component={Progress} />
         <Route path="/Leaderboards" component={Leaderboards} />
@@ -50,6 +54,6 @@ ReactDOM.render(
       </div>
     </Router>
   </Provider>,
-  document.getElementById("root")
+  document.getElementById('root')
 );
 registerServiceWorker();
