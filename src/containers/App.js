@@ -1,27 +1,28 @@
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import React, { Component } from 'react';
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import React, { Component } from "react";
 
-import logo from '../images/weight-lifting-logo.png';
-import OurMission from '../components/ourMission';
+import logo from "../images/weight-lifting-logo.png";
+import OurMission from "../components/ourMission";
+import Today from "../components/Today";
 
-import './App.css';
+import "./App.css";
 
-import NavBar from '../components/NavBar';
-import Footer from '../components/Footer';
-import ConnectWithUs from '../components/ConnectWithUs';
+import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
+import ConnectWithUs from "../components/ConnectWithUs";
 
-import SignUp from '../components/auth/SignUp';
-import * as actions from '../actions';
+import SignUp from "../components/auth/SignUp";
+import * as actions from "../actions";
 
 class App extends Component {
   render() {
     const { state, loggedIn } = this.props;
-    console.log('APP PROPS', this.props);
+    console.log("APP PROPS", this.props);
     return (
-      <div className="App">
+      <div className="App2">
         <NavBar user={state.auth.user} />
-        <div>
+        <div className="App3">
           <img src={logo} className="logo" alt="" />
         </div>
         <SignUp loggedIn={loggedIn} />
@@ -34,7 +35,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  state,
+  state
 });
 
 const mapDispatchToProps = dispatch => {
