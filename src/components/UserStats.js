@@ -19,11 +19,11 @@ class UserState extends Component {
         <div>
           <h3>{this.props.state.user.fullName}</h3>
           <div>
-            <h6>Current Weight: {this.props.state.user.weight}</h6>
-            <h6>Bench: {this.props.state.user.ormBench}</h6>
-            <h6>Overhead Press: {this.props.state.user.ormOverheadPress}</h6>
-            <h6>Squats: {this.props.state.user.ormSquat}</h6>
-            <h6>Deadlift: {this.props.state.user.ormDeadlift}</h6>
+            <h6>Current Weight: {state.user.weight}</h6>
+            <h6>Bench: {state.user.ormBench}</h6>
+            <h6>Overhead Press: {state.user.ormOverheadPress}</h6>
+            <h6>Squats: {state.user.ormSquat}</h6>
+            <h6>Deadlift: {state.user.ormDeadlift}</h6>
           </div>
         </div>
       </div>

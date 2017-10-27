@@ -50,12 +50,15 @@ class UpdateProfile extends Component {
         var uid = thisUser.uid;
       }
 
+      const date = Date();
+
       firebaseDb
         .ref('users/' + uid)
         .set({
           weight: this.state.weight,
           oneRepMax: this.state.oneRepMax,
           fullName: this.state.fullName,
+          date: date,
         })
         .then(function() {
           window.location = '/dashboard';
