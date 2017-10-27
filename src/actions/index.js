@@ -50,17 +50,33 @@ export const createUser = (email, password) => {
 
 export function fetchUser(thisUser) {
   console.log('FETCH USER INFO');
-
   return dispatch => {
     if (thisUser != null) {
       var uid = thisUser.uid;
     }
 
     firebaseDb.ref('users/' + uid).on('value', snapshot => {
+      console.log('SNAPSHOT', snapshot.val());
+      const firebaseORM = snapshot.val().oneRepMax;
+
+      let liftList = [];
+      for (let lift in firebaseORM) {
+        liftList.push(lift);
+      }
+
+      const liftStats = liftList.map(a => {
+        let ormLift = {};
+        let liftName = a;
+        ormLift[liftName] = firebaseORM[a];
+        return ormLift;
+      });
+
       dispatch({
         type: actionTypes.FETCH_USER,
         userID: uid,
-        payload: snapshot.val(),
+        fullName: snapshot.val().fullName,
+        weight: snapshot.val().weight,
+        orm: liftStats,
       });
     });
   };

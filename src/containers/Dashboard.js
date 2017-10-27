@@ -33,10 +33,7 @@ class Dashboard extends Component {
     return (
       <div className="Dashboard">
         <NavBar user={state.auth.user} />
-        <UserStats
-          userInfo={state.auth.user}
-          fetchUser={this.props.fetchUser}
-        />
+        <UserStats userInfo={state.user} fetchUser={this.props.fetchUser} />
         <Calendar />
         <NavLink to="/Compare" style={{ float: 'right' }}>
           <span>Compare</span>

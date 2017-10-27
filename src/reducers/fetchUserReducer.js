@@ -1,6 +1,7 @@
 import actionTypes from '../actionTypes';
 
 const initialUser = {
+  fullName: null,
   uid: null,
   imageURL: null,
   orm: null,
@@ -13,6 +14,8 @@ export const fetchUserReducer = (state = initialUser, action) => {
       return {
         ...state,
         uid: action.userID,
+        fullName: action.fullName,
+        weight: action.weight,
       };
     default:
       return state;
