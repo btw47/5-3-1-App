@@ -23,19 +23,6 @@ const authError = error => {
   };
 };
 
-export const getUserInfo = thisUser => {
-  return dispatch => {
-    if (thisUser != null) {
-      var uid = thisUser.uid;
-    }
-
-    dispatch({
-      type: actionTypes.GET_USER_INFO,
-      payload: uid,
-    });
-  };
-};
-
 //------------------------------------
 
 export const userLogIn = (email, password) => {
@@ -60,6 +47,24 @@ export const createUser = (email, password) => {
       });
   };
 };
+
+export function fetchUser(thisUser) {
+  console.log('FETCH USER INFO');
+
+  return dispatch => {
+    if (thisUser != null) {
+      var uid = thisUser.uid;
+    }
+
+    firebaseDb.ref('users/' + uid).on('value', snapshot => {
+      dispatch({
+        type: actionTypes.FETCH_USER,
+        userID: uid,
+        payload: snapshot.val(),
+      });
+    });
+  };
+}
 
 export const loggedOut = () => {
   return dispatch => {

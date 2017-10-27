@@ -8,9 +8,6 @@ const initialState = {
   authUI: authUi,
   user: {
     userStatus: actionTypes.ANONYMOUS,
-    name: null,
-    photoUrl: null,
-    uid: null,
   },
 };
 
@@ -21,14 +18,6 @@ export const loginReducer = (state = initialState, action) => {
         ...state,
         user: {
           userStatus: actionTypes.LOGGED_IN,
-        },
-      };
-    case actionTypes.GET_USER_INFO:
-      return {
-        ...state,
-        user: {
-          userStatus: actionTypes.LOGGED_IN,
-          uid: action.payload,
         },
       };
     case actionTypes.LOGGED_OUT:

@@ -23,7 +23,7 @@ class Dashboard extends Component {
       } else if (user) {
         const thisUser = firebase.auth().currentUser;
 
-        this.props.getUserInfo(thisUser);
+        this.props.fetchUser(thisUser);
       }
     });
   }
@@ -33,7 +33,10 @@ class Dashboard extends Component {
     return (
       <div className="Dashboard">
         <NavBar user={state.auth.user} />
-        <UserStats userInfo={state.auth.user} />
+        <UserStats
+          userInfo={state.auth.user}
+          fetchUser={this.props.fetchUser}
+        />
         <Calendar />
         <NavLink to="/Compare" style={{ float: 'right' }}>
           <span>Compare</span>
