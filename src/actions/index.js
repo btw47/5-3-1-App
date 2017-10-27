@@ -1,8 +1,13 @@
 import actionTypes from '../actionTypes';
+import firebase from 'firebase';
 import { firebaseApp } from '../server/firebase';
 import { store } from '../index.js';
 
 //ACTION CREATORS-------------------
+
+// const redirect = () => {
+//   window.location = '/dashboard';
+// };
 
 export const loggedIn = () => {
   console.log('LOGGED IN ACTION');
@@ -19,6 +24,11 @@ const authError = error => {
   };
 };
 
+export const getUserInfo = () => {
+  console.log('GET USER INFO', currentUser);
+  const currentUser = firebaseApp.auth().currentUser;
+};
+
 //------------------------------------
 
 export const userLogIn = (email, password) => {
@@ -26,8 +36,9 @@ export const userLogIn = (email, password) => {
     firebaseApp
       .auth()
       .signInWithEmailAndPassword(email, password)
-      // .then(() => dispatch(loggedIn()))
       // .then(() => redirect())
+      .then(() => dispatch(getUserInfo()))
+      // .then(() => dispatch(loggedIn()))
       .catch(error => {
         dispatch(authError(error));
       });
