@@ -8,25 +8,24 @@ import github from "../images/git.jpg";
 import lkin from "../images/in.png";
 import logo from "../images/weight-lifting-logo.png";
 import "../containers/App.css";
+import NavBar2 from "../components/NavBar";
 
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
+import { BrowserRouter as Router } from 'react-router-dom';
 
 class ConnectWithUs extends Component {
   render() {
     var styles = {
-      backgroundColor: "#7c9183"
+      backgroundColor: "black"
     };
+
     return (
       <Router>
-        <body className="content" style={styles}>
+        <div className="content" style={styles}>
           <div className="container">
-            <h1 class="cwtitle">
-              <img src={logo} className="logo" alt="" /> The 5-3-1 Pro Team
-              <img src={logo} className="logo" alt="" />
-            </h1>
+            <h1 class="cwtitle">The 5-3-1 Pro Team</h1>
             <h2>
               <div className="lineright">
-                <ul class="myrow">
+                <ul className="myrow">
                   <li className="aboutus">
                     <div>
                       <h3>
@@ -127,7 +126,7 @@ class ConnectWithUs extends Component {
               </div>
             </h2>
           </div>
-        </body>
+        </div>
       </Router>
     );
   }

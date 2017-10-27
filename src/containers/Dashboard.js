@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import './Dashboard.css'
+import './Dashboard.css';
+import { bindActionCreators } from 'redux';
+import * as actions from '../actions';
+import { NavLink } from 'react-router-dom';
 
 import Footer from '../components/Footer';
 import WeekCalendar from '../components/calendar';
 import NavBar from '../components/NavBar';
 import SignOut from '../components/auth/SignOut';
-import * as actions from '../actions';
 
 class Dashboard extends Component {
+  componentWillMount() {
+    this.props.loggedIn();
+  }
+
   render() {
     console.log('DASHBOARD PROPS', this.props);
     const { state } = this.props;
@@ -19,7 +24,9 @@ class Dashboard extends Component {
         <NavBar user={state.auth.user} />
         <SignOut />
         <WeekCalendar />
-        <Footer/>
+        </NavLink>
+          <span>Compare</span>
+        <NavLink to="/Compare" style={{ float: 'right' }}>
       </div>
     );
   }
@@ -29,4 +36,8 @@ const mapStateToProps = state => {
   return { state };
 };
 
-export default connect(mapStateToProps)(Dashboard);
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators(actions, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
