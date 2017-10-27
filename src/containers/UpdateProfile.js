@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { firebaseDb } from '../server/firebase';
+import { connect } from 'react-redux';
 
-export default class UpdateProfile extends Component {
+class UpdateProfile extends Component {
   constructor() {
     super();
     this.state = {};
@@ -43,7 +44,6 @@ export default class UpdateProfile extends Component {
     if (!this.state.weight || !this.state.oneRepMax || !this.state.fullName) {
       console.log('NOT FILLED OUT YO');
     } else {
-      // const userId = this.props
       firebaseDb
         .ref('users/')
         .set({
@@ -124,3 +124,11 @@ export default class UpdateProfile extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    state,
+  };
+};
+
+export default connect(mapStateToProps)(UpdateProfile);
