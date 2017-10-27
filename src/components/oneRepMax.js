@@ -12,6 +12,8 @@ const coreLifts = [
   "Standing Military Press"
 ];
 
+//const assistanceTemplates
+
 const squattingExercises = ["front squat", "safety bar squat", "box squat"];
 
 const pullingExercises = [
