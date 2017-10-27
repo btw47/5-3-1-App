@@ -1,34 +1,40 @@
-import React, { Component } from 'react';
-
-import { BrowserRouter as NavLink } from 'react-router-dom';
+import React, { Component } from "react";
+import logo from "../images/weight-lifting-logo.png";
+import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 
 class Footer extends Component {
+  style = {
+    width: "50px"
+  };
+
   render() {
     return (
-      <div>
-        <nav>
-          <NavLink to="/ConnectWithUs">
-            <span>Connect with Us!</span>
-          </NavLink>
-          <br />
-          <NavLink to="/LiveChat">
-            <span>Live Chat</span>
-          </NavLink>
-          <br />
-          <NavLink to="/AboutUs">
-            <span>About Us</span>
-          </NavLink>
-          <br />
-          <NavLink to="/EmailSupport">
-            <span>Email Support</span>
-          </NavLink>
-          <br />
-          <NavLink to="/OurMission">
-            <span>Our Mission</span>
-          </NavLink>
-          <br />
-        </nav>
-      </div>
+      <Router>
+        <footer>
+          <nav className="navbar2 navbar-inverse navbar-fixed-bottom">
+            <div className="navbar2 contnainer-fluid">
+              <div className="navbar-header" />
+              <ul className="nav navbar-nav">
+                <li>
+                  <a href="/ConnectWithUs">Ladies Come Connect With Us!</a>
+                </li>
+                <li>
+                  <a href="/LiveChat">Live Chat!</a>
+                </li>
+                <li>
+                  <a href="/EmailSupport">Email Support</a>
+                </li>
+                <li>
+                  <a href="/OurMission">Our Mission</a>
+                </li>
+                <li>
+                  <a href="/Dashboard">Dashboard</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </footer>
+      </Router>
     );
   }
 }
