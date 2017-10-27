@@ -7,7 +7,7 @@ import SignOut from './auth/SignOut';
 
 class NavBar extends Component {
   renderUserStatus = () => {
-    if (this.props.userStatus === actionTypes.LOGGED_IN) {
+    if (this.props.user.userStatus === actionTypes.LOGGED_IN) {
       return <SignOut />;
     } else {
       return (
