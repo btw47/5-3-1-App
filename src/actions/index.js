@@ -4,6 +4,9 @@ import { firebaseApp, firebaseDb } from '../server/firebase';
 import { store } from '../index.js';
 
 //ACTION CREATORS-------------------
+const updateProfile = () => {
+  window.location = '/UpdateProfile';
+};
 
 export const loggedIn = () => {
   console.log('LOGGED IN ACTION');
@@ -51,6 +54,7 @@ export const createUser = (email, password) => {
     firebaseApp
       .auth()
       .createUserWithEmailAndPassword(email, password)
+      .then(() => updateProfile())
       .catch(error => {
         dispatch(authError(error));
       });

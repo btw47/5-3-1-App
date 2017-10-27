@@ -13,13 +13,13 @@ import SignUp from '../components/auth/SignUp';
 import * as actions from '../actions';
 
 class App extends Component {
-  componentWillMount() {
-    firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-        window.location = '/dashboard'; //After successful login, user will be redirected to user dashboard
-      }
-    });
-  }
+  // componentDidMount() {
+  //   firebase.auth().onAuthStateChanged(user => {
+  //     if (user) {
+  //       window.location = '/dashboard'; //After successful login, user will be redirected to user dashboard
+  //     }
+  //   });
+  // }
 
   handleError = () => {
     if (this.props.state.auth.error) {

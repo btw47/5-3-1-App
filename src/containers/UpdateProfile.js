@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { firebaseDb } from '../server/firebase';
+import firebase from 'firebase';
 import { connect } from 'react-redux';
+import { firebaseDb } from '../server/firebase';
 
 class UpdateProfile extends Component {
   constructor() {
@@ -44,15 +45,20 @@ class UpdateProfile extends Component {
     if (!this.state.weight || !this.state.oneRepMax || !this.state.fullName) {
       console.log('NOT FILLED OUT YO');
     } else {
+      const thisUser = firebase.auth().currentUser;
+      if (thisUser != null) {
+        var uid = thisUser.uid;
+      }
+
       firebaseDb
-        .ref('users/')
+        .ref('users/' + uid)
         .set({
           weight: this.state.weight,
           oneRepMax: this.state.oneRepMax,
           fullName: this.state.fullName,
         })
         .then(function() {
-          window.location = '/UpdateGoals';
+          window.location = '/dashboard';
         });
     }
   };
