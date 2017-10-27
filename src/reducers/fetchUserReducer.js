@@ -1,14 +1,6 @@
 import actionTypes from '../actionTypes';
 
-const initialUser = {
-  fullName: null,
-  uid: null,
-  imageURL: null,
-  orm: null,
-  weight: null,
-};
-
-export const fetchUserReducer = (state = initialUser, action) => {
+export const fetchUserReducer = (state = {}, action) => {
   switch (action.type) {
     case actionTypes.FETCH_USER:
       return {
@@ -16,6 +8,10 @@ export const fetchUserReducer = (state = initialUser, action) => {
         uid: action.userID,
         fullName: action.fullName,
         weight: action.weight,
+        ormBench: action.ormBench,
+        ormDeadlift: action.ormDeadlift,
+        ormOverheadPress: action.ormOverheadPress,
+        ormSquat: action.ormSquat,
       };
     default:
       return state;

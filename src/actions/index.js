@@ -76,7 +76,10 @@ export function fetchUser(thisUser) {
         userID: uid,
         fullName: snapshot.val().fullName,
         weight: snapshot.val().weight,
-        orm: liftStats,
+        ormBench: firebaseORM['benchORM'],
+        ormDeadlift: firebaseORM['deadliftORM'],
+        ormOverheadPress: firebaseORM['overheadPressORM'],
+        ormSquat: firebaseORM['squatORM'],
       });
     });
   };

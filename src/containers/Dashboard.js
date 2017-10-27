@@ -27,6 +27,7 @@ class Dashboard extends Component {
       }
     });
   }
+
   render() {
     console.log('DASHBOARD PROPS', this.props);
     const { state } = this.props;
