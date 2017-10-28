@@ -64,6 +64,7 @@ export function fetchUser(thisUser) {
 
     firebaseDb.ref('users/' + uid).on('value', snapshot => {
       const firebaseOutput = snapshot.val();
+      console.log('SNAPSHOT VAL', firebaseOutput);
 
       let pushList = [];
       for (let prop in firebaseOutput) {
@@ -76,15 +77,14 @@ export function fetchUser(thisUser) {
 
       console.log('UPLOAD LIST', uploadList);
 
-      let userName = uploadList[uploadList.length - 1];
-      let lastUpload = uploadList[uploadList.length - 2];
+      let lastUpload = uploadList[uploadList.length - 1];
 
       console.log('LAST UPLOAD', lastUpload);
 
       dispatch({
         type: actionTypes.FETCH_USER,
         userID: uid,
-        fullName: userName,
+        fullName: lastUpload.fullName,
         weight: lastUpload.weight,
         ormBench: lastUpload.oneRepMax['benchORM'],
         ormDeadlift: lastUpload.oneRepMax['deadliftORM'],

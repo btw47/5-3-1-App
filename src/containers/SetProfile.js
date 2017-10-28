@@ -9,12 +9,6 @@ class SetProfile extends Component {
     this.state = {};
   }
 
-  handleEmail = event => {
-    this.setState({
-      email: event.target.value,
-    });
-  };
-
   handleWeight = event => {
     this.setState({
       weight: event.target.value,
@@ -54,7 +48,7 @@ class SetProfile extends Component {
 
       firebaseDb
         .ref('users/' + uid)
-        .set({
+        .push({
           weight: this.state.weight,
           oneRepMax: this.state.oneRepMax,
           fullName: this.state.fullName,
