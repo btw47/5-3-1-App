@@ -38,7 +38,7 @@ class NavBar extends Component {
                 <a href="/">Home</a>
               </li>
               <li>
-                <a href="/Today" class="fortheloveofgod">
+                <a href="/Today" className="fortheloveofgod">
                   Todays Workout
                 </a>
               </li>
