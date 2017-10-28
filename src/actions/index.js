@@ -23,6 +23,13 @@ const authError = error => {
   };
 };
 
+export const userAddedInfo = () => {
+  console.log('USER ADDED INFO');
+  return {
+    type: actionTypes.USER_ADDED_INFO,
+  };
+};
+
 //------------------------------------
 
 export const userLogIn = (email, password) => {
@@ -56,30 +63,33 @@ export function fetchUser(thisUser) {
     }
 
     firebaseDb.ref('users/' + uid).on('value', snapshot => {
-      console.log('SNAPSHOT', snapshot.val());
-      const firebaseORM = snapshot.val().oneRepMax;
+      const firebaseOutput = snapshot.val();
 
-      let liftList = [];
-      for (let lift in firebaseORM) {
-        liftList.push(lift);
+      let pushList = [];
+      for (let prop in firebaseOutput) {
+        pushList.push(prop);
       }
 
-      const liftStats = liftList.map(a => {
-        let ormLift = {};
-        let liftName = a;
-        ormLift[liftName] = firebaseORM[a];
-        return ormLift;
+      const uploadList = pushList.map(a => {
+        return firebaseOutput[a];
       });
+
+      console.log('UPLOAD LIST', uploadList);
+
+      let userName = uploadList[uploadList.length - 1];
+      let lastUpload = uploadList[uploadList.length - 2];
+
+      console.log('LAST UPLOAD', lastUpload);
 
       dispatch({
         type: actionTypes.FETCH_USER,
         userID: uid,
-        fullName: snapshot.val().fullName,
-        weight: snapshot.val().weight,
-        ormBench: firebaseORM['benchORM'],
-        ormDeadlift: firebaseORM['deadliftORM'],
-        ormOverheadPress: firebaseORM['overheadPressORM'],
-        ormSquat: firebaseORM['squatORM'],
+        fullName: userName,
+        weight: lastUpload.weight,
+        ormBench: lastUpload.oneRepMax['benchORM'],
+        ormDeadlift: lastUpload.oneRepMax['deadliftORM'],
+        ormOverheadPress: lastUpload.oneRepMax['overheadPressORM'],
+        ormSquat: lastUpload.oneRepMax['squatORM'],
       });
     });
   };

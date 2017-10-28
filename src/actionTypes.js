@@ -5,6 +5,7 @@ const actionTypes = {
   GET_USER_ID: 'GET_USER_ID',
   AUTH_ERROR: 'AUTH_ERROR',
   FETCH_USER: 'FETCH_USER',
+  USER_ADDED_INFO: 'USER_ADDED_INFO',
 };
 
 export default actionTypes;
