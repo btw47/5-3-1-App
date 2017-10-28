@@ -10,6 +10,7 @@ const updateProfile = () => {
 
 export const loggedIn = () => {
   console.log('LOGGED IN ACTION');
+
   return {
     type: actionTypes.LOGGED_IN,
   };
@@ -20,13 +21,6 @@ const authError = error => {
   return {
     type: actionTypes.AUTH_ERROR,
     payload: error,
-  };
-};
-
-export const userAddedInfo = () => {
-  console.log('USER ADDED INFO');
-  return {
-    type: actionTypes.USER_ADDED_INFO,
   };
 };
 
@@ -55,8 +49,46 @@ export const createUser = (email, password) => {
   };
 };
 
+export function fetchOldStats(thisUser, time) {
+  console.log('FETCH OLD USER INFO', time);
+  return dispatch => {
+    if (thisUser != null) {
+      var uid = thisUser.uid;
+    }
+
+    firebaseDb.ref('users/' + uid).on('value', snapshot => {
+      const firebaseOutput = snapshot.val();
+
+      let pushList = [];
+      for (let prop in firebaseOutput) {
+        pushList.push(prop);
+      }
+
+      const uploadList = pushList.map(a => {
+        return firebaseOutput[a];
+      });
+
+      console.log('UPLOAD LIST', uploadList);
+
+      let lastUpload = uploadList[uploadList.length - 1];
+
+      console.log('LAST UPLOAD', lastUpload);
+
+      dispatch({
+        type: actionTypes.FETCH_OLD_STATS,
+        userID: uid,
+        fullName: lastUpload.fullName,
+        weight: lastUpload.weight,
+        ormBench: lastUpload.oneRepMax['benchORM'],
+        ormDeadlift: lastUpload.oneRepMax['deadliftORM'],
+        ormOverheadPress: lastUpload.oneRepMax['overheadPressORM'],
+        ormSquat: lastUpload.oneRepMax['squatORM'],
+      });
+    });
+  };
+}
+
 export function fetchUser(thisUser) {
-  console.log('FETCH USER INFO');
   return dispatch => {
     if (thisUser != null) {
       var uid = thisUser.uid;
