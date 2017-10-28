@@ -10,9 +10,7 @@ import * as actions from '../actions';
 class Compare extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      time: '',
-    };
+    this.state = {};
   }
 
   componentWillMount() {
@@ -36,10 +34,10 @@ class Compare extends Component {
 
   handleCompare = event => {
     this.setState({
-      time: event.target.value,
+      compare: event.target.value,
     });
 
-    this.props.fetchOldStats(this.state.thisUser, this.state.time);
+    this.props.fetchOldStats(this.state.thisUser, event.target.value);
   };
 
   renderCompare = () => {
@@ -48,16 +46,15 @@ class Compare extends Component {
         style={{ float: 'right' }}
         onChange={event => this.handleCompare(event)}>
         <option value="">Select a Time</option>
-        <option value="lastWeek">Last Week</option>
-        <option value="lastMonth">Last Month</option>
-        <option value="lastYear">Last Year</option>
+        <option value="Last Week">Last Week</option>
+        <option value="Last Month">Last Month</option>
+        <option value="Last Year">Last Year</option>
       </select>
     );
   };
 
   render() {
     const { state } = this.props;
-    console.log(this.state);
 
     return (
       <div className="Compare">
@@ -65,6 +62,12 @@ class Compare extends Component {
         <h1>Compare to your old weaker self</h1>
         <UserStats user={state.user} />
         {this.renderCompare()}
+        {this.state.compare && (
+          <div>
+            <h3>{this.state.compare}</h3>
+            <UserStats user={state.user} />
+          </div>
+        )}
       </div>
     );
   }

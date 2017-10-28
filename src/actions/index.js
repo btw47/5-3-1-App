@@ -50,7 +50,13 @@ export const createUser = (email, password) => {
 };
 
 export function fetchOldStats(thisUser, time) {
-  console.log('FETCH OLD USER INFO', time);
+  switch (time) {
+    case 'lastWeek':
+      console.log('YUS BITCH');
+    default:
+      console.log('YOU WROTE IT WRONG IDIOT');
+  }
+
   return dispatch => {
     if (thisUser != null) {
       var uid = thisUser.uid;
@@ -68,16 +74,11 @@ export function fetchOldStats(thisUser, time) {
         return firebaseOutput[a];
       });
 
-      console.log('UPLOAD LIST', uploadList);
-
       let lastUpload = uploadList[uploadList.length - 1];
-
-      console.log('LAST UPLOAD', lastUpload);
 
       dispatch({
         type: actionTypes.FETCH_OLD_STATS,
         userID: uid,
-        fullName: lastUpload.fullName,
         weight: lastUpload.weight,
         ormBench: lastUpload.oneRepMax['benchORM'],
         ormDeadlift: lastUpload.oneRepMax['deadliftORM'],
