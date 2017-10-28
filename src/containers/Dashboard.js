@@ -33,7 +33,7 @@ class Dashboard extends Component {
     return (
       <div className="Dashboard">
         <NavBar user={state.auth.user} />
-        <UserStats userInfo={state.user} fetchUser={this.props.fetchUser} />
+        <UserStats user={state.user} fetchUser={this.props.fetchUser} />
         <WeekCalendar />
         <NavLink to="/UpdateProfile">
           <span>Update your stats!</span>

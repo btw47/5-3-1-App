@@ -5,38 +5,29 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 import profilePicture from '../images/anon-user.jpg';
 
-class UserState extends Component {
-  style = {
+const UserStats = props => {
+  const { user } = props;
+
+  const style = {
     height: '30vh',
     width: '15vw',
   };
 
-  render() {
-    const { state } = this.props;
-    return (
+  return (
+    <div>
+      <img src={profilePicture} alt="user-image" style={style} />
       <div>
-        <img src={profilePicture} alt="user-image" style={this.style} />
+        <h3>{user.fullName}</h3>
         <div>
-          <h3>{this.props.state.user.fullName}</h3>
-          <div>
-            <h6>Current Weight: {state.user.weight}</h6>
-            <h6>Bench: {state.user.ormBench}</h6>
-            <h6>Overhead Press: {state.user.ormOverheadPress}</h6>
-            <h6>Squats: {state.user.ormSquat}</h6>
-            <h6>Deadlift: {state.user.ormDeadlift}</h6>
-          </div>
+          <h6>Current Weight: {user.weight}</h6>
+          <h6>Bench: {user.ormBench}</h6>
+          <h6>Overhead Press: {user.ormOverheadPress}</h6>
+          <h6>Squats: {user.ormSquat}</h6>
+          <h6>Deadlift: {user.ormDeadlift}</h6>
         </div>
       </div>
-    );
-  }
-}
-
-const mapStateToProps = state => {
-  return { state };
+    </div>
+  );
 };
 
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators(actions, dispatch);
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(UserState);
+export default UserStats;
