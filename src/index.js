@@ -12,7 +12,7 @@ import registerServiceWorker from './registerServiceWorker';
 import rootReducer from './reducers/rootReducer';
 import ConnectWithUs from './components/ConnectWithUs';
 import SignIn from './containers/SignIn';
-import UpdateProfile from './containers/UpdateProfile';
+import SetProfile from './containers/SetProfile';
 import UpdateGoals from './containers/UpdateGoals';
 import Today from './components/Today';
 import Progress from './components/Progress';
@@ -23,6 +23,7 @@ import EmailSupport from './components/EmailSupport';
 import LiveChat from './components/LiveChat';
 import Compare from './containers/Compare';
 import Modify from './containers/Modify';
+import UpdateProfile from './containers/UpdateProfile';
 
 const logger = createLogger();
 
@@ -40,7 +41,7 @@ ReactDOM.render(
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/ConnectWithUs" component={ConnectWithUs} />
         <Route path="/SignIn" component={SignIn} />
-        <Route path="/UpdateProfile" component={UpdateProfile} />
+        <Route path="/SetProfile" component={SetProfile} />
         <Route path="/UpdateGoals" component={UpdateGoals} />
         <Route path="/Compare" component={Compare} />
         <Route path="/Modify" component={Modify} />
@@ -51,6 +52,7 @@ ReactDOM.render(
         <Route path="/ourMission" component={ourMission} />
         <Route path="/EmailSupport" component={EmailSupport} />
         <Route path="/LiveChat" component={LiveChat} />
+        <Route path="/UpdateProfile" component={UpdateProfile} />
       </div>
     </Router>
   </Provider>,

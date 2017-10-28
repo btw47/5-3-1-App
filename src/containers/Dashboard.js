@@ -15,14 +15,13 @@ import UserStats from '../components/UserStats';
 
 class Dashboard extends Component {
   componentWillMount() {
-    this.props.loggedIn();
-
     firebase.auth().onAuthStateChanged(user => {
       if (!user) {
         window.location = '/';
       } else if (user) {
         const thisUser = firebase.auth().currentUser;
 
+        this.props.loggedIn();
         this.props.fetchUser(thisUser);
       }
     });
@@ -36,6 +35,9 @@ class Dashboard extends Component {
         <NavBar user={state.auth.user} />
         <UserStats userInfo={state.user} fetchUser={this.props.fetchUser} />
         <WeekCalendar />
+        <NavLink to="/UpdateProfile">
+          <span>Update your stats!</span>
+        </NavLink>
         <NavLink to="/Compare" style={{ float: 'right' }}>
           <span>Compare</span>
         </NavLink>

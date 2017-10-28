@@ -5,7 +5,7 @@ import { store } from '../index.js';
 
 //ACTION CREATORS-------------------
 const updateProfile = () => {
-  window.location = '/UpdateProfile';
+  window.location = '/SetProfile';
 };
 
 export const loggedIn = () => {
