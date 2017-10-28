@@ -1,11 +1,7 @@
 import actionTypes from '../actionTypes';
 
-export const fetchUserReducer = (state = { addedInfo: false }, action) => {
+export const fetchUserReducer = (state = {}, action) => {
   switch (action.type) {
-    case actionTypes.USER_ADDED_INFO:
-      return {
-        addedInfo: true,
-      };
     case actionTypes.FETCH_USER:
       return {
         ...state,
