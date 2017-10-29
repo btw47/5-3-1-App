@@ -55,6 +55,8 @@ class SignIn extends Component {
           return <div>wrong password idiot</div>;
         case 'auth/invalid-email':
           return <div>enter a valid email, idiot</div>;
+        case 'auth/user-not-found':
+          return <div>sorry, user not found</div>;
       }
     }
   };

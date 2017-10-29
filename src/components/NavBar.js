@@ -23,7 +23,6 @@ class NavBar extends Component {
   };
 
   render() {
-    console.log(this.props);
     return (
       <Router>
         <nav className="navbar navbar-inverse">
@@ -38,7 +37,7 @@ class NavBar extends Component {
                 <a href="/">Home</a>
               </li>
               <li>
-                <a href="/Today" class="fortheloveofgod">
+                <a href="/Today" className="fortheloveofgod">
                   Todays Workout
                 </a>
               </li>
