@@ -83,7 +83,7 @@ class SignIn extends Component {
         <hr />
         {this.renderSignIn()}
         {this.renderError()}
-        <AuthLinks authUI={state.auth.authUI} />
+        {/* <AuthLinks authUI={state.auth.authUI} /> */}
       </div>
     );
   }
