@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as AvatarCropper from 'react-avatar-cropper';
+// import * as AvatarCropper from 'react-avatar-cropper';
 
 import * as actions from '../actions';
 import profilePicture from '../images/anon-user.jpg';
@@ -17,13 +17,13 @@ const UserStats = props => {
   return (
     <div>
       {/* <img src={profilePicture} alt="user-image" style={style} /> */}
-      <AvatarCropper
+      {/* <AvatarCropper
         onRequestHide={this.handleRequestHide}
         onCrop={this.handleCrop}
         image={profilePicture}
         width={400}
         height={400}
-      />{' '}
+      />{' '} */}
       <div>
         <h3>{user.fullName}</h3>
         <div>
