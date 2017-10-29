@@ -35,26 +35,7 @@ export const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router>
-      <div>
-        <Route exact path="/" component={App} />
-        <Route path="/dashboard" component={Dashboard} />
-        <Route path="/ConnectWithUs" component={ConnectWithUs} />
-        <Route path="/SignIn" component={SignIn} />
-        <Route path="/SetProfile" component={SetProfile} />
-        <Route path="/UpdateGoals" component={UpdateGoals} />
-        <Route path="/Compare" component={Compare} />
-        <Route path="/Modify" component={Modify} />
-        <Route path="/Today" component={Today} />
-        <Route path="/Progress" component={Progress} />
-        <Route path="/Leaderboards" component={Leaderboards} />
-        <Route path="/Forums" component={Forums} />
-        <Route path="/ourMission" component={ourMission} />
-        <Route path="/EmailSupport" component={EmailSupport} />
-        <Route path="/LiveChat" component={LiveChat} />
-        <Route path="/UpdateProfile" component={UpdateProfile} />
-      </div>
-    </Router>
+    <App />
   </Provider>,
   document.getElementById('root')
 );

@@ -13,7 +13,6 @@ import ConnectWithUs from '../components/ConnectWithUs';
 import SignUp from '../components/auth/SignUp';
 import * as actions from '../actions';
 
-import Home from './Home';
 import Dashboard from './Dashboard';
 import registerServiceWorker from '../registerServiceWorker';
 import rootReducer from '../reducers/rootReducer';
@@ -31,33 +30,39 @@ import Compare from './Compare';
 import Modify from './Modify';
 import UpdateProfile from './UpdateProfile';
 
-class App extends Component {
+class Home extends Component {
+  handleError = () => {
+    if (this.props.state.auth.error) {
+      return this.props.state.auth.error;
+    } else {
+      return null;
+    }
+  };
+
   render() {
     const { state, loggedIn, createUser } = this.props;
     console.log('APP PROPS', state);
     return (
-      <Router>
-        <div>
-          <Route exact path="/" component={Home} />
-          <Route path="/Dashboard" component={Dashboard} />
-          <Route path="/ConnectWithUs" component={ConnectWithUs} />
-          <Route path="/SignIn" component={SignIn} />
-          <Route path="/SetProfile" component={SetProfile} />
-          <Route path="/UpdateGoals" component={UpdateGoals} />
-          <Route path="/Compare" component={Compare} />
-          <Route path="/Modify" component={Modify} />
-          <Route path="/Today" component={Today} />
-          <Route path="/Progress" component={Progress} />
-          <Route path="/Leaderboards" component={Leaderboards} />
-          <Route path="/Forums" component={Forums} />
-          <Route path="/ourMission" component={ourMission} />
-          <Route path="/EmailSupport" component={EmailSupport} />
-          <Route path="/LiveChat" component={LiveChat} />
-          <Route path="/UpdateProfile" component={UpdateProfile} />
+      <div className="App2">
+        <NavBar user={state.auth.user} />
+        <div className="App3">
+          <img src={logo} className="logo" alt="" />
         </div>
-      </Router>
+        <SignUp createUser={createUser} error={this.handleError()} />
+        <ConnectWithUs />
+        <OurMission />
+        <Footer />
+      </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  state,
+});
+
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators(actions, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
