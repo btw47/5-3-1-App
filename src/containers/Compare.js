@@ -14,8 +14,6 @@ class Compare extends Component {
   }
 
   componentWillMount() {
-    const { state } = this.props;
-
     firebase.auth().onAuthStateChanged(user => {
       if (!user) {
         window.location = '/';

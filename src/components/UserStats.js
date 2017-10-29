@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 import * as actions from '../actions';
 import profilePicture from '../images/anon-user.jpg';
+import UploadImage from '../components/UploadImage';
 
 const UserStats = props => {
   const { user } = props;
@@ -24,6 +25,7 @@ const UserStats = props => {
         width={400}
         height={400}
       />{' '} */}
+      <UploadImage />
       <div>
         <h3>{user.fullName}</h3>
         <div>

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
-import firebaseui from 'firebaseui';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -45,6 +44,8 @@ class SignIn extends Component {
           return <div>enter a valid email, idiot</div>;
         case 'auth/user-not-found':
           return <div>sorry, user not found</div>;
+        default:
+          return <div />;
       }
     }
   };
@@ -77,7 +78,6 @@ class SignIn extends Component {
   };
 
   render() {
-    const { state } = this.props;
     return (
       <div>
         <hr />

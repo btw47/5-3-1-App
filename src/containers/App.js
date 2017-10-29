@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 import Home from './Home';
 import Dashboard from './Dashboard';
-import rootReducer from '../reducers/rootReducer';
 import SignIn from './SignIn';
 import SetProfile from './SetProfile';
 import UpdateGoals from './UpdateGoals';
@@ -18,14 +17,13 @@ import Compare from './Compare';
 import Modify from './Modify';
 import UpdateProfile from './UpdateProfile';
 import NavBar from '../components/NavBar';
-import Footer from '../components/Footer';
 import ConnectWithUs from '../components/ConnectWithUs';
-import SignUp from '../components/auth/SignUp';
-import * as actions from '../actions';
+
+import UploadImage from '../components/UploadImage';
 
 class App extends Component {
   render() {
-    const { state, loggedIn, createUser } = this.props;
+    const { state } = this.props;
     console.log('APP PROPS', state);
     return (
       <Router>
@@ -47,6 +45,8 @@ class App extends Component {
             <Route path="/EmailSupport" component={EmailSupport} />
             <Route path="/LiveChat" component={LiveChat} />
             <Route path="/UpdateProfile" component={UpdateProfile} />
+
+            <Route path="/test" component={UploadImage} />
           </Switch>
         </div>
       </Router>
