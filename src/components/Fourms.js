@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
-import "../containers/App.css";
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import '../css/App.css';
 
 class Forums extends Component {
   render() {

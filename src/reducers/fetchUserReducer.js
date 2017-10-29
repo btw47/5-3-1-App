@@ -26,7 +26,6 @@ export const fetchUserReducer = (state = {}, action) => {
           ormSquat: action.ormSquat,
         },
       };
-
     default:
       return state;
   }

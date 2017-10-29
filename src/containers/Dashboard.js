@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import 'react-big-calendar/lib/css/react-big-calendar.css';
-import './Dashboard.css';
-import { bindActionCreators } from 'redux';
-import * as actions from '../actions';
-import { NavLink } from 'react-router-dom';
 import firebase from 'firebase';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { NavLink } from 'react-router-dom';
+import '../css/Dashboard.css';
+import 'react-big-calendar/lib/css/react-big-calendar.css';
 
-import Footer from '../components/Footer';
 import WeekCalendar from '../components/calendar';
-import NavBar from '../components/NavBar';
-import SignOut from '../components/auth/SignOut';
 import UserStats from '../components/UserStats';
+import * as actions from '../actions';
 
 class Dashboard extends Component {
   componentWillMount() {
@@ -28,11 +25,9 @@ class Dashboard extends Component {
   }
 
   render() {
-    console.log('DASHBOARD PROPS', this.props);
     const { state } = this.props;
     return (
       <div className="Dashboard">
-        <NavBar user={state.auth.user} />
         <UserStats user={state.user} fetchUser={this.props.fetchUser} />
         <WeekCalendar />
         <NavLink to="/UpdateProfile">

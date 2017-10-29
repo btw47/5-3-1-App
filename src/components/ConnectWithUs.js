@@ -1,21 +1,21 @@
-import React, { Component } from "react";
-import JD from "../images/JD.jpg";
-import Ryan from "../images/Ryan.jpg";
-import James from "../images/James.jpg";
-import Brad from "../images/Brad.jpg";
-import fbpic from "../images/fbpic.png";
-import github from "../images/git.jpg";
-import lkin from "../images/in.png";
-import logo from "../images/weight-lifting-logo.png";
-import "../containers/App.css";
-import NavBar2 from "../components/NavBar";
+import React, { Component } from 'react';
+import JD from '../images/JD.jpg';
+import Ryan from '../images/Ryan.jpg';
+import James from '../images/James.jpg';
+import Brad from '../images/Brad.jpg';
+import fbpic from '../images/fbpic.png';
+import github from '../images/git.jpg';
+import lkin from '../images/in.png';
+import logo from '../images/weight-lifting-logo.png';
+import NavBar2 from '../components/NavBar';
+import '../css/App.css';
 
 import { BrowserRouter as Router } from 'react-router-dom';
 
 class ConnectWithUs extends Component {
   render() {
     var styles = {
-      backgroundColor: "black"
+      backgroundColor: 'black',
     };
 
     return (

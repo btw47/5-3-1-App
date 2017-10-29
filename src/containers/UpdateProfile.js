@@ -57,7 +57,6 @@ class SetProfile extends Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    // const userId = 'kG9ajUxIzAPZjF80KKZQ0lYne7t1';
     if (!this.state.weight || !this.state.oneRepMax || !this.state.fullName) {
       console.log('NOT FILLED OUT YO');
     } else {
@@ -84,7 +83,6 @@ class SetProfile extends Component {
 
   render() {
     const { state } = this.props;
-    console.log(this.props);
     return (
       <div className="update-profile">
         <h2>Enter your info below</h2>

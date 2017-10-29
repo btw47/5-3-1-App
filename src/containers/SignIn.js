@@ -1,26 +1,15 @@
 import React, { Component } from 'react';
-import firebaseui from 'firebaseui';
-import { Form } from 'redux-form';
-import { NavLink } from 'react-router-dom';
 import firebase from 'firebase';
-import { bindActionCreators } from 'redux';
+import firebaseui from 'firebaseui';
+import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import 'firebaseui/dist/firebaseui.css';
 
 import AuthLinks from '../components/auth/AuthLinks';
-import actionTypes from '../actionTypes';
 import * as actions from '../actions';
-import NavBar from '../components/NavBar';
 
 class SignIn extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: '',
-      password: '',
-    };
-  }
-
   componentWillMount() {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
@@ -49,7 +38,6 @@ class SignIn extends Component {
 
   renderError = () => {
     if (this.props.state.auth.error) {
-      console.log('SIGN IN ERROR');
       switch (this.props.state.auth.error.code) {
         case 'auth/wrong-password':
           return <div>wrong password idiot</div>;
@@ -92,11 +80,10 @@ class SignIn extends Component {
     const { state } = this.props;
     return (
       <div>
-        <NavBar user={state.auth.user} />
         <hr />
         {this.renderSignIn()}
         {this.renderError()}
-        {/* <AuthLinks authUI={state.auth.authUI} /> */}
+        <AuthLinks authUI={state.auth.authUI} />
       </div>
     );
   }

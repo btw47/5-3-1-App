@@ -1,21 +1,9 @@
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
 import React, { Component } from 'react';
-import firebase from 'firebase';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
-import logo from '../images/weight-lifting-logo.png';
-import OurMission from '../components/ourMission';
-import './App.css';
-import NavBar from '../components/NavBar';
-import Footer from '../components/Footer';
-import ConnectWithUs from '../components/ConnectWithUs';
-import SignUp from '../components/auth/SignUp';
-import * as actions from '../actions';
+import { connect } from 'react-redux';
 
 import Home from './Home';
 import Dashboard from './Dashboard';
-import registerServiceWorker from '../registerServiceWorker';
 import rootReducer from '../reducers/rootReducer';
 import SignIn from './SignIn';
 import SetProfile from './SetProfile';
@@ -24,12 +12,16 @@ import Today from '../components/Today';
 import Progress from '../components/Progress';
 import Leaderboards from '../components/Leaderboards';
 import Forums from '../components/Fourms';
-import ourMission from '../components/ourMission';
 import EmailSupport from '../components/EmailSupport';
 import LiveChat from '../components/LiveChat';
 import Compare from './Compare';
 import Modify from './Modify';
 import UpdateProfile from './UpdateProfile';
+import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
+import ConnectWithUs from '../components/ConnectWithUs';
+import SignUp from '../components/auth/SignUp';
+import * as actions from '../actions';
 
 class App extends Component {
   render() {
@@ -38,26 +30,32 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Route exact path="/" component={Home} />
-          <Route path="/Dashboard" component={Dashboard} />
-          <Route path="/ConnectWithUs" component={ConnectWithUs} />
-          <Route path="/SignIn" component={SignIn} />
-          <Route path="/SetProfile" component={SetProfile} />
-          <Route path="/UpdateGoals" component={UpdateGoals} />
-          <Route path="/Compare" component={Compare} />
-          <Route path="/Modify" component={Modify} />
-          <Route path="/Today" component={Today} />
-          <Route path="/Progress" component={Progress} />
-          <Route path="/Leaderboards" component={Leaderboards} />
-          <Route path="/Forums" component={Forums} />
-          <Route path="/ourMission" component={ourMission} />
-          <Route path="/EmailSupport" component={EmailSupport} />
-          <Route path="/LiveChat" component={LiveChat} />
-          <Route path="/UpdateProfile" component={UpdateProfile} />
+          <NavBar user={state.auth.user} />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/Dashboard" component={Dashboard} />
+            <Route path="/ConnectWithUs" component={ConnectWithUs} />
+            <Route path="/SignIn" component={SignIn} />
+            <Route path="/SetProfile" component={SetProfile} />
+            <Route path="/UpdateGoals" component={UpdateGoals} />
+            <Route path="/Compare" component={Compare} />
+            <Route path="/Modify" component={Modify} />
+            <Route path="/Today" component={Today} />
+            <Route path="/Progress" component={Progress} />
+            <Route path="/Leaderboards" component={Leaderboards} />
+            <Route path="/Forums" component={Forums} />
+            <Route path="/EmailSupport" component={EmailSupport} />
+            <Route path="/LiveChat" component={LiveChat} />
+            <Route path="/UpdateProfile" component={UpdateProfile} />
+          </Switch>
         </div>
       </Router>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  state,
+});
+
+export default connect(mapStateToProps)(App);

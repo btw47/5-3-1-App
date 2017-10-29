@@ -9,15 +9,12 @@ const updateProfile = () => {
 };
 
 export const loggedIn = () => {
-  console.log('LOGGED IN ACTION');
-
   return {
     type: actionTypes.LOGGED_IN,
   };
 };
 
 const authError = error => {
-  console.log('AUTH ERROR ACTIONS');
   return {
     type: actionTypes.AUTH_ERROR,
     payload: error,
@@ -97,7 +94,6 @@ export function fetchUser(thisUser) {
 
     firebaseDb.ref('users/' + uid).on('value', snapshot => {
       const firebaseOutput = snapshot.val();
-      console.log('SNAPSHOT VAL', firebaseOutput);
 
       let pushList = [];
       for (let prop in firebaseOutput) {
@@ -108,11 +104,7 @@ export function fetchUser(thisUser) {
         return firebaseOutput[a];
       });
 
-      console.log('UPLOAD LIST', uploadList);
-
       let lastUpload = uploadList[uploadList.length - 1];
-
-      console.log('LAST UPLOAD', lastUpload);
 
       dispatch({
         type: actionTypes.FETCH_USER,

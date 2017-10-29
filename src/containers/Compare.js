@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
+import firebase from 'firebase';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import firebase from 'firebase';
+import { NavLink } from 'react-router-dom';
 
 import UserStats from '../components/UserStats';
-import NavBar from '../components/NavBar';
 import * as actions from '../actions';
 
 class Compare extends Component {
@@ -58,7 +58,10 @@ class Compare extends Component {
 
     return (
       <div className="Compare">
-        <NavBar user={state.auth.user} />
+        <NavLink style={{ float: 'left' }} to="/dashboard">
+          back
+        </NavLink>
+        <br />
         <h1>Compare to your old weaker self</h1>
         <UserStats user={state.user} />
         {this.renderCompare()}
