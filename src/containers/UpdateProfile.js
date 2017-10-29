@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import firebase from 'firebase';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { NavLink } from 'react-router-dom';
 
 import * as actions from '../actions';
 import { firebaseDb } from '../server/firebase';
@@ -85,6 +86,11 @@ class SetProfile extends Component {
     const { state } = this.props;
     return (
       <div className="update-profile">
+        <NavLink style={{ float: 'left' }} to="/dashboard">
+          back
+        </NavLink>
+        <br />
+
         <h2>Enter your info below</h2>
         <form onSubmit={event => this.handleSubmit(event)}>
           <label>Full name: </label>
