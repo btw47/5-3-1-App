@@ -17,6 +17,8 @@ import Modify from "./Modify";
 import UpdateProfile from "./UpdateProfile";
 import NavBar from "../components/NavBar";
 import ConnectWithUs from "../components/ConnectWithUs";
+import GoalsUpdate from "./GoalsUpdate";
+import WeeklyTemplate from "../components/weeklyTemplate";
 
 import UploadImage from "../components/UploadImage";
 
@@ -43,6 +45,8 @@ class App extends Component {
             <Route path="/EmailSupport" component={EmailSupport} />
             <Route path="/LiveChat" component={LiveChat} />
             <Route path="/UpdateProfile" component={UpdateProfile} />
+            <Route path="/GoalsUpdate" component={GoalsUpdate} />
+            <Route path="/WeeklyTemplate" component={WeeklyTemplate} />
 
             <Route path="/test" component={UploadImage} />
           </Switch>
