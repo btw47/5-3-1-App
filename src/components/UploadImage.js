@@ -26,14 +26,14 @@ const UploadImage = props => {
             date: date,
           })
           .then(() => {
-            props.profileImage(props.userId);
+            props.fetchProfileImage(props.userId);
           });
       });
   };
 
   return (
     <div className="class-name">
-      <button onClick={() => renderPicker()}>upload</button>
+      <button onClick={() => renderPicker()}>Set Profile Picture</button>
     </div>
   );
 };

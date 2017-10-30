@@ -20,12 +20,7 @@ class Dashboard extends Component {
 
         this.props.loggedIn();
         this.props.fetchUser(thisUser);
-
-        try {
-          this.props.fetchProfileImage(thisUser.uid);
-        } catch (error) {
-          this.props.noProfileImage();
-        }
+        this.props.fetchProfileImage(thisUser.uid);
       }
     });
   }

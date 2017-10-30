@@ -152,10 +152,14 @@ export const fetchProfileImage = uid => {
       let lastUpload = uploadList[uploadList.length - 1];
       console.log('LAST UPLOAD', lastUpload);
 
-      dispatch({
-        type: actionTypes.PROFILE_IMAGE,
-        payload: lastUpload.profileImage,
-      });
+      if (!lastUpload) {
+        dispatch(() => noProfileImage());
+      } else {
+        dispatch({
+          type: actionTypes.PROFILE_IMAGE,
+          payload: lastUpload.profileImage,
+        });
+      }
     });
   };
 };

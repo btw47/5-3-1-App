@@ -15,14 +15,29 @@ const UserStats = props => {
     width: '15vw',
   };
 
+  const imageStyle = {
+    width: '15vw',
+  };
+
   const renderImage = () => {
     if (props.profileImage === null) {
       return (
-        <UploadImage profileImage={props.profileImage} userId={user.uid} />
+        <UploadImage
+          fetchProfileImage={props.fetchProfileImage}
+          userId={user.uid}
+        />
       );
     } else {
       console.log('IMAGE SOURCE', props.profileImage);
-      return <img src={props.profileImage} />;
+      return (
+        <div>
+          <img src={props.profileImage} style={imageStyle} />
+          <UploadImage
+            fetchProfileImage={props.fetchProfileImage}
+            userId={user.uid}
+          />;
+        </div>
+      );
     }
   };
 
