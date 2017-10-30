@@ -11,46 +11,46 @@ BigCalendar.setLocalizer(
   BigCalendar.momentLocalizer(moment)
 )
 
-const getRange = (date, culture) => {
-  let firstOfWeek = localizer.startOfWeek(culture);
-  let start = dates.startOf(date, 'week', firstOfWeek);
-  let end = dates.endOf(date, 'week', firstOfWeek);
+// const getRange = (date, culture) => {
+//   let firstOfWeek = localizer.startOfWeek(culture);
+//   let start = dates.startOf(date, 'week', firstOfWeek);
+//   let end = dates.endOf(date, 'week', firstOfWeek);
 
-  if (firstOfWeek === 1){
-    end = dates.subtract(end, 2, 'day');
-  }else {
-    start = dates.add(start, 1, 'day');
-    end = dates.subtract(end, 1, 'day');
-  }
+//   if (firstOfWeek === 1){
+//     end = dates.subtract(end, 2, 'day');
+//   }else {
+//     start = dates.add(start, 1, 'day');
+//     end = dates.subtract(end, 1, 'day');
+//   }
 
-  return dates.range(start, end)
+//   return dates.range(start, end)
 
-}
+// }
 
-class MyWeek extends React.Component{
-  render(){
-    let { date, culture } = this.props;
-    let range = getRange(date, culture)
-    return(
-      <TimeGrid {...this.props} range={range} eventOffset={15} />
-    )
-  }
-}
+// class MyWeek extends React.Component{
+//   render(){
+//     let { date, culture } = this.props;
+//     let range = getRange(date, culture)
+//     return(
+//       <TimeGrid {...this.props} range={range} eventOffset={15} />
+//     )
+//   }
+// }
 
-MyWeek.navigate = (date, action) => {
-  switch (action){
-    case BigCalendar.Navigate.PREVIOUS:
-      return dates.add(date, -1, 'week');
-    case BigCalendar.Navigate.NEXT:
-      return dates.add(date, 1, 'week')
-    default:
-      return dates;  
-  }
-}
+// MyWeek.navigate = (date, action) => {
+//   switch (action){
+//     case BigCalendar.Navigate.PREVIOUS:
+//       return dates.add(date, -1, 'week');
+//     case BigCalendar.Navigate.NEXT:
+//       return dates.add(date, 1, 'week')
+//     default:
+//       return dates;  
+//   }
+// }
 
-MyWeek.title = (dates, {formats: formats, culture: culture }) => {
-  return `My Workouts: ${Date.toLocaleString()}`
-}
+// MyWeek.title = (dates, {formats: formats, culture: culture }) => {
+//   return `My Workouts: ${Date.toLocaleString()}`
+// }
 
 class WeekCalendar extends Component {
     constructor(props, context) {
@@ -65,13 +65,13 @@ class WeekCalendar extends Component {
             <BigCalendar
               {...this.props}
               popup
-              selectable 
-              step = 'allday'
+              selectable = {true} 
+              step = '120'
               events = {events}
               defaultView = 'week'
               views = {{week: true}}
               scrollToTime={new Date(1970, 1, 1, 6)}
-              defaultDate= {Date(2017, 9, 25)}
+              defaultDate= {new Date(2017, 9, 25)}
               
             />
         </div>  

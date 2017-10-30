@@ -21,6 +21,7 @@ import Forums from "./components/Fourms";
 import ourMission from "./components/ourMission";
 import EmailSupport from "./components/EmailSupport";
 import LiveChat from "./components/LiveChat";
+import monthCalendar from './components/monthCalendar';
 
 const logger = createLogger();
 
@@ -47,6 +48,7 @@ ReactDOM.render(
         <Route path="/ourMission" component={ourMission} />
         <Route path="/EmailSupport" component={EmailSupport} />
         <Route path="/LiveChat" component={LiveChat} />
+        <Route path='/Modify' component={monthCalendar}/>
       </div>
     </Router>
   </Provider>,

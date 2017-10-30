@@ -24,6 +24,9 @@ class Dashboard extends Component {
         <NavBar user={state.auth.user} />
         <SignOut />
         <WeekCalendar />
+        <NavLink to="Modify" style={{float: 'left'}}>
+          <span>Modify</span>
+        </NavLink>
         <NavLink to="/Compare" style={{ float: 'right' }}>
           <span>Compare</span>
         </NavLink>
