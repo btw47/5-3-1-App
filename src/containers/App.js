@@ -1,30 +1,29 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { connect } from "react-redux";
 
-import Home from './Home';
-import Dashboard from './Dashboard';
-import SignIn from './SignIn';
-import SetProfile from './SetProfile';
-import UpdateGoals from './UpdateGoals';
-import Today from '../components/Today';
-import Progress from '../components/Progress';
-import Leaderboards from '../components/Leaderboards';
-import Forums from '../components/Fourms';
-import EmailSupport from '../components/EmailSupport';
-import LiveChat from '../components/LiveChat';
-import Compare from './Compare';
-import Modify from './Modify';
-import UpdateProfile from './UpdateProfile';
-import NavBar from '../components/NavBar';
-import ConnectWithUs from '../components/ConnectWithUs';
+import Home from "./Home";
+import Dashboard from "./Dashboard";
+import SignIn from "./SignIn";
+import SetProfile from "./SetProfile";
+import Today from "../components/Today";
+import Progress from "../components/Progress";
+import Leaderboards from "../components/Leaderboards";
+import Forums from "../components/Fourms";
+import EmailSupport from "../components/EmailSupport";
+import LiveChat from "../components/LiveChat";
+import Compare from "./Compare";
+import Modify from "./Modify";
+import UpdateProfile from "./UpdateProfile";
+import NavBar from "../components/NavBar";
+import ConnectWithUs from "../components/ConnectWithUs";
 
-import UploadImage from '../components/UploadImage';
+import UploadImage from "../components/UploadImage";
 
 class App extends Component {
   render() {
     const { state } = this.props;
-    console.log('APP PROPS', state);
+    console.log("APP PROPS", state);
     return (
       <Router>
         <div>
@@ -35,7 +34,6 @@ class App extends Component {
             <Route path="/ConnectWithUs" component={ConnectWithUs} />
             <Route path="/SignIn" component={SignIn} />
             <Route path="/SetProfile" component={SetProfile} />
-            <Route path="/UpdateGoals" component={UpdateGoals} />
             <Route path="/Compare" component={Compare} />
             <Route path="/Modify" component={Modify} />
             <Route path="/Today" component={Today} />
@@ -55,7 +53,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  state,
+  state
 });
 
 export default connect(mapStateToProps)(App);

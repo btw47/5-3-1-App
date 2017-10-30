@@ -18,7 +18,7 @@ class NavBar extends Component {
   };
 
   style = {
-    width: '50px',
+    width: "50px"
   };
 
   render() {
