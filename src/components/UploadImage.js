@@ -1,10 +1,7 @@
-<<<<<<< HEAD
-import React, { Component } from 'react';
-import firebase from 'firebase';
-=======
+
 import React, { Component } from "react";
 import firebase from "firebase";
->>>>>>> master
+
 
 class UploadImage extends Component {
   constructor(props) {

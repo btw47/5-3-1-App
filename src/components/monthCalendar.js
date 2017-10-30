@@ -61,7 +61,7 @@ class monthCalendar extends Component {
 
     render(){
         return(
-        <div className="WeekCalendar">
+        <div className="MonthCalendar">
             <BigCalendar
               {...this.props}
               popup
