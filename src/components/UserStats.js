@@ -16,7 +16,7 @@ const UserStats = props => {
   };
 
   const renderImage = () => {
-    return <UploadImage />;
+    return <UploadImage profileImage={props.profileImage} userId={user.uid} />;
   };
 
   return (

@@ -28,7 +28,11 @@ class Dashboard extends Component {
     const { state } = this.props;
     return (
       <div className="Dashboard">
-        <UserStats user={state.user} fetchUser={this.props.fetchUser} />
+        <UserStats
+          user={state.user}
+          fetchUser={this.props.fetchUser}
+          profileImage={this.props.profileImage}
+        />
         <WeekCalendar />
         <NavLink to="/UpdateProfile">
           <span>Update your stats!</span>

@@ -100,9 +100,12 @@ export function fetchUser(thisUser) {
         pushList.push(prop);
       }
 
-      const uploadList = pushList.map(a => {
-        return firebaseOutput[a];
-      });
+      const uploadList = [];
+      for (let i = 0; i < pushList.length; i++) {
+        if (!firebaseOutput[pushList[i]].profileImage) {
+          uploadList.push(firebaseOutput[pushList[i]]);
+        }
+      }
 
       let lastUpload = uploadList[uploadList.length - 1];
 
@@ -125,5 +128,34 @@ export const loggedOut = () => {
     return {
       type: actionTypes.LOGGED_OUT,
     };
+  };
+};
+
+//-----Filestack-----
+export const profileImage = uid => {
+  return dispatch => {
+    firebaseDb.ref('users/' + uid).on('value', snapshot => {
+      const firebaseOutput = snapshot.val();
+
+      let pushList = [];
+      for (let prop in firebaseOutput) {
+        pushList.push(prop);
+      }
+
+      const uploadList = [];
+      for (let i = 0; i < pushList.length; i++) {
+        if (firebaseOutput[pushList[i]].profileImage) {
+          uploadList.push(firebaseOutput[pushList[i]]);
+        }
+      }
+
+      let lastUpload = uploadList[uploadList.length - 1];
+      console.log('LAST UPLOAD', lastUpload);
+
+      dispatch({
+        type: actionTypes.PROFILE_IMAGE,
+        payload: lastUpload.profileImage,
+      });
+    });
   };
 };

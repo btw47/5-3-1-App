@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { firebaseDb } from '../server/firebase';
 import { filestackDb } from '../server/filestack';
 
-export default class UploadImage extends Component {
-  renderPicker = () => {
+const UploadImage = props => {
+  const renderPicker = () => {
     const ratio = 1 / 1;
     filestackDb
       .pick({
@@ -14,15 +15,27 @@ export default class UploadImage extends Component {
         },
       })
       .then(function(response) {
-        console.log(response.filesUploaded[0].url);
+        const imageUrl = response.filesUploaded[0].url;
+
+        const date = Date();
+
+        firebaseDb
+          .ref('users/' + props.userId)
+          .push({
+            profileImage: imageUrl,
+            date: date,
+          })
+          .then(() => {
+            props.profileImage(props.userId);
+          });
       });
   };
 
-  render() {
-    return (
-      <div className="class-name">
-        <button onClick={() => this.renderPicker()}>upload</button>
-      </div>
-    );
-  }
-}
+  return (
+    <div className="class-name">
+      <button onClick={() => renderPicker()}>upload</button>
+    </div>
+  );
+};
+
+export default UploadImage;

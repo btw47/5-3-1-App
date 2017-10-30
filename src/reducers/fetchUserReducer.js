@@ -26,6 +26,12 @@ export const fetchUserReducer = (state = {}, action) => {
           ormSquat: action.ormSquat,
         },
       };
+    case actionTypes.PROFILE_IMAGE:
+      console.log('PROFILE IMAGE REDUCER');
+      return {
+        ...state,
+        profileImage: action.payload,
+      };
     default:
       return state;
   }
