@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import React, { Component } from 'react';
 import firebase from 'firebase';
+=======
+import React, { Component } from "react";
+import firebase from "firebase";
+>>>>>>> master
 
 class UploadImage extends Component {
   constructor(props) {
@@ -11,13 +16,13 @@ class UploadImage extends Component {
     event.preventDefault();
 
     this.setState({
-      image: event.target.value,
+      image: event.target.value
     });
   };
 
   handleUpload = event => {
     event.preventDefault();
-    console.log('CLICK');
+    console.log("CLICK");
   };
 
   render() {
@@ -27,7 +32,8 @@ class UploadImage extends Component {
         <form
           onSubmit={event => {
             this.handleUpload(event);
-          }}>
+          }}
+        >
           <input type="file" onChange={event => this.handleSelect(event)} />
         </form>
       </div>
