@@ -26,6 +26,7 @@ class Compare extends Component {
 
         this.props.loggedIn();
         this.props.fetchUser(thisUser);
+        this.props.fetchProfileImage(thisUser.uid);
       }
     });
   }
@@ -44,15 +45,16 @@ class Compare extends Component {
         style={{ float: 'right' }}
         onChange={event => this.handleCompare(event)}>
         <option value="">Select a Time</option>
-        <option value="Last Week">Last Week</option>
-        <option value="Last Month">Last Month</option>
-        <option value="Last Year">Last Year</option>
+        <option value="Day One">Day One</option>
+        {/* <option value="Last Month">Last Month</option>
+        <option value="Last Year">Last Year</option> */}
       </select>
     );
   };
 
   render() {
     const { state } = this.props;
+    console.log(state);
 
     return (
       <div className="Compare">
@@ -71,7 +73,12 @@ class Compare extends Component {
         {this.state.compare && (
           <div>
             <h3>{this.state.compare}</h3>
-            <UserStats user={state.user} />
+            <UserStats
+              user={state.user.oldStats}
+              fetchUser={this.props.fetchUser}
+              fetchProfileImage={this.props.fetchProfileImage}
+              profileImage={state.user.profileImage}
+            />
           </div>
         )}
       </div>

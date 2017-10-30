@@ -45,13 +45,6 @@ export const createUser = (email, password) => {
 };
 
 export function fetchOldStats(thisUser, time) {
-  switch (time) {
-    case 'lastWeek':
-      console.log('YUS BITCH');
-    default:
-      console.log('YOU WROTE IT WRONG IDIOT');
-  }
-
   return dispatch => {
     if (thisUser != null) {
       var uid = thisUser.uid;
@@ -68,21 +61,25 @@ export function fetchOldStats(thisUser, time) {
       const uploadList = [];
       for (let i = 0; i < pushList.length; i++) {
         if (!firebaseOutput[pushList[i]].profileImage) {
+          const date = firebaseOutput[pushList[i]].date;
+          // uploadList[date] = firebaseOutput[pushList[i]].oneRepMax;
           uploadList.push(firebaseOutput[pushList[i]]);
         }
       }
 
-      let lastUpload = uploadList[uploadList.length - 1];
+      console.log('FETCH OLD UPLOAD LIST', uploadList);
+
+      let firstUpload = uploadList[0];
 
       dispatch({
         type: actionTypes.FETCH_OLD_STATS,
         userID: uid,
-        fullName: lastUpload.fullName,
-        weight: lastUpload.weight,
-        ormBench: lastUpload.oneRepMax['benchORM'],
-        ormDeadlift: lastUpload.oneRepMax['deadliftORM'],
-        ormOverheadPress: lastUpload.oneRepMax['overheadPressORM'],
-        ormSquat: lastUpload.oneRepMax['squatORM'],
+        fullName: firstUpload.fullName,
+        weight: firstUpload.weight,
+        ormBench: firstUpload.oneRepMax['benchORM'],
+        ormDeadlift: firstUpload.oneRepMax['deadliftORM'],
+        ormOverheadPress: firstUpload.oneRepMax['overheadPressORM'],
+        ormSquat: firstUpload.oneRepMax['squatORM'],
       });
     });
   };
