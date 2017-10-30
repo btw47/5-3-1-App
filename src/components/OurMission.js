@@ -6,7 +6,7 @@ import '../css/App.css';
 class OurMission extends Component {
   render() {
     return (
-      <div>
+      <div className="hometext">
         <div className="mission">
           <img className="chart-img" src={chart} alt="" />
           <h2>Our Mission</h2>
