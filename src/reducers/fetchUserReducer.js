@@ -32,6 +32,11 @@ export const fetchUserReducer = (state = {}, action) => {
         ...state,
         profileImage: action.payload,
       };
+    case actionTypes.NO_PROFILE_IMAGE:
+      return {
+        ...state,
+        profileImage: null,
+      };
     default:
       return state;
   }

@@ -16,7 +16,14 @@ const UserStats = props => {
   };
 
   const renderImage = () => {
-    return <UploadImage profileImage={props.profileImage} userId={user.uid} />;
+    if (props.profileImage === null) {
+      return (
+        <UploadImage profileImage={props.profileImage} userId={user.uid} />
+      );
+    } else {
+      console.log('IMAGE SOURCE', props.profileImage);
+      return <img src={props.profileImage} />;
+    }
   };
 
   return (

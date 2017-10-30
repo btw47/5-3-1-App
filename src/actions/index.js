@@ -132,7 +132,7 @@ export const loggedOut = () => {
 };
 
 //-----Filestack-----
-export const profileImage = uid => {
+export const fetchProfileImage = uid => {
   return dispatch => {
     firebaseDb.ref('users/' + uid).on('value', snapshot => {
       const firebaseOutput = snapshot.val();
@@ -157,5 +157,11 @@ export const profileImage = uid => {
         payload: lastUpload.profileImage,
       });
     });
+  };
+};
+
+export const noProfileImage = () => {
+  return {
+    type: actionTypes.NO_PROFILE_IMAGE,
   };
 };

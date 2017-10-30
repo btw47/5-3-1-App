@@ -20,6 +20,12 @@ class Dashboard extends Component {
 
         this.props.loggedIn();
         this.props.fetchUser(thisUser);
+
+        try {
+          this.props.fetchProfileImage(thisUser.uid);
+        } catch (error) {
+          this.props.noProfileImage();
+        }
       }
     });
   }
@@ -31,7 +37,8 @@ class Dashboard extends Component {
         <UserStats
           user={state.user}
           fetchUser={this.props.fetchUser}
-          profileImage={this.props.profileImage}
+          fetchProfileImage={this.props.fetchProfileImage}
+          profileImage={state.user.profileImage}
         />
         <WeekCalendar />
         <NavLink to="/UpdateProfile">

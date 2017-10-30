@@ -8,6 +8,7 @@ const actionTypes = {
   FETCH_OLD_STATS: 'FETCH_OLD_STATS',
   THIS_USER: 'THIS_USER',
   PROFILE_IMAGE: 'PROFILE_IMAGE',
+  NO_PROFILE_IMAGE: 'NO_PROFILE_IMAGE',
 };
 
 export default actionTypes;
