@@ -18,9 +18,9 @@ const SignOut = props => {
   };
 
   return (
-    <div>
-      <button onClick={() => handleClick()}>Sign out</button>
-    </div>
+    <li onClick={() => handleClick()}>
+      <a href="/">Sign Out</a>
+    </li>
   );
 };
 

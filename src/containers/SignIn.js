@@ -1,32 +1,20 @@
 import React, { Component } from 'react';
-import firebaseui from 'firebaseui';
-import { Form } from 'redux-form';
-import { NavLink } from 'react-router-dom';
 import firebase from 'firebase';
-import { bindActionCreators } from 'redux';
+import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import 'firebaseui/dist/firebaseui.css';
 
 import AuthLinks from '../components/auth/AuthLinks';
-import actionTypes from '../actionTypes';
 import * as actions from '../actions';
-import NavBar from '../components/NavBar';
 
 class SignIn extends Component {
-  componentDidMount() {
+  componentWillMount() {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        window.location = '/dashboard'; //After successful login, user will be redirected to home.html
+        window.location = '/dashboard'; //After successful login, user will be redirected to user dashboard
       }
     });
-  }
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: '',
-      password: '',
-    };
   }
 
   handleUser = event => {
@@ -49,12 +37,15 @@ class SignIn extends Component {
 
   renderError = () => {
     if (this.props.state.auth.error) {
-      console.log('SIGN IN ERROR');
       switch (this.props.state.auth.error.code) {
         case 'auth/wrong-password':
           return <div>wrong password idiot</div>;
         case 'auth/invalid-email':
           return <div>enter a valid email, idiot</div>;
+        case 'auth/user-not-found':
+          return <div>sorry, user not found</div>;
+        default:
+          return <div />;
       }
     }
   };
@@ -87,10 +78,8 @@ class SignIn extends Component {
   };
 
   render() {
-    const { state } = this.props;
     return (
       <div>
-        <NavBar user={state.auth.user} />
         <hr />
         {this.renderSignIn()}
         {this.renderError()}

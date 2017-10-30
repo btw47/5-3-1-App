@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import DaysSplit from "../components/splitDays";
-import WorkoutDays from "../components/workoutDays";
-import Exercises from "../components/exercises";
-import FitnessGoalText from "../components/fitnessGoalText";
+import React, { Component } from 'react';
+import DaysSplit from '../components/splitDays';
+import WorkoutDays from '../components/workoutDays';
+import Exercises from '../components/exercises';
+import FitnessGoalText from '../components/fitnessGoalText';
 
 export default class UpdateGoals extends Component {
   render() {
