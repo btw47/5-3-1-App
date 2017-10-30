@@ -15,18 +15,14 @@ const UserStats = props => {
     width: '15vw',
   };
 
+  const renderImage = () => {
+    return <UploadImage />;
+  };
+
   return (
     <div>
-      {/* <img src={profilePicture} alt="user-image" style={style} /> */}
-      {/* <AvatarCropper
-        onRequestHide={this.handleRequestHide}
-        onCrop={this.handleCrop}
-        image={profilePicture}
-        width={400}
-        height={400}
-      />{' '} */}
-      <UploadImage />
       <div>
+        {renderImage()}
         <h3>{user.fullName}</h3>
         <div>
           <h6>Current Weight: {user.weight}</h6>
