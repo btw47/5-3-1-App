@@ -65,15 +65,19 @@ export function fetchOldStats(thisUser, time) {
         pushList.push(prop);
       }
 
-      const uploadList = pushList.map(a => {
-        return firebaseOutput[a];
-      });
+      const uploadList = [];
+      for (let i = 0; i < pushList.length; i++) {
+        if (!firebaseOutput[pushList[i]].profileImage) {
+          uploadList.push(firebaseOutput[pushList[i]]);
+        }
+      }
 
       let lastUpload = uploadList[uploadList.length - 1];
 
       dispatch({
         type: actionTypes.FETCH_OLD_STATS,
         userID: uid,
+        fullName: lastUpload.fullName,
         weight: lastUpload.weight,
         ormBench: lastUpload.oneRepMax['benchORM'],
         ormDeadlift: lastUpload.oneRepMax['deadliftORM'],

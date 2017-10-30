@@ -61,7 +61,12 @@ class Compare extends Component {
         </NavLink>
         <br />
         <h1>Compare to your old weaker self</h1>
-        <UserStats user={state.user} />
+        <UserStats
+          user={state.user}
+          fetchUser={this.props.fetchUser}
+          fetchProfileImage={this.props.fetchProfileImage}
+          profileImage={state.user.profileImage}
+        />
         {this.renderCompare()}
         {this.state.compare && (
           <div>
