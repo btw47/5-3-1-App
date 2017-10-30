@@ -1,58 +1,61 @@
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
 import React, { Component } from 'react';
-import firebase from 'firebase';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-import logo from '../images/weight-lifting-logo.png';
-import OurMission from '../components/ourMission';
-import './App.css';
+import Home from './Home';
+import Dashboard from './Dashboard';
+import SignIn from './SignIn';
+import SetProfile from './SetProfile';
+import UpdateGoals from './UpdateGoals';
+import Today from '../components/Today';
+import Progress from '../components/Progress';
+import Leaderboards from '../components/Leaderboards';
+import Forums from '../components/Fourms';
+import EmailSupport from '../components/EmailSupport';
+import LiveChat from '../components/LiveChat';
+import Compare from './Compare';
+import Modify from './Modify';
+import UpdateProfile from './UpdateProfile';
 import NavBar from '../components/NavBar';
-import Footer from '../components/Footer';
 import ConnectWithUs from '../components/ConnectWithUs';
-import SignUp from '../components/auth/SignUp';
-import * as actions from '../actions';
+
+import UploadImage from '../components/UploadImage';
 
 class App extends Component {
-  // componentDidMount() {
-  //   firebase.auth().onAuthStateChanged(user => {
-  //     if (user) {
-  //       window.location = '/dashboard'; //After successful login, user will be redirected to user dashboard
-  //     }
-  //   });
-  // }
-
-  handleError = () => {
-    if (this.props.state.auth.error) {
-      return this.props.state.auth.error;
-    } else {
-      return null;
-    }
-  };
-
   render() {
-    const { state, loggedIn, createUser } = this.props;
-    console.log('APP PROPS', this.props);
+    const { state } = this.props;
+    console.log('APP PROPS', state);
     return (
-      <div className="App2">
-        <NavBar user={state.auth.user} />
-        <div className="App3">
-          <img src={logo} className="logo" alt="" />
+      <Router>
+        <div>
+          <NavBar user={state.auth.user} />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/Dashboard" component={Dashboard} />
+            <Route path="/ConnectWithUs" component={ConnectWithUs} />
+            <Route path="/SignIn" component={SignIn} />
+            <Route path="/SetProfile" component={SetProfile} />
+            <Route path="/UpdateGoals" component={UpdateGoals} />
+            <Route path="/Compare" component={Compare} />
+            <Route path="/Modify" component={Modify} />
+            <Route path="/Today" component={Today} />
+            <Route path="/Progress" component={Progress} />
+            <Route path="/Leaderboards" component={Leaderboards} />
+            <Route path="/Forums" component={Forums} />
+            <Route path="/EmailSupport" component={EmailSupport} />
+            <Route path="/LiveChat" component={LiveChat} />
+            <Route path="/UpdateProfile" component={UpdateProfile} />
+
+            <Route path="/test" component={UploadImage} />
+          </Switch>
         </div>
-        <SignUp createUser={createUser} error={this.handleError()} />
-        <ConnectWithUs />
-        <OurMission />
-        <Footer />
-      </div>
+      </Router>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  state
+  state,
 });
 
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators(actions, dispatch);
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);
