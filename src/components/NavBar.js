@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import logo from '../images/weight-lifting-logo.png';
-import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import React, { Component } from "react";
+import logo from "../images/weight-lifting-logo.png";
+import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 
 class NavBar extends Component {
   style = {
-    width: '50px',
+    width: "50px"
   };
 
   render() {
