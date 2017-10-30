@@ -27,7 +27,6 @@ export const fetchUserReducer = (state = {}, action) => {
         },
       };
     case actionTypes.PROFILE_IMAGE:
-      console.log('PROFILE IMAGE REDUCER');
       return {
         ...state,
         profileImage: action.payload,

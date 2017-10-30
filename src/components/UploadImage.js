@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { firebaseDb } from '../server/firebase';
 import { filestackDb } from '../server/filestack';
 

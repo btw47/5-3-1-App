@@ -1,7 +1,5 @@
 import actionTypes from '../actionTypes';
-import firebase from 'firebase';
 import { firebaseApp, firebaseDb } from '../server/firebase';
-import { store } from '../index.js';
 
 //ACTION CREATORS-------------------
 const updateProfile = () => {
@@ -150,10 +148,11 @@ export const fetchProfileImage = uid => {
       }
 
       let lastUpload = uploadList[uploadList.length - 1];
-      console.log('LAST UPLOAD', lastUpload);
 
-      if (!lastUpload) {
-        dispatch(() => noProfileImage());
+      if (lastUpload === undefined) {
+        dispatch({
+          type: actionTypes.NO_PROFILE_IMAGE,
+        });
       } else {
         dispatch({
           type: actionTypes.PROFILE_IMAGE,
@@ -161,11 +160,5 @@ export const fetchProfileImage = uid => {
         });
       }
     });
-  };
-};
-
-export const noProfileImage = () => {
-  return {
-    type: actionTypes.NO_PROFILE_IMAGE,
   };
 };

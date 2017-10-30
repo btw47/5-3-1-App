@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-// import * as AvatarCropper from 'react-avatar-cropper';
 
 import * as actions from '../actions';
 import profilePicture from '../images/anon-user.jpg';
@@ -22,10 +21,13 @@ const UserStats = props => {
   const renderImage = () => {
     if (props.profileImage === null) {
       return (
-        <UploadImage
-          fetchProfileImage={props.fetchProfileImage}
-          userId={user.uid}
-        />
+        <div>
+          <img src={profilePicture} alt="profile pic" style={imageStyle} />
+          <UploadImage
+            fetchProfileImage={props.fetchProfileImage}
+            userId={user.uid}
+          />
+        </div>
       );
     } else {
       console.log('IMAGE SOURCE', props.profileImage);
@@ -35,7 +37,7 @@ const UserStats = props => {
           <UploadImage
             fetchProfileImage={props.fetchProfileImage}
             userId={user.uid}
-          />;
+          />
         </div>
       );
     }
