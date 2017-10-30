@@ -6,7 +6,7 @@ import Home from './Home';
 import Dashboard from './Dashboard';
 import SignIn from './SignIn';
 import SetProfile from './SetProfile';
-import UpdateGoals from './UpdateGoals';
+
 import Today from '../components/Today';
 import Progress from '../components/Progress';
 import Leaderboards from '../components/Leaderboards';
@@ -35,7 +35,7 @@ class App extends Component {
             <Route path="/ConnectWithUs" component={ConnectWithUs} />
             <Route path="/SignIn" component={SignIn} />
             <Route path="/SetProfile" component={SetProfile} />
-            <Route path="/UpdateGoals" component={UpdateGoals} />
+
             <Route path="/Compare" component={Compare} />
             <Route path="/Modify" component={Modify} />
             <Route path="/Today" component={Today} />
