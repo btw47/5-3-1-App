@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { NavLink } from 'react-router-dom';
-
-import * as actions from '../actions';
 import { firebaseDb } from '../server/firebase';
 
 class SetProfile extends Component {
@@ -12,25 +8,6 @@ class SetProfile extends Component {
     super();
     this.state = {};
   }
-
-  componentWillMount() {
-    firebase.auth().onAuthStateChanged(user => {
-      if (!user) {
-        window.location = '/';
-      } else if (user) {
-        const thisUser = firebase.auth().currentUser;
-
-        this.props.loggedIn();
-        this.props.fetchUser(thisUser);
-      }
-    });
-  }
-
-  handleEmail = event => {
-    this.setState({
-      email: event.target.value,
-    });
-  };
 
   handleWeight = event => {
     this.setState({
@@ -59,7 +36,7 @@ class SetProfile extends Component {
     event.preventDefault();
 
     if (!this.state.weight || !this.state.oneRepMax || !this.state.fullName) {
-      console.log('NOT FILLED OUT YO');
+      alert('Fill out all your stats bro');
     } else {
       const thisUser = firebase.auth().currentUser;
       if (thisUser != null) {
@@ -83,20 +60,14 @@ class SetProfile extends Component {
   };
 
   render() {
-    const { state } = this.props;
     return (
       <div className="update-profile">
-        <NavLink style={{ float: 'left' }} to="/dashboard">
-          back
-        </NavLink>
-        <br />
-
         <h2>Enter your info below</h2>
         <form onSubmit={event => this.handleSubmit(event)}>
           <label>Full name: </label>
           <input
             type="text"
-            placeholder={state.user.fullName}
+            placeholder="Name"
             onChange={event => this.handleFullName(event)}
           />
           <br />
@@ -104,7 +75,7 @@ class SetProfile extends Component {
           <label>Current Weight: </label>
           <input
             type="text"
-            placeholder={state.user.weight + ' (lbs)'}
+            placeholder="Weight (lbs)"
             onChange={event => this.handleWeight(event)}
           />
           <br />
@@ -117,7 +88,7 @@ class SetProfile extends Component {
             <input
               type="text"
               ref={ref => (this.bench = ref)}
-              placeholder={state.user.ormBench + ' (lbs)'}
+              placeholder="Weight (lbs)"
               onChange={event => this.handleOneRepMax(event)}
             />
             <br />
@@ -126,7 +97,7 @@ class SetProfile extends Component {
             <input
               type="text"
               ref={ref => (this.overheadPress = ref)}
-              placeholder={state.user.ormOverheadPress + ' (lbs)'}
+              placeholder="Weight (lbs)"
               onChange={event => this.handleOneRepMax(event)}
             />
             <br />
@@ -134,7 +105,7 @@ class SetProfile extends Component {
             <label>Deadlift: </label>
             <input
               type="text"
-              placeholder={state.user.ormDeadlift + ' (lbs)'}
+              placeholder="Weight (lbs)"
               ref={ref => (this.deadlift = ref)}
               onChange={event => this.handleOneRepMax(event)}
             />
@@ -144,12 +115,12 @@ class SetProfile extends Component {
             <input
               type="text"
               ref={ref => (this.squat = ref)}
-              placeholder={state.user.ormSquat + ' (lbs)'}
+              placeholder="Weight (lbs)"
               onChange={event => this.handleOneRepMax(event)}
             />
             <br />
           </div>
-          <button type="submit">Update</button>
+          <button type="submit">Get Started!</button>
         </form>
       </div>
     );
@@ -162,8 +133,4 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators(actions, dispatch);
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(SetProfile);
+export default connect(mapStateToProps)(SetProfile);

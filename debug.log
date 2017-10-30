@@ -4,3 +4,9 @@
 [1026/170135.046:ERROR:process_info.cc(632)] range at 0xde5f3a9a00000000, size 0x1c5 fully unreadable
 [1026/170135.046:ERROR:process_info.cc(632)] range at 0xde5f3afc00000000, size 0x1c5 fully unreadable
 [1026/170135.046:ERROR:process_info.cc(632)] range at 0x0, size 0x1c5 fully unreadable
+[1028/124950.603:ERROR:process_info.cc(632)] range at 0xcc842dbc00000000, size 0x2cb fully unreadable
+[1028/124950.603:ERROR:process_info.cc(632)] range at 0xcc842ddc00000000, size 0x2cb fully unreadable
+[1028/124950.610:ERROR:process_info.cc(632)] range at 0x0, size 0x2cb fully unreadable
+[1028/124950.767:ERROR:process_info.cc(632)] range at 0x3d1b3a9800000000, size 0x224 fully unreadable
+[1028/124950.767:ERROR:process_info.cc(632)] range at 0x3d1b3afa00000000, size 0x224 fully unreadable
+[1028/124950.767:ERROR:process_info.cc(632)] range at 0x0, size 0x224 fully unreadable
