@@ -1,42 +1,43 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+// import * as AvatarCropper from 'react-avatar-cropper';
 
 import * as actions from '../actions';
 import profilePicture from '../images/anon-user.jpg';
+import UploadImage from '../components/UploadImage';
 
-class UserState extends Component {
-  style = {
+const UserStats = props => {
+  const { user } = props;
+
+  const style = {
     height: '30vh',
     width: '15vw',
   };
 
-  render() {
-    const { state } = this.props;
-    return (
+  return (
+    <div>
+      {/* <img src={profilePicture} alt="user-image" style={style} /> */}
+      {/* <AvatarCropper
+        onRequestHide={this.handleRequestHide}
+        onCrop={this.handleCrop}
+        image={profilePicture}
+        width={400}
+        height={400}
+      />{' '} */}
+      <UploadImage />
       <div>
-        <img src={profilePicture} alt="user-image" style={this.style} />
+        <h3>{user.fullName}</h3>
         <div>
-          <h3>{this.props.state.user.fullName}</h3>
-          <div>
-            <h6>Current Weight: {this.props.state.user.weight}</h6>
-            <h6>Bench: {this.props.state.user.ormBench}</h6>
-            <h6>Overhead Press: {this.props.state.user.ormOverheadPress}</h6>
-            <h6>Squats: {this.props.state.user.ormSquat}</h6>
-            <h6>Deadlift: {this.props.state.user.ormDeadlift}</h6>
-          </div>
+          <h6>Current Weight: {user.weight}</h6>
+          <h6>Bench: {user.ormBench}</h6>
+          <h6>Overhead Press: {user.ormOverheadPress}</h6>
+          <h6>Squats: {user.ormSquat}</h6>
+          <h6>Deadlift: {user.ormDeadlift}</h6>
         </div>
       </div>
-    );
-  }
-}
-
-const mapStateToProps = state => {
-  return { state };
+    </div>
+  );
 };
 
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators(actions, dispatch);
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(UserState);
+export default UserStats;

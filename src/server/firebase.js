@@ -5,10 +5,11 @@ var config = {
   authDomain: 'app-ffb9e.firebaseapp.com',
   databaseURL: 'https://app-ffb9e.firebaseio.com',
   projectId: 'app-ffb9e',
-  storageBucket: '',
+  storageBucket: 'gs://app-ffb9e.appspot.com/',
   messagingSenderId: '901369793373',
 };
 
 export const firebaseApp = firebase.initializeApp(config);
 export const firebaseAuth = firebaseApp.auth();
+export const firebaseStorageRef = firebase.storage().ref();
 export const firebaseDb = firebaseApp.database();

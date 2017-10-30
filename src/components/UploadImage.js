@@ -3,69 +3,82 @@ import firebase from 'firebase';
 import ImageUploader from 'react-firebase-image-uploader';
 
 class UploadImage extends Component {
-  state = {
-    isUploading: false,
-    progress: 0,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
-  // handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
-  // handleProgress = progress => this.setState({ progress });
-  // handleUploadError = error => {
-  //   this.setState({ isUploading: false });
-  //   console.error(error);
-  // };
-  // handleUploadSuccess = event => {
-  //   this.setState({ avatar: 'profile.jpg', progress: 100, isUploading: false });
-  //
-  // const storageRef = firebase.storage.ref(this.props.userId + 'profile.jpg');
-  // const firstFile = event.target.file[0];
-  // const uploadTask = storageRef.put(firstFile);
-
-  //   firebase
-  //     .storage()
-  //     .ref(this.props.userId)
-  //     .child('profile.jpg')
-  //     .getDownloadURL()
-  //     .then(url => this.setState({ avatarURL: url }));
-  // };
-  // };
-
-  handleChange = event => {
-    let imageBlob = new Blob(event.target.value);
+  handleSelect = event => {
+    event.preventDefault();
 
     this.setState({
-      image: imageBlob,
+      image: event.target.value,
     });
   };
 
-  handleSubmit = event => {
+  handleUpload = event => {
     event.preventDefault();
-    const storageRef = firebase
-      .storage()
-      .ref(this.props.userId + 'profile.jpg');
-    const uploadTask = storageRef.put(this.state.image);
+    console.log('CLICK');
   };
 
   render() {
     console.log(this.state);
     return (
       <div>
-        <form onSubmit={event => this.handleSubmit(event)}>
-          {/* {this.state.isUploading && <p>Progress: {this.state.progress}</p>}
-          {this.state.avatarURL && <img src={this.state.avatarURL} />} */}
-          <input type="file" onChange={event => this.handleChange(event)} />
-          {/* <ImageUploader
-            name="avatar"
-            storageRef={firebase.storage().ref(this.props.userId)}
-            onUploadStart={this.handleUploadStart}
-            onUploadError={this.handleUploadError}
-            onProgress={this.handleProgress}
-          /> */}
-          <button type="submit">Set Profile Picture</button>
+        <form
+          onSubmit={event => {
+            this.handleUpload(event);
+          }}>
+          <input type="file" onChange={event => this.handleSelect(event)} />
         </form>
       </div>
     );
   }
 }
+
+// class UploadImage extends Component {
+//   state = {
+//     username: '',
+//     avatar: '',
+//     isUploading: false,
+//     progress: 0,
+//     avatarURL: '',
+//   };
+//
+//   handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
+//   handleProgress = progress => this.setState({ progress });
+//   handleUploadError = error => {
+//     this.setState({ isUploading: false });
+//     console.error(error);
+//   };
+//   handleUploadSuccess = filename => {
+//     this.setState({ avatar: filename, progress: 100, isUploading: false });
+//     firebase
+//       .storage()
+//       .ref('images')
+//       .child(filename)
+//       .getDownloadURL()
+//       .then(url => this.setState({ avatarURL: url }));
+//   };
+//
+//   render() {
+//     return (
+//       <div>
+//         <form onSubmit={event => this.handleUploadSuccess(event)}>
+//           {/* {this.state.isUploading && <p>Progress: {this.state.progress}</p>}
+//           {this.state.avatarURL && <img src={this.state.avatarURL} />} */}
+//           <ImageUploader
+//             name="avatar"
+//             storageRef={firebase.storage().ref('images')}
+//             onUploadStart={this.handleUploadStart}
+//             onUploadError={this.handleUploadError}
+//             onProgress={this.handleProgress}
+//           />
+//           <button type="submit">Set Profile Picture</button>
+//         </form>
+//       </div>
+//     );
+//   }
+// }
 
 export default UploadImage;

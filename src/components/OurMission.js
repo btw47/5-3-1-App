@@ -1,10 +1,9 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
-import chart from "../images/comp-app-chart.PNG";
-import "../containers/App.css";
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import chart from '../images/comp-app-chart.PNG';
+import '../css/App.css';
 
-
-class ourMission extends Component {
+class OurMission extends Component {
   render() {
     return (
       <div>
@@ -17,16 +16,17 @@ class ourMission extends Component {
           most of them are just logs of your workouts instead of a full
           intergrated app that the user interacts with on a daily basis tracking
           every step of the way and adding a social aspect to the community so
-          people can talk about their different routines and eating habbits.
-          The 5/3/1 Strength Training Program by Wendler is one of the most proven
+          people can talk about their different routines and eating habbits. The
+          5/3/1 Strength Training Program by Wendler is one of the most proven
           strength training programs available. My developement team wanted to
-          take the core principles of 5/3/1 and jam them into an intuitive app. We
-          also added some interactive features to keep you motivated, such as
+          take the core principles of 5/3/1 and jam them into an intuitive app.
+          We also added some interactive features to keep you motivated, such as
           personal progress charts and chat forums. This 5/3/1 App does all the
-          heavy thinking for you, so that you can focus on the heavy lifting. Our
-          app will calculate your 1 Rep Max, all we need to know is what days
-          you'd like to workout and we'll develope your workout program for you.
-          It's just that fucking easy. Now get to work and enjoy the 5/3/1 gains.
+          heavy thinking for you, so that you can focus on the heavy lifting.
+          Our app will calculate your 1 Rep Max, all we need to know is what
+          days you'd like to workout and we'll develope your workout program for
+          you. It's just that fucking easy. Now get to work and enjoy the 5/3/1
+          gains.
         </p>
         <br />
         <h2>Our Vision</h2>
@@ -62,6 +62,4 @@ class ourMission extends Component {
   }
 }
 
-
-
-export default ourMission;
+export default OurMission;

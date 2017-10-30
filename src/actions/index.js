@@ -5,18 +5,16 @@ import { store } from '../index.js';
 
 //ACTION CREATORS-------------------
 const updateProfile = () => {
-  window.location = '/UpdateProfile';
+  window.location = '/SetProfile';
 };
 
 export const loggedIn = () => {
-  console.log('LOGGED IN ACTION');
   return {
     type: actionTypes.LOGGED_IN,
   };
 };
 
 const authError = error => {
-  console.log('AUTH ERROR ACTIONS');
   return {
     type: actionTypes.AUTH_ERROR,
     payload: error,
@@ -48,38 +46,75 @@ export const createUser = (email, password) => {
   };
 };
 
-export function fetchUser(thisUser) {
-  console.log('FETCH USER INFO');
+export function fetchOldStats(thisUser, time) {
+  switch (time) {
+    case 'lastWeek':
+      console.log('YUS BITCH');
+    default:
+      console.log('YOU WROTE IT WRONG IDIOT');
+  }
+
   return dispatch => {
     if (thisUser != null) {
       var uid = thisUser.uid;
     }
 
     firebaseDb.ref('users/' + uid).on('value', snapshot => {
-      console.log('SNAPSHOT', snapshot.val());
-      const firebaseORM = snapshot.val().oneRepMax;
+      const firebaseOutput = snapshot.val();
 
-      let liftList = [];
-      for (let lift in firebaseORM) {
-        liftList.push(lift);
+      let pushList = [];
+      for (let prop in firebaseOutput) {
+        pushList.push(prop);
       }
 
-      const liftStats = liftList.map(a => {
-        let ormLift = {};
-        let liftName = a;
-        ormLift[liftName] = firebaseORM[a];
-        return ormLift;
+      const uploadList = pushList.map(a => {
+        return firebaseOutput[a];
       });
+
+      let lastUpload = uploadList[uploadList.length - 1];
+
+      dispatch({
+        type: actionTypes.FETCH_OLD_STATS,
+        userID: uid,
+        weight: lastUpload.weight,
+        ormBench: lastUpload.oneRepMax['benchORM'],
+        ormDeadlift: lastUpload.oneRepMax['deadliftORM'],
+        ormOverheadPress: lastUpload.oneRepMax['overheadPressORM'],
+        ormSquat: lastUpload.oneRepMax['squatORM'],
+      });
+    });
+  };
+}
+
+export function fetchUser(thisUser) {
+  return dispatch => {
+    if (thisUser != null) {
+      var uid = thisUser.uid;
+    }
+
+    firebaseDb.ref('users/' + uid).on('value', snapshot => {
+      const firebaseOutput = snapshot.val();
+
+      let pushList = [];
+      for (let prop in firebaseOutput) {
+        pushList.push(prop);
+      }
+
+      const uploadList = pushList.map(a => {
+        return firebaseOutput[a];
+      });
+
+      let lastUpload = uploadList[uploadList.length - 1];
 
       dispatch({
         type: actionTypes.FETCH_USER,
         userID: uid,
-        fullName: snapshot.val().fullName,
-        weight: snapshot.val().weight,
-        ormBench: firebaseORM['benchORM'],
-        ormDeadlift: firebaseORM['deadliftORM'],
-        ormOverheadPress: firebaseORM['overheadPressORM'],
-        ormSquat: firebaseORM['squatORM'],
+        fullName: lastUpload.fullName,
+        weight: lastUpload.weight,
+        ormBench: lastUpload.oneRepMax['benchORM'],
+        ormDeadlift: lastUpload.oneRepMax['deadliftORM'],
+        ormOverheadPress: lastUpload.oneRepMax['overheadPressORM'],
+        ormSquat: lastUpload.oneRepMax['squatORM'],
       });
     });
   };
