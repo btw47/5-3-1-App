@@ -25,10 +25,9 @@ export default class GoalsUpdate extends Component {
     });
   };
 
-  //   handleFormSubmit = formSubmitEvent => {
-  //     formSubmitEvent.preventDefault();
+  // handleSubmit = () =>{
 
-  //   };
+  // }
 
   render() {
     return (
