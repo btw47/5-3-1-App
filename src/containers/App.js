@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import Home from "./Home";
 import Dashboard from "./Dashboard";
 import SignIn from "./SignIn";
-import SetProfile from "./SetProfile";
+
 import Today from "../components/Today";
 import Progress from "../components/Progress";
 import Leaderboards from "../components/Leaderboards";
@@ -16,7 +16,7 @@ import Compare from "./Compare";
 import Modify from "./Modify";
 import UpdateProfile from "./UpdateProfile";
 import NavBar from "../components/NavBar";
-import ConnectWithUs from "../components/ConnectWithUs";
+
 
 
 import UploadImage from "../components/UploadImage";
@@ -30,7 +30,8 @@ class App extends Component {
         <div>
           <NavBar user={state.auth.user} />
           <Switch>
-            <Route exact path='/' component={Home} />
+            <Route path='/' component={Home} />
+            <Route path='/Dashboard' component={Dashboard}/>
             <Route path="/Compare" component={Compare} />
             <Route path="/Modify" component={Modify} />
             <Route path="/Today" component={Today} />
