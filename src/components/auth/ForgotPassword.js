@@ -28,7 +28,7 @@ export default class ForgotPassword extends Component {
       .sendPasswordResetEmail(emailAddress)
       .then(() => this.isReset())
       .catch(error => {
-        alert(error.code);
+        alert('Please enter a valid email address');
       });
   };
 
