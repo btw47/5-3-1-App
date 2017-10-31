@@ -15,7 +15,7 @@ const UserStats = props => {
   };
 
   const imageStyle = {
-    width: '15vw',
+    width: '12vw',
   };
 
   const renderImage = () => {
@@ -34,10 +34,6 @@ const UserStats = props => {
       return (
         <div>
           <img src={props.profileImage} style={imageStyle} />
-          <UploadImage
-            fetchProfileImage={props.fetchProfileImage}
-            userId={user.uid}
-          />
         </div>
       );
     }
@@ -55,6 +51,10 @@ const UserStats = props => {
           <h6>Squats: {user.ormSquat}</h6>
           <h6>Deadlift: {user.ormDeadlift}</h6>
         </div>
+        <UploadImage
+          fetchProfileImage={props.fetchProfileImage}
+          userId={user.uid}
+        />
       </div>
     </div>
   );

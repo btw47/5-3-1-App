@@ -50,7 +50,7 @@ export default class ForgotPassword extends Component {
             placeholder="email"
           />
           <br />
-          <button type="submit">Send reset email!</button>
+          <button type="submit">Reset your password!</button>
         </form>
       );
     }
@@ -58,6 +58,14 @@ export default class ForgotPassword extends Component {
 
   render() {
     console.log(this.state);
-    return <div>{this.renderPage()}</div>;
+    return (
+      <div>
+        <NavLink to="/SignIn" style={{ float: 'left' }}>
+          <span>back</span>
+        </NavLink>
+        <br />
+        {this.renderPage()}
+      </div>
+    );
   }
 }
