@@ -18,7 +18,7 @@ class NavBar extends Component {
   };
 
   style = {
-    width: "50px"
+    width: '50px',
   };
 
   render() {
@@ -26,7 +26,7 @@ class NavBar extends Component {
       <nav className="navbar navbar-inverse">
         <div className="container-fluid">
           <div className="navbar-header">
-            <a className="navbar-brand" href="#">
+            <a className="navbar-brand" href="/">
               <img src={logo} alt="logo" style={this.style} />
             </a>
           </div>
