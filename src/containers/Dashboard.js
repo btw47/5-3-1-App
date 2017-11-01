@@ -39,6 +39,10 @@ class Dashboard extends Component {
         <NavLink to="/UpdateProfile">
           <span>Update your stats!</span>
         </NavLink>
+        <br />
+        <NavLink to='/Modify'>
+          <span>Modify Calendar</span>
+        </NavLink>
         <NavLink to="/Compare" style={{ float: 'right' }}>
           <span>Compare</span>
         </NavLink>

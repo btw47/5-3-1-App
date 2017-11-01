@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
+import MonthCalendar from '../components/monthCalendar'
 
-export default class Modify extends Component {
+class Modify extends Component {
   render() {
-    return <div className="class-name">MODIFY CALENDAR HERE</div>;
+    return (
+    <div className="class-name">
+      <MonthCalendar/>
+      <button>Back</button>
+    </div>)
   }
 }
+
+export default Modify
