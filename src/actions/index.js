@@ -1,5 +1,7 @@
 import actionTypes from '../actionTypes';
+import firebase from 'firebase';
 import { firebaseApp, firebaseDb } from '../server/firebase';
+import { store } from '../index.js';
 
 //ACTION CREATORS-------------------
 const updateProfile = () => {
@@ -28,7 +30,7 @@ export const userLogIn = (email, password) => {
       .signInWithEmailAndPassword(email, password)
       .catch(error => {
         dispatch(authError(error));
-      });
+      }); 
   };
 };
 
@@ -45,6 +47,13 @@ export const createUser = (email, password) => {
 };
 
 export function fetchOldStats(thisUser, time) {
+  switch (time) {
+    case 'lastWeek':
+      console.log('YUS BITCH');
+    default:
+      console.log('YOU WROTE IT WRONG IDIOT');
+  }
+
   return dispatch => {
     if (thisUser != null) {
       var uid = thisUser.uid;
@@ -58,28 +67,20 @@ export function fetchOldStats(thisUser, time) {
         pushList.push(prop);
       }
 
-      const uploadList = [];
-      for (let i = 0; i < pushList.length; i++) {
-        if (!firebaseOutput[pushList[i]].profileImage) {
-          const date = firebaseOutput[pushList[i]].date;
-          // uploadList[date] = firebaseOutput[pushList[i]].oneRepMax;
-          uploadList.push(firebaseOutput[pushList[i]]);
-        }
-      }
+      const uploadList = pushList.map(a => {
+        return firebaseOutput[a];
+      });
 
-      console.log('FETCH OLD UPLOAD LIST', uploadList);
-
-      let firstUpload = uploadList[0];
+      let lastUpload = uploadList[uploadList.length - 1];
 
       dispatch({
         type: actionTypes.FETCH_OLD_STATS,
         userID: uid,
-        fullName: firstUpload.fullName,
-        weight: firstUpload.weight,
-        ormBench: firstUpload.oneRepMax['benchORM'],
-        ormDeadlift: firstUpload.oneRepMax['deadliftORM'],
-        ormOverheadPress: firstUpload.oneRepMax['overheadPressORM'],
-        ormSquat: firstUpload.oneRepMax['squatORM'],
+        weight: lastUpload.weight,
+        ormBench: lastUpload.oneRepMax['benchORM'],
+        ormDeadlift: lastUpload.oneRepMax['deadliftORM'],
+        ormOverheadPress: lastUpload.oneRepMax['overheadPressORM'],
+        ormSquat: lastUpload.oneRepMax['squatORM'],
       });
     });
   };
@@ -99,12 +100,9 @@ export function fetchUser(thisUser) {
         pushList.push(prop);
       }
 
-      const uploadList = [];
-      for (let i = 0; i < pushList.length; i++) {
-        if (!firebaseOutput[pushList[i]].profileImage) {
-          uploadList.push(firebaseOutput[pushList[i]]);
-        }
-      }
+      const uploadList = pushList.map(a => {
+        return firebaseOutput[a];
+      });
 
       let lastUpload = uploadList[uploadList.length - 1];
 
@@ -127,39 +125,5 @@ export const loggedOut = () => {
     return {
       type: actionTypes.LOGGED_OUT,
     };
-  };
-};
-
-//-----Filestack-----
-export const fetchProfileImage = uid => {
-  return dispatch => {
-    firebaseDb.ref('users/' + uid).on('value', snapshot => {
-      const firebaseOutput = snapshot.val();
-
-      let pushList = [];
-      for (let prop in firebaseOutput) {
-        pushList.push(prop);
-      }
-
-      const uploadList = [];
-      for (let i = 0; i < pushList.length; i++) {
-        if (firebaseOutput[pushList[i]].profileImage) {
-          uploadList.push(firebaseOutput[pushList[i]]);
-        }
-      }
-
-      let lastUpload = uploadList[uploadList.length - 1];
-
-      if (lastUpload === undefined) {
-        dispatch({
-          type: actionTypes.NO_PROFILE_IMAGE,
-        });
-      } else {
-        dispatch({
-          type: actionTypes.PROFILE_IMAGE,
-          payload: lastUpload.profileImage,
-        });
-      }
-    });
   };
 };

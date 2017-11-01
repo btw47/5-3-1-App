@@ -10,3 +10,6 @@
 [1028/124950.767:ERROR:process_info.cc(632)] range at 0x3d1b3a9800000000, size 0x224 fully unreadable
 [1028/124950.767:ERROR:process_info.cc(632)] range at 0x3d1b3afa00000000, size 0x224 fully unreadable
 [1028/124950.767:ERROR:process_info.cc(632)] range at 0x0, size 0x224 fully unreadable
+[1031/162514.179:ERROR:process_info.cc(632)] range at 0xc32b44c000000000, size 0x1ca fully unreadable
+[1031/162514.192:ERROR:process_info.cc(632)] range at 0xc32b452400000000, size 0x1ca fully unreadable
+[1031/162514.192:ERROR:process_info.cc(632)] range at 0x0, size 0x1ca fully unreadable

@@ -36,8 +36,15 @@ class Dashboard extends Component {
           profileImage={state.user.profileImage}
         />
         <WeekCalendar />
+        <NavLink to="Modify" style={{float: 'left'}}>
+          <span>Modify</span>
+        </NavLink>
         <NavLink to="/UpdateProfile">
           <span>Update your stats!</span>
+        </NavLink>
+        <br />
+        <NavLink to='/Modify'>
+          <span>Modify Calendar</span>
         </NavLink>
         <NavLink to="/Compare" style={{ float: 'right' }}>
           <span>Compare</span>
