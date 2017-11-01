@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import Home from "./Home";
 import Dashboard from "./Dashboard";
@@ -17,13 +17,14 @@ import Modify from "./Modify";
 import UpdateProfile from "./UpdateProfile";
 import NavBar from "../components/NavBar";
 import ConnectWithUs from "../components/ConnectWithUs";
+import GoalsUpdate from "./GoalsUpdate";
+import WeeklyTemplate from "../components/weeklyTemplate";
 
-import UploadImage from "../components/UploadImage";
+import UploadImage from '../components/UploadImage';
 
 class App extends Component {
   render() {
     const { state } = this.props;
-    console.log("APP PROPS", state);
     return (
       <Router>
         <div>
@@ -43,6 +44,8 @@ class App extends Component {
             <Route path="/EmailSupport" component={EmailSupport} />
             <Route path="/LiveChat" component={LiveChat} />
             <Route path="/UpdateProfile" component={UpdateProfile} />
+            <Route path="/GoalsUpdate" component={GoalsUpdate} />
+            <Route path="/WeeklyTemplate" component={WeeklyTemplate} />
 
             <Route path="/test" component={UploadImage} />
           </Switch>
@@ -53,7 +56,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  state
+  state,
 });
 
 export default connect(mapStateToProps)(App);

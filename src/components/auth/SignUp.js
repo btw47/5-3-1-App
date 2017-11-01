@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import firebase from 'firebase';
 
 export default class SignUp extends Component {
   constructor(props) {
@@ -39,14 +38,13 @@ export default class SignUp extends Component {
           return <div>you wanna get hacked? enter a longer password</div>;
         case 'auth/email-already-in-use':
           return <div>sorry this email has already been registered</div>;
+        default:
+          return <div />;
       }
     }
   };
 
   render() {
-    const { loggedIn } = this.props;
-
-    // console.log('SIGN UP PROPS', this.props);
     return (
       <form onSubmit={event => this.handleSubmit(event)}>
         <input
