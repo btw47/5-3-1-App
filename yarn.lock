@@ -2703,6 +2703,10 @@ filesize@3.5.10:
   version "3.5.10"
   resolved "https://registry.yarnpkg.com/filesize/-/filesize-3.5.10.tgz#fc8fa23ddb4ef9e5e0ab6e1e64f679a24a56761f"
 
+filestack-js@^0.9.9:
+  version "0.9.9"
+  resolved "https://registry.yarnpkg.com/filestack-js/-/filestack-js-0.9.9.tgz#57266dc3acc32c63ee7c7aa1dbc5f3d7db25db9a"
+
 fill-range@^2.1.0:
   version "2.2.3"
   resolved "https://registry.yarnpkg.com/fill-range/-/fill-range-2.2.3.tgz#50b77dfd7e469bc7492470963699fe7a8485a723"
@@ -5461,6 +5465,12 @@ react-dev-utils@^4.1.0:
     strip-ansi "3.0.1"
     text-table "0.2.0"
 
+react-dnd-html5-backend@^2.5.4:
+  version "2.5.4"
+  resolved "https://registry.yarnpkg.com/react-dnd-html5-backend/-/react-dnd-html5-backend-2.5.4.tgz#974ad083f67b12d56977a5b171f5ffeb29d78352"
+  dependencies:
+    lodash "^4.2.0"
+
 react-dnd@^2.5.4:
   version "2.5.4"
   resolved "https://registry.yarnpkg.com/react-dnd/-/react-dnd-2.5.4.tgz#0b6dc5e9d0dfc2909f4f4fe736e5534f3afd1bd9"
@@ -5530,6 +5540,10 @@ react-overlays@^0.7.0, react-overlays@^0.7.4:
     prop-types "^15.5.10"
     prop-types-extra "^1.0.1"
     warning "^3.0.0"
+
+react-popup@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/react-popup/-/react-popup-0.8.0.tgz#ea8f3e5f009b0bb5b41c471d9fd740de8c278cd7"
 
 react-prop-types@^0.4.0:
   version "0.4.0"

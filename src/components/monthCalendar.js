@@ -11,6 +11,7 @@ BigCalendar.setLocalizer(
   BigCalendar.momentLocalizer(moment)
 )
 
+
 const getRange = (date, culture) => {
   let firstOfWeek = localizer.startOfWeek(culture);
   let start = dates.startOf(date, 'week', firstOfWeek);
@@ -52,7 +53,7 @@ MyWeek.title = (dates, {formats: formats, culture: culture }) => {
   return `My Workouts: ${Date.toLocaleString()}`
 }
 
-class monthCalendar extends Component {
+class MonthCalendar extends Component {
     constructor(props, context) {
         super(props, context)
         
@@ -61,16 +62,17 @@ class monthCalendar extends Component {
 
     render(){
         return(
-        <div className="MonthCalendar">
+        <div className="">
             <BigCalendar
               {...this.props}
               popup
               selectable 
+              step = 'allday'
               events = {events}
               defaultView = 'month'
-              views = {{month: true, week: MyWeek}}
+              views = {{month: true}}
               scrollToTime={new Date(1970, 1, 1, 6)}
-              defaultDate= {Date(2017, 9, 25)}
+              defaultDate= {new Date(2017, 9, 25)}
               
             />
         </div>  
@@ -78,4 +80,4 @@ class monthCalendar extends Component {
     }
 }
 
-export default monthCalendar;
+export default MonthCalendar;
