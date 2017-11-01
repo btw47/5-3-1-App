@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import Home from "./Home";
 import Dashboard from "./Dashboard";
-import SignIn from "./SignIn";
+import SignIn from "../components/SignIn";
 import SetProfile from "./SetProfile";
 import Today from "../components/Today";
 import Progress from "../components/Progress";
@@ -17,6 +17,9 @@ import Modify from "./Modify";
 import UpdateProfile from "./UpdateProfile";
 import NavBar from "../components/NavBar";
 import ConnectWithUs from "../components/ConnectWithUs";
+import OurMission from "../components/OurMission";
+import Footer from "../components/Footer";
+import { Button } from "reactstrap";
 
 import UploadImage from "../components/UploadImage";
 
@@ -26,7 +29,7 @@ class App extends Component {
     console.log("APP PROPS", state);
     return (
       <Router>
-        <div>
+        <div className="betheanswer">
           <NavBar user={state.auth.user} />
           <Switch>
             <Route exact path="/" component={Home} />
@@ -43,9 +46,13 @@ class App extends Component {
             <Route path="/EmailSupport" component={EmailSupport} />
             <Route path="/LiveChat" component={LiveChat} />
             <Route path="/UpdateProfile" component={UpdateProfile} />
+            <Route path="/OurMission" component={OurMission} />
 
             <Route path="/test" component={UploadImage} />
           </Switch>
+          <div className="footerprob">
+            <Footer />
+          </div>
         </div>
       </Router>
     );

@@ -1,6 +1,7 @@
 .logo {
   width: 150px;
   height: auto;
+  padding-top: 50px;
 }
 
 .chart-img {
@@ -18,59 +19,15 @@
   height: auto;
   border-radius: 25%;
 }
-.aboutus {
-  display: inline-block;
-  padding: 25px;
+.navbar-collapse.collapse.in {
+  display: block !important;
 }
-.lineright {
-  position: center;
-  display: inline-block;
-  text-align: center;
-}
-.cwtitle {
-  display: top;
-  text-align: center;
-  font-weight: bold;
-  font-size: 300%;
-  font-family: "Verdana";
-  color: #a0a4b8;
-  text-decoration: underline;
-  font-style: italic;
-}
-.aboutus {
-  border: 5px solid black;
-  background-color: #a0a4b8;
-  margin: 10px;
-  position: inline;
-  font-family: "Trebuchet MS";
-  white-space: nowrap;
-  width: 500px;
-  height: auto;
-}
-.container {
-  background: black;
-  border: 5px solid black;
+.navbar-collapse.in {
+  overflow-y: visible;
 }
 
-a.navbar-brand {
-  padding: 0;
-}
-.body {
-  background-color: black;
-}
-
-.navbar {
-  font-family: "Impact";
-  background-color: #d7dae5;
-}
-
-.navbar2 {
-  font-family: "Impact";
-  background-color: #d7dae5 !important;
-}
-
-ul.nav.navbar-nav li a {
-  color: #322a26;
+.navbar-brand {
+  color: #a5a5a5;
 }
 .App3 {
   background: url(../images/dumbbells.jpg);
@@ -79,16 +36,4 @@ ul.nav.navbar-nav li a {
   max-width: 100%;
   height: 100%;
   background-repeat: no-repeat;
-}
-.App2 {
-  background: black;
-}
-
-.mission {
-  color: white;
-  padding-bottom: 50px;
-}
-.hometext {
-  color: white;
-  padding-bottom: 50px;
 }

@@ -1,28 +1,27 @@
-import React, { Component } from 'react';
-import JD from '../images/JD.jpg';
-import Ryan from '../images/Ryan.jpg';
-import James from '../images/James.jpg';
-import Brad from '../images/Brad.jpg';
-import fbpic from '../images/fbpic.png';
-import github from '../images/git.jpg';
-import lkin from '../images/in.png';
-import logo from '../images/weight-lifting-logo.png';
-import NavBar2 from '../components/NavBar';
-import '../css/App.css';
+import React, { Component } from "react";
+import JD from "../images/JD.jpg";
+import Ryan from "../images/Ryan.jpg";
+import James from "../images/James.jpg";
+import Brad from "../images/Brad.jpg";
+import fbpic from "../images/fbpic.png";
+import github from "../images/git.jpg";
+import lkin from "../images/in.png";
+import logo from "../images/weight-lifting-logo.png";
+import NavBar2 from "../components/NavBar";
+import "../css/App.css";
 
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router } from "react-router-dom";
 
 class ConnectWithUs extends Component {
   render() {
-    var styles = {
-      backgroundColor: 'black',
-    };
+    var styles = {};
 
     return (
-      <Router>
+      <div>
+        <div className="logo" />
         <div className="content" style={styles}>
           <div className="container">
-            <h1 class="cwtitle">The 5-3-1 Pro Team</h1>
+            <h1 className="cwtitle">The 5-3-1 Pro Team</h1>
             <h2>
               <div className="lineright">
                 <ul className="myrow">
@@ -127,7 +126,7 @@ class ConnectWithUs extends Component {
             </h2>
           </div>
         </div>
-      </Router>
+      </div>
     );
   }
 }
