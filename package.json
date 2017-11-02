@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bootstrap": "4.0.0-beta",
     "date-arithmetic": "^3.1.0",
     "dates": "^1.1.0",
     "ethos": "^0.0.1",
@@ -16,7 +17,6 @@
     "react-avatar-cropper": "^0.1.3",
     "react-big-calendar": "^0.16.1",
     "react-body-backgroundcolor": "^1.0.1",
-    "react-bootstrap": "^0.31.5",
     "react-calendar": "^2.2.0",
     "react-dnd": "^2.5.4",
     "react-dom": "^16.0.0",
@@ -25,6 +25,7 @@
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.14",
+    "reactstrap": "^5.0.0-alpha.3",
     "redux": "^3.7.2",
     "redux-form": "^7.1.1",
     "redux-logger": "^3.0.6",
