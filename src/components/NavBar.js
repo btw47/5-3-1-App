@@ -56,7 +56,6 @@ class NavBar extends Component {
           </div>
         </div>
         <nav class="navbar navbar-dark bg-dark">
-          <img src={logo} alt="logo" style={this.style} />
           <button
             class="navbar-toggler"
             type="button"

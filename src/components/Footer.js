@@ -10,7 +10,7 @@ class Footer extends Component {
   render() {
     return (
       <footer>
-        <nav className="navbar2 navbar-inverse navbar-fixed-bottom">
+        {/* <nav className="navbar2 navbar-inverse navbar-fixed-bottom">
           <div className="navbar2 contnainer-fluid">
             <div className="navbar-header" />
             <ul className="nav navbar-nav">
@@ -28,7 +28,7 @@ class Footer extends Component {
               </li>
             </ul>
           </div>
-        </nav>
+        </nav> */}
       </footer>
     );
   }

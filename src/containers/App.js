@@ -50,9 +50,6 @@ class App extends Component {
 
             <Route path="/test" component={UploadImage} />
           </Switch>
-          <div className="footerprob">
-            <Footer />
-          </div>
         </div>
       </Router>
     );
