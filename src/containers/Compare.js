@@ -21,7 +21,7 @@ class Compare extends Component {
         var thisUser = firebase.auth().currentUser;
 
         this.setState({
-          thisUser: thisUser,
+          thisUser: thisUser
         });
 
         this.props.loggedIn();
@@ -33,7 +33,7 @@ class Compare extends Component {
 
   handleCompare = event => {
     this.setState({
-      compare: event.target.value,
+      compare: event.target.value
     });
 
     this.props.fetchOldStats(this.state.thisUser, event.target.value);
@@ -60,6 +60,9 @@ class Compare extends Component {
       <div className="Compare">
         <NavLink style={{ float: 'left' }} to="/dashboard">
           back
+        </NavLink>
+        <NavLink style={{ float: 'right' }} to="/ProgressGraph">
+          Progress
         </NavLink>
         <br />
         <h1>Compare to your old weaker self</h1>

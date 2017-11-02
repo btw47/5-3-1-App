@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
+import { Fade } from "react-reveal"
+
 import chart from "../images/comp-app-chart.PNG";
 import "../css/App.css";
 
@@ -19,11 +21,12 @@ class OurMission extends Component {
                 <br />
                 <ul className="myrow">
                   <li className="contentbox">
-                    <div className="textposition">
-                      <h2>Our Mission</h2>
-                    </div>
-                    <p>
-                      We saw there were a lot of differentt apps out there for
+                    <Fade>
+                      <div className="textposition">
+                        <h2>Our Mission</h2>
+                      </div>
+                      <p>
+                        We saw there were a lot of differentt apps out there for
                       5/3/1 but most of them are just logs of your workouts
                       instead of a full intergrated app that the user interacts
                       with on a daily basis tracking every step of the way and
@@ -42,14 +45,15 @@ class OurMission extends Component {
                       It's just that fucking easy. Now get to work and enjoy the
                       5/3/1 gains.
                     </p>
+                    </Fade>
                     <br />
                     <br />
-                    <h2>Our Vision</h2>
-                    <br />
-                    <br />
-                    <br />
-                    <p>
-                      To provide the community with a training template app that
+
+                    <Fade>
+                      <h2>Our Vision</h2>
+                      <br />
+                      <p>
+                        To provide the community with a training template app that
                       follows the 5/3/1 program principles Lorem ipsum dolor sit
                       amet, consectetur adipiscing elit. Eorum enim omnium multa
                       praetermittentium, dum eligant aliquid, quod sequantur,
@@ -80,6 +84,7 @@ class OurMission extends Component {
                       honestum et disputatio splendida! omnis est enim de
                       virtutis dignitate contentio.
                     </p>
+                    </Fade>
                   </li>
                 </ul>
               </div>

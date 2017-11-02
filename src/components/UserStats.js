@@ -6,58 +6,70 @@ import * as actions from '../actions';
 import profilePicture from '../images/anon-user.jpg';
 import UploadImage from '../components/UploadImage';
 
-const UserStats = props => {
-  const { user } = props;
+class UserStats extends Component {
+  constructor(props) {
+    super(props);
+  }
 
-  const style = {
-    height: '30vh',
-    width: '15vw',
-  };
+  componentWillMount() {
+    this.renderImage()
 
-  const imageStyle = {
-    width: '12vw',
-  };
+    console.log("FUNCTION CALLED")
+  }
 
-  const renderImage = () => {
-    if (props.profileImage === null) {
+  renderImage = () => {
+    if (this.props.profileImage === null) {
+      const { user } = this.props;
+      
       return (
         <div>
-          <img src={profilePicture} alt="profile pic" style={imageStyle} />
+          <img src={profilePicture} alt="profile pic" style={this.imageStyle} />
           <UploadImage
-            fetchProfileImage={props.fetchProfileImage}
+            fetchProfileImage={this.props.fetchProfileImage}
             userId={user.uid}
           />
         </div>
       );
     } else {
-      console.log('IMAGE SOURCE', props.profileImage);
       return (
         <div>
-          <img src={props.profileImage} style={imageStyle} />
+          <img src={this.props.profileImage} style={this.imageStyle} />
         </div>
       );
     }
   };
 
-  return (
-    <div>
+   style = {
+    height: '30vh',
+    width: '15vw',
+  };
+
+   imageStyle = {
+    width: '12vw',
+  };
+  
+  render() {
+    const { user } = this.props;    
+    return (
       <div>
-        {renderImage()}
-        <h3>{user.fullName}</h3>
         <div>
-          <h6>Current Weight: {user.weight}</h6>
-          <h6>Bench: {user.ormBench}</h6>
-          <h6>Overhead Press: {user.ormOverheadPress}</h6>
-          <h6>Squats: {user.ormSquat}</h6>
-          <h6>Deadlift: {user.ormDeadlift}</h6>
+          {this.renderImage()}
+          <h3>{user.fullName}</h3>
+          <div>
+            <h6>Current Weight: {user.weight}</h6>
+            <h6>Bench: {user.ormBench}</h6>
+            <h6>Overhead Press: {user.ormOverheadPress}</h6>
+            <h6>Squats: {user.ormSquat}</h6>
+            <h6>Deadlift: {user.ormDeadlift}</h6>
+          </div>
+          <UploadImage
+            fetchProfileImage={this.props.fetchProfileImage}
+            userId={user.uid}
+          />
         </div>
-        <UploadImage
-          fetchProfileImage={props.fetchProfileImage}
-          userId={user.uid}
-        />
       </div>
-    </div>
-  );
+    );
+}
 };
 
 export default UserStats;
