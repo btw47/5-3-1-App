@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Fade} from 'react-reveal';
+
 import JD from '../images/JD.jpg';
 import Ryan from '../images/Ryan.jpg';
 import James from '../images/James.jpg';
@@ -20,6 +22,7 @@ class ConnectWithUs extends Component {
 
     return (
       <Router>
+      <Fade>
         <div className="content" style={styles}>
           <div className="container">
             <h1 class="cwtitle">The 5-3-1 Pro Team</h1>
@@ -127,6 +130,7 @@ class ConnectWithUs extends Component {
             </h2>
           </div>
         </div>
+        </Fade>
       </Router>
     );
   }

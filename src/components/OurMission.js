@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import chart from '../images/comp-app-chart.PNG';
+import MyPieChart from "./PieChart";
+import { Fade} from 'react-reveal';
+
 import '../css/App.css';
 
 class OurMission extends Component {
@@ -8,9 +11,14 @@ class OurMission extends Component {
     return (
       <div className="hometext">
         <div className="mission">
-          <img className="chart-img" src={chart} alt="" />
+          // <img className="chart-img" src={chart} alt="" />
+          <Fade duration={5000}>
+          <MyPieChart />
+          </Fade>
+          </div>
+
+          <Fade duration={5000}>
           <h2>Our Mission</h2>
-        </div>
         <p>
           We saw there were a lot of differentt apps out there for 5/3/1 but
           most of them are just logs of your workouts instead of a full
@@ -57,6 +65,8 @@ class OurMission extends Component {
           cognitione dignum amaverunt. Et certamen honestum et disputatio
           splendida! omnis est enim de virtutis dignitate contentio.
         </p>
+        </Fade>
+
       </div>
     );
   }
