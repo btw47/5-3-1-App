@@ -20,6 +20,7 @@ class Dashboard extends Component {
 
         this.props.loggedIn();
         this.props.fetchUser(thisUser);
+        this.props.fetchProfileImage(thisUser.uid);
       }
     });
   }
@@ -28,8 +29,13 @@ class Dashboard extends Component {
     const { state } = this.props;
     return (
       <div className="Dashboard">
-        <UserStats user={state.user} fetchUser={this.props.fetchUser} />
-        <WeekCalendar />
+        <UserStats
+          user={state.user}
+          fetchUser={this.props.fetchUser}
+          fetchProfileImage={this.props.fetchProfileImage}
+          profileImage={state.user.profileImage}
+        />
+        <WeekCalendar style={{ margin: '50px' }} />
         <NavLink to="/UpdateProfile">
           <span>Update your stats!</span>
         </NavLink>

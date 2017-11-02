@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-// import * as AvatarCropper from 'react-avatar-cropper';
 
 import * as actions from '../actions';
 import profilePicture from '../images/anon-user.jpg';
@@ -15,18 +14,35 @@ const UserStats = props => {
     width: '15vw',
   };
 
+  const imageStyle = {
+    width: '12vw',
+  };
+
+  const renderImage = () => {
+    if (props.profileImage === null) {
+      return (
+        <div>
+          <img src={profilePicture} alt="profile pic" style={imageStyle} />
+          <UploadImage
+            fetchProfileImage={props.fetchProfileImage}
+            userId={user.uid}
+          />
+        </div>
+      );
+    } else {
+      console.log('IMAGE SOURCE', props.profileImage);
+      return (
+        <div>
+          <img src={props.profileImage} style={imageStyle} />
+        </div>
+      );
+    }
+  };
+
   return (
     <div>
-      {/* <img src={profilePicture} alt="user-image" style={style} /> */}
-      {/* <AvatarCropper
-        onRequestHide={this.handleRequestHide}
-        onCrop={this.handleCrop}
-        image={profilePicture}
-        width={400}
-        height={400}
-      />{' '} */}
-      <UploadImage />
       <div>
+        {renderImage()}
         <h3>{user.fullName}</h3>
         <div>
           <h6>Current Weight: {user.weight}</h6>
@@ -35,6 +51,10 @@ const UserStats = props => {
           <h6>Squats: {user.ormSquat}</h6>
           <h6>Deadlift: {user.ormDeadlift}</h6>
         </div>
+        <UploadImage
+          fetchProfileImage={props.fetchProfileImage}
+          userId={user.uid}
+        />
       </div>
     </div>
   );

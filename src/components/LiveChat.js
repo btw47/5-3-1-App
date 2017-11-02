@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
-import "../css/App.css";
+import React, { Component } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import '../css/App.css';
 
 class LiveChat extends Component {
   render() {
