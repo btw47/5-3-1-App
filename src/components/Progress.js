@@ -5,7 +5,7 @@ import "../css/App.css";
 class Progress extends Component {
   render() {
     return (
-      <div className="logo">
+      <div className="textlayout">
         <div className="content">
           <div
             className="container"
