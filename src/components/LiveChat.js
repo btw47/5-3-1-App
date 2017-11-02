@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import "../css/App.css";
 
-class Today extends Component {
+class LiveChat extends Component {
   render() {
     return (
       <div className="logo">
@@ -12,7 +12,7 @@ class Today extends Component {
             style={{ width: "100vw", height: "100vh" }}
           >
             <div className="textlayout">
-              <h2>TODAY PAGE</h2>
+              <h2>CHAT CHAT CHAT</h2>
               <p>
                 We saw there were a lot of differentt apps out there for 5/3/1
                 but most of them are just logs of your workouts instead of a
@@ -60,4 +60,4 @@ class Today extends Component {
   }
 }
 
-export default Today;
+export default LiveChat;
