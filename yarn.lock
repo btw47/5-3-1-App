@@ -2711,9 +2711,9 @@ filesize@3.5.10:
   version "3.5.10"
   resolved "https://registry.yarnpkg.com/filesize/-/filesize-3.5.10.tgz#fc8fa23ddb4ef9e5e0ab6e1e64f679a24a56761f"
 
-filestack-js@^0.9.9:
-  version "0.9.9"
-  resolved "https://registry.yarnpkg.com/filestack-js/-/filestack-js-0.9.9.tgz#57266dc3acc32c63ee7c7aa1dbc5f3d7db25db9a"
+filestack-js@^0.9.11:
+  version "0.9.11"
+  resolved "https://registry.yarnpkg.com/filestack-js/-/filestack-js-0.9.11.tgz#541b8830644c246293b078ec2ad87bc3d1af7e29"
 
 fill-range@^2.1.0:
   version "2.2.3"
@@ -5441,21 +5441,6 @@ react-bootstrap@^0.30.2:
     uncontrollable "^4.0.1"
     warning "^3.0.0"
 
-react-bootstrap@^0.31.5:
-  version "0.31.5"
-  resolved "https://registry.yarnpkg.com/react-bootstrap/-/react-bootstrap-0.31.5.tgz#57040fa8b1274e1e074803c21a1b895fdabea05a"
-  dependencies:
-    babel-runtime "^6.11.6"
-    classnames "^2.2.5"
-    dom-helpers "^3.2.0"
-    invariant "^2.2.1"
-    keycode "^2.1.2"
-    prop-types "^15.5.10"
-    prop-types-extra "^1.0.1"
-    react-overlays "^0.7.4"
-    uncontrollable "^4.1.0"
-    warning "^3.0.0"
-
 react-calendar@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/react-calendar/-/react-calendar-2.2.0.tgz#7f19151265f86997691bb69efd74a0d30ba80c04"
@@ -5549,7 +5534,7 @@ react-overlays@^0.6.12:
     react-prop-types "^0.4.0"
     warning "^3.0.0"
 
-react-overlays@^0.7.0, react-overlays@^0.7.4:
+react-overlays@^0.7.0:
   version "0.7.4"
   resolved "https://registry.yarnpkg.com/react-overlays/-/react-overlays-0.7.4.tgz#ef2ec652c3444ab8aa014262b18f662068e56d5c"
   dependencies:
@@ -6715,7 +6700,7 @@ uid-number@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/uid-number/-/uid-number-0.0.6.tgz#0ea10e8035e8eb5b8e4449f06da1c730663baa81"
 
-"uncontrollable@^3.3.1 || ^4.0.0", uncontrollable@^4.0.1, uncontrollable@^4.1.0:
+"uncontrollable@^3.3.1 || ^4.0.0", uncontrollable@^4.0.1:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/uncontrollable/-/uncontrollable-4.1.0.tgz#e0358291252e1865222d90939b19f2f49f81c1a9"
   dependencies:
