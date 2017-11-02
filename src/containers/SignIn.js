@@ -72,6 +72,10 @@ class SignIn extends Component {
           <NavLink to="/">
             <span>Sign Up</span>
           </NavLink>
+          <br />
+          <NavLink to="/ForgotPassword">
+            <span>forgot your password?</span>
+          </NavLink>
         </form>
       );
     }

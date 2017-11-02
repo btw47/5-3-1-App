@@ -1,24 +1,25 @@
-import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
+import firebase from "firebase";
 
 export default class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
-      password: '',
+      email: "",
+      password: ""
     };
   }
 
   handleUser = event => {
     this.setState({
-      email: event.target.value,
+      email: event.target.value
     });
   };
 
   handlePassword = event => {
     this.setState({
-      password: event.target.value,
+      password: event.target.value
     });
   };
 
@@ -32,19 +33,20 @@ export default class SignUp extends Component {
   renderError = () => {
     if (this.props.error) {
       switch (this.props.error.code) {
-        case 'auth/invalid-email':
+        case "auth/invalid-email":
           return <div>enter a real email idiot</div>;
-        case 'auth/weak-password':
+        case "auth/weak-password":
           return <div>you wanna get hacked? enter a longer password</div>;
-        case 'auth/email-already-in-use':
+        case "auth/email-already-in-use":
           return <div>sorry this email has already been registered</div>;
-        default:
-          return <div />;
       }
     }
   };
 
   render() {
+    const { loggedIn } = this.props;
+
+    // console.log('SIGN UP PROPS', this.props);
     return (
       <form onSubmit={event => this.handleSubmit(event)}>
         <input
@@ -60,9 +62,6 @@ export default class SignUp extends Component {
         />
         <br />
         <button type="submit">Sign Up</button>
-        <NavLink to="/SignIn">
-          <span>Sign in</span>
-        </NavLink>
         {this.renderError()}
       </form>
     );
