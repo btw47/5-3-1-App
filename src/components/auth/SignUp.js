@@ -63,6 +63,9 @@ export default class SignUp extends Component {
         <br />
         <button type="submit">Sign Up</button>
         {this.renderError()}
+        <NavLink to="/SignIn">
+        <span>Sign In</span>
+        </NavLink>
       </form>
     );
   }
