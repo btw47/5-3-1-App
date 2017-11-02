@@ -27,6 +27,7 @@ class Compare extends Component {
         this.props.loggedIn();
         this.props.fetchUser(thisUser);
         this.props.fetchProfileImage(thisUser.uid);
+        this.props.fetchProgress(thisUser);
       }
     });
   }
@@ -61,7 +62,7 @@ class Compare extends Component {
         <NavLink style={{ float: 'left' }} to="/dashboard">
           back
         </NavLink>
-        <NavLink style={{ float: 'right' }} to="/ProgressGraph">
+        <NavLink style={{ float: 'right' }} to="/DetailedProgress">
           Progress
         </NavLink>
         <br />

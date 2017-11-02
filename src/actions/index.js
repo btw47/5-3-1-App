@@ -153,13 +153,23 @@ export const fetchProgress = thisUser => {
         }
       }
 
-      console.log('FETCH OLD UPLOAD LIST', uploadList);
+      console.log('UPLOAD LIST', uploadList);
 
       const progressData = uploadList.map(a => {
+        const smallDate = a.date.split(' ').slice(1, 3);
+        const joinDate = smallDate.join(' ');
+        const fullDate = `${joinDate}, ${a.date.split(' ').slice(3, 4)}`;
         const rawDat = {};
-        rawDat[a.date] = a.oneRepMax;
+        rawDat['name'] = fullDate;
+        rawDat['Bench (ORM)'] = a.oneRepMax['benchORM'];
+        rawDat['Squat (ORM)'] = a.oneRepMax['squatORM'];
+        rawDat['Overhead Press (ORM)'] = a.oneRepMax['overheadPressORM'];
+        rawDat['Deadlift (ORM)'] = a.oneRepMax['deadliftORM'];
+        rawDat['Weight'] = a.weight;
         return rawDat;
       });
+
+      console.log('PROGRESS DATA', progressData);
 
       dispatch({
         type: actionTypes.FETCH_PROGRESS,

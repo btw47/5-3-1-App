@@ -22,7 +22,7 @@ import Footer from '../components/Footer';
 import ForgotPassword from '../components/auth/ForgotPassword';
 import GoalsUpdate from './GoalsUpdate';
 import WeeklyTemplate from '../components/weeklyTemplate';
-import ProgressGraph from '../containers/ProgressGraph';
+import DetailedProgress from '../containers/DetailedProgress';
 import { Button } from 'reactstrap';
 
 class App extends Component {
@@ -50,7 +50,7 @@ class App extends Component {
             <Route path="/UpdateProfile" component={UpdateProfile} />
             <Route path="/GoalsUpdate" component={GoalsUpdate} />
             <Route path="/WeeklyTemplate" component={WeeklyTemplate} />
-            <Route path="/ProgressGraph" component={ProgressGraph} />
+            <Route path="/DetailedProgress" component={DetailedProgress} />
           </Switch>
         </div>
       </Router>
