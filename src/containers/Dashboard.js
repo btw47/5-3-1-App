@@ -35,7 +35,11 @@ class Dashboard extends Component {
           fetchProfileImage={this.props.fetchProfileImage}
           profileImage={state.user.profileImage}
         />
-        <WeekCalendar style={{ margin: '50px' }} />
+        <WeekCalendar fetchCalendar={this.props.fetchCalendar} style={{ margin: '50px' }} />
+        <NavLink to='/modify'>
+          <span>Modify Calendar</span>
+        </NavLink>
+        <br/>
         <NavLink to="/UpdateProfile">
           <span>Update your stats!</span>
         </NavLink>

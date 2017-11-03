@@ -30,7 +30,7 @@ class ConnectWithUs extends Component {
                       <h3>
                         <b>Bradley Wong</b>
                       </h3>
-                      "Fuck Bitches Get Money"
+                      "Get Money"
                       <br />
                       <br />
                       <img src={Brad} alt="Brad Picture" className="teamPics" />
@@ -55,7 +55,7 @@ class ConnectWithUs extends Component {
                       <h3>
                         <b>JD Headbanger</b>
                       </h3>
-                      "Fuck Bitches Get Money"
+                      "Get Money"
                       <br />
                       <br />
                       <img src={JD} alt="JD Picture" className="teamPics" />

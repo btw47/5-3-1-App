@@ -1,5 +1,5 @@
-export default [
-  {
+const BBB = [
+    {
     'title': 'Deadlift',
     'allDay': true,
     'start': new Date(2017, 9, 22),
@@ -336,3 +336,5 @@ export default [
    'desc': 'Fuck Shit Up G'
   }
 ]
+
+export default BBB;

@@ -62,7 +62,7 @@ export function fetchOldStats(thisUser, time) {
       for (let i = 0; i < pushList.length; i++) {
         if (!firebaseOutput[pushList[i]].profileImage) {
           const date = firebaseOutput[pushList[i]].date;
-          // uploadList[date] = firebaseOutput[pushList[i]].oneRepMax;
+          uploadList[date] = firebaseOutput[pushList[i]].oneRepMax;
           uploadList.push(firebaseOutput[pushList[i]]);
         }
       }
@@ -83,6 +83,45 @@ export function fetchOldStats(thisUser, time) {
       });
     });
   };
+}
+
+export function fetchCalendar(thisUser){
+  return dispatch => {
+    if (thisUser != null) {
+      var uid = thisUser.uid;
+    }
+
+    firebaseDb.ref('users/' + uid).on('value', snapshot => {
+      const firebaseOutput = snapshot.val();
+
+      let pushList = [];
+      for (let prop in firebaseOutput) {
+        pushList.push(prop);
+      }
+
+      const uploadList = [];
+      for (let i = 0; i < pushList.length; i++) {
+        if (firebaseOutput[pushList[i]].selectedDay) {
+          uploadList.push(firebaseOutput[pushList[i]]);
+        }
+      }
+
+      const lastUpload = uploadList[uploadList.length - 1]
+
+      const selectedDay = lastUpload["selectedDay"]
+      const selectedWeekdays = lastUpload["selectedWeekdays"]
+      const selectedExercise = lastUpload["selectedExercise"]
+      
+    dispatch({
+      type: actionTypes.FETCH_CALENDAR, 
+      calendar:{
+      selectedDay: selectedDay,
+      selectedWeekday: selectedWeekdays,
+      selectedExercise: selectedExercise,
+      }
+    })
+    })
+  }
 }
 
 export function fetchUser(thisUser) {
@@ -163,3 +202,4 @@ export const fetchProfileImage = uid => {
     });
   };
 };
+

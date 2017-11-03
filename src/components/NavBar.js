@@ -29,35 +29,35 @@ class NavBar extends Component {
 
   render() {
     return (
-      <div class="pos-f-t">
-        <div class="collapse" id="navbarToggleExternalContent">
-          <div class="bg-dark p-4">
-            <h4 class="text-white">5-3-1 Workout App</h4>
-            <span class="text-muted">
-              <a class="navbar-brand" href="/">
+      <div className="pos-f-t">
+        <div className="collapse" id="navbarToggleExternalContent">
+          <div className="bg-dark p-4">
+            <h4 className="text-white">5-3-1 Workout App</h4>
+            <span className="text-muted">
+              <a className="navbar-brand" href="/">
                 Home
               </a>
-              <a class="navbar-brand" href="/Today">
+              <a className="navbar-brand" href="/Today">
                 Today
               </a>
-              <a class="navbar-brand" href="/Progress">
+              <a className="navbar-brand" href="/Progress">
                 MY GAINZ
               </a>
-              <a class="navbar-brand" href="/Leaderboards">
+              <a className="navbar-brand" href="/Leaderboards">
                 Leaderboards
               </a>
-              <a class="navbar-brand" href="/Forums">
+              <a className="navbar-brand" href="/Forums">
                 Forums
               </a>
-              <a class="navbar-brand" href="/Dashboard">
+              <a className="navbar-brand" href="/Dashboard">
                 Dashboard
               </a>
             </span>
           </div>
         </div>
-        <nav class="navbar navbar-dark bg-dark">
+        <nav className="navbar navbar-dark bg-dark">
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-toggle="collapse"
             data-target="#navbarToggleExternalContent"
@@ -65,7 +65,7 @@ class NavBar extends Component {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon" />
+            <span className="navbar-toggler-icon" />
           </button>
           <img src={logo} alt="logo" style={this.style} />
         </nav>
