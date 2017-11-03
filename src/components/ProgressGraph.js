@@ -33,6 +33,7 @@ class ProgressGraph extends Component {
   }
 
   render() {
+    const formatter = value => `${value} lbs`;
     return (
       <div>
         <Tabs
@@ -49,7 +50,7 @@ class ProgressGraph extends Component {
                   syncId="anyId"
                   margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
                   <XAxis dataKey="name" />
-                  <YAxis />
+                  <YAxis tickFormatter={formatter} />
                   <CartesianGrid strokeDasharray="3 3" />
                   <Tooltip />
                   <Area
@@ -75,7 +76,7 @@ class ProgressGraph extends Component {
                         syncId="anyId"
                         margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
                         <XAxis dataKey="name" />
-                        <YAxis />
+                        <YAxis tickFormatter={formatter} />
                         <CartesianGrid strokeDasharray="3 3" />
                         <Tooltip />
                         <Area
@@ -101,7 +102,7 @@ class ProgressGraph extends Component {
                       syncId="anyId"
                       margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
                       <XAxis dataKey="name" />
-                      <YAxis />
+                      <YAxis tickFormatter={formatter} />
                       <CartesianGrid strokeDasharray="3 3" />
                       <Tooltip />
                       <Area
@@ -128,7 +129,7 @@ class ProgressGraph extends Component {
                       syncId="anyId"
                       margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
                       <XAxis dataKey="name" />
-                      <YAxis />
+                      <YAxis tickFormatter={formatter} />
                       <CartesianGrid strokeDasharray="3 3" />
                       <Tooltip />
                       <Area
@@ -153,7 +154,7 @@ class ProgressGraph extends Component {
                       syncId="anyId"
                       margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
                       <XAxis dataKey="name" />
-                      <YAxis />
+                      <YAxis tickFormatter={formatter} />
                       <CartesianGrid strokeDasharray="3 3" />
                       <Tooltip />
                       <Area
@@ -179,7 +180,7 @@ class ProgressGraph extends Component {
                   syncId="anyId"
                   margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
                   <XAxis dataKey="name" />
-                  <YAxis />
+                  <YAxis tickFormatter={formatter} />
                   <CartesianGrid strokeDasharray="3 3" />
                   <Tooltip />
                   <Area
@@ -204,7 +205,7 @@ class ProgressGraph extends Component {
                   syncId="anyId"
                   margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
                   <XAxis dataKey="name" />
-                  <YAxis />
+                  <YAxis tickFormatter={formatter} />
                   <CartesianGrid strokeDasharray="3 3" />
                   <Tooltip />
                   <Area
@@ -229,7 +230,7 @@ class ProgressGraph extends Component {
                   syncId="anyId"
                   margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
                   <XAxis dataKey="name" />
-                  <YAxis />
+                  <YAxis tickFormatter={formatter} />
                   <CartesianGrid strokeDasharray="3 3" />
                   <Tooltip />
                   <Area
@@ -254,7 +255,7 @@ class ProgressGraph extends Component {
                   syncId="anyId"
                   margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
                   <XAxis dataKey="name" />
-                  <YAxis />
+                  <YAxis tickFormatter={formatter} />
                   <CartesianGrid strokeDasharray="3 3" />
                   <Tooltip />
                   <Area
@@ -279,7 +280,7 @@ class ProgressGraph extends Component {
                   syncId="anyId"
                   margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
                   <XAxis dataKey="name" />
-                  <YAxis />
+                  <YAxis tickFormatter={formatter} />
                   <CartesianGrid strokeDasharray="3 3" />
                   <Tooltip />
                   <Area
