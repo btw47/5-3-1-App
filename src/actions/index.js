@@ -60,7 +60,7 @@ export function fetchOldStats(thisUser, time) {
 
       const uploadList = [];
       for (let i = 0; i < pushList.length; i++) {
-        if (firebaseOutput[pushList[i]].fullName) {
+        if (firebaseOutput[pushList[i]].weight) {
           const date = firebaseOutput[pushList[i]].date;
           // uploadList[date] = firebaseOutput[pushList[i]].oneRepMax;
           uploadList.push(firebaseOutput[pushList[i]]);
@@ -101,7 +101,7 @@ export function fetchUser(thisUser) {
 
       const uploadList = [];
       for (let i = 0; i < pushList.length; i++) {
-        if (firebaseOutput[pushList[i]].fullName) {
+        if (firebaseOutput[pushList[i]].weight) {
           uploadList.push(firebaseOutput[pushList[i]]);
         }
       }
@@ -146,7 +146,7 @@ export const fetchProgress = thisUser => {
 
       const uploadList = [];
       for (let i = 0; i < pushList.length; i++) {
-        if (firebaseOutput[pushList[i]].fullName) {
+        if (firebaseOutput[pushList[i]].weight) {
           const date = firebaseOutput[pushList[i]].date;
           // uploadList[date] = firebaseOutput[pushList[i]].oneRepMax;
           uploadList.push(firebaseOutput[pushList[i]]);

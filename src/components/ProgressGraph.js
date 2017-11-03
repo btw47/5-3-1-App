@@ -44,7 +44,7 @@ class ProgressGraph extends Component {
           <Tab eventKey={1} title="Overview">
             <div style={{ 'text-align': 'center' }}>
               <h2>Weight</h2>
-              <ResponsiveContainer width={'100%'} height={500}>
+              <ResponsiveContainer width={'100%'} height={400}>
                 <AreaChart
                   data={this.props.state.user.progress}
                   syncId="anyId"

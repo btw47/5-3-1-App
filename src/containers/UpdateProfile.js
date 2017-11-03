@@ -58,7 +58,7 @@ class SetProfile extends Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    if (!this.state.weight || !this.state.oneRepMax || !this.state.fullName) {
+    if (!this.state.weight || !this.state.oneRepMax) {
       console.log('NOT FILLED OUT YO');
     } else {
       const thisUser = firebase.auth().currentUser;
@@ -73,7 +73,6 @@ class SetProfile extends Component {
         .push({
           weight: this.state.weight,
           oneRepMax: this.state.oneRepMax,
-          fullName: this.state.fullName,
           date: date
         })
         .then(function() {
