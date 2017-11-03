@@ -1,14 +1,16 @@
-import React, { Component } from "react";
-import JD from "../images/JD.jpg";
-import Ryan from "../images/Ryan.jpg";
-import James from "../images/James.jpg";
-import Brad from "../images/Brad.jpg";
-import fbpic from "../images/fbpic.png";
-import github from "../images/git.jpg";
-import lkin from "../images/in.png";
-import logo from "../images/weight-lifting-logo.png";
-import NavBar2 from "../components/NavBar";
-import "../css/App.css";
+import React, { Component } from 'react';
+import { Fade} from 'react-reveal';
+
+import JD from '../images/JD.jpg';
+import Ryan from '../images/Ryan.jpg';
+import James from '../images/James.jpg';
+import Brad from '../images/Brad.jpg';
+import fbpic from '../images/fbpic.png';
+import github from '../images/git.jpg';
+import lkin from '../images/in.png';
+import logo from '../images/weight-lifting-logo.png';
+import NavBar2 from '../components/NavBar';
+import '../css/App.css';
 
 import { BrowserRouter as Router } from "react-router-dom";
 
@@ -17,8 +19,8 @@ class ConnectWithUs extends Component {
     var styles = {};
 
     return (
-      <div className="container">
-        <div className="logo" />
+      <Router>
+      <Fade>
         <div className="content" style={styles}>
           <div>
             <h1 className="cwtitle">
@@ -128,7 +130,8 @@ class ConnectWithUs extends Component {
             </h2>
           </div>
         </div>
-      </div>
+        </Fade>
+      </Router>
     );
   }
 }

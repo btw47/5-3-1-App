@@ -11,7 +11,7 @@ export const fetchUserReducer = (state = {}, action) => {
         ormBench: action.ormBench,
         ormDeadlift: action.ormDeadlift,
         ormOverheadPress: action.ormOverheadPress,
-        ormSquat: action.ormSquat,
+        ormSquat: action.ormSquat
       };
     case actionTypes.FETCH_OLD_STATS:
       return {
@@ -23,18 +23,23 @@ export const fetchUserReducer = (state = {}, action) => {
           ormBench: action.ormBench,
           ormDeadlift: action.ormDeadlift,
           ormOverheadPress: action.ormOverheadPress,
-          ormSquat: action.ormSquat,
-        },
+          ormSquat: action.ormSquat
+        }
       };
     case actionTypes.PROFILE_IMAGE:
       return {
         ...state,
-        profileImage: action.payload,
+        profileImage: action.payload
       };
     case actionTypes.NO_PROFILE_IMAGE:
       return {
         ...state,
-        profileImage: null,
+        profileImage: null
+      };
+    case actionTypes.FETCH_PROGRESS:
+      return {
+        ...state,
+        progress: action.payload
       };
     default:
       return state;

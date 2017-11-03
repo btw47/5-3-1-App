@@ -21,6 +21,7 @@ class Dashboard extends Component {
         this.props.loggedIn();
         this.props.fetchUser(thisUser);
         this.props.fetchProfileImage(thisUser.uid);
+        this.props.fetchProgress(thisUser);
       }
     });
   }

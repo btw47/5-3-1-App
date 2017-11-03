@@ -1446,7 +1446,7 @@ clap@^1.0.9:
   dependencies:
     chalk "^1.1.3"
 
-classnames@^2.1.2, classnames@^2.1.3, classnames@^2.2.3, classnames@^2.2.5:
+classnames@2.2.5, classnames@^2.1.2, classnames@^2.1.3, classnames@^2.2.3, classnames@^2.2.5:
   version "2.2.5"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.5.tgz#fb3801d453467649ef3603c7d61a02bd129bde6d"
 
@@ -1652,13 +1652,13 @@ cookie@0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/cookie/-/cookie-0.3.1.tgz#e7e0a1f9ef43b4c8ba925c5c5a96e806d16873bb"
 
+core-js@2.5.1, core-js@^2.4.0, core-js@^2.5.0:
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.5.1.tgz#ae6874dc66937789b80754ff5428df66819ca50b"
+
 core-js@^1.0.0:
   version "1.2.7"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-1.2.7.tgz#652294c14651db28fa93bd2d5ff2983a4f08c636"
-
-core-js@^2.4.0, core-js@^2.5.0:
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.5.1.tgz#ae6874dc66937789b80754ff5428df66819ca50b"
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
@@ -1851,6 +1851,60 @@ currently-unhandled@^0.4.1:
   resolved "https://registry.yarnpkg.com/currently-unhandled/-/currently-unhandled-0.4.1.tgz#988df33feab191ef799a61369dd76c17adf957ea"
   dependencies:
     array-find-index "^1.0.1"
+
+d3-array@^1.2.0:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/d3-array/-/d3-array-1.2.1.tgz#d1ca33de2f6ac31efadb8e050a021d7e2396d5dc"
+
+d3-collection@1:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/d3-collection/-/d3-collection-1.0.4.tgz#342dfd12837c90974f33f1cc0a785aea570dcdc2"
+
+d3-color@1:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/d3-color/-/d3-color-1.0.3.tgz#bc7643fca8e53a8347e2fbdaffa236796b58509b"
+
+d3-format@1:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/d3-format/-/d3-format-1.2.0.tgz#6b480baa886885d4651dc248a8f4ac9da16db07a"
+
+d3-interpolate@1, d3-interpolate@^1.1.5:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/d3-interpolate/-/d3-interpolate-1.1.5.tgz#69e099ff39214716e563c9aec3ea9d1ea4b8a79f"
+  dependencies:
+    d3-color "1"
+
+d3-path@1:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/d3-path/-/d3-path-1.0.5.tgz#241eb1849bd9e9e8021c0d0a799f8a0e8e441764"
+
+d3-scale@1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/d3-scale/-/d3-scale-1.0.6.tgz#bce19da80d3a0cf422c9543ae3322086220b34ed"
+  dependencies:
+    d3-array "^1.2.0"
+    d3-collection "1"
+    d3-color "1"
+    d3-format "1"
+    d3-interpolate "1"
+    d3-time "1"
+    d3-time-format "2"
+
+d3-shape@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/d3-shape/-/d3-shape-1.2.0.tgz#45d01538f064bafd05ea3d6d2cb748fd8c41f777"
+  dependencies:
+    d3-path "1"
+
+d3-time-format@2:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/d3-time-format/-/d3-time-format-2.1.0.tgz#a1d9540a1dc498817d44066b121b19a4a83e3531"
+  dependencies:
+    d3-time "1"
+
+d3-time@1:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/d3-time/-/d3-time-1.0.7.tgz#94caf6edbb7879bb809d0d1f7572bc48482f7270"
 
 d@1:
   version "1.0.0"
@@ -4231,7 +4285,7 @@ lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
 
-"lodash@>=3.5 <5", lodash@^4.14.0, lodash@^4.15.0, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0:
+"lodash@>=3.5 <5", lodash@^4.14.0, lodash@^4.15.0, lodash@^4.16.4, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@~4.17.4:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
@@ -5363,6 +5417,12 @@ querystringify@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/querystringify/-/querystringify-1.0.0.tgz#6286242112c5b712fa654e526652bf6a13ff05cb"
 
+raf@^3.2.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/raf/-/raf-3.4.0.tgz#a28876881b4bc2ca9117d4138163ddb80f781575"
+  dependencies:
+    performance-now "^2.1.0"
+
 randomatic@^1.1.3:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/randomatic/-/randomatic-1.1.7.tgz#c7abe9cc8b87c0baa876b19fde83fd464797e38c"
@@ -5441,6 +5501,21 @@ react-bootstrap@^0.30.2:
     uncontrollable "^4.0.1"
     warning "^3.0.0"
 
+react-bootstrap@^0.31.5:
+  version "0.31.5"
+  resolved "https://registry.yarnpkg.com/react-bootstrap/-/react-bootstrap-0.31.5.tgz#57040fa8b1274e1e074803c21a1b895fdabea05a"
+  dependencies:
+    babel-runtime "^6.11.6"
+    classnames "^2.2.5"
+    dom-helpers "^3.2.0"
+    invariant "^2.2.1"
+    keycode "^2.1.2"
+    prop-types "^15.5.10"
+    prop-types-extra "^1.0.1"
+    react-overlays "^0.7.4"
+    uncontrollable "^4.1.0"
+    warning "^3.0.0"
+
 react-calendar@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/react-calendar/-/react-calendar-2.2.0.tgz#7f19151265f86997691bb69efd74a0d30ba80c04"
@@ -5450,6 +5525,12 @@ react-calendar@^2.2.0:
     prop-types ">=15.5"
     react ">=15.5"
     react-dom ">=15.5"
+
+react-checkbox-group@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/react-checkbox-group/-/react-checkbox-group-3.3.1.tgz#75f6e3358191351c58490c40a43c8149fda4d3ed"
+  dependencies:
+    prop-types "^15.5.10"
 
 react-dev-utils@^4.1.0:
   version "4.1.0"
@@ -5534,7 +5615,7 @@ react-overlays@^0.6.12:
     react-prop-types "^0.4.0"
     warning "^3.0.0"
 
-react-overlays@^0.7.0:
+react-overlays@^0.7.0, react-overlays@^0.7.4:
   version "0.7.4"
   resolved "https://registry.yarnpkg.com/react-overlays/-/react-overlays-0.7.4.tgz#ef2ec652c3444ab8aa014262b18f662068e56d5c"
   dependencies:
@@ -5566,6 +5647,19 @@ react-redux@^5.0.6:
     lodash "^4.2.0"
     lodash-es "^4.2.0"
     loose-envify "^1.1.0"
+    prop-types "^15.5.10"
+
+react-resize-detector@0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/react-resize-detector/-/react-resize-detector-0.6.0.tgz#7625d60edf6d89c812d4833d49ef53696dd9bca9"
+  dependencies:
+    prop-types "^15.5.10"
+
+react-reveal@^0.7.3:
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/react-reveal/-/react-reveal-0.7.3.tgz#4b7265b48251813acf735ab862d1687ad85d4570"
+  dependencies:
+    babel-runtime "^6.26.0"
     prop-types "^15.5.10"
 
 react-router-dom@^4.2.2:
@@ -5639,6 +5733,25 @@ react-side-effect@^1.0.0:
   dependencies:
     exenv "^1.2.1"
     shallowequal "^1.0.1"
+
+react-smooth@0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/react-smooth/-/react-smooth-0.3.0.tgz#b67665d7b9820257e34279c15e02e8e5131ebe99"
+  dependencies:
+    lodash "^4.16.4"
+    prop-types "^15.5.8"
+    raf "^3.2.0"
+    react-transition-group "^1.1.1"
+
+react-transition-group@^1.1.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-1.2.1.tgz#e11f72b257f921b213229a774df46612346c7ca6"
+  dependencies:
+    chain-function "^1.0.0"
+    dom-helpers "^3.2.0"
+    loose-envify "^1.3.1"
+    prop-types "^15.5.6"
+    warning "^3.0.0"
 
 react-transition-group@^2.2.0:
   version "2.2.1"
@@ -5739,6 +5852,26 @@ readdirp@^2.0.0:
     readable-stream "^2.0.2"
     set-immediate-shim "^1.0.1"
 
+recharts-scale@0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/recharts-scale/-/recharts-scale-0.3.2.tgz#dac7621714a4765d152cb2adbc30c73b831208c9"
+
+recharts@^1.0.0-beta.0:
+  version "1.0.0-beta.0"
+  resolved "https://registry.yarnpkg.com/recharts/-/recharts-1.0.0-beta.0.tgz#0d52b37a76fd9c6d519595393b84d743bf6775e0"
+  dependencies:
+    classnames "2.2.5"
+    core-js "2.5.1"
+    d3-interpolate "^1.1.5"
+    d3-scale "1.0.6"
+    d3-shape "1.2.0"
+    lodash "~4.17.4"
+    prop-types "^15.6.0"
+    react-resize-detector "0.6.0"
+    react-smooth "0.3.0"
+    recharts-scale "0.3.2"
+    reduce-css-calc "1.3.0"
+
 recursive-readdir@2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/recursive-readdir/-/recursive-readdir-2.2.1.tgz#90ef231d0778c5ce093c9a48d74e5c5422d13a99"
@@ -5752,7 +5885,7 @@ redent@^1.0.0:
     indent-string "^2.1.0"
     strip-indent "^1.0.1"
 
-reduce-css-calc@^1.2.6:
+reduce-css-calc@1.3.0, reduce-css-calc@^1.2.6:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/reduce-css-calc/-/reduce-css-calc-1.3.0.tgz#747c914e049614a4c9cfbba629871ad1d2927716"
   dependencies:
@@ -6700,7 +6833,7 @@ uid-number@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/uid-number/-/uid-number-0.0.6.tgz#0ea10e8035e8eb5b8e4449f06da1c730663baa81"
 
-"uncontrollable@^3.3.1 || ^4.0.0", uncontrollable@^4.0.1:
+"uncontrollable@^3.3.1 || ^4.0.0", uncontrollable@^4.0.1, uncontrollable@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/uncontrollable/-/uncontrollable-4.1.0.tgz#e0358291252e1865222d90939b19f2f49f81c1a9"
   dependencies:
