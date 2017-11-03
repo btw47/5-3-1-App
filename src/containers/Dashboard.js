@@ -21,12 +21,15 @@ class Dashboard extends Component {
         this.props.loggedIn();
         this.props.fetchUser(thisUser);
         this.props.fetchProfileImage(thisUser.uid);
+        this.props.fetchCalendar(thisUser)
       }
     });
   }
 
   render() {
     const { state } = this.props;
+    const thisUser = firebase.auth().currentUser;
+    
     return (
       <div className="Dashboard">
         <UserStats
@@ -35,7 +38,7 @@ class Dashboard extends Component {
           fetchProfileImage={this.props.fetchProfileImage}
           profileImage={state.user.profileImage}
         />
-        <WeekCalendar fetchCalendar={this.props.fetchCalendar} style={{ margin: '50px' }} />
+        <WeekCalendar fetchCalendar={state.calendar} style={{ margin: '50px' }} />
         <NavLink to='/modify'>
           <span>Modify Calendar</span>
         </NavLink>

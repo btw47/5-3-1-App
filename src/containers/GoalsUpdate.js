@@ -99,6 +99,8 @@ class GoalUpdate extends Component {
               selectedExercise: this.state.selectedExercise,
             },
             date: date
+          }).then(() => {
+            window.location = "/dashboard"
           })
 
       }

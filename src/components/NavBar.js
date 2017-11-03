@@ -52,6 +52,7 @@ class NavBar extends Component {
               <a className="navbar-brand" href="/Dashboard">
                 Dashboard
               </a>
+              {this.renderUserStatus()}
             </span>
           </div>
         </div>

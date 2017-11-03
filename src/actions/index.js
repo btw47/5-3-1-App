@@ -60,7 +60,7 @@ export function fetchOldStats(thisUser, time) {
 
       const uploadList = [];
       for (let i = 0; i < pushList.length; i++) {
-        if (!firebaseOutput[pushList[i]].profileImage) {
+        if (firebaseOutput[pushList[i]].fullName) {
           const date = firebaseOutput[pushList[i]].date;
           uploadList[date] = firebaseOutput[pushList[i]].oneRepMax;
           uploadList.push(firebaseOutput[pushList[i]]);
@@ -94,6 +94,8 @@ export function fetchCalendar(thisUser){
     firebaseDb.ref('users/' + uid).on('value', snapshot => {
       const firebaseOutput = snapshot.val();
 
+      console.log("FIREBASE OUTPUT", firebaseOutput)
+
       let pushList = [];
       for (let prop in firebaseOutput) {
         pushList.push(prop);
@@ -101,24 +103,27 @@ export function fetchCalendar(thisUser){
 
       const uploadList = [];
       for (let i = 0; i < pushList.length; i++) {
-        if (firebaseOutput[pushList[i]].selectedDay) {
+        if (firebaseOutput[pushList[i]].calendar) {
           uploadList.push(firebaseOutput[pushList[i]]);
         }
       }
 
-      const lastUpload = uploadList[uploadList.length - 1]
+      console.log("UPLOAD LIST", uploadList)
 
-      const selectedDay = lastUpload["selectedDay"]
-      const selectedWeekdays = lastUpload["selectedWeekdays"]
-      const selectedExercise = lastUpload["selectedExercise"]
+      const date = Date()
+      const lastUpload = uploadList[uploadList.length - 1]
+      console.log("LAST UPLOAD", lastUpload)
+
+      const selectedDay = lastUpload.calendar.selectedDay
+      const selectedWeekdays = lastUpload.calendar["selectedWeekdays"]
+      const selectedExercise = lastUpload.calendar["selectedExercise"]
       
     dispatch({
+      date: date,
       type: actionTypes.FETCH_CALENDAR, 
-      calendar:{
       selectedDay: selectedDay,
-      selectedWeekday: selectedWeekdays,
+      selectedWeekdays: selectedWeekdays,
       selectedExercise: selectedExercise,
-      }
     })
     })
   }
@@ -140,7 +145,7 @@ export function fetchUser(thisUser) {
 
       const uploadList = [];
       for (let i = 0; i < pushList.length; i++) {
-        if (!firebaseOutput[pushList[i]].profileImage) {
+        if (firebaseOutput[pushList[i]].fullName) {
           uploadList.push(firebaseOutput[pushList[i]]);
         }
       }

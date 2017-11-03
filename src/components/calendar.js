@@ -38,7 +38,6 @@ class Dnd extends React.Component{
       } else if (user) {
         const thisUser = firebase.auth().currentUser;
 
-        this.props.fetchCalendar();
       }
     })
   }
