@@ -151,7 +151,7 @@ class GoalUpdate extends Component {
             onChange={this.handleDayChange}
           />
 
-          {/* How do we make sure that our component's state changes when user clicks on our radio buttons?
+            {/* How do we make sure that our component's state changes when user clicks on our radio buttons?
 React offers onChange property that we can pass to our <input> components to handle changes. We then create an onChange 
 function that updates the state of our buttons */}
 
@@ -227,8 +227,6 @@ function that updates the state of our buttons */}
           <br />
             <button type="submit" >Submit My Motherfucking Goals</button>
         </form>
-      <div ref='cbResults'></div>
-      <div ref='radioResults'></div>
       </div>
     );
   }

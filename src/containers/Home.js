@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
 
-import logo from '../images/weight-lifting-logo.png';
-import SignUp from '../components/auth/SignUp';
-import ConnectWithUs from '../components/ConnectWithUs';
-import OurMission from '../components/OurMission';
-import Footer from '../components/Footer';
-import * as actions from '../actions';
-import '../css/App.css';
+import logo from "../images/weight-lifting-logo.png";
+import SignUp from "../components/auth/SignUp";
+import ConnectWithUs from "../components/ConnectWithUs";
+import OurMission from "../components/OurMission";
+import Footer from "../components/Footer";
+import * as actions from "../actions";
+import "../css/App.css";
 
 class Home extends Component {
   handleError = () => {
@@ -22,13 +22,12 @@ class Home extends Component {
   render() {
     const { createUser } = this.props;
     return (
-      <div className="App2">
-        <div className="App3">
+      <div>
+        <div>
           <img src={logo} className="logo" alt="" />
         </div>
         <SignUp createUser={createUser} error={this.handleError()} />
         <ConnectWithUs />
-        <OurMission />
         <Footer />
       </div>
     );
@@ -36,7 +35,7 @@ class Home extends Component {
 }
 
 const mapStateToProps = state => ({
-  state,
+  state
 });
 
 const mapDispatchToProps = dispatch => {

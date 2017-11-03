@@ -61,9 +61,11 @@ export default class SignUp extends Component {
           onChange={event => this.handlePassword(event)}
         />
         <br />
-          <button type="submit">Sign Up</button>
-      
+        <button type="submit">Log In</button>
         {this.renderError()}
+        <NavLink to="/SignIn">
+          <span>Sign Up</span>
+        </NavLink>
       </form>
     );
   }

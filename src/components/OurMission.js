@@ -17,7 +17,7 @@ class OurMission extends Component {
                 <img className="chart-img" src={chart} alt="" />
                 <br />
                 <br />
-                <ul className="myrow">
+                <ul className="mycontenttext">
                   <li className="contentbox">
                     <div className="textposition">
                       <h2>Our Mission</h2>
@@ -45,9 +45,6 @@ class OurMission extends Component {
                     <br />
                     <br />
                     <h2>Our Vision</h2>
-                    <br />
-                    <br />
-                    <br />
                     <p>
                       To provide the community with a training template app that
                       follows the 5/3/1 program principles Lorem ipsum dolor sit
