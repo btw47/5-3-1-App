@@ -1,21 +1,21 @@
-import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
 
-import * as actions from '../actions';
-import profilePicture from '../images/anon-user.jpg';
-import UploadImage from '../components/UploadImage';
+import * as actions from "../actions";
+import profilePicture from "../images/anon-user.jpg";
+import UploadImage from "../components/UploadImage";
 
 const UserStats = props => {
   const { user } = props;
 
   const style = {
-    height: '30vh',
-    width: '15vw',
+    height: "30vh",
+    width: "15vw"
   };
 
   const imageStyle = {
-    width: '12vw',
+    width: "12vw"
   };
 
   const renderImage = () => {
@@ -30,7 +30,7 @@ const UserStats = props => {
         </div>
       );
     } else {
-      console.log('IMAGE SOURCE', props.profileImage);
+      console.log("IMAGE SOURCE", props.profileImage);
       return (
         <div>
           <img src={props.profileImage} style={imageStyle} />
