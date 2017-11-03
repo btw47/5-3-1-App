@@ -6,7 +6,7 @@ import ProgressGraph from '../components/ProgressGraph';
 class DetailedProgress extends Component {
   render() {
     return (
-      <div>
+      <div style={{ background: 'white' }}>
         <NavLink style={{ float: 'left' }} to="/Compare">
           Compare
         </NavLink>

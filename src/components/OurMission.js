@@ -48,7 +48,7 @@ class OurMission extends Component {
                     <br />
                     <br />
 
-                    <Fade delay={500}>
+                    <Fade delay={200}>
                       <h2>Our Vision</h2>
                       <br />
                       <p>
