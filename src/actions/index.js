@@ -94,7 +94,7 @@ export function fetchCalendar(thisUser){
     firebaseDb.ref('users/' + uid).on('value', snapshot => {
       const firebaseOutput = snapshot.val();
 
-      console.log("FIREBASE OUTPUT", firebaseOutput)
+      // console.log("FIREBASE OUTPUT", firebaseOutput)
 
       let pushList = [];
       for (let prop in firebaseOutput) {
@@ -108,15 +108,15 @@ export function fetchCalendar(thisUser){
         }
       }
 
-      console.log("UPLOAD LIST", uploadList)
+      // console.log("UPLOAD LIST", uploadList)
 
       const date = Date()
       const lastUpload = uploadList[uploadList.length - 1]
-      console.log("LAST UPLOAD", lastUpload)
+      // console.log("LAST UPLOAD", lastUpload)
 
       const selectedDay = lastUpload.calendar.selectedDay
-      const selectedWeekdays = lastUpload.calendar["selectedWeekdays"]
-      const selectedExercise = lastUpload.calendar["selectedExercise"]
+      const selectedWeekdays = lastUpload.calendar.selectedWeekdays
+      const selectedExercise = lastUpload.calendar.selectedExercise
       
     dispatch({
       date: date,

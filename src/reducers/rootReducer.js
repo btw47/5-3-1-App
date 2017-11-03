@@ -6,7 +6,7 @@ import { fetchCalendar } from './fetchCalendar'
 const rootReducer = combineReducers({
   auth: loginReducer,
   user: fetchUserReducer,
-  calendar: fetchCalendar
+  fetchCalendar
 });
 
 export default rootReducer;

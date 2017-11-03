@@ -29,7 +29,7 @@ class App extends Component {
     const { state } = this.props;
     return (
       <Router>
-        <div class="container" className="betheanswer">
+        <div className="container" className="betheanswer">
           <NavBar user={state.auth.user} />
           <Switch>
             <Route exact path="/" component={Home} />
