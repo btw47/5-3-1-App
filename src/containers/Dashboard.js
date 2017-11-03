@@ -3,11 +3,14 @@ import firebase from 'firebase';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { NavLink } from 'react-router-dom';
+import { Row, Col } from 'react-bootstrap';
 import '../css/Dashboard.css';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 import WeekCalendar from '../components/calendar';
 import UserStats from '../components/UserStats';
+import ProgressGraphDashboard from '../components/ProgressGraphDashboard';
+
 import * as actions from '../actions';
 
 class Dashboard extends Component {
@@ -34,13 +37,20 @@ class Dashboard extends Component {
           <span>Progress</span>
         </NavLink>
         <br />
-        <UserStats
-          className="UserStats"
-          user={state.user}
-          fetchUser={this.props.fetchUser}
-          fetchProfileImage={this.props.fetchProfileImage}
-          profileImage={state.user.profileImage}
-        />
+        <Row>
+          <Col md={6}>
+            <UserStats
+              className="UserStats"
+              user={state.user}
+              fetchUser={this.props.fetchUser}
+              fetchProfileImage={this.props.fetchProfileImage}
+              profileImage={state.user.profileImage}
+            />
+          </Col>
+          <Col md={6} mdOffsetRight={1}>
+            <ProgressGraphDashboard />
+          </Col>
+        </Row>
         <WeekCalendar className="UserStats" style={{ margin: '50px' }} />
         <NavLink to="/UpdateProfile">
           <span>Update your stats!</span>
