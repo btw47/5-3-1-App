@@ -60,9 +60,9 @@ export function fetchOldStats(thisUser, time) {
 
       const uploadList = [];
       for (let i = 0; i < pushList.length; i++) {
-        if (!firebaseOutput[pushList[i]].profileImage) {
+        if (firebaseOutput[pushList[i]].fullName) {
           const date = firebaseOutput[pushList[i]].date;
-          // uploadList[date] = firebaseOutput[pushList[i]].oneRepMax;
+          uploadList[date] = firebaseOutput[pushList[i]].oneRepMax;
           uploadList.push(firebaseOutput[pushList[i]]);
         }
       }
@@ -85,6 +85,50 @@ export function fetchOldStats(thisUser, time) {
   };
 }
 
+export function fetchCalendar(thisUser){
+  return dispatch => {
+    if (thisUser != null) {
+      var uid = thisUser.uid;
+    }
+
+    firebaseDb.ref('users/' + uid).on('value', snapshot => {
+      const firebaseOutput = snapshot.val();
+
+      // console.log("FIREBASE OUTPUT", firebaseOutput)
+
+      let pushList = [];
+      for (let prop in firebaseOutput) {
+        pushList.push(prop);
+      }
+
+      const uploadList = [];
+      for (let i = 0; i < pushList.length; i++) {
+        if (firebaseOutput[pushList[i]].calendar) {
+          uploadList.push(firebaseOutput[pushList[i]]);
+        }
+      }
+
+      // console.log("UPLOAD LIST", uploadList)
+
+      const date = Date()
+      const lastUpload = uploadList[uploadList.length - 1]
+      // console.log("LAST UPLOAD", lastUpload)
+
+      const selectedDay = lastUpload.calendar.selectedDay
+      const selectedWeekdays = lastUpload.calendar.selectedWeekdays
+      const selectedExercise = lastUpload.calendar.selectedExercise
+      
+    dispatch({
+      date: date,
+      type: actionTypes.FETCH_CALENDAR, 
+      selectedDay: selectedDay,
+      selectedWeekdays: selectedWeekdays,
+      selectedExercise: selectedExercise,
+    })
+    })
+  }
+}
+
 export function fetchUser(thisUser) {
   return dispatch => {
     if (thisUser != null) {
@@ -101,7 +145,7 @@ export function fetchUser(thisUser) {
 
       const uploadList = [];
       for (let i = 0; i < pushList.length; i++) {
-        if (!firebaseOutput[pushList[i]].profileImage) {
+        if (firebaseOutput[pushList[i]].fullName) {
           uploadList.push(firebaseOutput[pushList[i]]);
         }
       }
@@ -163,3 +207,4 @@ export const fetchProfileImage = uid => {
     });
   };
 };
+

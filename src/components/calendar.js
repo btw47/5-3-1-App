@@ -1,83 +1,106 @@
 import React, { Component } from "react";
 import moment from 'moment';
-import events from './events';
-import dates from 'date-arithmetic';
+import { connect } from 'react-redux'
+import Popup from 'react-popup';
+import * as actions from '../actions';
+import firebase from 'firebase';
+import { bindActionCreators } from 'redux';
 
-import TimeGrid from 'react-big-calendar/lib/TimeGrid';
-import localizer from 'react-big-calendar/lib/localizer';
+
+import 'react-big-calendar/lib/addons/dragAndDrop/styles.less';
 import BigCalendar from 'react-big-calendar';
+import BBB from './WorkoutTemplates/BBB';
+import userEvent from './eventFunction';
+import 'react-big-calendar/lib/less/styles.less';
+import './calendar.css';
 
 BigCalendar.setLocalizer(
   BigCalendar.momentLocalizer(moment)
 )
 
-const getRange = (date, culture) => {
-  let firstOfWeek = localizer.startOfWeek(culture);
-  let start = dates.startOf(date, 'week', firstOfWeek);
-  let end = dates.endOf(date, 'week', firstOfWeek);
 
-  if (firstOfWeek === 1){
-    end = dates.subtract(end, 2, 'day');
-  }else {
-    start = dates.add(start, 1, 'day');
-    end = dates.subtract(end, 1, 'day');
-  }
-
-  return dates.range(start, end)
-
+function Event({ event }) {
+  return(
+    <span>
+      <strong>{event.title}</strong>
+    </span>
+  )
 }
 
-class MyWeek extends React.Component{
+class Dnd extends React.Component{
+  constructor(props) {
+    super(props);
+  }
+
+  componentWillMount(){
+    firebase.auth().onAuthStateChanged(user => {
+      if (!user) {
+        window.location = '/';
+      } else if (user) {
+        const thisUser = firebase.auth().currentUser;
+        // this.props.fetchCalendar(thisUser)
+        // console.log("SELECTED EXERCISE", this.props.state.calendar.selectedExercise)
+      }
+
+    })
+  }
+
+
+
   render(){
-    let { date, culture } = this.props;
-    let range = getRange(date, culture)
-    return(
-      <TimeGrid {...this.props} range={range} eventOffset={15} />
-    )
-  }
-}
-
-MyWeek.navigate = (date, action) => {
-  switch (action){
-    case BigCalendar.Navigate.PREVIOUS:
-      return dates.add(date, -1, 'week');
-    case BigCalendar.Navigate.NEXT:
-      return dates.add(date, 1, 'week')
-    default:
-      return dates;  
-  }
-}
-
-MyWeek.title = (dates, {formats: formats, culture: culture }) => {
-  return `My Workouts: ${Date.toLocaleString()}`
-}
-
-class WeekCalendar extends Component {
-    constructor(props, context) {
-        super(props, context)
-        
+    const {state } = this.props
+    console.log("THIS STATE", this.state)
+    console.log("THIS PROPS", this.props)
+    let userEvents = [null];
+    if (state.fetchCalendar.calendar) {
+      if (state.fetchCalendar.calendar.selectedExercise === "boringButBig") {
+        console.log("COME ON BITCH", this.state)
+        userEvents = BBB
+      } else {
+        console.log("SHIIT")
+        userEvents
+      }
     }
-    
-
-    render(){
-        return(
-        <div className="WeekCalendar">
-            <BigCalendar
-              {...this.props}
-              popup
-              selectable 
-              step = 'allday'
-              events = {events}
-              defaultView = 'week'
-              views = {{week: true}}
-              scrollToTime={new Date(1970, 1, 1, 6)}
-              defaultDate= {Date(2017, 9, 25)}
-              
-            />
-        </div>  
+    return(
+      <div>
+        <BigCalendar
+        {...this.props}
+        popup
+        selectable
+        step= {'allday'} 
+        events = {userEvents}
+        defaultView = 'week'
+        views = {{ week: true }}
+        scrollToTime={new Date(1970, 1, 1, 6)}
+        defaultDate={new Date(2017, 9, 17)}
+        test='io'
+        onSelectEvent= {event => Popup.alert(event.desc, 'Description')}
+        components = {{
+        event: Event,
+        }}
+        />
+        <Popup
+        className="mm-popup"
+        btnClass="mm-popup__btn"
+        closeBtn={true}
+        closeHtml={null}
+        defaultOk="Ok"
+        defaultCancel="Cancel"
+        wildClasses={false}
+         />
+      </div>    
         )
     }
 }
 
-export default WeekCalendar;
+const mapStateToProps = state => {
+  return{state}
+}
+
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators(actions, dispatch);
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dnd);
 

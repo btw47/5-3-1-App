@@ -7,6 +7,7 @@ import "../css/Dashboard.css";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
 import WeekCalendar from "../components/calendar";
+import BBB from '../components/WorkoutTemplates/BBB';
 import UserStats from "../components/UserStats";
 import * as actions from "../actions";
 
@@ -18,6 +19,7 @@ class Dashboard extends Component {
       } else if (user) {
         const thisUser = firebase.auth().currentUser;
 
+        this.props.fetchCalendar(thisUser)        
         this.props.loggedIn();
         this.props.fetchUser(thisUser);
         this.props.fetchProfileImage(thisUser.uid);
@@ -27,6 +29,9 @@ class Dashboard extends Component {
 
   render() {
     const { state } = this.props;
+    const thisUser = firebase.auth().currentUser;
+    console.log("STORE", this.props.state)
+    
     return (
       <div className="textlayout">
         <UserStats
@@ -36,7 +41,11 @@ class Dashboard extends Component {
           fetchProfileImage={this.props.fetchProfileImage}
           profileImage={state.user.profileImage}
         />
-        <WeekCalendar className="UserStats" style={{ margin: "50px" }} />
+        <WeekCalendar style={{ margin: '50px' }} />
+        <NavLink to='/modify'>
+          <span>Modify Calendar</span>
+        </NavLink>
+        <br/>
         <NavLink to="/UpdateProfile">
           <span>Update your stats!</span>
         </NavLink>

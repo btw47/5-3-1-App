@@ -5451,6 +5451,12 @@ react-calendar@^2.2.0:
     react ">=15.5"
     react-dom ">=15.5"
 
+react-checkbox-group@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/react-checkbox-group/-/react-checkbox-group-3.3.1.tgz#75f6e3358191351c58490c40a43c8149fda4d3ed"
+  dependencies:
+    prop-types "^15.5.10"
+
 react-dev-utils@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-4.1.0.tgz#f6f436febd3f4eeb538490319b51c875c1e35bc5"
@@ -5550,6 +5556,10 @@ react-popper@^0.7.2:
   dependencies:
     popper.js "^1.12.5"
     prop-types "^15.5.10"
+
+react-popup@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/react-popup/-/react-popup-0.8.0.tgz#ea8f3e5f009b0bb5b41c471d9fd740de8c278cd7"
 
 react-prop-types@^0.4.0:
   version "0.4.0"

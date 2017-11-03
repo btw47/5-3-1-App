@@ -31,53 +31,53 @@ class NavBar extends Component {
 
   render() {
     return (
-      <div class="pos-f-t" className="navigationB">
-        <div class="collapse" id="navbarToggleExternalContent">
-          <div class="bg-dark p-4">
-            <h4 class="text-white">5-3-1 Workout App</h4>
-            <span class="text-muted">
-              <a class="navbar-brand" href="/">
-                <i class="em  em-house" />
+      <div className="pos-f-t" className="navigationB">
+        <div className="collapse" id="navbarToggleExternalContent">
+          <div className="bg-dark p-4">
+            <h4 className="text-white">5-3-1 Workout App</h4>
+            <span className="text-muted">
+              <a className="navbar-brand" href="/">
+                <i className="em  em-house" />
                 Home
               </a>
-              <a class="navbar-brand" href="/Today">
-                <i class="em em-date" />
+              <a className="navbar-brand" href="/Today">
+                <i className="em em-date" />
                 Today
               </a>
-              <a class="navbar-brand" href="/Progress">
-                <i class="em em-muscle" />
+              <a className="navbar-brand" href="/Progress">
+                <i className="em em-muscle" />
                 MY GAINZ
               </a>
-              <a class="navbar-brand" href="/Leaderboards">
-                <i class="em  em-trophy" />
+              <a className="navbar-brand" href="/Leaderboards">
+                <i className="em  em-trophy" />
                 Leaderboards
               </a>
-              <a class="navbar-brand" href="/Forums">
-                <i class="em  em-pencil" />
+              <a className="navbar-brand" href="/Forums">
+                <i className="em  em-pencil" />
                 Forums
               </a>
-              <a class="navbar-brand" href="/Dashboard">
-                <i class="em  em-chart_with_upwards_trend" />
+              <a className="navbar-brand" href="/Dashboard">
+                <i className="em  em-chart_with_upwards_trend" />
                 Dashboard
               </a>
-              <a class="navbar-brand" href="/ConnectWithUs">
-                <i class="em em-sunglasses" />
+              <a className="navbar-brand" href="/ConnectWithUs">
+                <i className="em em-sunglasses" />
                 Ladies Come Connect With Us!
               </a>
-              <a class="navbar-brand" href="/LiveChat">
-                <i class="em  em-interrobang" />
+              <a className="navbar-brand" href="/LiveChat">
+                <i className="em  em-interrobang" />
                 Live Chat!
               </a>
-              <a class="navbar-brand" href="/EmailSupport">
-                <i class="em  em-e-mail" />
+              <a className="navbar-brand" href="/EmailSupport">
+                <i className="em  em-e-mail" />
                 Email Support
               </a>
             </span>
           </div>
         </div>
-        <nav class="navbar navbar-dark bg-dark">
+        <nav className="navbar navbar-dark bg-dark">
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-toggle="collapse"
             data-target="#navbarToggleExternalContent"
@@ -85,7 +85,7 @@ class NavBar extends Component {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon" />
+            <span className="navbar-toggler-icon" />
           </button>
           {/* <a class="navbar-brand" href="/SignIn" className="signin">
             Log In

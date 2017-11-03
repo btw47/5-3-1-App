@@ -54,7 +54,7 @@ class SetProfile extends Component {
           date: date,
         })
         .then(function() {
-          window.location = '/dashboard';
+          window.location = '/GoalsUpdate';
         });
     }
   };

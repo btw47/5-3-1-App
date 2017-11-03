@@ -9,6 +9,7 @@ const actionTypes = {
   THIS_USER: 'THIS_USER',
   PROFILE_IMAGE: 'PROFILE_IMAGE',
   NO_PROFILE_IMAGE: 'NO_PROFILE_IMAGE',
+  FETCH_CALENDAR: 'FETCH_CALENDAR',
 };
 
 export default actionTypes;
