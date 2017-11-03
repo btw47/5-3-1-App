@@ -1,20 +1,20 @@
-import React, { Component } from "react";
-import firebase from "firebase";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import { NavLink } from "react-router-dom";
-import "../css/Dashboard.css";
-import "react-big-calendar/lib/css/react-big-calendar.css";
+import React, { Component } from 'react';
+import firebase from 'firebase';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { NavLink } from 'react-router-dom';
+import '../css/Dashboard.css';
+import 'react-big-calendar/lib/css/react-big-calendar.css';
 
-import WeekCalendar from "../components/calendar";
-import UserStats from "../components/UserStats";
-import * as actions from "../actions";
+import WeekCalendar from '../components/calendar';
+import UserStats from '../components/UserStats';
+import * as actions from '../actions';
 
 class Dashboard extends Component {
   componentWillMount() {
     firebase.auth().onAuthStateChanged(user => {
       if (!user) {
-        window.location = "/";
+        window.location = '/';
       } else if (user) {
         const thisUser = firebase.auth().currentUser;
 
@@ -30,6 +30,10 @@ class Dashboard extends Component {
     const { state } = this.props;
     return (
       <div className="textlayout">
+        <NavLink to="/DetailedProgress" style={{ float: 'right' }}>
+          <span>Progress</span>
+        </NavLink>
+        <br />
         <UserStats
           className="UserStats"
           user={state.user}
@@ -37,11 +41,12 @@ class Dashboard extends Component {
           fetchProfileImage={this.props.fetchProfileImage}
           profileImage={state.user.profileImage}
         />
-        <WeekCalendar className="UserStats" style={{ margin: "50px" }} />
+        <WeekCalendar className="UserStats" style={{ margin: '50px' }} />
         <NavLink to="/UpdateProfile">
           <span>Update your stats!</span>
         </NavLink>
-        <NavLink to="/Compare" style={{ float: "right" }}>
+
+        <NavLink to="/Compare" style={{ float: 'right' }}>
           <span>Compare</span>
         </NavLink>
       </div>

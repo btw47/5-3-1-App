@@ -7,15 +7,17 @@ import ProgressGraph from '../components/ProgressGraph';
 class DetailedProgress extends Component {
   render() {
     return (
-      <Jumbotron>
-        <div>
-          <NavLink style={{ float: 'left' }} to="/Compare">
-            Compare
-          </NavLink>
-          <br />
-          <ProgressGraph />
-        </div>
-      </Jumbotron>
+      <div>
+        <Jumbotron>
+          <div>
+            <NavLink style={{ float: 'left' }} to="/Compare">
+              Compare
+            </NavLink>
+            <br />
+            <ProgressGraph />
+          </div>
+        </Jumbotron>
+      </div>
     );
   }
 }
