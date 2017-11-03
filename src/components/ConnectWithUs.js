@@ -17,11 +17,13 @@ class ConnectWithUs extends Component {
     var styles = {};
 
     return (
-      <div>
+      <div className="container">
         <div className="logo" />
         <div className="content" style={styles}>
-          <div className="container">
-            <h1 className="cwtitle">The 5-3-1 Pro Team</h1>
+          <div>
+            <h1 className="cwtitle">
+              <span>The 5-3-1 Pro Team</span>
+            </h1>
             <h2>
               <div className="lineright">
                 <ul className="myrow">
@@ -30,7 +32,7 @@ class ConnectWithUs extends Component {
                       <h3>
                         <b>Bradley Wong</b>
                       </h3>
-                      "Fuck Bitches Get Money"
+                      "Not npm, Yarn bro"
                       <br />
                       <br />
                       <img src={Brad} alt="Brad Picture" className="teamPics" />
@@ -55,7 +57,7 @@ class ConnectWithUs extends Component {
                       <h3>
                         <b>JD Headbanger</b>
                       </h3>
-                      "Fuck Bitches Get Money"
+                      " "
                       <br />
                       <br />
                       <img src={JD} alt="JD Picture" className="teamPics" />
@@ -79,7 +81,7 @@ class ConnectWithUs extends Component {
                     <h3>
                       <b>James Bell</b>
                     </h3>
-                    "Fuck Bitches Get Money"
+                    "Its working as coded."
                     <br />
                     <br />
                     <img src={James} alt="James Picture" className="teamPics" />
@@ -102,7 +104,7 @@ class ConnectWithUs extends Component {
                     <h3>
                       <b>Ryan Fuchs</b>
                     </h3>
-                    "Fuck Bitches Get Money"
+                    " "
                     <br />
                     <br />
                     <img src={Ryan} alt="Ryans Picture" className="teamPics" />

@@ -5,7 +5,7 @@ import "../css/App.css";
 class Leaderboards extends Component {
   render() {
     return (
-      <div className="logo">
+      <div className="textlayout">
         <div className="content">
           <div
             className="container"
@@ -14,8 +14,8 @@ class Leaderboards extends Component {
             <ul className="myrow">
               <div className="textlayout">
                 <li className="contentblock">
-                  <h2>LEADERBOARDS</h2>
-                  <p>
+                  <h2 className="titles">Leaderboards</h2>
+                  <p className="contentp">
                     We saw there were a lot of differentt apps out there for
                     5/3/1 but most of them are just logs of your workouts
                     instead of a full intergrated app that the user interacts
@@ -25,8 +25,8 @@ class Leaderboards extends Component {
                   </p>
                 </li>
                 <br />
-                <h2>Our Vision</h2>
-                <p>
+                <h2 className="titles">Our Vision</h2>
+                <p className="contentp">
                   To provide the community with a training template app that
                   follows the 5/3/1 program principles Lorem ipsum dolor sit
                   amet, consectetur adipiscing elit. Eorum enim omnium multa
