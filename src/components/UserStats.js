@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
-import * as actions from "../actions";
-import profilePicture from "../images/anon-user.jpg";
-import UploadImage from "../components/UploadImage";
+import * as actions from '../actions';
+import profilePicture from '../images/anon-user.jpg';
+import UploadImage from './UploadImage';
 
 class UserStats extends Component {
   constructor(props) {
@@ -12,22 +12,18 @@ class UserStats extends Component {
   }
 
   componentWillMount() {
-    this.renderImage()
+    this.renderImage();
 
-    console.log("FUNCTION CALLED")
+    console.log('FUNCTION CALLED');
   }
 
   renderImage = () => {
     if (this.props.profileImage === null) {
       const { user } = this.props;
-      
+
       return (
         <div>
           <img src={profilePicture} alt="profile pic" style={this.imageStyle} />
-          <UploadImage
-            fetchProfileImage={this.props.fetchProfileImage}
-            userId={user.uid}
-          />
         </div>
       );
     } else {
@@ -39,17 +35,17 @@ class UserStats extends Component {
     }
   };
 
-   style = {
+  style = {
     height: '30vh',
-    width: '15vw',
+    width: '15vw'
   };
 
-   imageStyle = {
-    width: '12vw',
+  imageStyle = {
+    width: '12vw'
   };
-  
+
   render() {
-    const { user } = this.props;    
+    const { user } = this.props;
     return (
       <div>
         <div>
@@ -69,7 +65,7 @@ class UserStats extends Component {
         </div>
       </div>
     );
+  }
 }
-};
 
 export default UserStats;

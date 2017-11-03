@@ -18,10 +18,10 @@ class Dashboard extends Component {
       } else if (user) {
         const thisUser = firebase.auth().currentUser;
 
-        this.props.loggedIn();
         this.props.fetchUser(thisUser);
         this.props.fetchProfileImage(thisUser.uid);
         this.props.fetchProgress(thisUser);
+        this.props.loggedIn();
       }
     });
   }
