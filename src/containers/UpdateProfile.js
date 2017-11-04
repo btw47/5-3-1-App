@@ -8,8 +8,8 @@ import * as actions from '../actions';
 import { firebaseDb } from '../server/firebase';
 
 class SetProfile extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {};
   }
 
@@ -67,6 +67,7 @@ class SetProfile extends Component {
       }
 
       const date = Date();
+      const history = this.props.history;
 
       firebaseDb
         .ref('users/' + uid)
@@ -77,13 +78,14 @@ class SetProfile extends Component {
           date: date
         })
         .then(function() {
-          window.location = '/dashboard';
+          history.push('/Dashboard');
         });
     }
   };
 
   render() {
     const { state } = this.props;
+
     return (
       <div className="update-profile">
         <NavLink style={{ float: 'left' }} to="/dashboard">
