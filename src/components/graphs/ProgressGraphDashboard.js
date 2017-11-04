@@ -41,7 +41,7 @@ class ProgressGraphDashboard extends Component {
           animation={false}
           id="noanim-tab-example"
           style={{ 'border-bottom': '5px' }}>
-          <Tab eventKey={2} title="Weight">
+          <Tab eventKey={1} title="Weight">
             <div style={{ 'text-align': 'center' }}>
               <h2>Weight</h2>
               <ResponsiveContainer width={'100%'} height={200}>
@@ -64,7 +64,7 @@ class ProgressGraphDashboard extends Component {
               </ResponsiveContainer>
             </div>
           </Tab>
-          <Tab eventKey={3} title="Bench (ORM)">
+          <Tab eventKey={2} title="Bench (ORM)">
             <div style={{ 'text-align': 'center' }}>
               <h2>Bench</h2>
               <ResponsiveContainer width={'100%'} height={200}>
@@ -89,7 +89,7 @@ class ProgressGraphDashboard extends Component {
               </ResponsiveContainer>
             </div>
           </Tab>
-          <Tab eventKey={4} title="Overhead Press (ORM)">
+          <Tab eventKey={3} title="Overhead Press (ORM)">
             <div style={{ 'text-align': 'center' }}>
               <h2>Overhead Press</h2>
               <ResponsiveContainer width={'100%'} height={200}>
@@ -114,7 +114,7 @@ class ProgressGraphDashboard extends Component {
               </ResponsiveContainer>
             </div>
           </Tab>
-          <Tab eventKey={5} title="Squat (ORM)">
+          <Tab eventKey={4} title="Squat (ORM)">
             <div style={{ 'text-align': 'center' }}>
               <h2>Squats</h2>
               <ResponsiveContainer width={'100%'} height={200}>
@@ -139,7 +139,7 @@ class ProgressGraphDashboard extends Component {
               </ResponsiveContainer>
             </div>
           </Tab>
-          <Tab eventKey={6} title="Deadlift (ORM)">
+          <Tab eventKey={5} title="Deadlift (ORM)">
             <div style={{ 'text-align': 'center' }}>
               <h2>Deadlift</h2>
               <ResponsiveContainer width={'100%'} height={200}>

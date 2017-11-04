@@ -51,9 +51,9 @@ class Dashboard extends Component {
               profileImage={state.user.profileImage}
             />
           </Col>
-          <Col md={6} mdOffsetRight={1}>
+          {/* <Col md={6} mdOffsetRight={1}>
             <ProgressGraphDashboard />
-          </Col>
+          </Col> */}
         </Row>
         <WeekCalendar style={{ margin: '50px' }} />
         <NavLink to="/modify">

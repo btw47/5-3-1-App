@@ -53,6 +53,38 @@ class Compare extends Component {
     );
   };
 
+  renderPresent = () => {
+    const { state } = this.props;
+
+    if (!this.state.compare) {
+      return (
+        <Col
+          md={12}
+          style={{ 'text-align': 'center', display: 'inline', margin: 'auto' }}>
+          <h3>Present Day</h3>
+          <UserStats
+            user={state.user}
+            fetchUser={this.props.fetchUser}
+            fetchProfileImage={this.props.fetchProfileImage}
+            profileImage={state.user.profileImage}
+          />
+        </Col>
+      );
+    } else {
+      return (
+        <Col md={6} style={{ 'text-align': 'center' }}>
+          <h3>Present Day</h3>
+          <UserStats
+            user={state.user}
+            fetchUser={this.props.fetchUser}
+            fetchProfileImage={this.props.fetchProfileImage}
+            profileImage={state.user.profileImage}
+          />
+        </Col>
+      );
+    }
+  };
+
   render() {
     const { state } = this.props;
 
@@ -68,15 +100,7 @@ class Compare extends Component {
           <br />
           <h1>Compare to your old weaker self</h1>
           <Row>
-            <Col md={6} style={{ 'text-align': 'center' }}>
-              <h3>Present Day</h3>
-              <UserStats
-                user={state.user}
-                fetchUser={this.props.fetchUser}
-                fetchProfileImage={this.props.fetchProfileImage}
-                profileImage={state.user.profileImage}
-              />
-            </Col>
+            {this.renderPresent()}
             <Col md={6} style={{ 'text-align': 'center' }}>
               {this.state.compare && (
                 <div>
