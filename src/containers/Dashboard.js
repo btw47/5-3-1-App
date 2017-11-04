@@ -10,7 +10,7 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 import WeekCalendar from '../components/calendar';
 import BBB from '../components/WorkoutTemplates/BBB';
 import UserStats from '../components/UserStats';
-import ProgressGraphDashboard from '../components/graphs/ProgressGraphDashboard';
+// import ProgressGraphDashboard from '../components/graphs/ProgressGraphDashboard';
 import * as actions from '../actions';
 
 class Dashboard extends Component {

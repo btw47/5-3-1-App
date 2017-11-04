@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Jumbotron } from 'react-bootstrap';
 
-import ProgressGraph from '../components/graphs/ProgressGraph';
+import ProgressGraph from '../components/graphs/GraphContainer';
 
 class DetailedProgress extends Component {
   render() {
