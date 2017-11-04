@@ -10,6 +10,7 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 import WeekCalendar from '../components/calendar';
 import BBB from '../components/WorkoutTemplates/BBB';
 import UserStats from '../components/UserStats';
+import ProgressGraphDashboard from '../components/graphs/ProgressGraphDashboard';
 import * as actions from '../actions';
 
 class Dashboard extends Component {
@@ -37,13 +38,24 @@ class Dashboard extends Component {
 
     return (
       <div className="textlayout">
-        <UserStats
-          className="UserStats"
-          user={state.user}
-          fetchUser={this.props.fetchUser}
-          fetchProfileImage={this.props.fetchProfileImage}
-          profileImage={state.user.profileImage}
-        />
+        <NavLink to="/DetailedProgress" style={{ float: 'right' }}>
+          <span>Progress</span>
+        </NavLink>
+        <br />
+        <Row>
+          <Col md={6}>
+            <UserStats
+              className="UserStats"
+              user={state.user}
+              fetchUser={this.props.fetchUser}
+              fetchProfileImage={this.props.fetchProfileImage}
+              profileImage={state.user.profileImage}
+            />
+          </Col>
+          <Col md={6} mdOffsetRight={1}>
+            <ProgressGraphDashboard />
+          </Col>
+        </Row>
         <WeekCalendar style={{ margin: '50px' }} />
         <NavLink to="/modify">
           <span>Modify Calendar</span>

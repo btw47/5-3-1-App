@@ -14,7 +14,7 @@ import firebase from 'firebase';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as actions from '../actions';
+import * as actions from '../../actions';
 
 class ProgressGraphDashboard extends Component {
   componentWillMount() {
