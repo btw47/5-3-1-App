@@ -45,7 +45,7 @@ class Compare extends Component {
   renderCompare = () => {
     return (
       <select
-        style={{ float: 'right' }}
+        style={{ margin: 'auto' }}
         onChange={event => this.handleCompare(event)}>
         <option value="">Select a Time</option>
         <option value="Day One">Day One</option>
@@ -98,7 +98,7 @@ class Compare extends Component {
             Progress
           </NavLink>
           <br />
-          <h1>Compare to your old weaker self</h1>
+
           <Row>
             {this.renderPresent()}
             <Col md={6} style={{ 'text-align': 'center' }}>

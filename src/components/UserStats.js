@@ -58,10 +58,10 @@ class UserStats extends Component {
             <h6>Squats: {user.ormSquat}</h6>
             <h6>Deadlift: {user.ormDeadlift}</h6>
           </div>
-          <UploadImage
+          {/* <UploadImage
             fetchProfileImage={this.props.fetchProfileImage}
             userId={user.uid}
-          />
+          /> */}
         </div>
       </div>
     );

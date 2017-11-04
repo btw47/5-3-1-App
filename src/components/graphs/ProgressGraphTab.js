@@ -13,7 +13,7 @@ class ProgressGraphTab extends Component {
       const fullDate = `${joinDate}, ${oldStats.date.split(' ').slice(3, 4)}`;
 
       const diff = currStat - oldStat;
-      const percentDiff = diff / oldStat * 100;
+      const percentDiff = (diff / oldStat * 100).toFixed(2);
 
       return (
         <table

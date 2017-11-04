@@ -10,7 +10,7 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 import WeekCalendar from '../components/calendar';
 import BBB from '../components/WorkoutTemplates/BBB';
 import UserStats from '../components/UserStats';
-// import ProgressGraphDashboard from '../components/graphs/ProgressGraphDashboard';
+import UploadImage from '../components/UploadImage';
 import * as actions from '../actions';
 
 class Dashboard extends Component {
@@ -24,6 +24,7 @@ class Dashboard extends Component {
         this.props.fetchCalendar(thisUser);
         this.props.fetchProfileImage(thisUser.uid);
         this.props.fetchUser(thisUser);
+        this.props.fetchOldStats(thisUser);
         this.props.fetchProgress(thisUser);
         this.props.loggedIn();
       }
@@ -49,6 +50,10 @@ class Dashboard extends Component {
               fetchUser={this.props.fetchUser}
               fetchProfileImage={this.props.fetchProfileImage}
               profileImage={state.user.profileImage}
+            />
+            <UploadImage
+              fetchProfileImage={this.props.fetchProfileImage}
+              userId={state.user.uid}
             />
           </Col>
           {/* <Col md={6} mdOffsetRight={1}>
