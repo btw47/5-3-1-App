@@ -17,7 +17,7 @@ class Dashboard extends Component {
   componentWillMount() {
     firebase.auth().onAuthStateChanged(user => {
       if (!user) {
-        window.location = '/';
+        this.props.history.push('/');
       } else if (user) {
         const thisUser = firebase.auth().currentUser;
 

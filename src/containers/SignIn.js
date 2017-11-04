@@ -12,20 +12,20 @@ class SignIn extends Component {
   componentWillMount() {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        window.location = '/dashboard'; //After successful login, user will be redirected to user dashboard
+        this.props.history.push('/Dashboard');
       }
     });
   }
 
   handleUser = event => {
     this.setState({
-      email: event.target.value,
+      email: event.target.value
     });
   };
 
   handlePassword = event => {
     this.setState({
-      password: event.target.value,
+      password: event.target.value
     });
   };
 

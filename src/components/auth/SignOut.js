@@ -1,5 +1,5 @@
-import React from "react";
-import firebase from "firebase";
+import React from 'react';
+import firebase from 'firebase';
 
 const SignOut = props => {
   const handleClick = () => {
@@ -8,11 +8,11 @@ const SignOut = props => {
       .signOut()
       .then(
         function() {
-          console.log("Signed Out");
-          window.location = "/";
+          console.log('Signed Out');
+          window.location = '/';
         },
         function(error) {
-          console.error("Sign Out Error", error);
+          console.error('Sign Out Error', error);
         }
       );
   };
