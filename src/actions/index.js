@@ -3,7 +3,8 @@ import { firebaseApp, firebaseDb } from '../server/firebase';
 
 //ACTION CREATORS-------------------
 const updateProfile = () => {
-  window.location = '/SetProfile';
+  // window.location = '/SetProfile'
+  this.props.history.push('/SetProfile');
 };
 
 export const loggedIn = () => {
@@ -85,7 +86,7 @@ export function fetchOldStats(thisUser, time) {
   };
 }
 
-export function fetchCalendar(thisUser){
+export function fetchCalendar(thisUser) {
   return dispatch => {
     if (thisUser != null) {
       var uid = thisUser.uid;
@@ -110,23 +111,23 @@ export function fetchCalendar(thisUser){
 
       // console.log("UPLOAD LIST", uploadList)
 
-      const date = Date()
-      const lastUpload = uploadList[uploadList.length - 1]
+      const date = Date();
+      const lastUpload = uploadList[uploadList.length - 1];
       // console.log("LAST UPLOAD", lastUpload)
 
-      const selectedDay = lastUpload.calendar.selectedDay
-      const selectedWeekdays = lastUpload.calendar.selectedWeekdays
-      const selectedExercise = lastUpload.calendar.selectedExercise
-      
-    dispatch({
-      date: date,
-      type: actionTypes.FETCH_CALENDAR, 
-      selectedDay: selectedDay,
-      selectedWeekdays: selectedWeekdays,
-      selectedExercise: selectedExercise,
-    })
-    })
-  }
+      const selectedDay = lastUpload.calendar.selectedDay;
+      const selectedWeekdays = lastUpload.calendar.selectedWeekdays;
+      const selectedExercise = lastUpload.calendar.selectedExercise;
+
+      dispatch({
+        date: date,
+        type: actionTypes.FETCH_CALENDAR,
+        selectedDay: selectedDay,
+        selectedWeekdays: selectedWeekdays,
+        selectedExercise: selectedExercise
+      });
+    });
+  };
 }
 
 export function fetchUser(thisUser) {
@@ -256,4 +257,3 @@ export const fetchProfileImage = uid => {
     });
   };
 };
-

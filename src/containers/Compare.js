@@ -18,7 +18,7 @@ class Compare extends Component {
   componentWillMount() {
     firebase.auth().onAuthStateChanged(user => {
       if (!user) {
-        window.location = '/';
+        this.props.history.push('/');
       } else if (user) {
         var thisUser = firebase.auth().currentUser;
 
@@ -26,9 +26,9 @@ class Compare extends Component {
           thisUser: thisUser
         });
 
-        this.props.fetchUser(thisUser);
         this.props.fetchProfileImage(thisUser.uid);
         this.props.fetchProgress(thisUser);
+        this.props.fetchUser(thisUser);
         this.props.loggedIn();
       }
     });

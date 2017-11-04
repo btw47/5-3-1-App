@@ -8,8 +8,7 @@ const SignOut = props => {
       .signOut()
       .then(
         function() {
-          console.log('Signed Out');
-          window.location = '/';
+          props.history.push('/');
         },
         function(error) {
           console.error('Sign Out Error', error);

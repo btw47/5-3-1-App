@@ -22,9 +22,8 @@ class Dashboard extends Component {
         const thisUser = firebase.auth().currentUser;
 
         this.props.fetchCalendar(thisUser);
-        this.props.loggedIn();
-        this.props.fetchUser(thisUser);
         this.props.fetchProfileImage(thisUser.uid);
+        this.props.fetchUser(thisUser);
         this.props.fetchProgress(thisUser);
         this.props.loggedIn();
       }
