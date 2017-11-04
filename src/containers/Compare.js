@@ -20,7 +20,7 @@ class Compare extends Component {
       if (!user) {
         this.props.history.push('/');
       } else if (user) {
-        var thisUser = firebase.auth().currentUser;
+        const thisUser = firebase.auth().currentUser;
 
         this.setState({
           thisUser: thisUser

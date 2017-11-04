@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import Home from './Home';
 import Dashboard from './Dashboard';
-import SignIn from '../containers/SignIn';
+import SignIn from './SignIn';
 import SetProfile from './SetProfile';
 import Today from '../components/Today';
 import Progress from '../components/Progress';
@@ -22,7 +22,7 @@ import Footer from '../components/Footer';
 import ForgotPassword from '../components/auth/ForgotPassword';
 import GoalsUpdate from './GoalsUpdate';
 import WeeklyTemplate from '../components/weeklyTemplate';
-import DetailedProgress from '../containers/DetailedProgress';
+import DetailedProgress from './DetailedProgress';
 import { Button } from 'reactstrap';
 
 class App extends Component {
