@@ -23,7 +23,8 @@ export const fetchUserReducer = (state = {}, action) => {
           ormBench: action.ormBench,
           ormDeadlift: action.ormDeadlift,
           ormOverheadPress: action.ormOverheadPress,
-          ormSquat: action.ormSquat
+          ormSquat: action.ormSquat,
+          date: action.date
         }
       };
     case actionTypes.PROFILE_IMAGE:

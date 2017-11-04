@@ -77,6 +77,7 @@ export function fetchOldStats(thisUser, time) {
         userID: uid,
         fullName: firstUpload.fullName,
         weight: firstUpload.weight,
+        date: firstUpload.date,
         ormBench: firstUpload.oneRepMax['benchORM'],
         ormDeadlift: firstUpload.oneRepMax['deadliftORM'],
         ormOverheadPress: firstUpload.oneRepMax['overheadPressORM'],

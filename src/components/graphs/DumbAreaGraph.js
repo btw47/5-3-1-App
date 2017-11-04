@@ -14,6 +14,7 @@ const DumbGraph = props => {
 
   return (
     <div style={{ 'text-align': 'center' }}>
+      <br />
       <h2>{props.title}</h2>
       <ResponsiveContainer width={'100%'} height={props.height}>
         <AreaChart
