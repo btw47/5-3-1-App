@@ -17,6 +17,10 @@ class SignIn extends Component {
     });
   }
 
+  componentDidMount() {
+    this.email.focus();
+  }
+
   handleUser = event => {
     this.setState({
       email: event.target.value
@@ -61,6 +65,7 @@ class SignIn extends Component {
           <input
             type="text"
             placeholder="email"
+            ref={ref => (this.email = ref)}
             onChange={event => this.handleUser(event)}
           />
           <br />

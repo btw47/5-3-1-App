@@ -6,14 +6,9 @@ const SignOut = props => {
     firebase
       .auth()
       .signOut()
-      .then(
-        function() {
-          props.history.push('/');
-        },
-        function(error) {
-          console.error('Sign Out Error', error);
-        }
-      );
+      .catch(function(error) {
+        console.error('Sign Out Error', error);
+      });
   };
 
   return (

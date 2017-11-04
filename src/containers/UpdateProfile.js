@@ -26,6 +26,10 @@ class SetProfile extends Component {
     });
   }
 
+  componentDidMount() {
+    this.weight.focus();
+  }
+
   handleEmail = event => {
     this.setState({
       email: event.target.value
@@ -106,6 +110,7 @@ class SetProfile extends Component {
           <label>Current Weight: </label>
           <input
             type="text"
+            ref={ref => (this.weight = ref)}
             placeholder={state.user.weight + ' (lbs)'}
             onChange={event => this.handleWeight(event)}
           />
