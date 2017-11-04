@@ -28,13 +28,13 @@ class SetProfile extends Component {
 
   handleEmail = event => {
     this.setState({
-      email: event.target.value,
+      email: event.target.value
     });
   };
 
   handleWeight = event => {
     this.setState({
-      weight: event.target.value,
+      weight: event.target.value
     });
   };
 
@@ -44,21 +44,21 @@ class SetProfile extends Component {
         squatORM: this.squat.value,
         deadliftORM: this.deadlift.value,
         benchORM: this.bench.value,
-        overheadPressORM: this.overheadPress.value,
-      },
+        overheadPressORM: this.overheadPress.value
+      }
     });
   };
 
-  handleFullName = event => {
-    this.setState({
-      fullName: event.target.value,
-    });
-  };
+  // handleFullName = event => {
+  //   this.setState({
+  //     fullName: event.target.value,
+  //   });
+  // };
 
   handleSubmit = event => {
     event.preventDefault();
 
-    if (!this.state.weight || !this.state.oneRepMax || !this.state.fullName) {
+    if (!this.state.weight || !this.state.oneRepMax) {
       console.log('NOT FILLED OUT YO');
     } else {
       const thisUser = firebase.auth().currentUser;
@@ -73,8 +73,7 @@ class SetProfile extends Component {
         .push({
           weight: this.state.weight,
           oneRepMax: this.state.oneRepMax,
-          fullName: this.state.fullName,
-          date: date,
+          date: date
         })
         .then(function() {
           window.location = '/dashboard';
@@ -93,13 +92,13 @@ class SetProfile extends Component {
 
         <h2>Enter your info below</h2>
         <form onSubmit={event => this.handleSubmit(event)}>
-          <label>Full name: </label>
-          <input
+          {/* <label>Full name: </label>
+            <input
             type="text"
             placeholder={state.user.fullName}
             onChange={event => this.handleFullName(event)}
-          />
-          <br />
+            />
+          <br /> */}
 
           <label>Current Weight: </label>
           <input
@@ -158,7 +157,7 @@ class SetProfile extends Component {
 
 const mapStateToProps = state => {
   return {
-    state,
+    state
   };
 };
 

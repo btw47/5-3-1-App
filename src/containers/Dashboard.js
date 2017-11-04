@@ -1,21 +1,24 @@
-import React, { Component } from "react";
-import firebase from "firebase";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import { NavLink } from "react-router-dom";
-import "../css/Dashboard.css";
-import "react-big-calendar/lib/css/react-big-calendar.css";
+import React, { Component } from 'react';
+import firebase from 'firebase';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { NavLink } from 'react-router-dom';
+import { Row, Col } from 'react-bootstrap';
+import '../css/Dashboard.css';
+import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 import WeekCalendar from "../components/calendar";
 import BBB from '../components/WorkoutTemplates/BBB';
 import UserStats from "../components/UserStats";
 import * as actions from "../actions";
 
+import * as actions from '../actions';
+
 class Dashboard extends Component {
   componentWillMount() {
     firebase.auth().onAuthStateChanged(user => {
       if (!user) {
-        window.location = "/";
+        window.location = '/';
       } else if (user) {
         const thisUser = firebase.auth().currentUser;
 
@@ -23,6 +26,8 @@ class Dashboard extends Component {
         this.props.loggedIn();
         this.props.fetchUser(thisUser);
         this.props.fetchProfileImage(thisUser.uid);
+        this.props.fetchProgress(thisUser);
+        this.props.loggedIn();
       }
     });
   }
@@ -49,7 +54,8 @@ class Dashboard extends Component {
         <NavLink to="/UpdateProfile">
           <span>Update your stats!</span>
         </NavLink>
-        <NavLink to="/Compare" style={{ float: "right" }}>
+
+        <NavLink to="/Compare" style={{ float: 'right' }}>
           <span>Compare</span>
         </NavLink>
       </div>

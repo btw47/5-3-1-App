@@ -8,14 +8,14 @@ const updateProfile = () => {
 
 export const loggedIn = () => {
   return {
-    type: actionTypes.LOGGED_IN,
+    type: actionTypes.LOGGED_IN
   };
 };
 
 const authError = error => {
   return {
     type: actionTypes.AUTH_ERROR,
-    payload: error,
+    payload: error
   };
 };
 
@@ -60,7 +60,7 @@ export function fetchOldStats(thisUser, time) {
 
       const uploadList = [];
       for (let i = 0; i < pushList.length; i++) {
-        if (firebaseOutput[pushList[i]].fullName) {
+        if (firebaseOutput[pushList[i]].weight) {
           const date = firebaseOutput[pushList[i]].date;
           uploadList[date] = firebaseOutput[pushList[i]].oneRepMax;
           uploadList.push(firebaseOutput[pushList[i]]);
@@ -79,7 +79,7 @@ export function fetchOldStats(thisUser, time) {
         ormBench: firstUpload.oneRepMax['benchORM'],
         ormDeadlift: firstUpload.oneRepMax['deadliftORM'],
         ormOverheadPress: firstUpload.oneRepMax['overheadPressORM'],
-        ormSquat: firstUpload.oneRepMax['squatORM'],
+        ormSquat: firstUpload.oneRepMax['squatORM']
       });
     });
   };
@@ -145,7 +145,7 @@ export function fetchUser(thisUser) {
 
       const uploadList = [];
       for (let i = 0; i < pushList.length; i++) {
-        if (firebaseOutput[pushList[i]].fullName) {
+        if (firebaseOutput[pushList[i]].weight) {
           uploadList.push(firebaseOutput[pushList[i]]);
         }
       }
@@ -160,7 +160,7 @@ export function fetchUser(thisUser) {
         ormBench: lastUpload.oneRepMax['benchORM'],
         ormDeadlift: lastUpload.oneRepMax['deadliftORM'],
         ormOverheadPress: lastUpload.oneRepMax['overheadPressORM'],
-        ormSquat: lastUpload.oneRepMax['squatORM'],
+        ormSquat: lastUpload.oneRepMax['squatORM']
       });
     });
   };
@@ -169,8 +169,57 @@ export function fetchUser(thisUser) {
 export const loggedOut = () => {
   return dispatch => {
     return {
-      type: actionTypes.LOGGED_OUT,
+      type: actionTypes.LOGGED_OUT
     };
+  };
+};
+
+export const fetchProgress = thisUser => {
+  return dispatch => {
+    if (thisUser != null) {
+      var uid = thisUser.uid;
+    }
+
+    firebaseDb.ref('users/' + uid).on('value', snapshot => {
+      const firebaseOutput = snapshot.val();
+
+      let pushList = [];
+      for (let prop in firebaseOutput) {
+        pushList.push(prop);
+      }
+
+      const uploadList = [];
+      for (let i = 0; i < pushList.length; i++) {
+        if (firebaseOutput[pushList[i]].weight) {
+          const date = firebaseOutput[pushList[i]].date;
+          // uploadList[date] = firebaseOutput[pushList[i]].oneRepMax;
+          uploadList.push(firebaseOutput[pushList[i]]);
+        }
+      }
+
+      console.log('UPLOAD LIST', uploadList);
+
+      const progressData = uploadList.map(a => {
+        const smallDate = a.date.split(' ').slice(1, 3);
+        const joinDate = smallDate.join(' ');
+        const fullDate = `${joinDate}, ${a.date.split(' ').slice(3, 4)}`;
+        const rawDat = {};
+        rawDat['name'] = fullDate;
+        rawDat['Bench (ORM)'] = a.oneRepMax['benchORM'];
+        rawDat['Squat (ORM)'] = a.oneRepMax['squatORM'];
+        rawDat['Overhead Press (ORM)'] = a.oneRepMax['overheadPressORM'];
+        rawDat['Deadlift (ORM)'] = a.oneRepMax['deadliftORM'];
+        rawDat['Weight'] = a.weight;
+        return rawDat;
+      });
+
+      console.log('PROGRESS DATA', progressData);
+
+      dispatch({
+        type: actionTypes.FETCH_PROGRESS,
+        payload: progressData
+      });
+    });
   };
 };
 
@@ -196,12 +245,12 @@ export const fetchProfileImage = uid => {
 
       if (lastUpload === undefined) {
         dispatch({
-          type: actionTypes.NO_PROFILE_IMAGE,
+          type: actionTypes.NO_PROFILE_IMAGE
         });
       } else {
         dispatch({
           type: actionTypes.PROFILE_IMAGE,
-          payload: lastUpload.profileImage,
+          payload: lastUpload.profileImage
         });
       }
     });
