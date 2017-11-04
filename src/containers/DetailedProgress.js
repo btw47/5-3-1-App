@@ -121,6 +121,7 @@ class ProgressGraph extends Component {
               color="#ed8c42"
               oldStats={this.props.state.user.oldStats}
               currentStats={currentStats}
+              stat="weight"
             />
             <ProgressGraphTab
               title="Bench"
@@ -131,6 +132,7 @@ class ProgressGraph extends Component {
               eventKey={3}
               oldStats={this.props.state.user.oldStats}
               currentStats={currentStats}
+              stat="ormBench"
             />
 
             <ProgressGraphTab
@@ -142,6 +144,7 @@ class ProgressGraph extends Component {
               eventKey={4}
               oldStats={this.props.state.user.oldStats}
               currentStats={currentStats}
+              stat="ormOverheadPress"
             />
 
             <ProgressGraphTab
@@ -153,6 +156,7 @@ class ProgressGraph extends Component {
               eventKey={5}
               oldStats={this.props.state.user.oldStats}
               currentStats={currentStats}
+              stat="ormSquat"
             />
             <ProgressGraphTab
               title="Deadlift"
@@ -162,6 +166,7 @@ class ProgressGraph extends Component {
               eventKey={6}
               oldStats={this.props.state.user.oldStats}
               currentStats={currentStats}
+              stat="ormDeadlift"
             />
           </Tabs>
         </Jumbotron>
