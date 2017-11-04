@@ -71,6 +71,7 @@ class SetProfile extends Component {
       firebaseDb
         .ref('users/' + uid)
         .push({
+          fullName: this.props.state.user.fullName,
           weight: this.state.weight,
           oneRepMax: this.state.oneRepMax,
           date: date

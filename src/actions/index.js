@@ -1,10 +1,10 @@
-import actionTypes from '../actionTypes';
+import React from 'react';
 import { firebaseApp, firebaseDb } from '../server/firebase';
+import actionTypes from '../actionTypes';
 
 //ACTION CREATORS-------------------
 const updateProfile = () => {
-  // window.location = '/SetProfile'
-  this.props.history.push('/SetProfile');
+  window.location = '/SetProfile';
 };
 
 export const loggedIn = () => {

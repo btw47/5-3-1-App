@@ -39,11 +39,13 @@ class SignIn extends Component {
     if (this.props.state.auth.error) {
       switch (this.props.state.auth.error.code) {
         case 'auth/wrong-password':
-          return <div>wrong password idiot</div>;
+          return <div style={{ color: 'white' }}>wrong password idiot</div>;
         case 'auth/invalid-email':
-          return <div>enter a valid email, idiot</div>;
+          return (
+            <div style={{ color: 'white' }}>enter a valid email, idiot</div>
+          );
         case 'auth/user-not-found':
-          return <div>sorry, user not found</div>;
+          return <div style={{ color: 'white' }}>sorry, user not found</div>;
         default:
           return <div />;
       }
