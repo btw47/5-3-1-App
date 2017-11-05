@@ -10,9 +10,9 @@ const UploadImage = props => {
         transformations: {
           crop: {
             aspectRatio: ratio,
-            force: true,
-          },
-        },
+            force: true
+          }
+        }
       })
       .then(function(response) {
         const imageUrl = response.filesUploaded[0].url;
@@ -23,7 +23,7 @@ const UploadImage = props => {
           .ref('users/' + props.userId)
           .push({
             profileImage: imageUrl,
-            date: date,
+            date: date
           })
           .then(() => {
             props.fetchProfileImage(props.userId);
@@ -33,7 +33,7 @@ const UploadImage = props => {
 
   return (
     <div className="class-name">
-      <button onClick={() => renderPicker()}>Set Profile Picture</button>
+      <button onClick={() => renderPicker()}>Update Profile Picture</button>
     </div>
   );
 };

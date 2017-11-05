@@ -10,6 +10,7 @@ const actionTypes = {
   PROFILE_IMAGE: 'PROFILE_IMAGE',
   NO_PROFILE_IMAGE: 'NO_PROFILE_IMAGE',
   FETCH_CALENDAR: 'FETCH_CALENDAR',
+  FETCH_PROGRESS: 'FETCH_PROGRESS'
 };
 
 export default actionTypes;
