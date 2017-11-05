@@ -72,7 +72,7 @@ class ProgressGraph extends Component {
                     data={this.props.state.user.progress}
                     dataKey="Bench (ORM)"
                     height={200}
-                    color="#deed42"
+                    color="#cc4b35"
                   />
                 </Col>
                 <br />
@@ -128,7 +128,7 @@ class ProgressGraph extends Component {
               data={this.props.state.user.progress}
               dataKey="Bench (ORM)"
               height={500}
-              color="#deed42"
+              color="#cc4b35"
               eventKey={3}
               oldStats={this.props.state.user.oldStats}
               currentStats={currentStats}

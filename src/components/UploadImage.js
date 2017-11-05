@@ -33,7 +33,7 @@ const UploadImage = props => {
 
   return (
     <div className="class-name">
-      <button onClick={() => renderPicker()}>Change Profile Picture</button>
+      <button onClick={() => renderPicker()}>Update Profile Picture</button>
     </div>
   );
 };

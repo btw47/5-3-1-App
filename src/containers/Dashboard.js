@@ -51,6 +51,9 @@ class Dashboard extends Component {
               fetchProfileImage={this.props.fetchProfileImage}
               profileImage={state.user.profileImage}
             />
+            <NavLink to="/UpdateProfile">
+              <span>Update your stats!</span>
+            </NavLink>
             <UploadImage
               fetchProfileImage={this.props.fetchProfileImage}
               userId={state.user.uid}
@@ -65,9 +68,6 @@ class Dashboard extends Component {
           <span>Modify Calendar</span>
         </NavLink>
         <br />
-        <NavLink to="/UpdateProfile">
-          <span>Update your stats!</span>
-        </NavLink>
 
         <NavLink to="/Compare" style={{ float: 'right' }}>
           <span>Compare</span>

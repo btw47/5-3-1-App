@@ -15,6 +15,19 @@ class ProgressGraphTab extends Component {
       const diff = currStat - oldStat;
       const percentDiff = (diff / oldStat * 100).toFixed(2);
 
+      let statName;
+      if (stat === 'weight') {
+        statName = 'Body Weight';
+      } else if (stat === 'ormBench') {
+        statName = 'Bench Press';
+      } else if (stat === 'ormSquat') {
+        statName = 'Squats';
+      } else if (stat === 'ormOverheadPress') {
+        statName = 'Overhead Press';
+      } else if (stat === 'ormDeadlift') {
+        statName = 'Deadlift';
+      }
+
       return (
         <table
           class="table table-bordered"
@@ -30,7 +43,7 @@ class ProgressGraphTab extends Component {
           <tbody>
             <tr>
               <th scope="row" style={{ 'text-align': 'center' }}>
-                Weight
+                {statName}
               </th>
               <td>{oldStat} lbs</td>
               <td>{currStat} lbs</td>
