@@ -8,33 +8,37 @@ import * as actions from '../actions';
 import { firebaseDb } from '../server/firebase';
 
 class SetProfile extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {};
   }
 
   componentWillMount() {
     firebase.auth().onAuthStateChanged(user => {
       if (!user) {
-        window.location = '/';
+        this.props.history.push('/');
       } else if (user) {
         const thisUser = firebase.auth().currentUser;
 
-        this.props.loggedIn();
         this.props.fetchUser(thisUser);
+        this.props.loggedIn();
       }
     });
   }
 
+  componentDidMount() {
+    this.weight.focus();
+  }
+
   handleEmail = event => {
     this.setState({
-      email: event.target.value,
+      email: event.target.value
     });
   };
 
   handleWeight = event => {
     this.setState({
-      weight: event.target.value,
+      weight: event.target.value
     });
   };
 
@@ -44,21 +48,21 @@ class SetProfile extends Component {
         squatORM: this.squat.value,
         deadliftORM: this.deadlift.value,
         benchORM: this.bench.value,
-        overheadPressORM: this.overheadPress.value,
-      },
+        overheadPressORM: this.overheadPress.value
+      }
     });
   };
 
-  handleFullName = event => {
-    this.setState({
-      fullName: event.target.value,
-    });
-  };
+  // handleFullName = event => {
+  //   this.setState({
+  //     fullName: event.target.value,
+  //   });
+  // };
 
   handleSubmit = event => {
     event.preventDefault();
 
-    if (!this.state.weight || !this.state.oneRepMax || !this.state.fullName) {
+    if (!this.state.weight || !this.state.oneRepMax) {
       console.log('NOT FILLED OUT YO');
     } else {
       const thisUser = firebase.auth().currentUser;
@@ -67,23 +71,25 @@ class SetProfile extends Component {
       }
 
       const date = Date();
+      const history = this.props.history;
 
       firebaseDb
         .ref('users/' + uid)
         .push({
+          fullName: this.props.state.user.fullName,
           weight: this.state.weight,
           oneRepMax: this.state.oneRepMax,
-          fullName: this.state.fullName,
-          date: date,
+          date: date
         })
         .then(function() {
-          window.location = '/dashboard';
+          history.push('/Dashboard');
         });
     }
   };
 
   render() {
     const { state } = this.props;
+
     return (
       <div className="update-profile">
         <NavLink style={{ float: 'left' }} to="/dashboard">
@@ -93,17 +99,18 @@ class SetProfile extends Component {
 
         <h2>Enter your info below</h2>
         <form onSubmit={event => this.handleSubmit(event)}>
-          <label>Full name: </label>
-          <input
+          {/* <label>Full name: </label>
+            <input
             type="text"
             placeholder={state.user.fullName}
             onChange={event => this.handleFullName(event)}
-          />
-          <br />
+            />
+          <br /> */}
 
           <label>Current Weight: </label>
           <input
             type="text"
+            ref={ref => (this.weight = ref)}
             placeholder={state.user.weight + ' (lbs)'}
             onChange={event => this.handleWeight(event)}
           />
@@ -158,7 +165,7 @@ class SetProfile extends Component {
 
 const mapStateToProps = state => {
   return {
-    state,
+    state
   };
 };
 
