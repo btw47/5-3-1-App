@@ -5,14 +5,14 @@ import "../css/App.css";
 class Today extends Component {
   render() {
     return (
-      <div className="textlayout">
-        <div className="content">
+      <div className="jumbotron special newnew">
+        <div className="contentp">
           <div
             className="container"
             style={{ width: "100vw", height: "100vh" }}
           >
-            <div className="textlayout">
-              <h2>TODAY PAGE</h2>
+            <div>
+              <h2>Today</h2>
               <p>
                 We saw there were a lot of differentt apps out there for 5/3/1
                 but most of them are just logs of your workouts instead of a

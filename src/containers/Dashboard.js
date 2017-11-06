@@ -28,7 +28,7 @@ class Dashboard extends Component {
   render() {
     const { state } = this.props;
     return (
-      <div className="textlayout">
+      <div class="jumbotron special newnew">
         <UserStats
           className="UserStats"
           user={state.user}
@@ -36,7 +36,7 @@ class Dashboard extends Component {
           fetchProfileImage={this.props.fetchProfileImage}
           profileImage={state.user.profileImage}
         />
-        <WeekCalendar className="UserStats" style={{ margin: "50px" }} />
+        <WeekCalendar className="UserStats" />
         <NavLink to="/UpdateProfile">
           <span>Update your stats!</span>
         </NavLink>

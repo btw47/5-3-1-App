@@ -48,25 +48,27 @@ export default class SignUp extends Component {
 
     // console.log('SIGN UP PROPS', this.props);
     return (
-      <form onSubmit={event => this.handleSubmit(event)}>
-        <input
-          type="text"
-          placeholder="email"
-          onChange={event => this.handleUser(event)}
-        />
-        <br />
-        <input
-          type="password"
-          placeholder="password"
-          onChange={event => this.handlePassword(event)}
-        />
-        <br />
-        <button type="submit">Log In</button>
-        {this.renderError()}
-        <NavLink to="/SignIn">
-          <span>Sign Up</span>
-        </NavLink>
-      </form>
+      <div className="login">
+        <form onSubmit={event => this.handleSubmit(event)}>
+          <input
+            type="text"
+            placeholder="email"
+            onChange={event => this.handleUser(event)}
+          />
+          <br />
+          <input
+            type="password"
+            placeholder="password"
+            onChange={event => this.handlePassword(event)}
+          />
+          <br />
+          <button type="submit">Log In</button>
+          {this.renderError()}
+          <NavLink to="/SignIn">
+            <span>Sign Up</span>
+          </NavLink>
+        </form>
+      </div>
     );
   }
 }

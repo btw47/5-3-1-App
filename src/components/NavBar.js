@@ -34,7 +34,9 @@ class NavBar extends Component {
       <div class="pos-f-t" className="navigationB">
         <div class="collapse" id="navbarToggleExternalContent">
           <div class="bg-dark p-4">
-            <h4 class="text-white">5-3-1 Workout App</h4>
+            <h4 class="text-white">
+              <b>5-3-1 Workout App</b>
+            </h4>
             <span class="text-muted">
               <a class="navbar-brand" href="/">
                 <i class="em  em-house" />
