@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import { FormGroup, FormControl } from 'react-bootstrap';
+import { FormGroup, FormControl, Button, ButtonToolbar } from 'react-bootstrap';
 import firebase from 'firebase';
 
 export default class SignUp extends Component {
@@ -20,11 +20,11 @@ export default class SignUp extends Component {
       signInSuccessUrl: '/Dashboard',
       signInFlow: 'popup',
       signInOptions: [
-        firebase.auth.EmailAuthProvider.PROVIDER_ID,
+        // firebase.auth.EmailAuthProvider.PROVIDER_ID,
         // firebase.auth.GithubAuthProvider.PROVIDER_ID,
         // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-        firebase.auth.GoogleAuthProvider.PROVIDER_ID
-        // firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        firebase.auth.FacebookAuthProvider.PROVIDER_ID
       ]
     };
 
@@ -76,13 +76,12 @@ export default class SignUp extends Component {
   render() {
     const { loggedIn } = this.props;
 
-    // console.log('SIGN UP PROPS', this.props);
     return (
       <div>
         <form onSubmit={event => this.handleSubmit(event)}>
           <FormGroup
             style={{ padding: '0 30vw', textAlign: 'center' }}
-            bsSize="md">
+            bsSize="large">
             <FormControl
               type="text"
               placeholder="email"
@@ -98,7 +97,15 @@ export default class SignUp extends Component {
               onChange={event => this.handlePassword(event)}
             />
             <br />
-            <button type="submit">Sign Up</button>
+            <ButtonToolbar>
+              <Button
+                bsSize="large"
+                type="submit"
+                bsStyle="primary"
+                style={{ display: 'block', margin: 'auto' }}>
+                Sign Up
+              </Button>
+            </ButtonToolbar>
             {this.renderError()}
             <NavLink to="/SignIn">
               <span>Sign In</span>

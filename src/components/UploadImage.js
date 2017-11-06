@@ -1,4 +1,5 @@
 import React from 'react';
+import { ButtonToolbar, Button } from 'react-bootstrap';
 import { firebaseDb } from '../server/firebase';
 import { filestackDb } from '../server/filestack';
 
@@ -33,7 +34,11 @@ const UploadImage = props => {
 
   return (
     <div className="class-name">
-      <button onClick={() => renderPicker()}>Update Profile Picture</button>
+      <ButtonToolbar>
+        <Button bsSize="small" onClick={() => renderPicker()}>
+          Update Profile Picture
+        </Button>
+      </ButtonToolbar>
     </div>
   );
 };

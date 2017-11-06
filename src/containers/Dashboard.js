@@ -88,7 +88,6 @@ class Dashboard extends Component {
         <NavLink to="/modify">
           <span>Modify Calendar</span>
         </NavLink>
-        <br />
 
         <NavLink to="/Compare" style={{ float: 'right' }}>
           <span>Compare</span>

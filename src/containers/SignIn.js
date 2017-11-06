@@ -3,10 +3,9 @@ import firebase from 'firebase';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { FormGroup, FormControl } from 'react-bootstrap';
+import { FormGroup, FormControl, ButtonToolbar, Button } from 'react-bootstrap';
 import 'firebaseui/dist/firebaseui.css';
 
-import AuthLinks from '../components/auth/AuthLinks';
 import logo from '../images/weight-lifting-logo.png';
 import * as actions from '../actions';
 
@@ -22,16 +21,15 @@ class SignIn extends Component {
   componentDidMount() {
     const { authUI } = this.props.state.auth;
 
-    // console.log("AUTHLINKS PROPS", authUI);
     let uiConfig = {
-      // signInSuccessUrl: '/Dashboard',
+      signInSuccessUrl: '/Dashboard',
       signInFlow: 'popup',
       signInOptions: [
-        firebase.auth.EmailAuthProvider.PROVIDER_ID,
+        // firebase.auth.EmailAuthProvider.PROVIDER_ID,
         // firebase.auth.GithubAuthProvider.PROVIDER_ID,
         // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-        firebase.auth.GoogleAuthProvider.PROVIDER_ID
-        // firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        firebase.auth.FacebookAuthProvider.PROVIDER_ID
       ]
     };
 
@@ -39,10 +37,6 @@ class SignIn extends Component {
       authUI.start('#firebaseui-auth-container', uiConfig);
     }
   }
-
-  // componentDidMount() {
-  //   this.email.focus();
-  // }
 
   handleUser = event => {
     this.setState({
@@ -87,7 +81,7 @@ class SignIn extends Component {
         <form onSubmit={event => this.handleSubmit(event)}>
           <FormGroup
             style={{ padding: '0 30vw', textAlign: 'center' }}
-            bsSize="md">
+            bsSize="large">
             <FormControl
               type="text"
               placeholder="email"
@@ -101,7 +95,14 @@ class SignIn extends Component {
               onChange={event => this.handlePassword(event)}
             />
             <br />
-            <button type="submit">Log In</button>
+            <ButtonToolbar>
+              <Button
+                bsSize="large"
+                type="submit"
+                style={{ display: 'block', margin: 'auto' }}>
+                Log In
+              </Button>
+            </ButtonToolbar>{' '}
             <br />
             <NavLink to="/">
               <span>Sign Up</span>
@@ -129,7 +130,6 @@ class SignIn extends Component {
         {this.renderSignIn()}
         {this.renderError()}
         <div id="firebaseui-auth-container" ref={ref => (this.widget = ref)} />
-        {/* <AuthLinks authUI={state.auth.authUI} /> */}
       </div>
     );
   }
