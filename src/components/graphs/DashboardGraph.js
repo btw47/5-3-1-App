@@ -34,7 +34,8 @@ function DashboardGraph(props) {
       <div
         style={{
           backgroundColor: 'gray',
-          display: 'inline-block'
+          display: 'inline-block',
+          margin: 'auto'
         }}>
         <LineChart
           width={600}

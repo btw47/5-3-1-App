@@ -3,6 +3,7 @@ import firebase from 'firebase';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { FormGroup, FormControl } from 'react-bootstrap';
 import 'firebaseui/dist/firebaseui.css';
 
 import AuthLinks from '../components/auth/AuthLinks';
@@ -18,8 +19,29 @@ class SignIn extends Component {
   }
 
   componentDidMount() {
-    this.email.focus();
+    const { authUI } = this.props.state.auth;
+
+    // console.log("AUTHLINKS PROPS", authUI);
+    let uiConfig = {
+      signInSuccessUrl: '/dashboard',
+      signInFlow: 'popup',
+      signInOptions: [
+        firebase.auth.EmailAuthProvider.PROVIDER_ID,
+        // firebase.auth.GithubAuthProvider.PROVIDER_ID,
+        // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+        firebase.auth.GoogleAuthProvider.PROVIDER_ID
+        // firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+      ]
+    };
+
+    if (this.widget) {
+      authUI.start('#firebaseui-auth-container', uiConfig);
+    }
   }
+
+  // componentDidMount() {
+  //   this.email.focus();
+  // }
 
   handleUser = event => {
     this.setState({
@@ -62,38 +84,45 @@ class SignIn extends Component {
     } else {
       return (
         <form onSubmit={event => this.handleSubmit(event)}>
-          <input
-            type="text"
-            placeholder="email"
-            ref={ref => (this.email = ref)}
-            onChange={event => this.handleUser(event)}
-          />
-          <br />
-          <input
-            type="password"
-            placeholder="password"
-            onChange={event => this.handlePassword(event)}
-          />
-          <br />
-          <button type="submit">Log In</button>
-          <NavLink to="/">
-            <span>Sign Up</span>
-          </NavLink>
-          <br />
-          <NavLink to="/ForgotPassword">
-            <span>forgot your password?</span>
-          </NavLink>
+          <FormGroup
+            style={{ padding: '0 30vw', textAlign: 'center' }}
+            bsSize="md">
+            <FormControl
+              type="text"
+              placeholder="email"
+              ref={ref => (this.email = ref)}
+              onChange={event => this.handleUser(event)}
+            />
+            <br />
+            <FormControl
+              type="password"
+              placeholder="password"
+              onChange={event => this.handlePassword(event)}
+            />
+            <br />
+            <button type="submit">Log In</button>
+            <br />
+            <NavLink to="/">
+              <span>Sign Up</span>
+            </NavLink>
+            <br />
+            <NavLink to="/ForgotPassword">
+              <span>forgot your password?</span>
+            </NavLink>
+          </FormGroup>
         </form>
       );
     }
   };
 
   render() {
+    const { state } = this.props;
     return (
       <div>
         <hr />
         {this.renderSignIn()}
         {this.renderError()}
+        <div id="firebaseui-auth-container" ref={ref => (this.widget = ref)} />
         {/* <AuthLinks authUI={state.auth.authUI} /> */}
       </div>
     );
