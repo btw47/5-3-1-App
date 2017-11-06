@@ -31,13 +31,15 @@ class NavBar extends Component {
 
   render() {
     return (
-      <div className="pos-f-t" className="navigationB">
-        <div className="collapse" id="navbarToggleExternalContent">
-          <div className="bg-dark p-4">
-            <h4 className="text-white">5-3-1 Workout App</h4>
-            <span className="text-muted">
-              <a className="navbar-brand" href="/">
-                <i className="em  em-house" />
+      <div class="pos-f-t" className="navigationB">
+        <div class="collapse" id="navbarToggleExternalContent">
+          <div class="bg-dark p-4">
+            <h4 class="text-white">
+              <b>5-3-1 Workout App</b>
+            </h4>
+            <span class="text-muted">
+              <a class="navbar-brand" href="/">
+                <i class="em  em-house" />
                 Home
               </a>
               <a className="navbar-brand" href="/Today">

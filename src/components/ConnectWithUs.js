@@ -83,7 +83,7 @@ class ConnectWithUs extends Component {
                     <h3>
                       <b>James Bell</b>
                     </h3>
-                    "Its working as coded."
+                    "Its working as coded"
                     <br />
                     <br />
                     <img src={James} alt="James Picture" className="teamPics" />

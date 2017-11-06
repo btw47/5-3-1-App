@@ -5,13 +5,13 @@ import "../css/App.css";
 class Forums extends Component {
   render() {
     return (
-      <div className="textlayout">
-        <div className="content">
+      <div className="jumbotron special newnew">
+        <div className="contentp">
           <div
             className="container"
             style={{ width: "100vw", height: "100vh" }}
           >
-            <div className="textlayout">
+            <div>
               <h2>Sexy Forums Page</h2>
               <p>
                 We saw there were a lot of differentt apps out there for 5/3/1
