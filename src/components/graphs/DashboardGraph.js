@@ -8,8 +8,10 @@ import {
   Tooltip,
   Legend
 } from 'recharts';
+import { connect } from 'react-redux';
 
 function DashboardGraph(props) {
+  console.log('DASHBOARD PROPS', props);
   const data = [
     { name: 'Page A', uv: 4000, pv: 2400, amt: 2400 },
     { name: 'Page B', uv: 3000, pv: 1398, amt: 2210 },
@@ -46,4 +48,8 @@ function DashboardGraph(props) {
   );
 }
 
-export default DashboardGraph;
+const mapStateToProps = state => {
+  return { state };
+};
+
+export default connect(mapStateToProps)(DashboardGraph);

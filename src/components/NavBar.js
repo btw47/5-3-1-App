@@ -1,14 +1,14 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Route,
   Switch,
   NavLink
-} from "react-router-dom";
+} from 'react-router-dom';
 
-import logo from "../images/weight-lifting-logo.png";
-import actionTypes from "../actionTypes";
-import SignOut from "./auth/SignOut";
+import logo from '../images/weight-lifting-logo.png';
+import actionTypes from '../actionTypes';
+import SignOut from './auth/SignOut';
 
 class NavBar extends Component {
   renderUserStatus = () => {
@@ -26,12 +26,12 @@ class NavBar extends Component {
   };
 
   style = {
-    width: "50px"
+    width: '50px'
   };
 
   render() {
     return (
-      <div className="pos-f-t" className="navigationB">
+      <div className="pos-f-t navigationB">
         <div className="collapse" id="navbarToggleExternalContent">
           <div className="bg-dark p-4">
             <h4 className="text-white">5-3-1 Workout App</h4>
@@ -83,8 +83,7 @@ class NavBar extends Component {
             data-target="#navbarToggleExternalContent"
             aria-controls="navbarToggleExternalContent"
             aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
+            aria-label="Toggle navigation">
             <span className="navbar-toggler-icon" />
           </button>
           {/* <a class="navbar-brand" href="/SignIn" className="signin">
