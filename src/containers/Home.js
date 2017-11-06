@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
-import logo from "../images/weight-lifting-logo.png";
-import SignUp from "../components/auth/SignUp";
-import ConnectWithUs from "../components/ConnectWithUs";
-import OurMission from "../components/OurMission";
-import Footer from "../components/Footer";
-import * as actions from "../actions";
-import "../css/App.css";
+import logo from '../images/weight-lifting-logo.png';
+import SignUp from '../components/auth/SignUp';
+import ConnectWithUs from '../components/ConnectWithUs';
+import OurMission from '../components/OurMission';
+import Footer from '../components/Footer';
+import * as actions from '../actions';
+import '../css/App.css';
 
 class Home extends Component {
   handleError = () => {
@@ -20,13 +20,23 @@ class Home extends Component {
   };
 
   render() {
-    const { createUser } = this.props;
+    const { createUser, state } = this.props;
+    console.log(this.props);
     return (
       <div>
         <div>
-          <img src={logo} className="logo" alt="" />
+          <img
+            src={logo}
+            className="logo"
+            alt="logo"
+            style={{ display: 'block', margin: 'auto' }}
+          />
         </div>
-        <SignUp createUser={createUser} error={this.handleError()} />
+        <SignUp
+          createUser={createUser}
+          error={this.handleError()}
+          authUI={state.auth.authUI}
+        />
         <ConnectWithUs />
         <Footer />
       </div>

@@ -7,6 +7,7 @@ import { FormGroup, FormControl } from 'react-bootstrap';
 import 'firebaseui/dist/firebaseui.css';
 
 import AuthLinks from '../components/auth/AuthLinks';
+import logo from '../images/weight-lifting-logo.png';
 import * as actions from '../actions';
 
 class SignIn extends Component {
@@ -23,7 +24,7 @@ class SignIn extends Component {
 
     // console.log("AUTHLINKS PROPS", authUI);
     let uiConfig = {
-      signInSuccessUrl: '/dashboard',
+      // signInSuccessUrl: '/Dashboard',
       signInFlow: 'popup',
       signInOptions: [
         firebase.auth.EmailAuthProvider.PROVIDER_ID,
@@ -119,7 +120,12 @@ class SignIn extends Component {
     const { state } = this.props;
     return (
       <div>
-        <hr />
+        <img
+          src={logo}
+          className="logo"
+          alt="logo"
+          style={{ display: 'block', margin: 'auto' }}
+        />
         {this.renderSignIn()}
         {this.renderError()}
         <div id="firebaseui-auth-container" ref={ref => (this.widget = ref)} />
