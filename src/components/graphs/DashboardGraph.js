@@ -12,15 +12,20 @@ import { connect } from 'react-redux';
 
 function DashboardGraph(props) {
   console.log('DASHBOARD PROPS', props);
-  const data = [
-    { name: 'Page A', uv: 4000, pv: 2400, amt: 2400 },
-    { name: 'Page B', uv: 3000, pv: 1398, amt: 2210 },
-    { name: 'Page C', uv: 2000, pv: 9800, amt: 2290 },
-    { name: 'Page D', uv: 2780, pv: 3908, amt: 2000 },
-    { name: 'Page E', uv: 1890, pv: 4800, amt: 2181 },
-    { name: 'Page F', uv: 2390, pv: 3800, amt: 2500 },
-    { name: 'Page G', uv: 3490, pv: 4300, amt: 2100 }
-  ];
+  let data;
+
+  if (props.state.user.progress) {
+    data = props.state.user.progress.map(a => {
+      const newObj = {};
+      newObj['name'] = a['name'];
+      newObj['Bench'] = parseInt(a['Bench (ORM)']);
+      newObj['Deadlift'] = parseInt(a['Deadlift (ORM)']);
+      newObj['Squats'] = parseInt(a['Squat (ORM)']);
+      newObj['Overhead Press'] = parseInt(a['Overhead Press (ORM)']);
+      newObj['Weight'] = parseInt(a['Weight']);
+      return newObj;
+    });
+  }
 
   const formatter = value => `${value} lbs`;
 
@@ -38,11 +43,14 @@ function DashboardGraph(props) {
         <Legend />
         <Line
           type="monotone"
-          dataKey="pv"
-          stroke="#8884d8"
+          dataKey="Weight"
+          stroke="#ed8c42"
           activeDot={{ r: 8 }}
         />
-        <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+        <Line type="monotone" dataKey="Bench" stroke="#a64dff" />
+        <Line type="monotone" dataKey="Overhead Press" stroke="#22ad3e" />
+        <Line type="monotone" dataKey="Deadlift" stroke="#11c1a7" />
+        <Line type="monotone" dataKey="Squat" stroke="#11c1a7" />
       </LineChart>
     </div>
   );
