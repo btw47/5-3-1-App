@@ -11,6 +11,7 @@ import WeekCalendar from '../components/calendar';
 import BBB from '../components/WorkoutTemplates/BBB';
 import UserStats from '../components/UserStats';
 import UploadImage from '../components/UploadImage';
+import DashboardGraph from '../components/graphs/DashboardGraph';
 import * as actions from '../actions';
 
 class Dashboard extends Component {
@@ -43,7 +44,7 @@ class Dashboard extends Component {
         </NavLink>
         <br />
         <Row>
-          <Col md={6}>
+          <Col md={2}>
             <UserStats
               className="UserStats"
               user={state.user}
@@ -59,11 +60,16 @@ class Dashboard extends Component {
               userId={state.user.uid}
             />
           </Col>
-          {/* <Col md={6} mdOffsetRight={1}>
-            <ProgressGraphDashboard />
-          </Col> */}
+          <Col md={8} mdOffset={2}>
+            <DashboardGraph />
+          </Col>
         </Row>
-        <WeekCalendar style={{ margin: '50px' }} />
+        <Row>
+          <Col md={12}>
+            <WeekCalendar style={{ margin: '50px' }} />
+          </Col>
+        </Row>
+
         <NavLink to="/modify">
           <span>Modify Calendar</span>
         </NavLink>
