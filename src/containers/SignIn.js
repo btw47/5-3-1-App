@@ -12,20 +12,24 @@ class SignIn extends Component {
   componentWillMount() {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        window.location = '/dashboard'; //After successful login, user will be redirected to user dashboard
+        this.props.history.push('/Dashboard');
       }
     });
   }
 
+  componentDidMount() {
+    this.email.focus();
+  }
+
   handleUser = event => {
     this.setState({
-      email: event.target.value,
+      email: event.target.value
     });
   };
 
   handlePassword = event => {
     this.setState({
-      password: event.target.value,
+      password: event.target.value
     });
   };
 
@@ -39,11 +43,13 @@ class SignIn extends Component {
     if (this.props.state.auth.error) {
       switch (this.props.state.auth.error.code) {
         case 'auth/wrong-password':
-          return <div>wrong password idiot</div>;
+          return <div style={{ color: 'white' }}>wrong password idiot</div>;
         case 'auth/invalid-email':
-          return <div>enter a valid email, idiot</div>;
+          return (
+            <div style={{ color: 'white' }}>enter a valid email, idiot</div>
+          );
         case 'auth/user-not-found':
-          return <div>sorry, user not found</div>;
+          return <div style={{ color: 'white' }}>sorry, user not found</div>;
         default:
           return <div />;
       }
@@ -59,6 +65,7 @@ class SignIn extends Component {
           <input
             type="text"
             placeholder="email"
+            ref={ref => (this.email = ref)}
             onChange={event => this.handleUser(event)}
           />
           <br />

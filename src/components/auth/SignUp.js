@@ -1,14 +1,18 @@
-import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
-import firebase from "firebase";
+import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
+import firebase from 'firebase';
 
 export default class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
-      password: ""
+      email: '',
+      password: ''
     };
+  }
+
+  componentDidMount() {
+    this.email.focus();
   }
 
   handleUser = event => {
@@ -33,12 +37,20 @@ export default class SignUp extends Component {
   renderError = () => {
     if (this.props.error) {
       switch (this.props.error.code) {
-        case "auth/invalid-email":
-          return <div>enter a real email idiot</div>;
-        case "auth/weak-password":
-          return <div>you wanna get hacked? enter a longer password</div>;
-        case "auth/email-already-in-use":
-          return <div>sorry this email has already been registered</div>;
+        case 'auth/invalid-email':
+          return <div style={{ color: 'white' }}>enter a real email idiot</div>;
+        case 'auth/weak-password':
+          return (
+            <div style={{ color: 'white' }}>
+              you wanna get hacked? enter a longer password
+            </div>
+          );
+        case 'auth/email-already-in-use':
+          return (
+            <div style={{ color: 'white' }}>
+              sorry this email has already been registered
+            </div>
+          );
       }
     }
   };
@@ -52,6 +64,9 @@ export default class SignUp extends Component {
         <input
           type="text"
           placeholder="email"
+          ref={ref => {
+            this.email = ref;
+          }}
           onChange={event => this.handleUser(event)}
         />
         <br />
@@ -61,10 +76,10 @@ export default class SignUp extends Component {
           onChange={event => this.handlePassword(event)}
         />
         <br />
-        <button type="submit">Log In</button>
+        <button type="submit">Sign Up</button>
         {this.renderError()}
         <NavLink to="/SignIn">
-          <span>Sign Up</span>
+          <span>Sign In</span>
         </NavLink>
       </form>
     );
