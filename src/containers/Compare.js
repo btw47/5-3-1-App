@@ -100,7 +100,6 @@ class Compare extends Component {
           <br />
 
           <Row>
-            {this.renderPresent()}
             <Col md={6} style={{ 'text-align': 'center' }}>
               {this.state.compare && (
                 <div>
@@ -114,6 +113,7 @@ class Compare extends Component {
                 </div>
               )}
             </Col>
+            {this.renderPresent()}
           </Row>
           {this.renderCompare()}
         </Jumbotron>

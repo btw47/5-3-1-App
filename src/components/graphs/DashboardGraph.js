@@ -31,27 +31,33 @@ function DashboardGraph(props) {
 
   return (
     <div>
-      <LineChart
-        width={600}
-        height={300}
-        data={data}
-        margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
-        <XAxis dataKey="name" />
-        <YAxis tickFormatter={formatter} />
-        <CartesianGrid strokeDasharray="3 3" />
-        <Tooltip />
-        <Legend />
-        <Line
-          type="monotone"
-          dataKey="Weight"
-          stroke="#ed8c42"
-          activeDot={{ r: 8 }}
-        />
-        <Line type="monotone" dataKey="Bench" stroke="#a64dff" />
-        <Line type="monotone" dataKey="Overhead Press" stroke="#22ad3e" />
-        <Line type="monotone" dataKey="Deadlift" stroke="#11c1a7" />
-        <Line type="monotone" dataKey="Squat" stroke="#11c1a7" />
-      </LineChart>
+      <div
+        style={{
+          backgroundColor: 'gray',
+          display: 'inline-block'
+        }}>
+        <LineChart
+          width={600}
+          height={300}
+          data={data}
+          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+          <XAxis dataKey="name" tick={{ fill: 'black' }} />
+          <YAxis tickFormatter={formatter} tick={{ fill: 'black' }} />
+          <CartesianGrid strokeDasharray="3 3" fill="#696969" />
+          <Tooltip />
+          <Legend />
+          <Line
+            type="monotone"
+            dataKey="Weight"
+            stroke="#ed8c42"
+            activeDot={{ r: 8 }}
+          />
+          <Line type="monotone" dataKey="Bench" stroke="#a64dff" />
+          <Line type="monotone" dataKey="Overhead Press" stroke="#22ad3e" />
+          <Line type="monotone" dataKey="Deadlift" stroke="#11c1a7" />
+          <Line type="monotone" dataKey="Squat" stroke="#11c1a7" />
+        </LineChart>
+      </div>
     </div>
   );
 }

@@ -44,7 +44,7 @@ class Dashboard extends Component {
         </NavLink>
         <br />
         <Row>
-          <Col md={2}>
+          <Col md={4} sm={12} style={{ paddingLeft: '50px' }}>
             <UserStats
               className="UserStats"
               user={state.user}
@@ -60,7 +60,7 @@ class Dashboard extends Component {
               userId={state.user.uid}
             />
           </Col>
-          <Col md={8} mdOffset={2}>
+          <Col md={6} mdOffset={2} small={12} style={{ paddingRight: '50px' }}>
             <DashboardGraph />
           </Col>
         </Row>
