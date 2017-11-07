@@ -54,7 +54,7 @@ class GoalUpdate extends Component {
     // if(event.target.value = true){
     console.log(this.state);
     this.setState({
-      selectedWeekdays: newDays
+      selectedWeekday: newDays
     });
 
     //}
@@ -72,7 +72,7 @@ class GoalUpdate extends Component {
     // this.props.userInput( this.state.selectedDay, this.state.selectedWeekdays, this.state.selectedExercise )
     if (
       !this.state.selectedDay ||
-      !this.state.selectedWeekdays ||
+      !this.state.selectedWeekday ||
       !this.state.selectedExercise
     ) {
       alert('Fill out all your stats bro');
@@ -97,7 +97,7 @@ class GoalUpdate extends Component {
         .push({
           calendar: {
             selectedDay: this.state.selectedDay,
-            selectedWeekdays: this.state.selectedWeekdays,
+            selectedWeekday: this.state.selectedWeekday,
             selectedExercise: this.state.selectedExercise
           },
           date: date
@@ -162,34 +162,34 @@ function that updates the state of our buttons */}
           <br />
           <CheckboxGroup
             name="weekdays"
-            value={this.state.selectedWeekdays}
+            value={this.state.selectedWeekday}
             onChange={this.handleWeekdayChange}>
             <label>
-              <Checkbox ref="checkbox" value="monday" />Monday
+              <Checkbox ref="checkbox" value={1} />Monday
             </label>
             <br />
             <label>
-              <Checkbox ref="checkbox" value="tuesday" />Tuesday
+              <Checkbox ref="checkbox" value={2} />Tuesday
             </label>
             <br />
             <label>
-              <Checkbox ref="checkbox" value="wednesday" />Wednesday
+              <Checkbox ref="checkbox" value={3} />Wednesday
             </label>
             <br />
             <label>
-              <Checkbox ref="checkbox" value="thursday" />Thursday
+              <Checkbox ref="checkbox" value={4} />Thursday
             </label>
             <br />
             <label>
-              <Checkbox ref="checkbox" value="friday" />Friday
+              <Checkbox ref="checkbox" value={5} />Friday
             </label>
             <br />
             <label>
-              <Checkbox ref="checkbox" value="saturday" />Saturday
+              <Checkbox ref="checkbox" value={6} />Saturday
             </label>
             <br />
             <label>
-              <Checkbox ref="checkbox" value="sunday" />Sunday
+              <Checkbox ref="checkbox" value={0} />Sunday
             </label>
           </CheckboxGroup>
 

@@ -7,7 +7,7 @@ export const fetchCalendar = (state = {}, action) =>{
                 ...state,
                     calendar:{
                     selectedDay: action.selectedDay,
-                    selectedWeekday: action.selectedWeekdays,
+                    selectedWeekday: action.selectedWeekday,
                     selectedExercise: action.selectedExercise,
                     date: action.date
                     }

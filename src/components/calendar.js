@@ -9,8 +9,8 @@ import { bindActionCreators } from 'redux';
 
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.less';
 import BigCalendar from 'react-big-calendar';
-import BBB from './WorkoutTemplates/BBB';
-import userEvent from './eventFunction';
+import BBB4days from './WorkoutTemplates/BBB';
+
 import 'react-big-calendar/lib/less/styles.less';
 import './calendar.css';
 
@@ -27,10 +27,12 @@ function Event({ event }) {
   )
 }
 
+
 class Dnd extends React.Component{
   constructor(props) {
     super(props);
   }
+  state = {}
 
   componentWillMount(){
     firebase.auth().onAuthStateChanged(user => {
@@ -45,8 +47,6 @@ class Dnd extends React.Component{
     })
   }
 
-
-
   render(){
     const {state } = this.props
     console.log("THIS STATE", this.state)
@@ -55,12 +55,32 @@ class Dnd extends React.Component{
     if (state.fetchCalendar.calendar) {
       if (state.fetchCalendar.calendar.selectedExercise === "boringButBig") {
         console.log("COME ON BITCH", this.state)
-        userEvents = BBB
+        userEvents = BBB4days
       } else {
         console.log("SHIIT")
-        userEvents
+        userEvents = []
       }
     }
+    if (state.fetchCalendar.calendar){
+      if(state.fetchCalendar.calendar.selectedWeekday){
+        console.log("IF WORKING BITCH")
+        var day1;
+        var day2;
+        var day3;
+        var day4;
+        
+        for(var i=0; i<state.fetchCalendar.calendar.selectedWeekday.length; i++){
+          day1 = state.fetchCalendar.calendar.selectedWeekday[0];
+          day2 = state.fetchCalendar.calendar.selectedWeekday[1];
+          day3 = state.fetchCalendar.calendar.selectedWeekday[2];
+          day4 = state.fetchCalendar.calendar.selectedWeekday[3];
+        }
+        
+       }
+    }
+    console.log("SELECTED DAYS", day1, day2, day3, day4)
+    
+
     return(
       <div>
         <BigCalendar
@@ -72,9 +92,8 @@ class Dnd extends React.Component{
         defaultView = 'week'
         views = {{ week: true }}
         scrollToTime={new Date(1970, 1, 1, 6)}
-        defaultDate={new Date(2017, 9, 17)}
         test='io'
-        onSelectEvent= {event => Popup.alert(event.desc, 'Description')}
+        onSelectEvent= {event => Popup.alert(event.desc, event.title)}
         components = {{
         event: Event,
         }}
@@ -102,5 +121,5 @@ const mapDispatchToProps = dispatch => {
 };
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dnd);
+export default connect(mapStateToProps, mapDispatchToProps)(Dnd, this.day1, this.day2, this.day3, this.day4);
 

@@ -117,14 +117,14 @@ export function fetchCalendar(thisUser) {
       // console.log("LAST UPLOAD", lastUpload)
 
       const selectedDay = lastUpload.calendar.selectedDay;
-      const selectedWeekdays = lastUpload.calendar.selectedWeekdays;
+      const selectedWeekday = lastUpload.calendar.selectedWeekday;
       const selectedExercise = lastUpload.calendar.selectedExercise;
 
       dispatch({
         date: date,
         type: actionTypes.FETCH_CALENDAR,
         selectedDay: selectedDay,
-        selectedWeekdays: selectedWeekdays,
+        selectedWeekday: selectedWeekday,
         selectedExercise: selectedExercise
       });
     });

@@ -10,7 +10,7 @@ import { bindActionCreators } from 'redux';
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.less';
 import BigCalendar from 'react-big-calendar';
 import BBB from './WorkoutTemplates/BBB';
-import userEvent from './eventFunction';
+
 import 'react-big-calendar/lib/less/styles.less';
 import './calendar.css';
 
