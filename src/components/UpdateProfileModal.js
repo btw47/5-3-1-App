@@ -32,9 +32,19 @@ class UpdateProfileModal extends Component {
     return (
       <div>
         <Button onClick={this.open}>Update Stats</Button>
-
-        <Modal show={this.state.showModal} onHide={this.close}>
-          <Modal.Header />
+        <Modal
+          show={this.state.showModal}
+          onHide={this.close}
+          style={{
+            position: 'absolute',
+            display: 'block',
+            top: '20vh',
+            margin: 'auto',
+            transform: 'translate(-50%, -50%) !important'
+          }}>
+          <Modal.Header>
+            <Modal.Title>Update your profile</Modal.Title>
+          </Modal.Header>
           <Modal.Body>
             <UpdateProfile />
           </Modal.Body>

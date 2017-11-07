@@ -65,11 +65,9 @@ export default class ForgotPassword extends Component {
                 </Modal.Title>
               </Modal.Header>
               <Modal.Body>
-                <form onSubmit={event => this.handleSubmit(event)}>
-                  <h4 style={{ textAlign: 'center' }}>
-                    Please check your email to reset your password
-                  </h4>
-                </form>
+                <h4 style={{ textAlign: 'center' }}>
+                  Please check your email to reset your password
+                </h4>
               </Modal.Body>
               <Modal.Footer>
                 <NavLink to="/SignIn">Close</NavLink>
