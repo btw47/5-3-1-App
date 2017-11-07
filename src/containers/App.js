@@ -12,7 +12,6 @@ import Leaderboards from '../components/Leaderboards';
 import Forums from '../components/Fourms';
 import EmailSupport from '../components/EmailSupport';
 import LiveChat from '../components/LiveChat';
-import Compare from './Compare';
 import Modify from './Modify';
 import NavBar from '../components/NavBar';
 import ConnectWithUs from '../components/ConnectWithUs';
@@ -38,7 +37,6 @@ class App extends Component {
             <Route path="/SignIn" component={SignIn} />
             <Route path="/ForgotPassword" component={ForgotPassword} />
             <Route path="/SetProfile" component={SetProfile} />
-            <Route path="/Compare" component={Compare} />
             <Route path="/Modify" component={Modify} />
             <Route path="/Today" component={Today} />
             <Route path="/Progress" component={Progress} />

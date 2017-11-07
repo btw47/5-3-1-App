@@ -60,6 +60,7 @@ class DashboardContainer extends Component {
               <Nav bsStyle="tabs">
                 <NavItem eventKey="first">Dashboard</NavItem>
                 <NavItem eventKey="calendar">Calendar</NavItem>
+                <NavItem eventKey="modifyCalendar">Modify Calendar</NavItem>
                 <NavDropdown eventKey="3" title="Progress">
                   <MenuItem eventKey="compare">Compare</MenuItem>
                   <MenuItem divider />
@@ -67,6 +68,7 @@ class DashboardContainer extends Component {
                     <NavLink to="/DetailedProgress">Visualize Progress</NavLink>
                   </MenuItem>
                 </NavDropdown>
+                <NavItem eventKey="settings">Settings</NavItem>
               </Nav>
             </Col>
             <Col sm={12}>
@@ -80,6 +82,11 @@ class DashboardContainer extends Component {
                 <Tab.Pane eventKey="calendar">
                   <h1>FULL CALENDAR CAN GO HERE</h1>
                 </Tab.Pane>
+                <Tab.Pane eventKey="modifyCalendar">
+                  <h1>UPDATE WORKOUTS AND CALENDAR HERE</h1>
+                </Tab.Pane>
+
+                <Tab.Pane eventKey="settings" />
               </Tab.Content>
             </Col>
           </Row>

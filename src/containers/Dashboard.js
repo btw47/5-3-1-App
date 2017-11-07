@@ -54,10 +54,6 @@ class Dashboard extends Component {
 
     return (
       <div className="textlayout">
-        <NavLink to="/DetailedProgress" style={{ float: 'right' }}>
-          <span>Progress</span>
-        </NavLink>
-
         <br />
         <Row>
           <Col md={4} sm={12} style={{ paddingLeft: '50px' }}>
@@ -68,7 +64,14 @@ class Dashboard extends Component {
               fetchProfileImage={this.props.fetchProfileImage}
               profileImage={state.user.profileImage}
             />
-            <UpdateProfileModal />
+            <div>
+              <UpdateProfileModal style={{ display: 'inline-block' }} />
+              <UploadImage
+                fetchProfileImage={this.props.fetchProfileImage}
+                userId={state.user.uid}
+                style={{ display: 'inline-block' }}
+              />
+            </div>
           </Col>
           <Col md={6} mdOffset={2} small={12} style={{ paddingRight: '50px' }}>
             <DashboardGraph />
@@ -83,10 +86,6 @@ class Dashboard extends Component {
         <NavLink to="/modify">
           <span>Modify Calendar</span>
         </NavLink>
-        <UploadImage
-          fetchProfileImage={this.props.fetchProfileImage}
-          userId={state.user.uid}
-        />
       </div>
     );
   }
