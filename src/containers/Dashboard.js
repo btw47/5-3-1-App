@@ -58,6 +58,7 @@ class Dashboard extends Component {
         <NavLink to="/DetailedProgress" style={{ float: 'right' }}>
           <span>Progress</span>
         </NavLink>
+
         <br />
         <Row>
           <Col md={4} sm={12} style={{ paddingLeft: '50px' }}>

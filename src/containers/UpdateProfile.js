@@ -68,18 +68,21 @@ class SetProfile extends Component {
       const date = Date();
       const history = this.props.history;
 
-      firebaseDb.ref('users/' + uid).push({
-        weight: this.state.weight,
-        oneRepMax: this.state.oneRepMax,
-        date: date
-      });
+      firebaseDb
+        .ref('users/' + uid)
+        .push({
+          weight: this.state.weight,
+          oneRepMax: this.state.oneRepMax,
+          date: date
+        })
+        .then(() => {
+          alert('Your stats have been updated. You may now close this window.');
+        });
     }
   };
 
   render() {
     const { state } = this.props;
-
-    console.log('UPDATE STATE', this.state);
 
     return (
       <div className="update-profile">
