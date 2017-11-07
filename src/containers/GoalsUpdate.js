@@ -7,18 +7,6 @@ import { NavLink } from 'react-router-dom';
 import { firebaseDb } from '../server/firebase';
 import firebase from 'firebase';
 
-// function loopForm(form){
-//     var cbResults = 'Checkboxes: ';
-//     var radioResults = 'Radio Buttons: ';
-//     for(var i = 0; i < form.elements.length; i++){
-//         if(form.elements[i].checked === true){
-//             if(form.elements[i].type === 'Checkbox'){
-//                 console.log(form.elements[i].name)
-//                 return form.elements[i].name
-//             }
-//         }
-//     }
-// }
 
 class GoalUpdate extends Component {
   componentWillMount() {
@@ -45,19 +33,10 @@ class GoalUpdate extends Component {
   };
 
   handleWeekdayChange = newDays => {
-    // if(event.target.value = false){
-    //     event.target.value = true
-    // }else if (event.target.value = true){
-    //     event.target.value = false
-    // }
-
-    // if(event.target.value = true){
     console.log(this.state);
     this.setState({
       selectedWeekday: newDays
     });
-
-    //}
   };
 
   handleExerciseChange = event => {
@@ -68,8 +47,6 @@ class GoalUpdate extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    //   loopForm(this.refs.goalUpdateForm)
-    // this.props.userInput( this.state.selectedDay, this.state.selectedWeekdays, this.state.selectedExercise )
     if (
       !this.state.selectedDay ||
       !this.state.selectedWeekday ||
@@ -82,16 +59,7 @@ class GoalUpdate extends Component {
         var uid = thisUser.uid;
       }
       const date = Date();
-      // this.setState({
-      //   calendar:{
-      //     selectedDay: this.selectedDay.value,
-      //     selectedWeekdays: this.selectedWeekdays.value,
-      //     selectedExercise: this.selectedExercise.value,
-      //     date: date,
-      //     }
-      // })
       console.log('SET STATE', this.state);
-      // const { selectedDay, selectedWeekdays, selectedExercise } = this.state;
       firebaseDb
         .ref('users/' + uid)
         .push({
@@ -110,6 +78,24 @@ class GoalUpdate extends Component {
   };
 
   render() {
+    function checkboxlimit(checkgroup, limit){
+      var checkgroup=checkgroup
+      var limit=limit
+      for (var i=0; i<checkgroup.length; i++){
+        checkgroup[i].onclick=function(){
+        var checkedcount=0
+        for (var i=0; i<checkgroup.length; i++)
+          checkedcount+=(checkgroup[i].checked)? 1 : 0
+        if (checkedcount>limit){
+          alert("You can only select a maximum of "+limit+" checkboxes")
+          this.checked=false
+          }
+        }
+      }
+    }
+    if(this.state.selectedDay === "2days"){
+      checkboxlimit(this.refs.weekdays.checkbox, 2)
+    }
     return (
       <div>
         <h2>Update goals below fam!</h2>
@@ -161,35 +147,58 @@ function that updates the state of our buttons */}
           <label>Days of the week</label>
           <br />
           <CheckboxGroup
-            name="weekdays"
+            ref="weekdays"
+            name="checkbox"
             value={this.state.selectedWeekday}
-            onChange={this.handleWeekdayChange}>
+            onChange={this.handleWeekdayChange}
+            >
             <label>
-              <Checkbox ref="checkbox" value={1} />Monday
+              <Checkbox 
+                name="checkbox" 
+                value={1} 
+              />Monday
             </label>
             <br />
             <label>
-              <Checkbox ref="checkbox" value={2} />Tuesday
+              <Checkbox 
+                name="checkbox" 
+                value={2} 
+              />Tuesday
             </label>
             <br />
             <label>
-              <Checkbox ref="checkbox" value={3} />Wednesday
+              <Checkbox 
+                name="checkbox" 
+                value={3} 
+              />Wednesday
             </label>
             <br />
             <label>
-              <Checkbox ref="checkbox" value={4} />Thursday
+              <Checkbox 
+                name="checkbox" 
+                value={4} 
+              />Thursday
             </label>
             <br />
             <label>
-              <Checkbox ref="checkbox" value={5} />Friday
+              <Checkbox 
+                name="checkbox"  
+                value={5} 
+              />Friday
             </label>
             <br />
             <label>
-              <Checkbox ref="checkbox" value={6} />Saturday
+              <Checkbox 
+                name="checkbox" 
+                value={6} 
+              />Saturday
             </label>
             <br />
             <label>
-              <Checkbox ref="checkbox" value={0} />Sunday
+              <Checkbox 
+                name="checkbox" 
+                value={0} 
+              />Sunday
             </label>
           </CheckboxGroup>
 

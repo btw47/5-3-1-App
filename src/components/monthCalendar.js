@@ -9,7 +9,7 @@ import { bindActionCreators } from 'redux';
 
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.less';
 import BigCalendar from 'react-big-calendar';
-import BBB from './WorkoutTemplates/BBB';
+import {BBB4days} from './WorkoutTemplates/BBB';
 
 import 'react-big-calendar/lib/less/styles.less';
 import './calendar.css';
@@ -55,7 +55,7 @@ class Dnd extends React.Component{
     if (state.fetchCalendar.calendar) {
       if (state.fetchCalendar.calendar.selectedExercise === "boringButBig") {
         console.log("COME ON BITCH", this.state)
-        userEvents = BBB
+        userEvents = BBB4days
       } else {
         console.log("SHIIT")
         userEvents
