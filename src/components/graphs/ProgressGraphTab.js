@@ -30,19 +30,19 @@ class ProgressGraphTab extends Component {
 
       return (
         <table
-          class="table table-bordered"
+          className="table table-bordered"
           style={{ width: '95vw', margin: 'auto' }}>
           <thead>
             <tr>
               <th />
-              <th style={{ 'text-align': 'center' }}>Day One ({fullDate})</th>
-              <th style={{ 'text-align': 'center' }}>Present</th>
-              <th style={{ 'text-align': 'center' }}>Percent Gain (%)</th>
+              <th style={{ textAlign: 'center' }}>Day One ({fullDate})</th>
+              <th style={{ textAlign: 'center' }}>Present</th>
+              <th style={{ textAlign: 'center' }}>Percent Gain (%)</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <th scope="row" style={{ 'text-align': 'center' }}>
+              <th scope="row" style={{ textAlign: 'center' }}>
                 {statName}
               </th>
               <td>{oldStat} lbs</td>
@@ -60,7 +60,7 @@ class ProgressGraphTab extends Component {
 
     return (
       <Tab eventKey={this.props.eventKey} title={this.props.title}>
-        <div class="card">
+        <div className="card">
           <DumbGraph
             title={this.props.title}
             data={this.props.data}
@@ -69,7 +69,7 @@ class ProgressGraphTab extends Component {
             color={this.props.color}
           />
           <hr />
-          <div class="card-block" style={{ 'text-align': 'center' }}>
+          <div className="card-block" style={{ textAlign: 'center' }}>
             <h2>See your progress below!</h2>
             <br />
             {this.calculateGains()}

@@ -7,6 +7,7 @@ import { bindActionCreators } from 'redux';
 import { NavLink } from 'react-router-dom';
 
 import UserStats from '../components/UserStats';
+import profilePicture from '../images/anon-user.jpg';
 import * as actions from '../actions';
 
 class Compare extends Component {
@@ -53,6 +54,29 @@ class Compare extends Component {
     );
   };
 
+  renderImage = () => {
+    if (this.props.state.user.profileImage === null) {
+      return (
+        <div>
+          <img
+            src={profilePicture}
+            alt="profile pic"
+            style={{ width: '12vw' }}
+          />
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <img
+            src={this.props.state.user.profileImage}
+            style={{ width: '12vw' }}
+          />
+        </div>
+      );
+    }
+  };
+
   renderPresent = () => {
     const { state } = this.props;
 
@@ -61,25 +85,29 @@ class Compare extends Component {
         <Col
           md={12}
           style={{ 'text-align': 'center', display: 'inline', margin: 'auto' }}>
-          <h3>Present Day</h3>
-          <UserStats
-            user={state.user}
-            fetchUser={this.props.fetchUser}
-            fetchProfileImage={this.props.fetchProfileImage}
-            profileImage={state.user.profileImage}
-          />
+          <h2>Present Day</h2>
+          <br />
+          {this.renderImage()}
+          <br />
+          <h4>Current Weight: {state.user.weight}</h4>
+          <h4>Bench: {state.user.ormBench}</h4>
+          <h4>Overhead Press: {state.user.ormOverheadPress}</h4>
+          <h4>Squats: {state.user.ormSquat}</h4>
+          <h4>Deadlift: {state.user.ormDeadlift}</h4>
         </Col>
       );
     } else {
       return (
         <Col md={6} style={{ 'text-align': 'center' }}>
-          <h3>Present Day</h3>
-          <UserStats
-            user={state.user}
-            fetchUser={this.props.fetchUser}
-            fetchProfileImage={this.props.fetchProfileImage}
-            profileImage={state.user.profileImage}
-          />
+          <h2>Present Day</h2>
+          <br />
+          {this.renderImage()}
+          <br />
+          <h4>Current Weight: {state.user.weight}</h4>
+          <h4>Bench: {state.user.ormBench}</h4>
+          <h4>Overhead Press: {state.user.ormOverheadPress}</h4>
+          <h4>Squats: {state.user.ormSquat}</h4>
+          <h4>Deadlift: {state.user.ormDeadlift}</h4>
         </Col>
       );
     }
@@ -88,32 +116,30 @@ class Compare extends Component {
   render() {
     const { state } = this.props;
 
+    console.log('COMPARE PROPS', this.props);
+
     return (
       <div className="Compare" style={{ 'text-align': 'center' }}>
         <Jumbotron>
-          <NavLink style={{ float: 'left' }} to="/dashboard">
-            back
-          </NavLink>
-          <NavLink style={{ float: 'right' }} to="/DetailedProgress">
-            Progress
-          </NavLink>
-          <br />
-
           <Row>
-            {this.renderPresent()}
             <Col md={6} style={{ 'text-align': 'center' }}>
               {this.state.compare && (
                 <div>
-                  <h3>{this.state.compare}</h3>
-                  <UserStats
-                    user={state.user.oldStats}
-                    fetchUser={this.props.fetchUser}
-                    fetchProfileImage={this.props.fetchProfileImage}
-                    profileImage={state.user.profileImage}
-                  />
+                  <h2>{this.state.compare}</h2>
+                  <br />
+                  {this.renderImage()}
+                  <br />
+                  <h4>Current Weight: {state.user.oldStats.weight}</h4>
+                  <h4>Bench: {state.user.oldStats.ormBench}</h4>
+                  <h4>
+                    Overhead Press: {state.user.oldStats.ormOverheadPress}
+                  </h4>
+                  <h4>Squats: {state.user.oldStats.ormSquat}</h4>
+                  <h4>Deadlift: {state.user.oldStats.ormDeadlift}</h4>
                 </div>
               )}
             </Col>
+            {this.renderPresent()}
           </Row>
           {this.renderCompare()}
         </Jumbotron>

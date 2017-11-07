@@ -1,14 +1,14 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Route,
   Switch,
   NavLink
-} from "react-router-dom";
+} from 'react-router-dom';
 
-import logo from "../images/weight-lifting-logo.png";
-import actionTypes from "../actionTypes";
-import SignOut from "./auth/SignOut";
+import logo from '../images/weight-lifting-logo.png';
+import actionTypes from '../actionTypes';
+import SignOut from './auth/SignOut';
 
 class NavBar extends Component {
   renderUserStatus = () => {
@@ -17,61 +17,61 @@ class NavBar extends Component {
     } else {
       return (
         <li className="mycontenttext">
-          <a href="/SignIn" className="signin">
+          <NavLink to="/SignIn" className="signin">
             Log In
-          </a>
+          </NavLink>
         </li>
       );
     }
   };
 
   style = {
-    width: "50px"
+    width: '50px'
   };
 
   render() {
     return (
-      <div className="pos-f-t" className="navigationB">
+      <div className="pos-f-t navigationB">
         <div className="collapse" id="navbarToggleExternalContent">
           <div className="bg-dark p-4">
             <h4 className="text-white">5-3-1 Workout App</h4>
             <span className="text-muted">
-              <a className="navbar-brand" href="/">
+              <NavLink className="navbar-brand" to="/">
                 <i className="em  em-house" />
                 Home
-              </a>
-              <a className="navbar-brand" href="/Today">
+              </NavLink>
+              <NavLink className="navbar-brand" to="/Today">
                 <i className="em em-date" />
                 Today
-              </a>
-              <a className="navbar-brand" href="/Progress">
+              </NavLink>
+              <NavLink className="navbar-brand" to="/Progress">
                 <i className="em em-muscle" />
                 MY GAINZ
-              </a>
-              <a className="navbar-brand" href="/Leaderboards">
+              </NavLink>
+              <NavLink className="navbar-brand" to="/Leaderboards">
                 <i className="em  em-trophy" />
                 Leaderboards
-              </a>
-              <a className="navbar-brand" href="/Forums">
+              </NavLink>
+              <NavLink className="navbar-brand" to="/Forums">
                 <i className="em  em-pencil" />
                 Forums
-              </a>
-              <a className="navbar-brand" href="/Dashboard">
+              </NavLink>
+              <NavLink className="navbar-brand" to="/Dashboard">
                 <i className="em  em-chart_with_upwards_trend" />
                 Dashboard
-              </a>
-              <a className="navbar-brand" href="/ConnectWithUs">
+              </NavLink>
+              <NavLink className="navbar-brand" to="/ConnectWithUs">
                 <i className="em em-sunglasses" />
                 Ladies Come Connect With Us!
-              </a>
-              <a className="navbar-brand" href="/LiveChat">
+              </NavLink>
+              <NavLink className="navbar-brand" to="/LiveChat">
                 <i className="em  em-interrobang" />
                 Live Chat!
-              </a>
-              <a className="navbar-brand" href="/EmailSupport">
+              </NavLink>
+              <NavLink className="navbar-brand" to="/EmailSupport">
                 <i className="em  em-e-mail" />
                 Email Support
-              </a>
+              </NavLink>
             </span>
           </div>
         </div>
@@ -83,8 +83,7 @@ class NavBar extends Component {
             data-target="#navbarToggleExternalContent"
             aria-controls="navbarToggleExternalContent"
             aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
+            aria-label="Toggle navigation">
             <span className="navbar-toggler-icon" />
           </button>
           {/* <a class="navbar-brand" href="/SignIn" className="signin">
