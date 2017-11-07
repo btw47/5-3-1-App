@@ -56,17 +56,43 @@ class SignIn extends Component {
     this.props.userLogIn(this.state.email, this.state.password);
   };
 
+  validationState = () => {
+    if (this.props.state.auth.error) {
+      switch (this.props.state.auth.error.code) {
+        case 'auth/wrong-password':
+          return 'error';
+        case 'auth/invalid-email':
+          return 'error';
+
+        case 'auth/user-not-found':
+          return 'error';
+        default:
+          return <div />;
+      }
+    }
+  };
+
   renderError = () => {
     if (this.props.state.auth.error) {
       switch (this.props.state.auth.error.code) {
         case 'auth/wrong-password':
-          return <div style={{ color: 'white' }}>wrong password idiot</div>;
+          return (
+            <h4 style={{ color: 'white', textAlign: 'center' }}>
+              Sorry, wrong email or password
+            </h4>
+          );
         case 'auth/invalid-email':
           return (
-            <div style={{ color: 'white' }}>enter a valid email, idiot</div>
+            <h4 style={{ color: 'white', textAlign: 'center' }}>
+              Please enter a valid email
+            </h4>
           );
         case 'auth/user-not-found':
-          return <div style={{ color: 'white' }}>sorry, user not found</div>;
+          return (
+            <h4 style={{ color: 'white', textAlign: 'center' }}>
+              Sorry, this user was not found.
+            </h4>
+          );
         default:
           return <div />;
       }
@@ -81,20 +107,21 @@ class SignIn extends Component {
         <form onSubmit={event => this.handleSubmit(event)}>
           <FormGroup
             style={{ padding: '0 30vw', textAlign: 'center' }}
-            bsSize="large">
+            bsSize="large"
+            validationState={this.validationState()}>
             <FormControl
               type="text"
               placeholder="email"
               ref={ref => (this.email = ref)}
               onChange={event => this.handleUser(event)}
             />
-            <br />
             <FormControl
               type="password"
               placeholder="password"
               onChange={event => this.handlePassword(event)}
             />
             <br />
+            {this.renderError()}
             <ButtonToolbar>
               <Button
                 bsSize="large"
@@ -102,14 +129,14 @@ class SignIn extends Component {
                 style={{ display: 'block', margin: 'auto' }}>
                 Log In
               </Button>
-            </ButtonToolbar>{' '}
+            </ButtonToolbar>
             <br />
             <NavLink to="/">
-              <span>Sign Up</span>
+              <h4 style={{ color: 'white' }}>Sign Up</h4>
             </NavLink>
             <br />
             <NavLink to="/ForgotPassword">
-              <span>forgot your password?</span>
+              <h5 style={{ color: 'white' }}>forgot your password?</h5>
             </NavLink>
           </FormGroup>
         </form>
@@ -128,7 +155,6 @@ class SignIn extends Component {
           style={{ display: 'block', margin: 'auto' }}
         />
         {this.renderSignIn()}
-        {this.renderError()}
         <div id="firebaseui-auth-container" ref={ref => (this.widget = ref)} />
       </div>
     );

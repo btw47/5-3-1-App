@@ -108,9 +108,10 @@ export default class SignUp extends Component {
                 Sign Up
               </Button>
             </ButtonToolbar>
+            <br />
             {this.renderError()}
             <NavLink to="/SignIn">
-              <span>Sign In</span>
+              <h4 style={{ color: 'white' }}>Sign In</h4>
             </NavLink>
           </FormGroup>
         </form>
