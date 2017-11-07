@@ -51,7 +51,6 @@ class Dashboard extends Component {
   render() {
     const { state } = this.props;
     const thisUser = firebase.auth().currentUser;
-    console.log('STORE', this.props.state);
 
     return (
       <div className="textlayout">
@@ -88,10 +87,6 @@ class Dashboard extends Component {
           fetchProfileImage={this.props.fetchProfileImage}
           userId={state.user.uid}
         />
-
-        <NavLink to="/Compare" style={{ float: 'right' }}>
-          <span>Compare</span>
-        </NavLink>
       </div>
     );
   }

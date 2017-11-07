@@ -1,5 +1,14 @@
 import React, { Component } from 'react';
-import { Col, Row, Jumbotron, Tabs, Tab, Nav, NavItem } from 'react-bootstrap';
+import {
+  Col,
+  Row,
+  Jumbotron,
+  Tabs,
+  Tab,
+  Nav,
+  NavItem,
+  Glyphicon
+} from 'react-bootstrap';
 import firebase from 'firebase';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -46,8 +55,11 @@ class ProgressGraph extends Component {
     return (
       <div>
         <Jumbotron>
-          <NavLink style={{ float: 'left' }} to="/Compare">
-            Compare
+          <NavLink style={{ float: 'left' }} to="/Dashboard">
+            <span>
+              <Glyphicon style={{ height: '5vh' }} glyph="arrow-left" />{' '}
+              Dashboard
+            </span>
           </NavLink>
           <br />
           <Tabs
