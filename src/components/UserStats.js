@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { Panel, PanelGroup } from 'react-bootstrap';
 
 import * as actions from '../actions';
 import profilePicture from '../images/anon-user.jpg';
@@ -9,6 +10,9 @@ import UploadImage from './UploadImage';
 class UserStats extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      activeKey: '1'
+    };
   }
 
   componentWillMount() {
@@ -16,6 +20,12 @@ class UserStats extends Component {
 
     console.log('FUNCTION CALLED');
   }
+
+  handleSelect = activeKey => {
+    this.setState({
+      activeKey
+    });
+  };
 
   renderImage = () => {
     if (this.props.profileImage === null) {
@@ -48,7 +58,24 @@ class UserStats extends Component {
     const { user } = this.props;
     return (
       <div>
-        <div>
+        {this.renderImage()}
+        <PanelGroup
+          activeKey={this.state.activeKey}
+          onSelect={this.handleSelect}
+          accordion
+          style={{ width: '12vw' }}>
+          <Panel header="About Me" eventKey="1">
+            Panel 1 content
+          </Panel>
+          <Panel header="Current Stats" eventKey="2">
+            <h6>Current Weight: {user.weight}</h6>
+            <h6>Bench: {user.ormBench}</h6>
+            <h6>Overhead Press: {user.ormOverheadPress}</h6>
+            <h6>Squats: {user.ormSquat}</h6>
+            <h6>Deadlift: {user.ormDeadlift}</h6>
+          </Panel>
+        </PanelGroup>
+        {/* <div>
           {this.renderImage()}
           <h3>{user.fullName}</h3>
           <div>
@@ -58,11 +85,7 @@ class UserStats extends Component {
             <h6>Squats: {user.ormSquat}</h6>
             <h6>Deadlift: {user.ormDeadlift}</h6>
           </div>
-          {/* <UploadImage
-            fetchProfileImage={this.props.fetchProfileImage}
-            userId={user.uid}
-          /> */}
-        </div>
+        </div> */}
       </div>
     );
   }
