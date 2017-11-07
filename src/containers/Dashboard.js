@@ -3,7 +3,7 @@ import firebase from 'firebase';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { NavLink } from 'react-router-dom';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Pager } from 'react-bootstrap';
 import '../css/Dashboard.css';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
