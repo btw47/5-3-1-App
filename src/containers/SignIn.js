@@ -115,6 +115,8 @@ class SignIn extends Component {
               ref={ref => (this.email = ref)}
               onChange={event => this.handleUser(event)}
             />
+            <br />
+
             <FormControl
               type="password"
               placeholder="password"

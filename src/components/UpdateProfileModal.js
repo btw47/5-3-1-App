@@ -29,21 +29,12 @@ class UpdateProfileModal extends Component {
   };
 
   render = () => {
-    const popover = (
-      <Popover id="modal-popover" title="popover">
-        very popover. such engagement
-      </Popover>
-    );
-    const tooltip = <Tooltip id="modal-tooltip">wow.</Tooltip>;
-
     return (
       <div>
         <Button onClick={this.open}>Update Stats</Button>
 
         <Modal show={this.state.showModal} onHide={this.close}>
-          <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
-          </Modal.Header>
+          <Modal.Header />
           <Modal.Body>
             <UpdateProfile />
           </Modal.Body>
