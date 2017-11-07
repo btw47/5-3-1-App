@@ -54,7 +54,7 @@ class ProgressGraph extends Component {
             defaultActiveKey={1}
             animation={false}
             id="noanim-tab-example"
-            style={{ 'border-bottom': '5px' }}>
+            style={{ borderBottom: '5px' }}>
             <Tab eventKey={1} title="Overview">
               <DumbGraph
                 title="Weight"

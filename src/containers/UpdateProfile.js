@@ -88,7 +88,7 @@ class SetProfile extends Component {
       <div className="update-profile">
         <form onSubmit={event => this.handleSubmit(event)}>
           <FormGroup bsSize="small">
-            <h1 style={{ paddingTop: '80px' }}>Enter your info below</h1>
+            <h1 style={{ paddingTop: '80px' }}>Update Stats Below</h1>
             <br />
             <label>Current Weight: </label>
             <br />

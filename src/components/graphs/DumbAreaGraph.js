@@ -12,8 +12,14 @@ import {
 const DumbGraph = props => {
   const formatter = value => `${value} lbs`;
 
+  const thisInterval = () => {
+    if (props.data) {
+      return Math.ceil(props.data.length / 10);
+    }
+  };
+
   return (
-    <div style={{ 'text-align': 'center' }}>
+    <div style={{ textAlign: 'center' }}>
       <br />
       <h2>{props.title}</h2>
       <ResponsiveContainer width={'100%'} height={props.height}>
@@ -21,7 +27,7 @@ const DumbGraph = props => {
           data={props.data}
           syncId="anyId"
           margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
-          <XAxis dataKey="name" />
+          <XAxis dataKey="name" interval={thisInterval()} />
           <YAxis tickFormatter={formatter} />
           <CartesianGrid strokeDasharray="3 3" />
           <Tooltip />
