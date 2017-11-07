@@ -13,6 +13,8 @@ export default class SignUp extends Component {
   }
 
   componentDidMount() {
+    this.email.focus();
+
     const { authUI } = this.props;
 
     // console.log("AUTHLINKS PROPS", authUI);
@@ -85,7 +87,7 @@ export default class SignUp extends Component {
             <FormControl
               type="text"
               placeholder="email"
-              ref={ref => {
+              inputRef={ref => {
                 this.email = ref;
               }}
               onChange={event => this.handleUser(event)}

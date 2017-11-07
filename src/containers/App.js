@@ -14,7 +14,6 @@ import EmailSupport from '../components/EmailSupport';
 import LiveChat from '../components/LiveChat';
 import Compare from './Compare';
 import Modify from './Modify';
-import UpdateProfile from './UpdateProfile';
 import NavBar from '../components/NavBar';
 import ConnectWithUs from '../components/ConnectWithUs';
 import OurMission from '../components/OurMission';
@@ -47,7 +46,6 @@ class App extends Component {
             <Route path="/Forums" component={Forums} />
             <Route path="/EmailSupport" component={EmailSupport} />
             <Route path="/LiveChat" component={LiveChat} />
-            <Route path="/UpdateProfile" component={UpdateProfile} />
             <Route path="/GoalsUpdate" component={GoalsUpdate} />
             <Route path="/WeeklyTemplate" component={WeeklyTemplate} />
             <Route path="/DetailedProgress" component={DetailedProgress} />

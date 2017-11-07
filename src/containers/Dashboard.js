@@ -13,6 +13,7 @@ import UserStats from '../components/UserStats';
 import UploadImage from '../components/UploadImage';
 import DashboardGraph from '../components/graphs/DashboardGraph';
 import { firebaseDb } from '../server/firebase';
+import UpdateProfileModal from '../components/UpdateProfileModal';
 import * as actions from '../actions';
 
 class Dashboard extends Component {
@@ -67,13 +68,7 @@ class Dashboard extends Component {
               fetchProfileImage={this.props.fetchProfileImage}
               profileImage={state.user.profileImage}
             />
-            <NavLink to="/UpdateProfile">
-              <span>Update your stats!</span>
-            </NavLink>
-            <UploadImage
-              fetchProfileImage={this.props.fetchProfileImage}
-              userId={state.user.uid}
-            />
+            <UpdateProfileModal />
           </Col>
           <Col md={6} mdOffset={2} small={12} style={{ paddingRight: '50px' }}>
             <DashboardGraph />
@@ -88,6 +83,10 @@ class Dashboard extends Component {
         <NavLink to="/modify">
           <span>Modify Calendar</span>
         </NavLink>
+        <UploadImage
+          fetchProfileImage={this.props.fetchProfileImage}
+          userId={state.user.uid}
+        />
 
         <NavLink to="/Compare" style={{ float: 'right' }}>
           <span>Compare</span>
