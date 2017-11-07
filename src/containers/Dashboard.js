@@ -3,7 +3,7 @@ import firebase from 'firebase';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { NavLink } from 'react-router-dom';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Pager } from 'react-bootstrap';
 import '../css/Dashboard.css';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
@@ -12,6 +12,8 @@ import BBB from '../components/WorkoutTemplates/BBB';
 import UserStats from '../components/UserStats';
 import UploadImage from '../components/UploadImage';
 import DashboardGraph from '../components/graphs/DashboardGraph';
+import { firebaseDb } from '../server/firebase';
+import UpdateProfileModal from '../components/UpdateProfileModal';
 import * as actions from '../actions';
 
 class Dashboard extends Component {
@@ -21,13 +23,27 @@ class Dashboard extends Component {
         this.props.history.push('/');
       } else if (user) {
         const thisUser = firebase.auth().currentUser;
+        const uid = thisUser.uid;
 
-        this.props.fetchCalendar(thisUser);
-        this.props.fetchProfileImage(thisUser.uid);
-        this.props.fetchUser(thisUser);
-        this.props.fetchOldStats(thisUser);
-        this.props.fetchProgress(thisUser);
-        this.props.loggedIn();
+        firebaseDb.ref('users/' + uid).on('value', snapshot => {
+          const firebaseOutput = snapshot.val();
+
+          const uploadList = [];
+          for (let prop in firebaseOutput) {
+            uploadList.push(prop);
+          }
+
+          if (uploadList.length === 0) {
+            this.props.history.push('/SetProfile');
+          } else {
+            this.props.fetchCalendar(thisUser);
+            this.props.fetchProfileImage(thisUser.uid);
+            this.props.fetchUser(thisUser);
+            this.props.fetchOldStats(thisUser);
+            this.props.fetchProgress(thisUser);
+            this.props.loggedIn();
+          }
+        });
       }
     });
   }
@@ -35,16 +51,12 @@ class Dashboard extends Component {
   render() {
     const { state } = this.props;
     const thisUser = firebase.auth().currentUser;
-    console.log('STORE', this.props.state);
 
     return (
       <div className="textlayout">
-        <NavLink to="/DetailedProgress" style={{ float: 'right' }}>
-          <span>Progress</span>
-        </NavLink>
         <br />
         <Row>
-          <Col md={2}>
+          <Col md={4} sm={12} style={{ paddingLeft: '50px' }}>
             <UserStats
               className="UserStats"
               user={state.user}
@@ -52,15 +64,16 @@ class Dashboard extends Component {
               fetchProfileImage={this.props.fetchProfileImage}
               profileImage={state.user.profileImage}
             />
-            <NavLink to="/UpdateProfile">
-              <span>Update your stats!</span>
-            </NavLink>
-            <UploadImage
-              fetchProfileImage={this.props.fetchProfileImage}
-              userId={state.user.uid}
-            />
+            <div>
+              <UpdateProfileModal style={{ display: 'inline-block' }} />
+              <UploadImage
+                fetchProfileImage={this.props.fetchProfileImage}
+                userId={state.user.uid}
+                style={{ display: 'inline-block' }}
+              />
+            </div>
           </Col>
-          <Col md={8} mdOffset={2}>
+          <Col md={6} mdOffset={2} small={12} style={{ paddingRight: '50px' }}>
             <DashboardGraph />
           </Col>
         </Row>
@@ -72,11 +85,6 @@ class Dashboard extends Component {
 
         <NavLink to="/modify">
           <span>Modify Calendar</span>
-        </NavLink>
-        <br />
-
-        <NavLink to="/Compare" style={{ float: 'right' }}>
-          <span>Compare</span>
         </NavLink>
       </div>
     );

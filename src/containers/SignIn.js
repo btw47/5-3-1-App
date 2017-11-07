@@ -3,9 +3,10 @@ import firebase from 'firebase';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { FormGroup, FormControl, ButtonToolbar, Button } from 'react-bootstrap';
 import 'firebaseui/dist/firebaseui.css';
 
-import AuthLinks from '../components/auth/AuthLinks';
+import logo from '../images/weight-lifting-logo.png';
 import * as actions from '../actions';
 
 class SignIn extends Component {
@@ -18,7 +19,23 @@ class SignIn extends Component {
   }
 
   componentDidMount() {
-    this.email.focus();
+    const { authUI } = this.props.state.auth;
+
+    let uiConfig = {
+      signInSuccessUrl: '/Dashboard',
+      signInFlow: 'popup',
+      signInOptions: [
+        // firebase.auth.EmailAuthProvider.PROVIDER_ID,
+        // firebase.auth.GithubAuthProvider.PROVIDER_ID,
+        // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        firebase.auth.FacebookAuthProvider.PROVIDER_ID
+      ]
+    };
+
+    if (this.widget) {
+      authUI.start('#firebaseui-auth-container', uiConfig);
+    }
   }
 
   handleUser = event => {
@@ -39,17 +56,43 @@ class SignIn extends Component {
     this.props.userLogIn(this.state.email, this.state.password);
   };
 
+  validationState = () => {
+    if (this.props.state.auth.error) {
+      switch (this.props.state.auth.error.code) {
+        case 'auth/wrong-password':
+          return 'error';
+        case 'auth/invalid-email':
+          return 'error';
+
+        case 'auth/user-not-found':
+          return 'error';
+        default:
+          return <div />;
+      }
+    }
+  };
+
   renderError = () => {
     if (this.props.state.auth.error) {
       switch (this.props.state.auth.error.code) {
         case 'auth/wrong-password':
-          return <div style={{ color: 'white' }}>wrong password idiot</div>;
+          return (
+            <h4 style={{ color: 'white', textAlign: 'center' }}>
+              Sorry, wrong email or password
+            </h4>
+          );
         case 'auth/invalid-email':
           return (
-            <div style={{ color: 'white' }}>enter a valid email, idiot</div>
+            <h4 style={{ color: 'white', textAlign: 'center' }}>
+              Please enter a valid email
+            </h4>
           );
         case 'auth/user-not-found':
-          return <div style={{ color: 'white' }}>sorry, user not found</div>;
+          return (
+            <h4 style={{ color: 'white', textAlign: 'center' }}>
+              Sorry, this user was not found.
+            </h4>
+          );
         default:
           return <div />;
       }
@@ -62,39 +105,59 @@ class SignIn extends Component {
     } else {
       return (
         <form onSubmit={event => this.handleSubmit(event)}>
-          <input
-            type="text"
-            placeholder="email"
-            ref={ref => (this.email = ref)}
-            onChange={event => this.handleUser(event)}
-          />
-          <br />
-          <input
-            type="password"
-            placeholder="password"
-            onChange={event => this.handlePassword(event)}
-          />
-          <br />
-          <button type="submit">Log In</button>
-          <NavLink to="/">
-            <span>Sign Up</span>
-          </NavLink>
-          <br />
-          <NavLink to="/ForgotPassword">
-            <span>forgot your password?</span>
-          </NavLink>
+          <FormGroup
+            style={{ padding: '0 30vw', textAlign: 'center' }}
+            bsSize="large"
+            validationState={this.validationState()}>
+            <FormControl
+              type="text"
+              placeholder="email"
+              ref={ref => (this.email = ref)}
+              onChange={event => this.handleUser(event)}
+            />
+            <br />
+
+            <FormControl
+              type="password"
+              placeholder="password"
+              onChange={event => this.handlePassword(event)}
+            />
+            <br />
+            {this.renderError()}
+            <ButtonToolbar>
+              <Button
+                bsSize="large"
+                type="submit"
+                style={{ display: 'block', margin: 'auto' }}>
+                Log In
+              </Button>
+            </ButtonToolbar>
+            <br />
+            <NavLink to="/">
+              <h4 style={{ color: 'white' }}>Sign Up</h4>
+            </NavLink>
+            <br />
+            <NavLink to="/ForgotPassword">
+              <h5 style={{ color: 'white' }}>forgot your password?</h5>
+            </NavLink>
+          </FormGroup>
         </form>
       );
     }
   };
 
   render() {
+    const { state } = this.props;
     return (
       <div>
-        <hr />
+        <img
+          src={logo}
+          className="logo"
+          alt="logo"
+          style={{ display: 'block', margin: 'auto' }}
+        />
         {this.renderSignIn()}
-        {this.renderError()}
-        {/* <AuthLinks authUI={state.auth.authUI} /> */}
+        <div id="firebaseui-auth-container" ref={ref => (this.widget = ref)} />
       </div>
     );
   }

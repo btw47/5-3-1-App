@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Home from './Home';
-import Dashboard from './Dashboard';
+import Dashboard from './DashboardContainer';
 import SignIn from './SignIn';
 import SetProfile from './SetProfile';
 import Today from '../components/Today';
@@ -12,9 +12,7 @@ import Leaderboards from '../components/Leaderboards';
 import Forums from '../components/Fourms';
 import EmailSupport from '../components/EmailSupport';
 import LiveChat from '../components/LiveChat';
-import Compare from './Compare';
 import Modify from './Modify';
-import UpdateProfile from './UpdateProfile';
 import NavBar from '../components/NavBar';
 import ConnectWithUs from '../components/ConnectWithUs';
 import OurMission from '../components/OurMission';
@@ -39,7 +37,6 @@ class App extends Component {
             <Route path="/SignIn" component={SignIn} />
             <Route path="/ForgotPassword" component={ForgotPassword} />
             <Route path="/SetProfile" component={SetProfile} />
-            <Route path="/Compare" component={Compare} />
             <Route path="/Modify" component={Modify} />
             <Route path="/Today" component={Today} />
             <Route path="/Progress" component={Progress} />
@@ -47,7 +44,6 @@ class App extends Component {
             <Route path="/Forums" component={Forums} />
             <Route path="/EmailSupport" component={EmailSupport} />
             <Route path="/LiveChat" component={LiveChat} />
-            <Route path="/UpdateProfile" component={UpdateProfile} />
             <Route path="/GoalsUpdate" component={GoalsUpdate} />
             <Route path="/WeeklyTemplate" component={WeeklyTemplate} />
             <Route path="/DetailedProgress" component={DetailedProgress} />

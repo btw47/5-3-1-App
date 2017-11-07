@@ -57,7 +57,7 @@ body {
 }
 .signin {
   color: #a0a4b8;
-  font-family: "Trebuchet MS";
+  font-family: 'Trebuchet MS';
   font-style: bold;
   font-size: 25px;
   list-style-type: none;
@@ -70,7 +70,7 @@ body {
   text-align: center;
   font-weight: bold;
   font-size: 300%;
-  font-family: "Verdana";
+  font-family: 'Verdana';
   font-style: italic;
   opacity: 0.8;
   filter: alpha(opacity=50);
@@ -86,7 +86,7 @@ body {
   background-color: #a0a4b8;
   margin: 10px;
   position: inline;
-  font-family: "Trebuchet MS";
+  font-family: 'Trebuchet MS';
   white-space: nowrap;
   width: 500px;
   height: auto;
@@ -128,9 +128,9 @@ body {
   text-align: center;
   padding-bottom: 10px;
   font-weight: 800;
-  font-family: "Trebuchet MS";
+  font-family: 'Trebuchet MS';
 }
 .contentp {
-  font-family: "Trebuchet MS";
+  font-family: 'Trebuchet MS';
   font-weight: 600;
 }

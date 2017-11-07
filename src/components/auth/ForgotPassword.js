@@ -1,21 +1,31 @@
 import React, { Component } from 'react';
+import { Modal, Button, FormGroup, FormControl } from 'react-bootstrap';
 import firebase from 'firebase';
 import { NavLink } from 'react-router-dom';
 
 export default class ForgotPassword extends Component {
   state = {
     reset: false,
+    showModal: true
   };
 
   handleEmail = event => {
     this.setState({
-      email: event.target.value,
+      email: event.target.value
     });
+  };
+
+  close = () => {
+    this.setState({ showModal: false });
+  };
+
+  open = () => {
+    this.setState({ showModal: true });
   };
 
   isReset = () => {
     this.setState({
-      reset: true,
+      reset: true
     });
   };
 
@@ -36,22 +46,74 @@ export default class ForgotPassword extends Component {
     if (this.state.reset) {
       return (
         <div>
-          <h3>An email has been sent to {this.state.email}</h3>
-          <NavLink to="/SignIn">Sign In</NavLink>
+          {/* {alert(`An email has been sent to ${this.state.email}`)}
+          {this.props.history.push('/SignIn')} */}
+          <div>
+            <Modal.Dialog
+              show={this.state.showModal}
+              onHide={this.close}
+              style={{
+                position: 'absolute',
+                display: 'block',
+                top: '20vh',
+                margin: 'auto',
+                transform: 'translate(-50%, -50%) !important'
+              }}>
+              <Modal.Header>
+                <Modal.Title>
+                  <h2>Password Reset</h2>
+                </Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                <h4 style={{ textAlign: 'center' }}>
+                  Please check your email to reset your password
+                </h4>
+              </Modal.Body>
+              <Modal.Footer>
+                <NavLink to="/SignIn">Close</NavLink>
+              </Modal.Footer>
+            </Modal.Dialog>
+          </div>
         </div>
       );
     } else {
       return (
-        <form onSubmit={event => this.handleSubmit(event)}>
-          <h3>Enter your email below to reset your password</h3>
-          <label>Enter your email here: </label>
-          <input
-            onChange={event => this.handleEmail(event)}
-            placeholder="email"
-          />
-          <br />
-          <button type="submit">Reset your password!</button>
-        </form>
+        <div>
+          <Modal.Dialog
+            show={this.state.showModal}
+            onHide={this.close}
+            style={{
+              position: 'absolute',
+              display: 'block',
+              top: '20vh',
+              margin: 'auto',
+              transform: 'translate(-50%, -50%) !important'
+            }}>
+            <Modal.Header>
+              <Modal.Title>
+                <h2>Reset your password</h2>
+              </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <form onSubmit={event => this.handleSubmit(event)}>
+                <FormGroup bsSize="small">
+                  <label>Enter your email here: </label>
+                  <FormControl
+                    onChange={event => this.handleEmail(event)}
+                    placeholder="email"
+                  />
+                  <br />
+                  <Button bsStyle="primary btn" type="submit">
+                    Reset your password!
+                  </Button>
+                </FormGroup>
+              </form>
+            </Modal.Body>
+            <Modal.Footer>
+              <NavLink to="/SignIn">Close</NavLink>
+            </Modal.Footer>
+          </Modal.Dialog>
+        </div>
       );
     }
   };
@@ -60,9 +122,6 @@ export default class ForgotPassword extends Component {
     console.log(this.state);
     return (
       <div>
-        <NavLink to="/SignIn" style={{ float: 'left' }}>
-          <span>back</span>
-        </NavLink>
         <br />
         {this.renderPage()}
       </div>
