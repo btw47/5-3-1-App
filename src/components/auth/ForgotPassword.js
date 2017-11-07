@@ -55,7 +55,7 @@ export default class ForgotPassword extends Component {
               style={{
                 position: 'absolute',
                 display: 'block',
-                top: '30vh',
+                top: '20vh',
                 margin: 'auto',
                 transform: 'translate(-50%, -50%) !important'
               }}>
@@ -87,7 +87,7 @@ export default class ForgotPassword extends Component {
             style={{
               position: 'absolute',
               display: 'block',
-              top: '30vh',
+              top: '20vh',
               margin: 'auto',
               transform: 'translate(-50%, -50%) !important'
             }}>
@@ -105,7 +105,9 @@ export default class ForgotPassword extends Component {
                     placeholder="email"
                   />
                   <br />
-                  <button type="submit">Reset your password!</button>
+                  <Button bsStyle="primary btn" type="submit">
+                    Reset your password!
+                  </Button>
                 </FormGroup>
               </form>
             </Modal.Body>
