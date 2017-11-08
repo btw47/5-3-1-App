@@ -13,7 +13,7 @@ export default class WeeklyTemplate extends Component {
   //     return Math.ceil(max);
   //   };
 
-  weeklyTemplate = (weight, reps) => {
+  //weeklyTemplate = (weight, reps) => {
   weeklyTemplate = (lift, weight, reps) => {
     weight = parseInt(weight);
     reps = parseInt(reps);
@@ -247,6 +247,7 @@ export default class WeeklyTemplate extends Component {
     return <div>{this.renderPage()}</div>;
   }
 }
+
 // -------------------------------------------
 
 // import React, { Component } from "react";
