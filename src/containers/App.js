@@ -21,6 +21,7 @@ import ForgotPassword from '../components/auth/ForgotPassword';
 import GoalsUpdate from './GoalsUpdate';
 import WeeklyTemplate from '../components/weeklyTemplate';
 import DetailedProgress from './DetailedProgress';
+import PhotoGallery from './PhotoGallery';
 import { Button } from 'reactstrap';
 
 class App extends Component {
@@ -47,6 +48,7 @@ class App extends Component {
             <Route path="/GoalsUpdate" component={GoalsUpdate} />
             <Route path="/WeeklyTemplate" component={WeeklyTemplate} />
             <Route path="/DetailedProgress" component={DetailedProgress} />
+            <Route path="/Gallery" component={PhotoGallery} />
           </Switch>
         </div>
       </Router>
