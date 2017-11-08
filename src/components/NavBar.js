@@ -9,6 +9,7 @@ import {
 import logo from "../images/weight-lifting-logo.png";
 import actionTypes from "../actionTypes";
 import SignOut from "./auth/SignOut";
+//import bootstrap from "../../package.json/bootstrap";
 
 class NavBar extends Component {
   renderUserStatus = () => {
