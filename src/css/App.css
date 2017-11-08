@@ -31,6 +31,7 @@
 
 .navbar-brand {
   color: #a5a5a5;
+  padding-left: 10px;
 }
 
 html,
@@ -90,7 +91,6 @@ body {
   white-space: nowrap;
   width: 500px;
   height: auto;
-  text-align: center;
   opacity: 0.8;
   filter: alpha(opacity=50);
 }
@@ -133,4 +133,26 @@ body {
 .contentp {
   font-family: 'Trebuchet MS';
   font-weight: 600;
+}
+.newnew {
+  opacity: 0.8 !important;
+  filter: alpha(opacity=50);
+  background-color: #a0a4b8 !important;
+  font-weight: 800;
+}
+
+.backgrd {
+  background-color: blue;
+}
+
+.dash {
+  padding-top: 150px;
+}
+
+.login {
+  padding-left: 25px;
+}
+
+.myrow {
+  text-align: center;
 }
