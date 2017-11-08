@@ -82,10 +82,6 @@ class Dashboard extends Component {
             <WeekCalendar style={{ margin: '50px' }} />
           </Col>
         </Row>
-
-        <NavLink to="/modify">
-          <span>Modify Calendar</span>
-        </NavLink>
       </div>
     );
   }

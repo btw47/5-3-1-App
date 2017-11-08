@@ -145,6 +145,17 @@ export function fetchUser(thisUser) {
         pushList.push(prop);
       }
 
+      //-----USER DESCRIPTION FETCH-----
+      const descList = [];
+      for (let i = 0; i < pushList.length; i++) {
+        if (firebaseOutput[pushList[i]].desc) {
+          descList.push(firebaseOutput[pushList[i]]);
+        }
+      }
+
+      let lastDesc = descList[descList.length - 1];
+
+      //-----GENERAL USER INFO-----
       const uploadList = [];
       for (let i = 0; i < pushList.length; i++) {
         if (firebaseOutput[pushList[i]].weight) {
@@ -162,7 +173,8 @@ export function fetchUser(thisUser) {
         ormBench: lastUpload.oneRepMax['benchORM'],
         ormDeadlift: lastUpload.oneRepMax['deadliftORM'],
         ormOverheadPress: lastUpload.oneRepMax['overheadPressORM'],
-        ormSquat: lastUpload.oneRepMax['squatORM']
+        ormSquat: lastUpload.oneRepMax['squatORM'],
+        desc: lastDesc.desc
       });
     });
   };

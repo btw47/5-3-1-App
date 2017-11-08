@@ -11,7 +11,8 @@ export const fetchUserReducer = (state = {}, action) => {
         ormBench: action.ormBench,
         ormDeadlift: action.ormDeadlift,
         ormOverheadPress: action.ormOverheadPress,
-        ormSquat: action.ormSquat
+        ormSquat: action.ormSquat,
+        desc: action.desc
       };
     case actionTypes.FETCH_OLD_STATS:
       return {

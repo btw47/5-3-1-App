@@ -16,6 +16,9 @@ import { bindActionCreators } from 'redux';
 import Dashboard from './Dashboard';
 import Compare from './Compare';
 import DetailedProgress from './DetailedProgress';
+import Modify from './Modify';
+import Settings from '../components/Settings';
+import Calendar from '../components/calendar';
 import { firebaseDb } from '../server/firebase';
 import * as actions from '../actions';
 
@@ -58,17 +61,26 @@ class DashboardContainer extends Component {
           <Row className="clearfix">
             <Col sm={12}>
               <Nav bsStyle="tabs">
-                <NavItem eventKey="first">Dashboard</NavItem>
-                <NavItem eventKey="calendar">Calendar</NavItem>
-                <NavItem eventKey="modifyCalendar">Modify Calendar</NavItem>
-                <NavDropdown eventKey="3" title="Progress">
-                  <MenuItem eventKey="compare">Compare</MenuItem>
-                  <MenuItem divider />
-                  <MenuItem eventKey="progress">
-                    <NavLink to="/DetailedProgress">Visualize Progress</NavLink>
-                  </MenuItem>
-                </NavDropdown>
-                <NavItem eventKey="settings">Settings</NavItem>
+                <NavItem eventKey="first">
+                  <h4>Dashboard</h4>
+                </NavItem>
+                <NavItem eventKey="calendar">
+                  <h4>Calendar</h4>
+                </NavItem>
+                <NavItem eventKey="modifyCalendar">
+                  <h4>Modify Calendar</h4>
+                </NavItem>
+                <NavItem eventKey="compare">
+                  <h4>Compare</h4>
+                </NavItem>
+                <NavItem eventKey="progress">
+                  <NavLink to="/DetailedProgress">
+                    <h4>Visualize Progress</h4>
+                  </NavLink>
+                </NavItem>
+                <NavItem eventKey="settings">
+                  <h4>Settings</h4>
+                </NavItem>
               </Nav>
             </Col>
             <Col sm={12}>
@@ -80,13 +92,15 @@ class DashboardContainer extends Component {
                   <Compare />
                 </Tab.Pane>
                 <Tab.Pane eventKey="calendar">
-                  <h1>FULL CALENDAR CAN GO HERE</h1>
+                  <Calendar />
                 </Tab.Pane>
                 <Tab.Pane eventKey="modifyCalendar">
-                  <h1>UPDATE WORKOUTS AND CALENDAR HERE</h1>
+                  <Modify />
                 </Tab.Pane>
 
-                <Tab.Pane eventKey="settings" />
+                <Tab.Pane eventKey="settings">
+                  <Settings />
+                </Tab.Pane>
               </Tab.Content>
             </Col>
           </Row>
