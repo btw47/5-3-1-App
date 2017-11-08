@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { FormGroup, FormControl, ControlLabel, Button } from 'react-bootstrap';
 import firebase from 'firebase';
 
+import UpdateProfileModal from './UpdateProfileModal';
 import { firebaseDb } from '../server/firebase';
 
 class Settings extends Component {
@@ -63,6 +64,7 @@ class Settings extends Component {
           </FormGroup>
           <Button type="submit">Update description</Button>
         </form>
+        <UpdateProfileModal />
       </div>
     );
   }
