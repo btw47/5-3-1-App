@@ -70,8 +70,8 @@ class Dnd extends React.Component {
         }
       }
     }
-
     if (state.fetchCalendar.calendar) {
+      if (state.fetchCalendar.calendar.selectedExercise === 'boringButBig'){
       if (state.fetchCalendar.calendar.selectedDay === '4days') {
         console.log('COME ON BITCH', this.state);
         userEvents = BBB4days({ day1, day2, day3, day4 });
@@ -83,6 +83,7 @@ class Dnd extends React.Component {
         userEvents = [];
       }
     }
+  }
 
     console.log('SELECTED DAYS', day1, day2, day3, day4);
 
