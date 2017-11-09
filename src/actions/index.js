@@ -163,17 +163,30 @@ export function fetchUser(thisUser) {
 
       let lastUpload = uploadList[uploadList.length - 1];
 
-      dispatch({
-        type: actionTypes.FETCH_USER,
-        userID: uid,
-        fullName: lastUpload.fullName,
-        weight: lastUpload.weight,
-        ormBench: lastUpload.oneRepMax['benchORM'],
-        ormDeadlift: lastUpload.oneRepMax['deadliftORM'],
-        ormOverheadPress: lastUpload.oneRepMax['overheadPressORM'],
-        ormSquat: lastUpload.oneRepMax['squatORM'],
-        desc: lastDesc.desc
-      });
+      if (lastDesc) {
+        dispatch({
+          type: actionTypes.FETCH_USER,
+          userID: uid,
+          fullName: lastUpload.fullName,
+          weight: lastUpload.weight,
+          ormBench: lastUpload.oneRepMax['benchORM'],
+          ormDeadlift: lastUpload.oneRepMax['deadliftORM'],
+          ormOverheadPress: lastUpload.oneRepMax['overheadPressORM'],
+          ormSquat: lastUpload.oneRepMax['squatORM'],
+          desc: lastDesc.desc
+        });
+      } else {
+        dispatch({
+          type: actionTypes.FETCH_USER,
+          userID: uid,
+          fullName: lastUpload.fullName,
+          weight: lastUpload.weight,
+          ormBench: lastUpload.oneRepMax['benchORM'],
+          ormDeadlift: lastUpload.oneRepMax['deadliftORM'],
+          ormOverheadPress: lastUpload.oneRepMax['overheadPressORM'],
+          ormSquat: lastUpload.oneRepMax['squatORM']
+        });
+      }
     });
   };
 }
