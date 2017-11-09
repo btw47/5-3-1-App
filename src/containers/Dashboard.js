@@ -70,6 +70,9 @@ class Dashboard extends Component {
                 fetchProfileImage={this.props.fetchProfileImage}
                 userId={state.user.uid}
                 style={{ display: 'inline-block' }}
+                type="profile"
+                fetchUserImages={this.props.fetchUserImages}
+                caption="Upload profile picture"
               />
             </div>
           </Col>

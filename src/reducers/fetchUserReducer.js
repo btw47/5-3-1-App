@@ -43,6 +43,16 @@ export const fetchUserReducer = (state = {}, action) => {
         ...state,
         progress: action.payload
       };
+    case actionTypes.USER_IMAGES:
+      return {
+        ...state,
+        userImages: action.payload
+      };
+    case actionTypes.NO_USER_IMAGES:
+      return {
+        ...state,
+        userImages: null
+      };
     default:
       return state;
   }

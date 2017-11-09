@@ -19,6 +19,7 @@ import DetailedProgress from './DetailedProgress';
 import Modify from './Modify';
 import Settings from '../components/Settings';
 import Calendar from '../components/calendar';
+import PhotoGallery from './PhotoGallery';
 import { firebaseDb } from '../server/firebase';
 import * as actions from '../actions';
 
@@ -78,6 +79,9 @@ class DashboardContainer extends Component {
                     <h4>Visualize Progress</h4>
                   </NavLink>
                 </NavItem>
+                <NavItem eventKey="photos">
+                  <h4>Photos</h4>
+                </NavItem>
                 <NavItem eventKey="settings">
                   <h4>Settings</h4>
                 </NavItem>
@@ -97,7 +101,9 @@ class DashboardContainer extends Component {
                 <Tab.Pane eventKey="modifyCalendar">
                   <Modify />
                 </Tab.Pane>
-
+                <Tab.Pane eventKey="photos">
+                  <PhotoGallery />
+                </Tab.Pane>
                 <Tab.Pane eventKey="settings">
                   <Settings />
                 </Tab.Pane>

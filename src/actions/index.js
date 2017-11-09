@@ -68,8 +68,6 @@ export function fetchOldStats(thisUser, time) {
         }
       }
 
-      console.log('FETCH OLD UPLOAD LIST', uploadList);
-
       let firstUpload = uploadList[0];
 
       dispatch({
@@ -211,8 +209,6 @@ export const fetchProgress = thisUser => {
         }
       }
 
-      console.log('UPLOAD LIST', uploadList);
-
       const progressData = uploadList.map(a => {
         const smallDate = a.date.split(' ').slice(1, 3);
         const joinDate = smallDate.join(' ');
@@ -226,8 +222,6 @@ export const fetchProgress = thisUser => {
         rawDat['Weight'] = a.weight;
         return rawDat;
       });
-
-      console.log('PROGRESS DATA', progressData);
 
       dispatch({
         type: actionTypes.FETCH_PROGRESS,
@@ -265,6 +259,42 @@ export const fetchProfileImage = uid => {
         dispatch({
           type: actionTypes.PROFILE_IMAGE,
           payload: lastUpload.profileImage
+        });
+      }
+    });
+  };
+};
+
+export const fetchUserImages = uid => {
+  return dispatch => {
+    firebaseDb.ref('users/' + uid).on('value', snapshot => {
+      const firebaseOutput = snapshot.val();
+
+      let pushList = [];
+      for (let prop in firebaseOutput) {
+        pushList.push(prop);
+      }
+
+      const uploadList = [];
+      for (let i = 0; i < pushList.length; i++) {
+        if (
+          firebaseOutput[pushList[i]].userImage ||
+          firebaseOutput[pushList[i]].profileImage
+        ) {
+          uploadList.push(firebaseOutput[pushList[i]]);
+        }
+      }
+
+      console.log('UPLOAD LIST', uploadList);
+
+      if (uploadList.length === 0) {
+        dispatch({
+          type: actionTypes.NO_USER_IMAGES
+        });
+      } else {
+        dispatch({
+          type: actionTypes.USER_IMAGES,
+          payload: uploadList
         });
       }
     });
