@@ -47,7 +47,7 @@ class PhotoGallery extends Component {
     console.log('APP PROPS', this.props);
     return (
       <div className="App">
-        <h4 style={{ textAlign: 'center' }}>Here are your photos</h4>
+        <h1 style={{ textAlign: 'center' }}>Here are your photos</h1>
         <Gallery imageList={state.user.userImages} />
         <UploadImage
           fetchProfileImage={this.props.fetchProfileImage}
@@ -62,7 +62,7 @@ class PhotoGallery extends Component {
   }
 }
 
-const MapStateToProps = state => ({
+const mapStateToProps = state => ({
   state: state
 });
 
@@ -70,4 +70,4 @@ const mapDispatchToProps = dispatch => {
   return bindActionCreators(actions, dispatch);
 };
 
-export default connect(MapStateToProps, mapDispatchToProps)(PhotoGallery);
+export default connect(mapStateToProps, mapDispatchToProps)(PhotoGallery);

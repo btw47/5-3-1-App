@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Row, Col } from 'react-bootstrap';
 import '../../css/gallery.css';
 
 export default class Gallery extends Component {
@@ -49,17 +50,16 @@ export default class Gallery extends Component {
 
     return (
       <div className="image-gallery">
-        {/* <div className="gallery-image">{imageList[this.state.index]}</div>
-        */}
         {imageList.length > 0 && (
           <div className="gallery-image">{this.renderImages(imageList)}</div>
         )}
 
         {imageList.length != this.state.index + 1 && (
-          <button onClick={() => this.increment()}>next</button>
+          <button onClick={() => this.increment()}>Next &raquo;</button>
         )}
+
         {this.state.index != 0 && (
-          <button onClick={() => this.decrement()}>back</button>
+          <button onClick={() => this.decrement()}>&laquo; Previous</button>
         )}
       </div>
     );
