@@ -12,336 +12,336 @@ function BBB4days(props) {
       allDay: true,
       start: moment().weekday(props.day1),
       end: moment().weekday(props.day1),
-      desc: 'Fuck Shit up G'
+      desc: "do work g"
     },
     {
       title: 'DeadLift 5x10',
       allDay: true,
       start: moment().weekday(props.day1),
       end: moment().weekday(props.day1),
-      desc: 'Fuck Shit up G'
+      desc: "do work g"
     },
     {
       title: 'Accessory 5x',
       allDay: true,
       start: moment().weekday(props.day1),
       end: moment().weekday(props.day1),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Bench Press',
       allDay: true,
       start: moment().weekday(props.day2),
       end: moment().weekday(props.day2),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Bench Press 5x10',
       allDay: true,
       start: moment().weekday(props.day2),
       end: moment().weekday(props.day2),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Accessory 5x',
       allDay: true,
       start: moment().weekday(props.day2),
       end: moment().weekday(props.day2),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Squat',
       allDay: true,
       start: moment().weekday(props.day3),
       end: moment().weekday(props.day3),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Squat 5x10',
       allDay: true,
       start: moment().weekday(props.day3),
       end: moment().weekday(props.day3),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Accessory 5x',
       allDay: true,
       start: moment().weekday(props.day3),
       end: moment().weekday(props.day3),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Overhead Press',
       allDay: true,
       start: moment().weekday(props.day4),
       end: moment().weekday(props.day4),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Overhead Press 5x10',
       allDay: true,
       start: moment().weekday(props.day4),
       end: moment().weekday(props.day4),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Accessory 5x',
       allDay: true,
       start: moment().weekday(props.day4),
       end: moment().weekday(props.day4),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Deadlift',
       allDay: true,
       start: moment().weekday(props.day1 + 7),
       end: moment().weekday(props.day1 + 7),
-      desc: 'Fuck Shit up G'
+      desc: "do work g"
     },
     {
       title: 'DeadLift 5x10',
       allDay: true,
       start: moment().weekday(props.day1 + 7),
       end: moment().weekday(props.day1 + 7),
-      desc: 'Fuck Shit up G'
+      desc: "do work g"
     },
     {
       title: 'Accessory 5x',
       allDay: true,
       start: moment().weekday(props.day1 + 7),
       end: moment().weekday(props.day1 + 7),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Bench Press',
       allDay: true,
       start: moment().weekday(props.day2 + 7),
       end: moment().weekday(props.day2 + 7),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Bench Press 5x10',
       allDay: true,
       start: moment().weekday(props.day2 + 7),
       end: moment().weekday(props.day2 + 7),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Accessory 5x',
       allDay: true,
       start: moment().weekday(props.day2 + 7),
       end: moment().weekday(props.day2 + 7),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Squat',
       allDay: true,
       start: moment().weekday(props.day3 + 7),
       end: moment().weekday(props.day3 + 7),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Squat 5x10',
       allDay: true,
       start: moment().weekday(props.day3 + 7),
       end: moment().weekday(props.day3 + 7),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Accessory 5x',
       allDay: true,
       start: moment().weekday(props.day3 + 7),
       end: moment().weekday(props.day3 + 7),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Overhead Press',
       allDay: true,
       start: moment().weekday(props.day4 + 7),
       end: moment().weekday(props.day4 + 7),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Overhead Press 5x10',
       allDay: true,
       start: moment().weekday(props.day4 + 7),
       end: moment().weekday(props.day4 + 7),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Accessory 5x',
       allDay: true,
       start: moment().weekday(props.day4 + 7),
       end: moment().weekday(props.day4 + 7),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Deadlift',
       allDay: true,
       start: moment().weekday(props.day1 + 14),
       end: moment().weekday(props.day1 + 14),
-      desc: 'Fuck Shit up G'
+      desc: "do work g"
     },
     {
       title: 'DeadLift 5x10',
       allDay: true,
       start: moment().weekday(props.day1 + 14),
       end: moment().weekday(props.day1 + 14),
-      desc: 'Fuck Shit up G'
+      desc: "do work g"
     },
     {
       title: 'Accessory 5x',
       allDay: true,
       start: moment().weekday(props.day1 + 14),
       end: moment().weekday(props.day1 + 14),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Bench Press',
       allDay: true,
       start: moment().weekday(props.day2 + 14),
       end: moment().weekday(props.day2 + 14),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Bench Press 5x10',
       allDay: true,
       start: moment().weekday(props.day2 + 14),
       end: moment().weekday(props.day2 + 14),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Accessory 5x',
       allDay: true,
       start: moment().weekday(props.day2 + 14),
       end: moment().weekday(props.day2 + 14),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Squat',
       allDay: true,
       start: moment().weekday(props.day3 + 14),
       end: moment().weekday(props.day3 + 14),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Squat 5x10',
       allDay: true,
       start: moment().weekday(props.day3 + 14),
       end: moment().weekday(props.day3 + 14),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Accessory 5x',
       allDay: true,
       start: moment().weekday(props.day3 + 14),
       end: moment().weekday(props.day3 + 14),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Overhead Press',
       allDay: true,
       start: moment().weekday(props.day4 + 14),
       end: moment().weekday(props.day4 + 14),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Overhead Press 5x10',
       allDay: true,
       start: moment().weekday(props.day4 + 14),
       end: moment().weekday(props.day4 + 14),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Accessory 5x',
       allDay: true,
       start: moment().weekday(props.day4 + 14),
       end: moment().weekday(props.day4 + 14),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Deadlift',
       allDay: true,
       start: moment().weekday(props.day1 + 21),
       end: moment().weekday(props.day1 + 21),
-      desc: 'Fuck Shit up G'
+      desc: "do work g"
     },
     {
       title: 'DeadLift 5x10',
       allDay: true,
       start: moment().weekday(props.day1 + 21),
       end: moment().weekday(props.day1 + 21),
-      desc: 'Fuck Shit up G'
+      desc: "do work g"
     },
     {
       title: 'Accessory 5x',
       allDay: true,
       start: moment().weekday(props.day1 + 21),
       end: moment().weekday(props.day1 + 21),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Bench Press',
       allDay: true,
       start: moment().weekday(props.day2 + 21),
       end: moment().weekday(props.day2 + 21),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Bench Press 5x10',
       allDay: true,
       start: moment().weekday(props.day2 + 21),
       end: moment().weekday(props.day2 + 21),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Accessory 5x',
       allDay: true,
       start: moment().weekday(props.day2 + 21),
       end: moment().weekday(props.day2 + 21),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Squat',
       allDay: true,
       start: moment().weekday(props.day3 + 21),
       end: moment().weekday(props.day3 + 21),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Squat 5x10',
       allDay: true,
       start: moment().weekday(props.day3 + 21),
       end: moment().weekday(props.day3 + 21),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Accessory 5x',
       allDay: true,
       start: moment().weekday(props.day3 + 21),
       end: moment().weekday(props.day3 + 21),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Overhead Press',
       allDay: true,
       start: moment().weekday(props.day4 + 21),
       end: moment().weekday(props.day4 + 21),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Overhead Press 5x10',
       allDay: true,
       start: moment().weekday(props.day4 + 21),
       end: moment().weekday(props.day4 + 21),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Accessory 5x',
       allDay: true,
       start: moment().weekday(props.day4 + 21),
       end: moment().weekday(props.day4 + 21),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     }
   ];
 }
@@ -353,420 +353,420 @@ function BBB3days(props){
       allDay: true,
       start: moment().weekday(props.day1),
       end: moment().weekday(props.day1),
-      desc: 'Fuck Shit up G'
+      desc: "do work g"
     },
     {
       title: 'DeadLift 3x5',
       allDay: true,
       start: moment().weekday(props.day1),
       end: moment().weekday(props.day1),
-      desc: 'Fuck Shit up G'
+      desc: "do work g"
     },
     {
       title: 'Bench 3x5',
       allDay: true,
       start: moment().weekday(props.day1),
       end: moment().weekday(props.day1),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Military',
       allDay: true,
       start: moment().weekday(props.day1),
       end: moment().weekday(props.day1),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Military',
       allDay: true,
       start: moment().weekday(props.day2),
       end: moment().weekday(props.day2),
-      desc: 'Fuck Shit up G'
+      desc: "do work g"
     },
     {
       title: 'DeadLift 3x5',
       allDay: true,
       start: moment().weekday(props.day2),
       end: moment().weekday(props.day2),
-      desc: 'Fuck Shit up G'
+      desc: "do work g"
     },
     {
       title: 'Bench 3x5',
       allDay: true,
       start: moment().weekday(props.day2),
       end: moment().weekday(props.day2),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: '3x5',
       allDay: true,
       start: moment().weekday(props.day2),
       end: moment().weekday(props.day2),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Military',
       allDay: true,
       start: moment().weekday(props.day3),
       end: moment().weekday(props.day3),
-      desc: 'Fuck Shit up G'
+      desc: "do work g"
     },
     {
       title: 'DeadLift 3x5',
       allDay: true,
       start: moment().weekday(props.day3),
       end: moment().weekday(props.day3),
-      desc: 'Fuck Shit up G'
+      desc: "do work g"
     },
     {
       title: 'Bench 3x5',
       allDay: true,
       start: moment().weekday(props.day3),
       end: moment().weekday(props.day3),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: '3x5',
       allDay: true,
       start: moment().weekday(props.day3),
       end: moment().weekday(props.day3),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Squat',
       allDay: true,
       start: moment().weekday(props.day1 + 7),
       end: moment().weekday(props.day1 + 7),
-      desc: 'Fuck Shit up G'
+      desc: "do work g"
     },
     {
       title: 'Military 3x5',
       allDay: true,
       start: moment().weekday(props.day1 + 7),
       end: moment().weekday(props.day1 + 7),
-      desc: 'Fuck Shit up G'
+      desc: "do work g"
     },
     {
       title: 'Deadlift 3x3',
       allDay: true,
       start: moment().weekday(props.day1 + 7),
       end: moment().weekday(props.day1 + 7),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: '3x3',
       allDay: true,
       start: moment().weekday(props.day1 + 7),
       end: moment().weekday(props.day1 + 7),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Squat',
       allDay: true,
       start: moment().weekday(props.day2 + 7),
       end: moment().weekday(props.day2 + 7),
-      desc: 'Fuck Shit up G'
+      desc: "do work g"
     },
     {
       title: 'Military 3x5',
       allDay: true,
       start: moment().weekday(props.day2 + 7),
       end: moment().weekday(props.day2 + 7),
-      desc: 'Fuck Shit up G'
+      desc: "do work g"
     },
     {
       title: 'Deadlift 3x3',
       allDay: true,
       start: moment().weekday(props.day2 + 7),
       end: moment().weekday(props.day2 + 7),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: '3x3',
       allDay: true,
       start: moment().weekday(props.day2 + 7),
       end: moment().weekday(props.day2 + 7),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Squat',
       allDay: true,
       start: moment().weekday(props.day3 + 7),
       end: moment().weekday(props.day3 + 7),
-      desc: 'Fuck Shit up G'
+      desc: "do work g"
     },
     {
       title: 'Military 3x5',
       allDay: true,
       start: moment().weekday(props.day3 + 7),
       end: moment().weekday(props.day3 + 7),
-      desc: 'Fuck Shit up G'
+      desc: "do work g"
     },
     {
       title: 'Deadlift 3x3',
       allDay: true,
       start: moment().weekday(props.day3 + 7),
       end: moment().weekday(props.day3 + 7),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: '3x3',
       allDay: true,
       start: moment().weekday(props.day3 + 7),
       end: moment().weekday(props.day3 + 7),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Bench',
       allDay: true,
       start: moment().weekday(props.day1 + 14),
       end: moment().weekday(props.day1 + 14),
-      desc: 'Fuck Shit up G'
+      desc: "do work g"
     },
     {
       title: 'Squat 3x3',
       allDay: true,
       start: moment().weekday(props.day1 + 14),
       end: moment().weekday(props.day1 + 14),
-      desc: 'Fuck Shit up G'
+      desc: "do work g"
     },
     {
       title: 'Military 3x3',
       allDay: true,
       start: moment().weekday(props.day1 + 14),
       end: moment().weekday(props.day1 + 14),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: '5/3/1',
       allDay: true,
       start: moment().weekday(props.day1 + 14),
       end: moment().weekday(props.day1 + 14),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Bench',
       allDay: true,
       start: moment().weekday(props.day2 + 14),
       end: moment().weekday(props.day2 + 14),
-      desc: 'Fuck Shit up G'
+      desc: "do work g"
     },
     {
       title: 'Squat 3x3',
       allDay: true,
       start: moment().weekday(props.day2 + 14),
       end: moment().weekday(props.day2 + 14),
-      desc: 'Fuck Shit up G'
+      desc: "do work g"
     },
     {
       title: 'Military 3x3',
       allDay: true,
       start: moment().weekday(props.day2 + 14),
       end: moment().weekday(props.day2 + 14),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: '5/3/1',
       allDay: true,
       start: moment().weekday(props.day2 + 14),
       end: moment().weekday(props.day2 + 14),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Bench',
       allDay: true,
       start: moment().weekday(props.day3 + 14),
       end: moment().weekday(props.day3 + 14),
-      desc: 'Fuck Shit up G'
+      desc: "do work g"
     },
     {
       title: 'Squat 3x3',
       allDay: true,
       start: moment().weekday(props.day3 + 14),
       end: moment().weekday(props.day3 + 14),
-      desc: 'Fuck Shit up G'
+      desc: "do work g"
     },
     {
       title: 'Military 3x3',
       allDay: true,
       start: moment().weekday(props.day3 + 14),
       end: moment().weekday(props.day3 + 14),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: '5/3/1',
       allDay: true,
       start: moment().weekday(props.day3 + 14),
       end: moment().weekday(props.day3 + 14),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Deadlift',
       allDay: true,
       start: moment().weekday(props.day1 + 21),
       end: moment().weekday(props.day1 + 21),
-      desc: 'Fuck Shit up G'
+      desc: "do work g"
     },
     {
       title: '5/3/1 Bench',
       allDay: true,
       start: moment().weekday(props.day1 + 21),
       end: moment().weekday(props.day1 + 21),
-      desc: 'Fuck Shit up G'
+      desc: "do work g"
     },
     {
       title: '5/3/1 Squat',
       allDay: true,
       start: moment().weekday(props.day1 + 21),
       end: moment().weekday(props.day1 + 21),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: '5/3/1',
       allDay: true,
       start: moment().weekday(props.day1 + 21),
       end: moment().weekday(props.day1 + 21),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Deadlift',
       allDay: true,
       start: moment().weekday(props.day2 + 21),
       end: moment().weekday(props.day2 + 21),
-      desc: 'Fuck Shit up G'
+      desc: "do work g"
     },
     {
       title: '5/3/1 Bench',
       allDay: true,
       start: moment().weekday(props.day2 + 21),
       end: moment().weekday(props.day2 + 21),
-      desc: 'Fuck Shit up G'
+      desc: "do work g"
     },
     {
       title: '5/3/1 Squat',
       allDay: true,
       start: moment().weekday(props.day2 + 21),
       end: moment().weekday(props.day2 + 21),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: '5/3/1',
       allDay: true,
       start: moment().weekday(props.day2 + 21),
       end: moment().weekday(props.day2 + 21),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Deadlift',
       allDay: true,
       start: moment().weekday(props.day3 + 21),
       end: moment().weekday(props.day3 + 21),
-      desc: 'Fuck Shit up G'
+      desc: "do work g"
     },
     {
       title: '5/3/1 Bench',
       allDay: true,
       start: moment().weekday(props.day3 + 21),
       end: moment().weekday(props.day3 + 21),
-      desc: 'Fuck Shit up G'
+      desc: "do work g"
     },
     {
       title: '5/3/1 Squat',
       allDay: true,
       start: moment().weekday(props.day3 + 21),
       end: moment().weekday(props.day3 + 21),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: '5/3/1',
       allDay: true,
       start: moment().weekday(props.day3 + 21),
       end: moment().weekday(props.day3 + 21),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Military/Deadlift',
       allDay: true,
       start: moment().weekday(props.day1 + 28),
       end: moment().weekday(props.day1 + 28),
-      desc: 'Fuck Shit up G'
+      desc: "do work g"
     },
     {
       title: 'Deload Bench',
       allDay: true,
       start: moment().weekday(props.day1 + 28),
       end: moment().weekday(props.day1 + 28),
-      desc: 'Fuck Shit up G'
+      desc: "do work g"
     },
     {
       title: 'Deload Squat',
       allDay: true,
       start: moment().weekday(props.day1 + 28),
       end: moment().weekday(props.day1 + 28),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Deload',
       allDay: true,
       start: moment().weekday(props.day1 + 28),
       end: moment().weekday(props.day1 + 28),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Military/Deadlift',
       allDay: true,
       start: moment().weekday(props.day2 + 28),
       end: moment().weekday(props.day2 + 28),
-      desc: 'Fuck Shit up G'
+      desc: "do work g"
     },
     {
       title: 'Deload Bench',
       allDay: true,
       start: moment().weekday(props.day2 + 28),
       end: moment().weekday(props.day2 + 28),
-      desc: 'Fuck Shit up G'
+      desc: "do work g"
     },
     {
       title: 'Deload Squat',
       allDay: true,
       start: moment().weekday(props.day2 + 28),
       end: moment().weekday(props.day2 + 28),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Deload',
       allDay: true,
       start: moment().weekday(props.day2 + 28),
       end: moment().weekday(props.day2 + 28),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Military/Deadlift',
       allDay: true,
       start: moment().weekday(props.day3 + 28),
       end: moment().weekday(props.day3 + 28),
-      desc: 'Fuck Shit up G'
+      desc: "do work g"
     },
     {
       title: 'Deload Bench',
       allDay: true,
       start: moment().weekday(props.day3 + 28),
       end: moment().weekday(props.day3 + 28),
-      desc: 'Fuck Shit up G'
+      desc: "do work g"
     },
     {
       title: 'Deload Squat',
       allDay: true,
       start: moment().weekday(props.day3 + 28),
       end: moment().weekday(props.day3 + 28),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     {
       title: 'Deload',
       allDay: true,
       start: moment().weekday(props.day3 + 28),
       end: moment().weekday(props.day3 + 28),
-      desc: 'Fuck Shit Up G'
+      desc: "do work g"
     },
     
   ];
@@ -786,7 +786,7 @@ function BBB2days(props){
     allDay: true,
     start: moment().weekday(props.day1),
     end: moment().weekday(props.day1),
-    desc: '5/3/1 sets and reps'
+    desc: "5/3/1 sets and reps"
   },
   {
     title: 'Accessory 1',

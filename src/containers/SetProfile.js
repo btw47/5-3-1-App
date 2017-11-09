@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import firebase from 'firebase';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import Popup from 'react-popup';
+import '../css/setProfile.css';
+import Calculator from '../components/repMaxCalculator';
 
 import * as actions from '../actions';
 import { firebaseDb } from '../server/firebase';
@@ -38,6 +41,10 @@ class SetProfile extends Component {
       }
     });
   };
+
+  calculatorButton = event => {
+    Popup.alert(<Calculator/>, "1 Rep Max Calculator");
+  }
 
   handleFullName = event => {
     this.setState({
@@ -95,6 +102,9 @@ class SetProfile extends Component {
           <hr />
 
           <div id="one-rep-max">
+            <button type="button" class="btn btn-primary" onClick={event => this.calculatorButton(event)}>
+              <span class="md-"></span> 1 Rep Max Calculator
+            </button>
             <h4>What are your current one rep maxes?</h4>
 
             <label>Bench Press: </label>
@@ -133,8 +143,19 @@ class SetProfile extends Component {
             />
             <br />
           </div>
-          <button type="submit">Get Started!</button>
+          <button type="submit" class="btn btn-primary" >
+            <span class="md-thumb-up"></span> Get Started!
+          </button>
         </form>
+        <Popup
+          className="mm-popup"
+          btnClass="mm-popup__btn"
+          closeBtn={true}
+          closeHtml={null}
+          defaultOk="Ok"
+          defaultCancel="Cancel"
+          wildClasses={false} 
+        />
       </div>
     );
   }

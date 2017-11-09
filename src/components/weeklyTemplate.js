@@ -117,7 +117,7 @@ export default class WeeklyTemplate extends Component {
       console.log(firstWeek);
       return (
         <div>
-          <h4>[Lift] sets for week 1</h4>
+          <h4>{this.Lift} sets for week 1</h4>
           <h2>{firstWeek}</h2>
           <h4>[Lift] sets for week 2</h4>
           <h2>{secondWeek}</h2>
