@@ -70,6 +70,9 @@ class Dashboard extends Component {
                 fetchProfileImage={this.props.fetchProfileImage}
                 userId={state.user.uid}
                 style={{ display: 'inline-block' }}
+                type="profile"
+                fetchUserImages={this.props.fetchUserImages}
+                caption="Upload profile picture"
               />
             </div>
           </Col>
@@ -79,13 +82,9 @@ class Dashboard extends Component {
         </Row>
         <Row>
           <Col md={12}>
-            <WeekCalendar style={{ margin: '50px' }} />
+            <WeekCalendar style={{ margin: '50px' }} view="week" />
           </Col>
         </Row>
-
-        <NavLink to="/modify">
-          <span>Modify Calendar</span>
-        </NavLink>
       </div>
     );
   }

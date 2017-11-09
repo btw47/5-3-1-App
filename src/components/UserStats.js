@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Panel, PanelGroup } from 'react-bootstrap';
+import { Panel, PanelGroup, Popover } from 'react-bootstrap';
 
 import * as actions from '../actions';
 import profilePicture from '../images/anon-user.jpg';
@@ -17,8 +17,6 @@ class UserStats extends Component {
 
   componentWillMount() {
     this.renderImage();
-
-    console.log('FUNCTION CALLED');
   }
 
   handleSelect = activeKey => {
@@ -45,13 +43,26 @@ class UserStats extends Component {
     }
   };
 
+  renderDesc = () => {
+    if (this.props.user.desc) {
+      return (
+        <h5
+          style={{
+            'word-break': 'break-all'
+          }}>
+          {this.props.user.desc}
+        </h5>
+      );
+    }
+  };
+
   style = {
     height: '30vh',
     width: '15vw'
   };
 
   imageStyle = {
-    width: '12vw'
+    width: '15vw'
   };
 
   render() {
@@ -63,29 +74,18 @@ class UserStats extends Component {
           activeKey={this.state.activeKey}
           onSelect={this.handleSelect}
           accordion
-          style={{ width: '12vw' }}>
+          style={{ width: '15vw' }}>
           <Panel header="About Me" eventKey="1">
-            Panel 1 content
+            {this.renderDesc()}
           </Panel>
           <Panel header="Current Stats" eventKey="2">
-            <h6>Current Weight: {user.weight}</h6>
-            <h6>Bench: {user.ormBench}</h6>
-            <h6>Overhead Press: {user.ormOverheadPress}</h6>
-            <h6>Squats: {user.ormSquat}</h6>
-            <h6>Deadlift: {user.ormDeadlift}</h6>
+            <h5>Current Weight: {user.weight}</h5>
+            <h5>Bench: {user.ormBench}</h5>
+            <h5>Overhead Press: {user.ormOverheadPress}</h5>
+            <h5>Squats: {user.ormSquat}</h5>
+            <h5>Deadlift: {user.ormDeadlift}</h5>
           </Panel>
         </PanelGroup>
-        {/* <div>
-          {this.renderImage()}
-          <h3>{user.fullName}</h3>
-          <div>
-            <h6>Current Weight: {user.weight}</h6>
-            <h6>Bench: {user.ormBench}</h6>
-            <h6>Overhead Press: {user.ormOverheadPress}</h6>
-            <h6>Squats: {user.ormSquat}</h6>
-            <h6>Deadlift: {user.ormDeadlift}</h6>
-          </div>
-        </div> */}
       </div>
     );
   }
