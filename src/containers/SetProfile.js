@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import firebase from 'firebase';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import Popup from 'react-popup';
+import '../css/setProfile.css';
+import Calculator from '../components/repMaxCalculator';
 
 import * as actions from '../actions';
 import { firebaseDb } from '../server/firebase';
@@ -39,6 +42,10 @@ class SetProfile extends Component {
     });
   };
 
+  calculatorButton = event => {
+    Popup.alert(<Calculator/>, "1 Rep Max Calculator");
+  }
+
   handleFullName = event => {
     this.setState({
       fullName: event.target.value
@@ -49,7 +56,7 @@ class SetProfile extends Component {
     event.preventDefault();
 
     if (!this.state.weight || !this.state.oneRepMax || !this.state.fullName) {
-      alert('Fill out all your stats bro');
+      Popup.alert('Fill out all your stats bro', 'All stats not filled out');
     } else {
       const thisUser = firebase.auth().currentUser;
       if (thisUser != null) {
@@ -59,15 +66,15 @@ class SetProfile extends Component {
       const date = Date();
 
       firebaseDb
-        .ref('users/' + uid)
+        .ref('users/' + uid + '/user/')
         .push({
           weight: this.state.weight,
           oneRepMax: this.state.oneRepMax,
           fullName: this.state.fullName,
           date: date
         })
-        .then(function() {
-          window.location = '/GoalsUpdate';
+        .then(() => {
+          this.props.history.push('/GoalsUpdate');
         });
     }
   };
@@ -95,6 +102,9 @@ class SetProfile extends Component {
           <hr />
 
           <div id="one-rep-max">
+            <button type="button" className="btn btn-primary" onClick={event => this.calculatorButton(event)}>
+              <span className="md-"></span> 1 Rep Max Calculator
+            </button>
             <h4>What are your current one rep maxes?</h4>
 
             <label>Bench Press: </label>
@@ -133,8 +143,19 @@ class SetProfile extends Component {
             />
             <br />
           </div>
-          <button type="submit">Get Started!</button>
+          <button type="submit" className="btn btn-primary" >
+            <span className="md-thumb-up"></span> Get Started!
+          </button>
         </form>
+        <Popup
+          className="mm-popup"
+          btnClass="mm-popup__btn"
+          closeBtn={true}
+          closeHtml={null}
+          defaultOk="Ok"
+          defaultCancel="Cancel"
+          wildClasses={false} 
+        />
       </div>
     );
   }

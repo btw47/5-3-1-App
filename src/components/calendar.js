@@ -12,6 +12,7 @@ import { BBB4days, BBB3days, BBB2days } from './WorkoutTemplates/BBB';
 
 import 'react-big-calendar/lib/less/styles.less';
 import './calendar.css';
+import bench from "../images/bench.gif";
 
 BigCalendar.setLocalizer(BigCalendar.momentLocalizer(moment));
 
@@ -97,7 +98,7 @@ class Dnd extends React.Component {
             step={'allday'}
             events={userEvents}
             defaultView={this.props.view}
-            views={{ week: true, month: true }}
+            views={this.props.views}
             scrollToTime={new Date(2017, 1, 1, 6)}
             test="io"
             onSelectEvent={event => Popup.alert(event.desc, event.title)}

@@ -6,7 +6,8 @@ import { Checkbox, CheckboxGroup } from 'react-checkbox-group';
 import { NavLink } from 'react-router-dom';
 import { firebaseDb } from '../server/firebase';
 import firebase from 'firebase';
-
+import Popup from 'react-popup';
+import '../css/GoalsUpdate.css';
 
 class GoalUpdate extends Component {
   componentWillMount() {
@@ -52,7 +53,7 @@ class GoalUpdate extends Component {
       !this.state.selectedWeekday ||
       !this.state.selectedExercise
     ) {
-      alert('Fill out all your stats bro');
+      Popup.alert('Fill out all your stats bro');
     } else {
       const thisUser = firebase.auth().currentUser;
       if (thisUser != null) {
@@ -61,7 +62,7 @@ class GoalUpdate extends Component {
       const date = Date();
       console.log('SET STATE', this.state);
       firebaseDb
-        .ref('users/' + uid)
+        .ref('users/' + uid + '/calendar/')
         .push({
           calendar: {
             selectedDay: this.state.selectedDay,
@@ -71,7 +72,7 @@ class GoalUpdate extends Component {
           date: date
         })
         .then(() => {
-          window.location = '/dashboard';
+          this.props.history.push('/dashboard');
         });
     }
     console.log(this.state);
@@ -87,24 +88,23 @@ class GoalUpdate extends Component {
     //     for (var i=0; i<checkgroup.length; i++)
     //       checkedcount+=(checkgroup[i].checked)? 1 : 0
     //     if (checkedcount>limit){
-    //       alert("You can only select a maximum of "+limit+" checkboxes")
+    //       Popup.alert("You can only select a maximum of "+limit+" checkboxes")
     //       this.checked=false
     //       }
     //     }
     //   }
     // }
-    // if(this.state.selectedDay === "2days"){
-    //   checkboxlimit(this.refs.weekdays.checkbox, 2)
-    // }
+    if(this.state.selectedDay === "2days"){
+      
+    }
     return (
-      <div>
+      <div className="goalUpdate">
         <h2>Update goals below fam!</h2>
         <form ref="goalUpdateForm" onSubmit={event => this.handleSubmit(event)}>
           <h4>What is your overall fitness goal?</h4>
-          <label>Hey pussy</label>
           <input
             type="text"
-            placeholder="insert your pussy goals here you pussy"
+            placeholder="insert your goals here"
           />
           <br />
           <h4>Split (Lifting Days per Week)</h4>
@@ -149,59 +149,37 @@ function that updates the state of our buttons */}
           <CheckboxGroup
             ref="weekdays"
             name="checkbox"
+            checkboxDepth={2}
             value={this.state.selectedWeekday}
-            onChange={this.handleWeekdayChange}
-            >
+            onChange={this.handleWeekdayChange}>
             <label>
-              <Checkbox 
-                name="checkbox" 
-                value={1} 
-              />Monday
+              <Checkbox name="checkbox" value={1} />Monday
             </label>
             <br />
             <label>
-              <Checkbox 
-                name="checkbox" 
-                value={2} 
-              />Tuesday
+              <Checkbox name="checkbox" value={2} />Tuesday
             </label>
             <br />
             <label>
-              <Checkbox 
-                name="checkbox" 
-                value={3} 
-              />Wednesday
+              <Checkbox name="checkbox" value={3} />Wednesday
             </label>
             <br />
             <label>
-              <Checkbox 
-                name="checkbox" 
-                value={4} 
-              />Thursday
+              <Checkbox name="checkbox" value={4} />Thursday
             </label>
             <br />
             <label>
-              <Checkbox 
-                name="checkbox"  
-                value={5} 
-              />Friday
+              <Checkbox name="checkbox" value={5} />Friday
             </label>
             <br />
             <label>
-              <Checkbox 
-                name="checkbox" 
-                value={6} 
-              />Saturday
+              <Checkbox name="checkbox" value={6} />Saturday
             </label>
             <br />
             <label>
-              <Checkbox 
-                name="checkbox" 
-                value={0} 
-              />Sunday
+              <Checkbox name="checkbox" value={0} />Sunday
             </label>
           </CheckboxGroup>
-
           <br />
           <h4>Preferred Exercise Template Radio Button</h4>
           <label>Boring But Big</label>
@@ -249,8 +227,19 @@ function that updates the state of our buttons */}
             onChange={this.handleExerciseChange}
           />
           <br />
-          <button type="submit">Submit My Motherfucking Goals</button>
+          <button type="submit" class="btn btn-primary">
+            <span class="md-"></span> Submit My Goals
+          </button>
         </form>
+        <Popup
+        className="mm-popup"
+        btnClass="mm-popup__btn"
+        closeBtn={true}
+        closeHtml={null}
+        defaultOk="Ok"
+        defaultCancel="Cancel"
+        wildClasses={false}
+        />
       </div>
     );
   }

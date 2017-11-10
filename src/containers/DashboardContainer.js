@@ -20,6 +20,7 @@ import Modify from './Modify';
 import Settings from '../components/Settings';
 import Calendar from '../components/calendar';
 import PhotoGallery from './PhotoGallery';
+import GoalsUpdate from './GoalsUpdate'
 import { firebaseDb } from '../server/firebase';
 import * as actions from '../actions';
 
@@ -69,7 +70,7 @@ class DashboardContainer extends Component {
                   <h4>Calendar</h4>
                 </NavItem>
                 <NavItem eventKey="modifyCalendar">
-                  <h4>Modify Calendar</h4>
+                  <h4>Modify Workout</h4>
                 </NavItem>
                 <NavItem eventKey="compare">
                   <h4>Compare</h4>
@@ -96,10 +97,10 @@ class DashboardContainer extends Component {
                   <Compare />
                 </Tab.Pane>
                 <Tab.Pane eventKey="calendar">
-                  <Calendar view="month" />
+                  <Calendar view="month" views={{ month: true }} />
                 </Tab.Pane>
                 <Tab.Pane eventKey="modifyCalendar">
-                  <Modify />
+                  <GoalsUpdate />
                 </Tab.Pane>
                 <Tab.Pane eventKey="photos">
                   <PhotoGallery />

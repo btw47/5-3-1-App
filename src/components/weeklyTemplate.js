@@ -8,13 +8,8 @@ export default class WeeklyTemplate extends Component {
     super();
     this.state = {};
   }
-  //   oneRepMax = (weight, reps) => {
-  //     let max = (weight * reps * 0.0333 + weight) * 0.9;
-  //     return Math.ceil(max);
-  //   };
 
-  //weeklyTemplate = (weight, reps) => {
-  weeklyTemplate = (lift, weight, reps) => {
+  weeklyTemplate = (weight, reps) => {
     weight = parseInt(weight);
     reps = parseInt(reps);
     let max = (weight * reps * 0.0333 + weight) * 0.9;
@@ -54,10 +49,7 @@ export default class WeeklyTemplate extends Component {
       ]
     ];
 
-    const newObj = {};
-    newObj[lift] = calculatedTemplate;
-
-    this.setState(newObj);
+    this.setState(calculatedTemplate);
   };
   //week 1 (65% x 5) (75% x 5) (85% x 5+)
   //week 2 (70% x 3) (80% x 3) (90% x 3+)
@@ -79,83 +71,39 @@ export default class WeeklyTemplate extends Component {
     });
   };
 
-  handleSubmit = event => {
+  handleSubmit = (event, deadliftWeight, deadliftReps) => {
     event.preventDefault();
-    const deadliftMax = this.weeklyTemplate(
-      "deadlift",
+    const max = this.weeklyTemplate(
       this.state.deadliftWeight,
       this.state.deadliftReps
-    );
-    const benchMax = this.weeklyTemplate(
-      "bench",
-      this.state.benchWeight,
-      this.state.benchReps
-    );
-    const squatMax = this.weeklyTemplate(
-      "squat",
-      this.state.squatWeight,
-      this.state.squatReps
-    );
-    const ohpMax = this.weeklyTemplate(
-      "ohp",
-      this.state.ohpWeight,
-      this.state.ohpReps
     );
   };
 
   renderPage = () => {
     if (this.state.calculated) {
       console.log("YOOO", this.state[0]);
-      const firstWeek = this.state.bench[0].map(a => {
+      const firstWeek = this.state[0].map(a => {
         return (
           <div>
             <p>{a}</p>
           </div>
         );
       });
-      const secondWeek = this.state.bench[1].map(a => {
+      const secondWeek = this.state[1].map(a => {
         return (
           <div>
             <p>{a}</p>
           </div>
         );
       });
-      const thirdWeek = this.state.bench[2].map(a => {
+      const thirdWeek = this.state[2].map(a => {
         return (
           <div>
             <p>{a}</p>
           </div>
         );
       });
-      const fourthWeek = this.state.bench[3].map(a => {
-        return (
-          <div>
-            <p>{a}</p>
-          </div>
-        );
-      });
-      const firstWeek2 = this.state.deadlift[0].map(a => {
-        return (
-          <div>
-            <p>{a}</p>
-          </div>
-        );
-      });
-      const secondWeek2 = this.state.deadlift[1].map(a => {
-        return (
-          <div>
-            <p>{a}</p>
-          </div>
-        );
-      });
-      const thirdWeek2 = this.state.deadlift[2].map(a => {
-        return (
-          <div>
-            <p>{a}</p>
-          </div>
-        );
-      });
-      const fourthWeek2 = this.state.deadlift[3].map(a => {
+      const fourthWeek = this.state[3].map(a => {
         return (
           <div>
             <p>{a}</p>
@@ -165,7 +113,7 @@ export default class WeeklyTemplate extends Component {
       console.log(firstWeek);
       return (
         <div>
-          <h4>[Lift] sets for week 1</h4>
+          <h4>{this.Lift} sets for week 1</h4>
           <h2>{firstWeek}</h2>
           <h4>[Lift] sets for week 2</h4>
           <h2>{secondWeek}</h2>
@@ -196,13 +144,13 @@ export default class WeeklyTemplate extends Component {
             <h4>Bench Numbers</h4>
             <input
               name="liftName"
-              onChange={event => this.handleWeightChange(event, "bench")}
+              onChange={event => this.handleWeightChange(event, "deadlift")}
               type="text"
               placeholder="enter BENCH weight"
             />
             <input
               name="liftName"
-              onChange={event => this.handleRepChange(event, "bench")}
+              onChange={event => this.handleRepChange(event, "deadlift")}
               type="text"
               placeholder="enter BENCH reps"
             />
@@ -210,13 +158,13 @@ export default class WeeklyTemplate extends Component {
             <h4>Squat Numbers</h4>
             <input
               name="liftName"
-              onChange={event => this.handleWeightChange(event, "squat")}
+              onChange={event => this.handleWeightChange(event, "deadlift")}
               type="text"
               placeholder="enter SQUAT weight"
             />
             <input
               name="liftName"
-              onChange={event => this.handleRepChange(event, "squat")}
+              onChange={event => this.handleRepChange(event, "deadlift")}
               type="text"
               placeholder="enter SQUAT reps"
             />
@@ -224,13 +172,13 @@ export default class WeeklyTemplate extends Component {
             <h4>Overhead Press Numbers</h4>
             <input
               name="liftName"
-              onChange={event => this.handleWeightChange(event, "ohp")}
+              onChange={event => this.handleWeightChange(event, "deadlift")}
               type="text"
               placeholder="enter OHP weight"
             />
             <input
               name="liftName"
-              onChange={event => this.handleRepChange(event, "ohp")}
+              onChange={event => this.handleRepChange(event, "deadlift")}
               type="text"
               placeholder="enter OHP reps"
             />
@@ -243,11 +191,10 @@ export default class WeeklyTemplate extends Component {
   };
 
   render() {
-    console.log("STATE", this.state);
+    console.log("PROPS", this.props);
     return <div>{this.renderPage()}</div>;
   }
 }
-
 // -------------------------------------------
 
 // import React, { Component } from "react";
