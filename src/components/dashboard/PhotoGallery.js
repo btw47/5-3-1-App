@@ -3,11 +3,11 @@ import firebase from 'firebase';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import Gallery from '../components/photos/Gallery';
-import { firebaseDb } from '../server/firebase';
-import * as actions from '../actions';
-import '../css/gallery.css';
-import UploadImage from '../components/UploadImage';
+import Gallery from './Gallery';
+import { firebaseDb } from '../../server/firebase';
+import * as actions from '../../actions';
+import '../../css/gallery.css';
+import UploadImage from '../UploadImage';
 
 class PhotoGallery extends Component {
   componentWillMount() {
