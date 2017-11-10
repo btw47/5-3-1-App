@@ -103,23 +103,23 @@ class Calculator extends Component {
           <div>
             <label>Bench Press</label>
             <br />
-            <input type="text" placeholder="Weight" ref="BenchWeight" />
-            <input type="text" placeholder="Reps" ref="BenchReps" />
+            <input type="number" placeholder="Weight" ref="BenchWeight" />
+            <input type="number" placeholder="Reps" ref="BenchReps" />
             <br />
             <label>Overhead Press</label>
             <br />
-            <input type="text" placeholder="Weight" ref="OverheadWeight" />
-            <input type="text" placeholder="Reps" ref="OverheadReps" />
+            <input type="number" placeholder="Weight" ref="OverheadWeight" />
+            <input type="number" placeholder="Reps" ref="OverheadReps" />
             <br />
             <label>Deadlift</label>
             <br />
-            <input type="text" placeholder="Weight" ref="DeadliftWeight" />
-            <input type="text" placeholder="Reps" ref="DeadliftReps" />
+            <input type="number" placeholder="Weight" ref="DeadliftWeight" />
+            <input type="number" placeholder="Reps" ref="DeadliftReps" />
             <br />
             <label>Squat</label>
             <br />
-            <input type="text" placeholder="Weight" ref="SquatWeight" />
-            <input type="text" placeholder="Reps" ref="SquatReps" />
+            <input type="number" placeholder="Weight" ref="SquatWeight" />
+            <input type="number" placeholder="Reps" ref="SquatReps" />
             <br />
             <button
               type="button"
