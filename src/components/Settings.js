@@ -20,7 +20,7 @@ class Settings extends Component {
       const date = Date();
 
       firebaseDb
-        .ref('users/' + uid)
+        .ref('users/' + uid + '/user/')
         .push({
           desc: this.state.desc,
           date: date

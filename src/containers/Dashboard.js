@@ -82,7 +82,11 @@ class Dashboard extends Component {
         </Row>
         <Row>
           <Col md={12}>
-            <WeekCalendar style={{ margin: '50px' }} view="week" />
+            <WeekCalendar
+              style={{ margin: '50px' }}
+              view="week"
+              views={{ week: true }}
+            />
           </Col>
         </Row>
       </div>
