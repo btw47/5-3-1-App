@@ -13,7 +13,8 @@ const actionTypes = {
   FETCH_PROGRESS: 'FETCH_PROGRESS',
   USER_IMAGES: 'USER_IMAGES',
   NO_USER_IMAGES: 'NO_USER_IMAGES',
-  ONE_REP: 'ONE_REP'
+  ONE_REP: 'ONE_REP',
+  SET_MAX: 'SET_MAX'
 };
 
 export default actionTypes;

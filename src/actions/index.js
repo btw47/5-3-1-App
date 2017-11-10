@@ -4,7 +4,8 @@ import actionTypes from '../actionTypes';
 
 //ACTION CREATORS-------------------
 const updateProfile = () => {
-window.location = '/SetProfile'};
+  window.location = '/SetProfile';
+};
 
 export const loggedIn = () => {
   return {
@@ -20,14 +21,24 @@ const authError = error => {
 };
 
 export const OneRep = (Bench, Overhead, Deadlift, Squat) => {
-  return{
-    type:actionTypes.ONE_REP,
+  return {
+    type: actionTypes.ONE_REP,
     Bench: Bench,
     Deadlift: Deadlift,
     Overhead: Overhead,
     Squat: Squat
-  }
-}
+  };
+};
+
+export const setORM = (bench, ohp, deadlift, squat) => {
+  return {
+    type: actionTypes.SET_MAX,
+    bench: bench,
+    overhead: ohp,
+    deadlift: deadlift,
+    squat: squat
+  };
+};
 //------------------------------------
 
 export const userLogIn = (email, password) => {
