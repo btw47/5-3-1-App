@@ -5621,13 +5621,6 @@ react-overlays@^0.7.0, react-overlays@^0.7.4:
     prop-types-extra "^1.0.1"
     warning "^3.0.0"
 
-react-popper@^0.7.2:
-  version "0.7.4"
-  resolved "https://registry.yarnpkg.com/react-popper/-/react-popper-0.7.4.tgz#8649d539837e7c6f47bc9b24c9cf57a404e199a1"
-  dependencies:
-    popper.js "^1.12.5"
-    prop-types "^15.5.10"
-
 react-popup@^0.8.0:
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/react-popup/-/react-popup-0.8.0.tgz#ea8f3e5f009b0bb5b41c471d9fd740de8c278cd7"
@@ -5753,7 +5746,6 @@ react-transition-group@^1.1.1:
     prop-types "^15.5.6"
     warning "^3.0.0"
 
-react-transition-group@^2.2.0:
 react-transition-group@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-2.2.1.tgz#e9fb677b79e6455fd391b03823afe84849df4a10"
