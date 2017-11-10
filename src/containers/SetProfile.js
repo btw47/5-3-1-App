@@ -56,7 +56,7 @@ class SetProfile extends Component {
     event.preventDefault();
 
     if (!this.state.weight || !this.state.oneRepMax || !this.state.fullName) {
-      alert('Fill out all your stats bro');
+      Popup.alert('Fill out all your stats bro', 'All stats not filled out');
     } else {
       const thisUser = firebase.auth().currentUser;
       if (thisUser != null) {
@@ -74,7 +74,7 @@ class SetProfile extends Component {
           date: date
         })
         .then(function() {
-          window.location = '/GoalsUpdate';
+          this.props.history.push('/GoalsUpdate');
         });
     }
   };
@@ -102,8 +102,8 @@ class SetProfile extends Component {
           <hr />
 
           <div id="one-rep-max">
-            <button type="button" class="btn btn-primary" onClick={event => this.calculatorButton(event)}>
-              <span class="md-"></span> 1 Rep Max Calculator
+            <button type="button" className="btn btn-primary" onClick={event => this.calculatorButton(event)}>
+              <span className="md-"></span> 1 Rep Max Calculator
             </button>
             <h4>What are your current one rep maxes?</h4>
 
@@ -143,8 +143,8 @@ class SetProfile extends Component {
             />
             <br />
           </div>
-          <button type="submit" class="btn btn-primary" >
-            <span class="md-thumb-up"></span> Get Started!
+          <button type="submit" className="btn btn-primary" >
+            <span className="md-thumb-up"></span> Get Started!
           </button>
         </form>
         <Popup

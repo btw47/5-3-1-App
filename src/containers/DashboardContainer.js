@@ -96,7 +96,7 @@ class DashboardContainer extends Component {
                   <Compare />
                 </Tab.Pane>
                 <Tab.Pane eventKey="calendar">
-                  <Calendar view="month" />
+                  <Calendar view="month" views={{month: true}} />
                 </Tab.Pane>
                 <Tab.Pane eventKey="modifyCalendar">
                   <Modify />

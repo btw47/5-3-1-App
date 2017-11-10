@@ -4,7 +4,7 @@ import actionTypes from '../actionTypes';
 
 //ACTION CREATORS-------------------
 const updateProfile = () => {
-  window.location = '/SetProfile';
+  this.props.history.push('/SetProfile');
 };
 
 export const loggedIn = () => {
@@ -20,6 +20,15 @@ const authError = error => {
   };
 };
 
+export const OneRep = (Bench, Overhead, Deadlift, Squat) => {
+  return{
+    type:actionTypes.ONE_REP,
+    Bench: Bench,
+    Deadlift: Deadlift,
+    Overhead: Overhead,
+    Squat: Squat
+  }
+}
 //------------------------------------
 
 export const userLogIn = (email, password) => {

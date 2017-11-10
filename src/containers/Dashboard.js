@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { NavLink } from 'react-router-dom';
 import { Row, Col, Pager } from 'react-bootstrap';
+import Popup from 'react-popup';
 import '../css/Dashboard.css';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
@@ -47,6 +48,9 @@ class Dashboard extends Component {
       }
     });
   }
+  // changeWorkout = event => {
+  //   this.props.history.push('/GoalsUpdate');
+  // }
 
   render() {
     const { state } = this.props;
@@ -82,7 +86,10 @@ class Dashboard extends Component {
         </Row>
         <Row>
           <Col md={12}>
-            <WeekCalendar style={{ margin: '50px' }} view="week" />
+            <WeekCalendar style={{ margin: '50px' }} view="week" views={{week: true}} />
+            <button type="button" className="btn btn-primary">
+              <span className="md-"></span> Change Workout
+            </button>
           </Col>
         </Row>
       </div>

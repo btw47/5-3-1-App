@@ -98,7 +98,7 @@ class Dnd extends React.Component {
             step={'allday'}
             events={userEvents}
             defaultView={this.props.view}
-            views={{ week: true, month: true }}
+            views={this.props.views}
             scrollToTime={new Date(2017, 1, 1, 6)}
             test="io"
             onSelectEvent={event => Popup.alert(event.desc, event.title)}
