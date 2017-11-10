@@ -26,7 +26,7 @@ class Dashboard extends Component {
         const thisUser = firebase.auth().currentUser;
         const uid = thisUser.uid;
 
-        firebaseDb.ref('users/' + uid).on('value', snapshot => {
+        firebaseDb.ref('users/' + uid + '/user/').on('value', snapshot => {
           const firebaseOutput = snapshot.val();
 
           const uploadList = [];
@@ -87,9 +87,6 @@ class Dashboard extends Component {
         <Row>
           <Col md={12}>
             <WeekCalendar style={{ margin: '50px' }} view="week" views={{week: true}} />
-            <button type="button" className="btn btn-primary">
-              <span className="md-"></span> Change Workout
-            </button>
           </Col>
         </Row>
       </div>

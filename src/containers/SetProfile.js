@@ -73,7 +73,7 @@ class SetProfile extends Component {
           fullName: this.state.fullName,
           date: date
         })
-        .then(function() {
+        .then(() => {
           this.props.history.push('/GoalsUpdate');
         });
     }

@@ -4,8 +4,7 @@ import actionTypes from '../actionTypes';
 
 //ACTION CREATORS-------------------
 const updateProfile = () => {
-  this.props.history.push('/SetProfile');
-};
+window.location = '/SetProfile'};
 
 export const loggedIn = () => {
   return {
