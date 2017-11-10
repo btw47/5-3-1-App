@@ -60,7 +60,7 @@ export function fetchOldStats(thisUser, time) {
       var uid = thisUser.uid;
     }
 
-    firebaseDb.ref('users/' + uid).on('value', snapshot => {
+    firebaseDb.ref('users/' + uid + '/user/').on('value', snapshot => {
       const firebaseOutput = snapshot.val();
 
       let pushList = [];
@@ -100,7 +100,7 @@ export function fetchCalendar(thisUser) {
       var uid = thisUser.uid;
     }
 
-    firebaseDb.ref('users/' + uid).on('value', snapshot => {
+    firebaseDb.ref('users/' + uid + '/calendar/').on('value', snapshot => {
       const firebaseOutput = snapshot.val();
 
       // console.log("FIREBASE OUTPUT", firebaseOutput)
@@ -144,7 +144,7 @@ export function fetchUser(thisUser) {
       var uid = thisUser.uid;
     }
 
-    firebaseDb.ref('users/' + uid).on('value', snapshot => {
+    firebaseDb.ref('users/' + uid + '/user/').on('value', snapshot => {
       const firebaseOutput = snapshot.val();
 
       let pushList = [];
@@ -214,7 +214,7 @@ export const fetchProgress = thisUser => {
       var uid = thisUser.uid;
     }
 
-    firebaseDb.ref('users/' + uid).on('value', snapshot => {
+    firebaseDb.ref('users/' + uid + '/user/').on('value', snapshot => {
       const firebaseOutput = snapshot.val();
 
       let pushList = [];
@@ -256,7 +256,7 @@ export const fetchProgress = thisUser => {
 //-----Filestack-----
 export const fetchProfileImage = uid => {
   return dispatch => {
-    firebaseDb.ref('users/' + uid).on('value', snapshot => {
+    firebaseDb.ref('users/' + uid + '/images/').on('value', snapshot => {
       const firebaseOutput = snapshot.val();
 
       let pushList = [];
@@ -289,7 +289,7 @@ export const fetchProfileImage = uid => {
 
 export const fetchUserImages = uid => {
   return dispatch => {
-    firebaseDb.ref('users/' + uid).on('value', snapshot => {
+    firebaseDb.ref('users/' + uid + '/images/').on('value', snapshot => {
       const firebaseOutput = snapshot.val();
 
       let pushList = [];

@@ -9,7 +9,6 @@ import firebase from 'firebase';
 import Popup from 'react-popup';
 import '../css/GoalsUpdate.css';
 
-
 class GoalUpdate extends Component {
   componentWillMount() {
     firebase.auth().onAuthStateChanged(user => {
@@ -63,7 +62,7 @@ class GoalUpdate extends Component {
       const date = Date();
       console.log('SET STATE', this.state);
       firebaseDb
-        .ref('users/' + uid)
+        .ref('users/' + uid + '/calendar/')
         .push({
           calendar: {
             selectedDay: this.state.selectedDay,
@@ -152,55 +151,33 @@ function that updates the state of our buttons */}
             name="checkbox"
             checkboxDepth={2}
             value={this.state.selectedWeekday}
-            onChange={this.handleWeekdayChange}
-          >
+            onChange={this.handleWeekdayChange}>
             <label>
-              <Checkbox 
-                name="checkbox" 
-                value={1} 
-              />Monday
+              <Checkbox name="checkbox" value={1} />Monday
             </label>
             <br />
             <label>
-              <Checkbox 
-                name="checkbox" 
-                value={2} 
-              />Tuesday
+              <Checkbox name="checkbox" value={2} />Tuesday
             </label>
             <br />
             <label>
-              <Checkbox 
-                name="checkbox" 
-                value={3} 
-              />Wednesday
+              <Checkbox name="checkbox" value={3} />Wednesday
             </label>
             <br />
             <label>
-              <Checkbox 
-                name="checkbox" 
-                value={4} 
-              />Thursday
+              <Checkbox name="checkbox" value={4} />Thursday
             </label>
             <br />
             <label>
-              <Checkbox 
-                name="checkbox"  
-                value={5} 
-              />Friday
+              <Checkbox name="checkbox" value={5} />Friday
             </label>
             <br />
             <label>
-              <Checkbox 
-                name="checkbox" 
-                value={6} 
-              />Saturday
+              <Checkbox name="checkbox" value={6} />Saturday
             </label>
             <br />
             <label>
-              <Checkbox 
-                name="checkbox" 
-                value={0} 
-              />Sunday
+              <Checkbox name="checkbox" value={0} />Sunday
             </label>
           </CheckboxGroup>
           <br />

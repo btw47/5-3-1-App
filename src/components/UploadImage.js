@@ -22,7 +22,7 @@ const UploadImage = props => {
           const date = Date();
 
           firebaseDb
-            .ref('users/' + props.userId)
+            .ref('users/' + props.userId + '/images/')
             .push({
               profileImage: imageUrl,
               date: date
@@ -38,7 +38,7 @@ const UploadImage = props => {
         const date = Date();
 
         firebaseDb
-          .ref('users/' + props.userId)
+          .ref('users/' + props.userId + '/images/')
           .push({
             userImage: imageUrl,
             date: date

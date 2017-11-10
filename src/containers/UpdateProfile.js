@@ -69,7 +69,7 @@ class SetProfile extends Component {
       const history = this.props.history;
 
       firebaseDb
-        .ref('users/' + uid)
+        .ref('users/' + uid + '/user/')
         .push({
           weight: this.state.weight,
           oneRepMax: this.state.oneRepMax,
