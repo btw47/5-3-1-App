@@ -13,14 +13,13 @@ import firebase from 'firebase';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import Dashboard from './Dashboard';
-import Compare from './Compare';
+import Dashboard from '../components/dashboard/Dashboard';
+import Compare from '../components/dashboard/Compare';
 import DetailedProgress from './DetailedProgress';
-import Modify from './Modify';
-import Settings from '../components/Settings';
+import Settings from '../components/dashboard/Settings';
 import Calendar from '../components/calendar';
-import PhotoGallery from './PhotoGallery';
-import GoalsUpdate from './GoalsUpdate'
+import PhotoGallery from '../components/dashboard/PhotoGallery';
+import GoalsUpdate from './GoalsUpdate';
 import { firebaseDb } from '../server/firebase';
 import * as actions from '../actions';
 

@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import { FormGroup, FormControl, ControlLabel, Button } from 'react-bootstrap';
 import firebase from 'firebase';
 
-import UpdateProfileModal from './UpdateProfileModal';
-import { firebaseDb } from '../server/firebase';
+import { firebaseDb } from '../../server/firebase';
 
-class Settings extends Component {
+class UserDescription extends Component {
   handleDesc = event => {
     event.preventDefault();
 
@@ -41,13 +40,12 @@ class Settings extends Component {
   };
 
   render() {
-    console.log(this.state);
     return (
       <div>
         <h1>Settings</h1>
         <form
           onSubmit={event => this.handleDesc(event)}
-          style={{ width: '75vw', margin: 'auto' }}>
+          style={{ width: '75vw' }}>
           <FormGroup controlId="formControlsTextarea">
             <ControlLabel>
               <h2>Tell us about yourself:</h2>
@@ -62,12 +60,13 @@ class Settings extends Component {
               onChange={event => this.handleInput(event)}
             />
           </FormGroup>
-          <Button type="submit">Update description</Button>
+          <Button type="submit" bsStyle="btn btn-primary">
+            Update description
+          </Button>
         </form>
-        <UpdateProfileModal />
       </div>
     );
   }
 }
 
-export default Settings;
+export default UserDescription;

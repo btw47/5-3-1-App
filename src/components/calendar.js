@@ -12,7 +12,7 @@ import { BBB4days, BBB3days, BBB2days } from './WorkoutTemplates/BBB';
 
 import 'react-big-calendar/lib/less/styles.less';
 import './calendar.css';
-import bench from "../images/bench.gif";
+import bench from '../images/bench.gif';
 
 BigCalendar.setLocalizer(BigCalendar.momentLocalizer(moment));
 

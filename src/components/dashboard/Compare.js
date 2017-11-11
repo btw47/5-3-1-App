@@ -6,9 +6,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { NavLink } from 'react-router-dom';
 
-import UserStats from '../components/UserStats';
-import profilePicture from '../images/anon-user.jpg';
-import * as actions from '../actions';
+import UserStats from '../UserStats';
+import profilePicture from '../../images/anon-user.jpg';
+import * as actions from '../../actions';
 
 class Compare extends Component {
   constructor(props) {
