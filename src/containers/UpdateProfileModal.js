@@ -6,7 +6,7 @@ import {
   Modal,
   OverlayTrigger
 } from 'react-bootstrap';
-import UpdateProfile from '../containers/UpdateProfile';
+import UpdateProfile from '../components/UpdateProfile';
 
 class UpdateProfileModal extends Component {
   constructor(props) {

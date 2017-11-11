@@ -9,6 +9,8 @@ import firebase from 'firebase';
 import Popup from 'react-popup';
 import '../css/GoalsUpdate.css';
 
+import UserDescription from '../components/dashboard/UserDescription';
+
 class GoalUpdate extends Component {
   componentWillMount() {
     firebase.auth().onAuthStateChanged(user => {
@@ -72,7 +74,8 @@ class GoalUpdate extends Component {
           date: date
         })
         .then(() => {
-          this.props.history.push('/dashboard');
+          // this.props.history.push('/Dashboard');
+          alert('Your workout plan has been updated.');
         });
     }
     console.log(this.state);
@@ -94,18 +97,15 @@ class GoalUpdate extends Component {
     //     }
     //   }
     // }
-    if(this.state.selectedDay === "2days"){
-      
+    if (this.state.selectedDay === '2days') {
     }
     return (
       <div className="goalUpdate">
         <h2>Update goals below fam!</h2>
+        <UserDescription />
         <form ref="goalUpdateForm" onSubmit={event => this.handleSubmit(event)}>
-          <h4>What is your overall fitness goal?</h4>
-          <input
-            type="text"
-            placeholder="insert your goals here"
-          />
+          {/* <h4>What is your overall fitness goal?</h4>
+          <input type="text" placeholder="insert your goals here" /> */}
           <br />
           <h4>Split (Lifting Days per Week)</h4>
           <label>2 Days</label>
@@ -228,17 +228,17 @@ function that updates the state of our buttons */}
           />
           <br />
           <button type="submit" class="btn btn-primary">
-            <span class="md-"></span> Submit My Goals
+            <span class="md-" /> Submit My Goals
           </button>
         </form>
         <Popup
-        className="mm-popup"
-        btnClass="mm-popup__btn"
-        closeBtn={true}
-        closeHtml={null}
-        defaultOk="Ok"
-        defaultCancel="Cancel"
-        wildClasses={false}
+          className="mm-popup"
+          btnClass="mm-popup__btn"
+          closeBtn={true}
+          closeHtml={null}
+          defaultOk="Ok"
+          defaultCancel="Cancel"
+          wildClasses={false}
         />
       </div>
     );

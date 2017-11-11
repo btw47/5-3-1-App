@@ -43,8 +43,8 @@ class SetProfile extends Component {
   };
 
   calculatorButton = event => {
-    Popup.alert(<Calculator/>, "1 Rep Max Calculator");
-  }
+    Popup.alert(<Calculator />, '1 Rep Max Calculator');
+  };
 
   handleFullName = event => {
     this.setState({
@@ -80,6 +80,16 @@ class SetProfile extends Component {
   };
 
   render() {
+    if (this.props.state.OneRep.calculatedMax) {
+      if (this.props.state.OneRep.calculatedMax.bench) {
+        const calculatedMax = this.props.state.OneRep.calculatedMax;
+        this.squat.value = calculatedMax.squat;
+        this.deadlift.value = calculatedMax.deadlift;
+        this.bench.value = calculatedMax.bench;
+        this.overheadPress.value = calculatedMax.overhead;
+      }
+    }
+
     return (
       <div className="update-profile">
         <h2>Enter your info below</h2>
@@ -102,8 +112,11 @@ class SetProfile extends Component {
           <hr />
 
           <div id="one-rep-max">
-            <button type="button" className="btn btn-primary" onClick={event => this.calculatorButton(event)}>
-              <span className="md-"></span> 1 Rep Max Calculator
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={event => this.calculatorButton(event)}>
+              <span className="md-" /> 1 Rep Max Calculator
             </button>
             <h4>What are your current one rep maxes?</h4>
 
@@ -143,8 +156,8 @@ class SetProfile extends Component {
             />
             <br />
           </div>
-          <button type="submit" className="btn btn-primary" >
-            <span className="md-thumb-up"></span> Get Started!
+          <button type="submit" className="btn btn-primary">
+            <span className="md-thumb-up" /> Get Started!
           </button>
         </form>
         <Popup
@@ -154,7 +167,7 @@ class SetProfile extends Component {
           closeHtml={null}
           defaultOk="Ok"
           defaultCancel="Cancel"
-          wildClasses={false} 
+          wildClasses={false}
         />
       </div>
     );
