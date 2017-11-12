@@ -1,9 +1,4 @@
 import moment from 'moment';
-import React from 'react';
-import day1 from '../calendar';
-import day2 from '../calendar';
-import day3 from '../calendar';
-import day4 from '../calendar';
 
 function BBB4days(props) {
   return [

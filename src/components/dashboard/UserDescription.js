@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { FormGroup, FormControl, ControlLabel, Button } from 'react-bootstrap';
 import firebase from 'firebase';
+import Popup from 'react-popup';
 
 import { firebaseDb } from '../../server/firebase';
 
@@ -9,7 +10,7 @@ class UserDescription extends Component {
     event.preventDefault();
 
     if (!this.state.desc) {
-      console.log('NOT FILLED OUT YO');
+      Popup.Alert('NOT FILLED OUT YO');
     } else {
       const thisUser = firebase.auth().currentUser;
       if (thisUser != null) {
@@ -60,7 +61,7 @@ class UserDescription extends Component {
               onChange={event => this.handleInput(event)}
             />
           </FormGroup>
-          <Button type="submit" bsStyle="btn btn-primary">
+          <Button type="submit" className="btn btn-primary">
             Update description
           </Button>
         </form>

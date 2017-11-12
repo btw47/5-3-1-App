@@ -4,12 +4,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { NavLink } from 'react-router-dom';
 import { Row, Col, Pager } from 'react-bootstrap';
-import Popup from 'react-popup';
 import '../../css/Dashboard.css';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-
 import WeekCalendar from '../calendar';
-import BBB from '../WorkoutTemplates/BBB';
 import UserStats from '../UserStats';
 import UploadImage from '../UploadImage';
 import DashboardGraph from '../graphs/DashboardGraph';
