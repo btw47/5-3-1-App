@@ -136,6 +136,8 @@ class SetProfile extends Component {
       }
     }
 
+    console.log('SET PROFILE', this.state);
+
     return (
       <div className="update-profile">
       <div className="container">
