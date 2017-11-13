@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import moment from 'moment';
 import { connect } from 'react-redux';
 import Popup from 'react-popup';
 import * as actions from '../actions';
-import firebase from 'firebase';
 import { bindActionCreators } from 'redux';
 
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.less';
@@ -12,7 +11,6 @@ import { BBB4days, BBB3days, BBB2days } from './WorkoutTemplates/BBB';
 
 import 'react-big-calendar/lib/less/styles.less';
 import './calendar.css';
-import bench from '../images/bench.gif';
 
 BigCalendar.setLocalizer(BigCalendar.momentLocalizer(moment));
 
@@ -25,22 +23,8 @@ function Event({ event }) {
 }
 
 class Dnd extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  state = {};
 
-  componentWillMount() {
-    firebase.auth().onAuthStateChanged(user => {
-      if (!user) {
-        window.location = '/';
-      } else if (user) {
-        const thisUser = firebase.auth().currentUser;
-        // this.props.fetchCalendar(thisUser)
-        // console.log("SELECTED EXERCISE", this.props.state.calendar.selectedExercise)
-      }
-    });
-  }
+  state = {};
 
   render() {
     const { state } = this.props;

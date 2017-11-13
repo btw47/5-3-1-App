@@ -122,7 +122,7 @@ export function fetchCalendar(thisUser) {
 
       const uploadList = [];
       for (let i = 0; i < pushList.length; i++) {
-        if (firebaseOutput[pushList[i]].calendar) {
+        if (firebaseOutput[pushList[i]]) {
           uploadList.push(firebaseOutput[pushList[i]]);
         }
       }
@@ -133,9 +133,9 @@ export function fetchCalendar(thisUser) {
       const lastUpload = uploadList[uploadList.length - 1];
       // console.log("LAST UPLOAD", lastUpload)
 
-      const selectedDay = lastUpload.calendar.selectedDay;
-      const selectedWeekday = lastUpload.calendar.selectedWeekday;
-      const selectedExercise = lastUpload.calendar.selectedExercise;
+      const selectedDay = lastUpload.selectedDay;
+      const selectedWeekday = lastUpload.selectedWeekday;
+      const selectedExercise = lastUpload.selectedExercise;
 
       dispatch({
         date: date,
@@ -146,6 +146,16 @@ export function fetchCalendar(thisUser) {
       });
     });
   };
+}
+
+export function setTemplate(squatTemplate, deadliftTemplate, benchTemplate, overheadPressTemplate) {
+  return {
+    type: actionTypes.SET_TEMPLATE,
+    squat: squatTemplate,
+    deadlift: deadliftTemplate,
+    bench: benchTemplate,
+    ohp: overheadPressTemplate
+  }
 }
 
 export function fetchUser(thisUser) {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import logo from '../images/weight-lifting-logo.png';
+import logo from '../images/better-button-logo-best.png';
 import SignUp from '../components/auth/SignUp';
 import ConnectWithUs from '../components/ConnectWithUs';
 import OurMission from '../components/OurMission';
@@ -23,20 +23,30 @@ class Home extends Component {
     const { createUser, state } = this.props;
     console.log(this.props);
     return (
-      <div>
-        <div>
-          <img
-            src={logo}
-            className="logo"
-            alt="logo"
-            style={{ display: 'block', margin: 'auto' }}
-          />
+    <div>
+      <div className="container">
+        <div className="row">
+          <div>
+            <div className="card">
+              <div className="image">
+                <img
+                    src={logo}
+                    className="logo"
+                    alt="logo"
+                    style={{ display: 'block', margin: 'auto' }}
+                    />
+              </div>
+              <div className="text">
+              <SignUp
+                createUser={createUser}
+                error={this.handleError()}
+                authUI={state.auth.authUI}
+              />
+              </div>
+            </div>
+          </div>
         </div>
-        <SignUp
-          createUser={createUser}
-          error={this.handleError()}
-          authUI={state.auth.authUI}
-        />
+      </div>
         <ConnectWithUs />
         <Footer />
       </div>

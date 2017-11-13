@@ -84,20 +84,32 @@ export default class SignUp extends Component {
           <FormGroup
             style={{ padding: '0 30vw', textAlign: 'center' }}
             bsSize="large">
-            <FormControl
-              type="text"
-              placeholder="email"
-              inputRef={ref => {
-                this.email = ref;
-              }}
-              onChange={event => this.handleUser(event)}
-            />
+          <div className="container">
+            <div className="group">
+              <FormControl
+                required
+                type="text"
+                inputRef={ref => {
+                  this.email = ref;
+                }}
+                onChange={event => this.handleUser(event)}
+              />
+              <span className="highlight"></span>
+              <span className="bar"></span>
+              <label className="textinput">Email</label>
+            </div>
             <br />
-            <FormControl
-              type="password"
-              placeholder="password"
-              onChange={event => this.handlePassword(event)}
-            />
+            <div className="group">
+              <FormControl
+                required
+                type="password"
+                onChange={event => this.handlePassword(event)}
+              />
+              <span className="highlight"></span>
+              <span className="bar"></span>
+              <label className="textinput">Password</label>
+            </div>
+          </div>
             <br />
             <ButtonToolbar>
               <Button

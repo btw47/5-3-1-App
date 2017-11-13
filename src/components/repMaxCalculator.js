@@ -23,7 +23,7 @@ class Calculator extends Component {
     }
   }
 
-  oneRepMax = (weight, reps) => {
+oneRepMax = (weight, reps) => {
     let max = (weight * reps * 0.0333 + weight) * 0.9;
     return Math.ceil(max);
   };
@@ -50,11 +50,6 @@ class Calculator extends Component {
   };
 
   FillinStats = event => {
-    // this.bench.value = this.state.Bench;
-    // this.Overheadlift.value = this.state.Overhead;
-    // this.Deadlift.value = this.state.Deadlift;
-    // this.Squat.value = this.state.Squat;
-
     this.props.setORM(
       this.state.Bench,
       this.state.Overhead,
@@ -101,25 +96,62 @@ class Calculator extends Component {
       <div>
         {!this.state.Bench && (
           <div>
-            <label>Bench Press</label>
+            <h2 className="workouts">Bench Press</h2>
             <br />
-            <input type="number" placeholder="Weight" ref="BenchWeight" />
-            <input type="number" placeholder="Reps" ref="BenchReps" />
+            <div className="group">
+                <input required type="number" ref="BenchWeight" />
+                <span className="highlight"></span>
+                <span className="bar"></span>
+                <label className="textinput">Weight</label>
+            </div>
+            <div className="group">
+                <input required type="number" ref="BenchReps" />
+                <span className="highlight"></span>
+                <span className="bar"></span>
+                <label className="textinput">Reps</label>
+            </div>
+            <h2 className="workouts">Overhead Press</h2>
             <br />
-            <label>Overhead Press</label>
+            <div className="group">
+                <input required type="number" ref="OverheadWeight" />
+                <span className="highlight"></span>
+                <span className="bar"></span>
+                <label className="textinput">Weight</label>
+            </div>
+            <div className="group">
+                <input required type="number" ref="OverheadReps" />
+                <span className="highlight"></span>
+                <span className="bar"></span>
+                <label className="textinput">Reps</label>
+            </div>
+            <h2 className="workouts">Deadlift</h2>
             <br />
-            <input type="number" placeholder="Weight" ref="OverheadWeight" />
-            <input type="number" placeholder="Reps" ref="OverheadReps" />
+            <div className="group">
+                <input required type="number" ref="DeadliftWeight" />
+                <span className="highlight"></span>
+                <span className="bar"></span>
+                <label className="textinput">Weight</label>
+            </div>
+            <div className="group">
+                <input required type="number" ref="DeadliftReps" />
+                <span className="highlight"></span>
+                <span className="bar"></span>
+                <label className="textinput">Reps</label>
+            </div>
+            <h2 className="workouts">Squat</h2>
             <br />
-            <label>Deadlift</label>
-            <br />
-            <input type="number" placeholder="Weight" ref="DeadliftWeight" />
-            <input type="number" placeholder="Reps" ref="DeadliftReps" />
-            <br />
-            <label>Squat</label>
-            <br />
-            <input type="number" placeholder="Weight" ref="SquatWeight" />
-            <input type="number" placeholder="Reps" ref="SquatReps" />
+            <div className="group">
+                <input required type="number" ref="SquatWeight" />
+                <span className="highlight"></span>
+                <span className="bar"></span>
+                <label className="textinput">Weight</label>
+            </div>
+            <div className="group">
+                <input required type="number" ref="SquatReps" />
+                <span className="highlight"></span>
+                <span className="bar"></span>
+                <label className="textinput">Reps</label>
+            </div>
             <br />
             <button
               type="button"
@@ -127,7 +159,7 @@ class Calculator extends Component {
               onClick={event => this.onCalculate(event)}>
               <span className="md-" /> Calculate
             </button>
-          </div>
+        </div>
         )}
         <div>{this.renderMaxes()}</div>
       </div>
