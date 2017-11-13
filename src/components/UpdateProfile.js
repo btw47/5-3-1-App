@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { NavLink } from 'react-router-dom';
 import { FormGroup, FormControl, Button, ButtonToolbar } from 'react-bootstrap';
-
+import Popup from 'react-popup'
 import * as actions from '../actions';
 import { firebaseDb } from '../server/firebase';
 
@@ -58,7 +58,7 @@ class SetProfile extends Component {
     event.preventDefault();
 
     if (!this.state.weight || !this.state.oneRepMax) {
-      console.log('NOT FILLED OUT YO');
+      Popup.alert('NOT FILLED OUT YO');
     } else {
       const thisUser = firebase.auth().currentUser;
       if (thisUser != null) {
@@ -76,7 +76,7 @@ class SetProfile extends Component {
           date: date
         })
         .then(() => {
-          alert('Your stats have been updated. You may now close this window.');
+          alert("Stats Updated")
         });
     }
   };
@@ -92,7 +92,6 @@ class SetProfile extends Component {
             <br/>
             <h1 style={{ paddingTop: '80px' }}>Update Stats Below</h1>
             <br />
-            <br />
             <div className="group">
               <FormControl
                 required
@@ -104,13 +103,11 @@ class SetProfile extends Component {
               <span className="bar"></span>
               <label className="textinput">Current Weight: {state.user.weight + ' (lbs)'}</label>
             </div>
-            <br />
             <hr />
             <div id="one-rep-max">
               <h4>What are your current one rep maxes?</h4>
               <br />
-              <label className="workouts">Bench Press</label>
-              <br />
+              <h2 className="workouts">Bench Press</h2>
               <br />
               <div className="group">
                 <FormControl
@@ -123,8 +120,7 @@ class SetProfile extends Component {
                 <span className="bar"></span>
                 <label className="textinput">{state.user.ormBench + ' (lbs)'}</label>  
               </div>
-              <label className="workouts">Overhead Press</label>
-              <br />
+              <h2 className="workouts">Overhead Press</h2>
               <br />
               <div className="group">
                 <FormControl
@@ -137,8 +133,7 @@ class SetProfile extends Component {
                 <span className="bar"></span>
                 <label className="textinput">{state.user.ormOverheadPress + ' (lbs)'}</label>  
               </div>
-              <label className="workouts">Deadlift</label>
-              <br />
+              <h2 className="workouts">Deadlift</h2>
               <br />
               <div className="group">
                 <FormControl
@@ -151,8 +146,7 @@ class SetProfile extends Component {
                 <span className="bar"></span>
                 <label className="textinput">{state.user.ormDeadlift + ' (lbs)'}</label>  
               </div>
-              <label className="workouts">Squats</label>
-              <br />
+              <h2 className="workouts">Squats</h2>
               <br />
               <div className="group">
                 <FormControl
@@ -165,7 +159,6 @@ class SetProfile extends Component {
                 <span className="bar"></span>
                 <label className="textinput">{state.user.ormSquat + ' (lbs)'}</label>  
               </div>
-              <br />
             </div>
             </div>
             <ButtonToolbar>
