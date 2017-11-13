@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { NavLink } from 'react-router-dom';
 import { FormGroup, FormControl, Button, ButtonToolbar } from 'react-bootstrap';
-
+import Popup from 'react-popup'
 import * as actions from '../actions';
 import { firebaseDb } from '../server/firebase';
 
@@ -58,7 +58,7 @@ class SetProfile extends Component {
     event.preventDefault();
 
     if (!this.state.weight || !this.state.oneRepMax) {
-      console.log('NOT FILLED OUT YO');
+      Popup.alert('NOT FILLED OUT YO');
     } else {
       const thisUser = firebase.auth().currentUser;
       if (thisUser != null) {
@@ -69,14 +69,14 @@ class SetProfile extends Component {
       const history = this.props.history;
 
       firebaseDb
-        .ref('users/' + uid)
+        .ref('users/' + uid + '/user/')
         .push({
           weight: this.state.weight,
           oneRepMax: this.state.oneRepMax,
           date: date
         })
         .then(() => {
-          alert('Your stats have been updated. You may now close this window.');
+          alert("Stats Updated")
         });
     }
   };
@@ -88,56 +88,78 @@ class SetProfile extends Component {
       <div className="update-profile">
         <form onSubmit={event => this.handleSubmit(event)}>
           <FormGroup bsSize="small">
+          <div className="container">
+            <br/>
             <h1 style={{ paddingTop: '80px' }}>Update Stats Below</h1>
             <br />
-            <label>Current Weight: </label>
-            <br />
-            <FormControl
-              type="text"
-              inputRef={ref => (this.weight = ref)}
-              placeholder={state.user.weight + ' (lbs)'}
-              onChange={event => this.handleWeight(event)}
-            />
-            <br />
+            <div className="group">
+              <FormControl
+                required
+                type="text"
+                inputRef={ref => (this.weight = ref)}
+                onChange={event => this.handleWeight(event)}
+              />
+              <span className="highlight"></span>
+              <span className="bar"></span>
+              <label className="textinput">Current Weight: {state.user.weight + ' (lbs)'}</label>
+            </div>
             <hr />
             <div id="one-rep-max">
               <h4>What are your current one rep maxes?</h4>
               <br />
-              <label>Bench Press: </label>
-              <FormControl
-                type="text"
-                inputRef={ref => (this.bench = ref)}
-                placeholder={state.user.ormBench + ' (lbs)'}
-                onChange={event => this.handleOneRepMax(event)}
-              />
+              <h2 className="workouts">Bench Press</h2>
               <br />
-
-              <label>Overhead Press: </label>
-              <FormControl
-                type="text"
-                inputRef={ref => (this.overheadPress = ref)}
-                placeholder={state.user.ormOverheadPress + ' (lbs)'}
-                onChange={event => this.handleOneRepMax(event)}
-              />
+              <div className="group">
+                <FormControl
+                  required
+                  type="text"
+                  inputRef={ref => (this.bench = ref)}
+                  onChange={event => this.handleOneRepMax(event)}
+                />
+                <span className="highlight"></span>
+                <span className="bar"></span>
+                <label className="textinput">{state.user.ormBench + ' (lbs)'}</label>  
+              </div>
+              <h2 className="workouts">Overhead Press</h2>
               <br />
-
-              <label>Deadlift: </label>
-              <FormControl
-                type="text"
-                placeholder={state.user.ormDeadlift + ' (lbs)'}
-                inputRef={ref => (this.deadlift = ref)}
-                onChange={event => this.handleOneRepMax(event)}
-              />
+              <div className="group">
+                <FormControl
+                  required
+                  type="text"
+                  inputRef={ref => (this.overheadPress = ref)}
+                  onChange={event => this.handleOneRepMax(event)}
+                />
+                <span className="highlight"></span>
+                <span className="bar"></span>
+                <label className="textinput">{state.user.ormOverheadPress + ' (lbs)'}</label>  
+              </div>
+              <h2 className="workouts">Deadlift</h2>
               <br />
-
-              <label>Squats: </label>
-              <FormControl
-                type="text"
-                inputRef={ref => (this.squat = ref)}
-                placeholder={state.user.ormSquat + ' (lbs)'}
-                onChange={event => this.handleOneRepMax(event)}
-              />
+              <div className="group">
+                <FormControl
+                  required
+                  type="text"
+                  inputRef={ref => (this.deadlift = ref)}
+                  onChange={event => this.handleOneRepMax(event)}
+                />
+                <span className="highlight"></span>
+                <span className="bar"></span>
+                <label className="textinput">{state.user.ormDeadlift + ' (lbs)'}</label>  
+              </div>
+              <h2 className="workouts">Squats</h2>
               <br />
+              <div className="group">
+                <FormControl
+                  required
+                  type="text"
+                  inputRef={ref => (this.squat = ref)}
+                  onChange={event => this.handleOneRepMax(event)}
+                />
+                <span className="highlight"></span>
+                <span className="bar"></span>
+                <label className="textinput">{state.user.ormSquat + ' (lbs)'}</label>  
+              </div>
+            </div>
             </div>
             <ButtonToolbar>
               <Button

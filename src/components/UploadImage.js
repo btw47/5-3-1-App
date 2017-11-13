@@ -5,38 +5,56 @@ import { filestackDb } from '../server/filestack';
 
 const UploadImage = props => {
   const renderPicker = () => {
-    const ratio = 1 / 1;
-    filestackDb
-      .pick({
-        transformations: {
-          crop: {
-            aspectRatio: ratio,
-            force: true
+    if (props.type === 'profile') {
+      const ratio = 1 / 1;
+      filestackDb
+        .pick({
+          transformations: {
+            crop: {
+              aspectRatio: ratio,
+              force: true
+            }
           }
-        }
-      })
-      .then(function(response) {
+        })
+        .then(function(response) {
+          const imageUrl = response.filesUploaded[0].url;
+
+          const date = Date();
+
+          firebaseDb
+            .ref('users/' + props.userId + '/images/')
+            .push({
+              profileImage: imageUrl,
+              date: date
+            })
+            .then(() => {
+              props.fetchProfileImage(props.userId);
+            });
+        });
+    } else if (props.type === 'other') {
+      filestackDb.pick({}).then(function(response) {
         const imageUrl = response.filesUploaded[0].url;
 
         const date = Date();
 
         firebaseDb
-          .ref('users/' + props.userId)
+          .ref('users/' + props.userId + '/images/')
           .push({
-            profileImage: imageUrl,
+            userImage: imageUrl,
             date: date
           })
           .then(() => {
-            props.fetchProfileImage(props.userId);
+            props.fetchUserImages(props.userId);
           });
       });
+    }
   };
 
   return (
     <div className="class-name">
       <ButtonToolbar>
         <Button bsSize="small" onClick={() => renderPicker()}>
-          Update Profile Picture
+          {props.caption}
         </Button>
       </ButtonToolbar>
     </div>

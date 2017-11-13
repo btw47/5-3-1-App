@@ -12,16 +12,12 @@ import Leaderboards from '../components/Leaderboards';
 import Forums from '../components/Fourms';
 import EmailSupport from '../components/EmailSupport';
 import LiveChat from '../components/LiveChat';
-import Modify from './Modify';
 import NavBar from '../components/NavBar';
 import ConnectWithUs from '../components/ConnectWithUs';
-import OurMission from '../components/OurMission';
-import Footer from '../components/Footer';
 import ForgotPassword from '../components/auth/ForgotPassword';
 import GoalsUpdate from './GoalsUpdate';
 import WeeklyTemplate from '../components/weeklyTemplate';
 import DetailedProgress from './DetailedProgress';
-import { Button } from 'reactstrap';
 
 class App extends Component {
   render() {
@@ -37,7 +33,6 @@ class App extends Component {
             <Route path="/SignIn" component={SignIn} />
             <Route path="/ForgotPassword" component={ForgotPassword} />
             <Route path="/SetProfile" component={SetProfile} />
-            <Route path="/Modify" component={Modify} />
             <Route path="/Today" component={Today} />
             <Route path="/Progress" component={Progress} />
             <Route path="/Leaderboards" component={Leaderboards} />

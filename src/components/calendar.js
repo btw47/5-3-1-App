@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import moment from 'moment';
 import { connect } from 'react-redux';
 import Popup from 'react-popup';
 import * as actions from '../actions';
-import firebase from 'firebase';
 import { bindActionCreators } from 'redux';
 
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.less';
 import BigCalendar from 'react-big-calendar';
-import {BBB4days, BBB3days, BBB2days} from './WorkoutTemplates/BBB';
+import { BBB4days, BBB3days, BBB2days } from './WorkoutTemplates/BBB';
 
 import 'react-big-calendar/lib/less/styles.less';
 import './calendar.css';
@@ -24,22 +23,8 @@ function Event({ event }) {
 }
 
 class Dnd extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  state = {};
 
-  componentWillMount() {
-    firebase.auth().onAuthStateChanged(user => {
-      if (!user) {
-        window.location = '/';
-      } else if (user) {
-        const thisUser = firebase.auth().currentUser;
-        // this.props.fetchCalendar(thisUser)
-        // console.log("SELECTED EXERCISE", this.props.state.calendar.selectedExercise)
-      }
-    });
-  }
+  state = {};
 
   render() {
     const { state } = this.props;
@@ -71,19 +56,19 @@ class Dnd extends React.Component {
       }
     }
     if (state.fetchCalendar.calendar) {
-      if (state.fetchCalendar.calendar.selectedExercise === 'boringButBig'){
-      if (state.fetchCalendar.calendar.selectedDay === '4days') {
-        console.log('COME ON BITCH', this.state);
-        userEvents = BBB4days({ day1, day2, day3, day4 });
-      } else if (state.fetchCalendar.calendar.selectedDay === '3days'){
-        userEvents = BBB3days({day1, day2, day3})
-      } else if (state.fetchCalendar.calendar.selectedDay === '2days'){
-        userEvents = BBB2days({day1, day2})
-      } else {
-        userEvents = [];
+      if (state.fetchCalendar.calendar.selectedExercise === 'boringButBig') {
+        if (state.fetchCalendar.calendar.selectedDay === '4days') {
+          console.log('COME ON BITCH', this.state);
+          userEvents = BBB4days({ day1, day2, day3, day4 });
+        } else if (state.fetchCalendar.calendar.selectedDay === '3days') {
+          userEvents = BBB3days({ day1, day2, day3 });
+        } else if (state.fetchCalendar.calendar.selectedDay === '2days') {
+          userEvents = BBB2days({ day1, day2 });
+        } else {
+          userEvents = [];
+        }
       }
     }
-  }
 
     console.log('SELECTED DAYS', day1, day2, day3, day4);
 
@@ -96,8 +81,8 @@ class Dnd extends React.Component {
             selectable
             step={'allday'}
             events={userEvents}
-            defaultView="week"
-            views={{ week: true }}
+            defaultView={this.props.view}
+            views={this.props.views}
             scrollToTime={new Date(2017, 1, 1, 6)}
             test="io"
             onSelectEvent={event => Popup.alert(event.desc, event.title)}

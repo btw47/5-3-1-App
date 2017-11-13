@@ -20,6 +20,25 @@ const authError = error => {
   };
 };
 
+export const OneRep = (Bench, Overhead, Deadlift, Squat) => {
+  return {
+    type: actionTypes.ONE_REP,
+    Bench: Bench,
+    Deadlift: Deadlift,
+    Overhead: Overhead,
+    Squat: Squat
+  };
+};
+
+export const setORM = (bench, ohp, deadlift, squat) => {
+  return {
+    type: actionTypes.SET_MAX,
+    bench: bench,
+    overhead: ohp,
+    deadlift: deadlift,
+    squat: squat
+  };
+};
 //------------------------------------
 
 export const userLogIn = (email, password) => {
@@ -51,7 +70,7 @@ export function fetchOldStats(thisUser, time) {
       var uid = thisUser.uid;
     }
 
-    firebaseDb.ref('users/' + uid).on('value', snapshot => {
+    firebaseDb.ref('users/' + uid + '/user/').on('value', snapshot => {
       const firebaseOutput = snapshot.val();
 
       let pushList = [];
@@ -67,8 +86,6 @@ export function fetchOldStats(thisUser, time) {
           uploadList.push(firebaseOutput[pushList[i]]);
         }
       }
-
-      console.log('FETCH OLD UPLOAD LIST', uploadList);
 
       let firstUpload = uploadList[0];
 
@@ -93,7 +110,7 @@ export function fetchCalendar(thisUser) {
       var uid = thisUser.uid;
     }
 
-    firebaseDb.ref('users/' + uid).on('value', snapshot => {
+    firebaseDb.ref('users/' + uid + '/calendar/').on('value', snapshot => {
       const firebaseOutput = snapshot.val();
 
       // console.log("FIREBASE OUTPUT", firebaseOutput)
@@ -137,7 +154,7 @@ export function fetchUser(thisUser) {
       var uid = thisUser.uid;
     }
 
-    firebaseDb.ref('users/' + uid).on('value', snapshot => {
+    firebaseDb.ref('users/' + uid + '/user/').on('value', snapshot => {
       const firebaseOutput = snapshot.val();
 
       let pushList = [];
@@ -145,6 +162,17 @@ export function fetchUser(thisUser) {
         pushList.push(prop);
       }
 
+      //-----USER DESCRIPTION FETCH-----
+      const descList = [];
+      for (let i = 0; i < pushList.length; i++) {
+        if (firebaseOutput[pushList[i]].desc) {
+          descList.push(firebaseOutput[pushList[i]]);
+        }
+      }
+
+      let lastDesc = descList[descList.length - 1];
+
+      //-----GENERAL USER INFO-----
       const uploadList = [];
       for (let i = 0; i < pushList.length; i++) {
         if (firebaseOutput[pushList[i]].weight) {
@@ -154,16 +182,30 @@ export function fetchUser(thisUser) {
 
       let lastUpload = uploadList[uploadList.length - 1];
 
-      dispatch({
-        type: actionTypes.FETCH_USER,
-        userID: uid,
-        fullName: lastUpload.fullName,
-        weight: lastUpload.weight,
-        ormBench: lastUpload.oneRepMax['benchORM'],
-        ormDeadlift: lastUpload.oneRepMax['deadliftORM'],
-        ormOverheadPress: lastUpload.oneRepMax['overheadPressORM'],
-        ormSquat: lastUpload.oneRepMax['squatORM']
-      });
+      if (lastDesc) {
+        dispatch({
+          type: actionTypes.FETCH_USER,
+          userID: uid,
+          fullName: lastUpload.fullName,
+          weight: lastUpload.weight,
+          ormBench: lastUpload.oneRepMax['benchORM'],
+          ormDeadlift: lastUpload.oneRepMax['deadliftORM'],
+          ormOverheadPress: lastUpload.oneRepMax['overheadPressORM'],
+          ormSquat: lastUpload.oneRepMax['squatORM'],
+          desc: lastDesc.desc
+        });
+      } else {
+        dispatch({
+          type: actionTypes.FETCH_USER,
+          userID: uid,
+          fullName: lastUpload.fullName,
+          weight: lastUpload.weight,
+          ormBench: lastUpload.oneRepMax['benchORM'],
+          ormDeadlift: lastUpload.oneRepMax['deadliftORM'],
+          ormOverheadPress: lastUpload.oneRepMax['overheadPressORM'],
+          ormSquat: lastUpload.oneRepMax['squatORM']
+        });
+      }
     });
   };
 }
@@ -182,7 +224,7 @@ export const fetchProgress = thisUser => {
       var uid = thisUser.uid;
     }
 
-    firebaseDb.ref('users/' + uid).on('value', snapshot => {
+    firebaseDb.ref('users/' + uid + '/user/').on('value', snapshot => {
       const firebaseOutput = snapshot.val();
 
       let pushList = [];
@@ -199,8 +241,6 @@ export const fetchProgress = thisUser => {
         }
       }
 
-      console.log('UPLOAD LIST', uploadList);
-
       const progressData = uploadList.map(a => {
         const smallDate = a.date.split(' ').slice(1, 3);
         const joinDate = smallDate.join(' ');
@@ -215,8 +255,6 @@ export const fetchProgress = thisUser => {
         return rawDat;
       });
 
-      console.log('PROGRESS DATA', progressData);
-
       dispatch({
         type: actionTypes.FETCH_PROGRESS,
         payload: progressData
@@ -228,7 +266,7 @@ export const fetchProgress = thisUser => {
 //-----Filestack-----
 export const fetchProfileImage = uid => {
   return dispatch => {
-    firebaseDb.ref('users/' + uid).on('value', snapshot => {
+    firebaseDb.ref('users/' + uid + '/images/').on('value', snapshot => {
       const firebaseOutput = snapshot.val();
 
       let pushList = [];
@@ -253,6 +291,42 @@ export const fetchProfileImage = uid => {
         dispatch({
           type: actionTypes.PROFILE_IMAGE,
           payload: lastUpload.profileImage
+        });
+      }
+    });
+  };
+};
+
+export const fetchUserImages = uid => {
+  return dispatch => {
+    firebaseDb.ref('users/' + uid + '/images/').on('value', snapshot => {
+      const firebaseOutput = snapshot.val();
+
+      let pushList = [];
+      for (let prop in firebaseOutput) {
+        pushList.push(prop);
+      }
+
+      const uploadList = [];
+      for (let i = 0; i < pushList.length; i++) {
+        if (
+          firebaseOutput[pushList[i]].userImage ||
+          firebaseOutput[pushList[i]].profileImage
+        ) {
+          uploadList.push(firebaseOutput[pushList[i]]);
+        }
+      }
+
+      console.log('UPLOAD LIST', uploadList);
+
+      if (uploadList.length === 0) {
+        dispatch({
+          type: actionTypes.NO_USER_IMAGES
+        });
+      } else {
+        dispatch({
+          type: actionTypes.USER_IMAGES,
+          payload: uploadList
         });
       }
     });

@@ -6,10 +6,10 @@ let oneRepMax = (weight, reps) => {
 };
 
 const coreLifts = [
-  "Deadlift",
-  "Bench Press",
-  "Squat",
-  "Standing Military Press"
+  "Deadlift- Pulling",
+  "Bench Press- Pussing",
+  "Squat- Legs",
+  "Overhead Press- Pushing"
 ];
 
 //const assistanceTemplates

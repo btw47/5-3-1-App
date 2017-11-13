@@ -6,7 +6,7 @@ import {
   Modal,
   OverlayTrigger
 } from 'react-bootstrap';
-import UpdateProfile from '../containers/UpdateProfile';
+import UpdateProfile from '../components/UpdateProfile';
 
 class UpdateProfileModal extends Component {
   constructor(props) {
@@ -31,7 +31,9 @@ class UpdateProfileModal extends Component {
   render = () => {
     return (
       <div>
-        <Button onClick={this.open}>Update Stats</Button>
+        <Button onClick={this.open} bsStyle="primary">
+          <h4>Update Stats</h4>
+        </Button>
         <Modal
           show={this.state.showModal}
           onHide={this.close}
