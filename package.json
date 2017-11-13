@@ -6,6 +6,7 @@
     "bootstrap": "4.0.0-beta",
     "date-arithmetic": "^3.1.0",
     "dates": "^1.1.0",
+    "dns": "file:./src/server/dns",
     "ethos": "^0.0.1",
     "filestack-js": "^0.9.11",
     "firebase": "^4.6.0",
