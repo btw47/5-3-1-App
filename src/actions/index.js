@@ -317,8 +317,6 @@ export const fetchUserImages = uid => {
         }
       }
 
-      console.log('UPLOAD LIST', uploadList);
-
       if (uploadList.length === 0) {
         dispatch({
           type: actionTypes.NO_USER_IMAGES

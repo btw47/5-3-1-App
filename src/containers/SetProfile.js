@@ -90,6 +90,8 @@ class SetProfile extends Component {
       }
     }
 
+    console.log('SET PROFILE', this.state);
+
     return (
       <div className="update-profile">
         <h2>Enter your info below</h2>
