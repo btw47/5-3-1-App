@@ -66,12 +66,10 @@ class GoalUpdate extends Component {
       firebaseDb
         .ref('users/' + uid + '/calendar/')
         .push({
-          calendar: {
             selectedDay: this.state.selectedDay,
             selectedWeekday: this.state.selectedWeekday,
-            selectedExercise: this.state.selectedExercise
-          },
-          date: date
+            selectedExercise: this.state.selectedExercise,
+            date: date
         })
         .then(() => {
           if(window.location.href){

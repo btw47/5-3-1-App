@@ -23,49 +23,6 @@ class Calculator extends Component {
     }
   }
 
-weeklyTemplate = (weight, reps) => {
-    weight = parseInt(weight);
-    reps = parseInt(reps);
-    let max = (weight * reps * 0.0333 + weight) * 0.9;
-    const oneRepMax = Math.ceil(max);
-    const t = ({ percent, reps }) =>
-      `${Math.round(percent * oneRepMax)} x ${reps}`;
-    //const t = ({ percent, reps }) => `${Math.round(percent * oneRepMax)}${unit} x ${reps}`;
-
-    this.setState({
-      calculated: true
-    });
-
-    const calculatedTemplate = [
-      // week 1
-      [
-        t({ percent: 0.65, reps: 5 }),
-        t({ percent: 0.75, reps: 5 }),
-        t({ percent: 0.85, reps: "5+" })
-      ],
-      // week 2
-      [
-        t({ percent: 0.7, reps: 3 }),
-        t({ percent: 0.8, reps: 3 }),
-        t({ percent: 0.9, reps: "3+" })
-      ],
-      // week 3
-      [
-        t({ percent: 0.75, reps: 5 }),
-        t({ percent: 0.85, reps: 3 }),
-        t({ percent: 0.95, reps: "1+" })
-      ],
-      // week 4
-      [
-        t({ percent: 0.4, reps: 5 }),
-        t({ percent: 0.5, reps: 5 }),
-        t({ percent: 0.6, reps: "only 5" })
-      ]
-    ];
-
-    this.setState(calculatedTemplate);
-  };
-
 oneRepMax = (weight, reps) => {
     let max = (weight * reps * 0.0333 + weight) * 0.9;
     return Math.ceil(max);

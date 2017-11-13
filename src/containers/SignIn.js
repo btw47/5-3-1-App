@@ -134,11 +134,16 @@ class SignIn extends Component {
             </ButtonToolbar>
             <br />
             <NavLink to="/">
-              <h4 style={{ color: 'white' }}>Sign Up</h4>
+              <Button
+                bsSize="large"
+                type="button"
+                style={{ display: 'block', margin: 'auto' }}>
+                Sign Up
+              </Button>
             </NavLink>
             <br />
             <NavLink to="/ForgotPassword">
-              <h5 style={{ color: 'white' }}>forgot your password?</h5>
+              <h5 style={{ color: '#0062CC' }}>forgot your password?</h5>
             </NavLink>
           </FormGroup>
         </form>

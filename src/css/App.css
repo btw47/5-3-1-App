@@ -166,6 +166,7 @@ h2 small {
 .group 			  { 
   position:relative; 
   margin-bottom:25px; 
+
 }
 input 				{
   font-size:18px;
@@ -174,7 +175,7 @@ input 				{
   width:300px;
   border:none;
   border-bottom:1px solid #757575;
-  background: #a0a4b8;
+
   opacity: 0.8;
 }
 input:focus 		{ outline:none; }
@@ -460,7 +461,6 @@ input:focus ~ .highlight {
 
 .card {
   display: inline-block;
-  background-color: blue;
   opacity: 0.8;
   box-shadow: 0 1px 2px 0 rgba(0,0,0,.15);
   margin: 20px;

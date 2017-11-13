@@ -12,6 +12,16 @@ export const fetchCalendar = (state = {}, action) =>{
                     date: action.date
                     }
             };
+        case actionTypes.SET_TEMPLATE:
+            return {
+                ...state,
+                templates: {
+                    squatTemplate: action.squat,
+                    deadliftTemplate: action.deadlift,
+                    benchTemplate: action.bench,
+                    overheadPressTemplate: action.ohp
+                }
+                }
             default:
                 return state;
     }
