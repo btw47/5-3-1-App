@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
+import SearchInput, { createFilter } from 'react-search-input';
 import { Table } from 'react-bootstrap';
 import * as admin from 'firebase-admin';
 import { connect } from 'react-redux';
@@ -9,7 +10,13 @@ import { firebaseDb } from '../server/firebase';
 import * as actions from '../actions';
 
 class Admin extends Component {
-  state = {};
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchTerm: ''
+    };
+    this.searchUpdated = this.searchUpdated.bind(this);
+  }
 
   renderUser = event => {
     this.setState({
@@ -51,7 +58,6 @@ class Admin extends Component {
           //   this.listAllUsers(listUsersResult.pageToken);
           // }
         })
-        .then(() => this.renderUsers())
         .then(() =>
           this.setState({
             rendered: true
@@ -82,46 +88,6 @@ class Admin extends Component {
     //   }
   }
 
-  renderUsers = () => {
-    // event.preventDefault();
-    console.log('CALLED THIS STATE USERS', this.state.users);
-
-    let newList = this.state.users.map(a => {
-      console.log(a);
-      const uid = a.uid;
-      let isAdmin;
-
-      if (a.customClaims) {
-        if (a.customClaims.admin) {
-          isAdmin = 'admin';
-        }
-      } else {
-        isAdmin = 'user';
-      }
-
-      return (
-        <tr key={a.uid}>
-          <td>{a.uid}</td>
-          <td>{a.displayName}</td>
-          <td>{a.email}</td>
-          <td>{isAdmin}</td>
-          <td>
-            <button
-              onClick={event => {
-                this.handleDelete(event, uid);
-              }}>
-              X
-            </button>
-          </td>
-        </tr>
-      );
-    });
-
-    this.setState({
-      renderedList: newList
-    });
-  };
-
   handleDelete = (event, uid) => {
     event.preventDefault();
 
@@ -134,31 +100,37 @@ class Admin extends Component {
       .catch(function(error) {
         console.log('Error deleting user:', error);
       });
+
+    const newUserState = [];
+
+    for (let i = 0; i < this.state.users.length; i++) {
+      if (this.state.users[i].uid != uid) {
+        newUserState.push(this.state.users[i]);
+      }
+    }
+
+    this.setState({
+      users: newUserState
+    });
   };
 
-  handleUID = event => {
-    this.setState({
-      uid: event.target.value
-    });
+  searchUpdated = term => {
+    this.setState({ searchTerm: term });
   };
 
   render() {
     console.log('THIS STATE ADMIN', this.state);
 
+    const KEYS_TO_FILTERS = ['uid', 'username', 'email'];
+    const filteredUsers = this.state.users.filter(
+      createFilter(this.state.searchTerm, KEYS_TO_FILTERS)
+    );
+
     return (
       <div style={{ width: '75vw', margin: 'auto' }}>
-        <form>
-          <input type="text" placeholder="enter user id here" />
-        </form>
-        <form onSubmit={event => this.handleDelete(event)}>
-          <input
-            type="text"
-            placeholder="enter uid to delete"
-            onChange={event => this.handleUID(event)}
-          />
-        </form>
+        <SearchInput className="search-input" onChange={this.searchUpdated} />
 
-        {this.state.renderedList && (
+        {this.state.rendered && (
           <Table
             striped
             bordered
@@ -173,7 +145,36 @@ class Admin extends Component {
                 <th>User Type</th>
               </tr>
             </thead>
-            <tbody>{this.state.renderedList}</tbody>
+            {/* {this.state.users.map(a => { */}
+            {filteredUsers.map(a => {
+              const uid = a.uid;
+              let isAdmin;
+
+              if (a.customClaims) {
+                if (a.customClaims.admin) {
+                  isAdmin = 'admin';
+                }
+              } else {
+                isAdmin = 'user';
+              }
+
+              return (
+                <tr key={a.uid}>
+                  <td>{a.uid}</td>
+                  <td>{a.displayName}</td>
+                  <td>{a.email}</td>
+                  <td>{isAdmin}</td>
+                  <td>
+                    <button
+                      onClick={event => {
+                        this.handleDelete(event, uid);
+                      }}>
+                      X
+                    </button>
+                  </td>
+                </tr>
+              );
+            })};
           </Table>
         )}
       </div>
