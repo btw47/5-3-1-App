@@ -24,18 +24,15 @@ class SetProfile extends Component {
       }
     });
   };
-  weeklyTemplate = (inputValue) => {
-    let max = inputValue;
+  weeklyTemplate = (inputValues) => {
+    let reps = 1
+    let max = parseInt(inputValues);
     const oneRepMax = Math.ceil(max);
     const t = ({ percent, reps }) =>
       `${Math.round(percent * oneRepMax)} x ${reps}`;
     //const t = ({ percent, reps }) => `${Math.round(percent * oneRepMax)}${unit} x ${reps}`;
 
-    this.setState({
-      calculated: true
-    });
-
-    const calculatedTemplate = [
+    return [
       // week 1
       [
         t({ percent: 0.65, reps: 5 }),
@@ -59,10 +56,8 @@ class SetProfile extends Component {
         t({ percent: 0.4, reps: 5 }),
         t({ percent: 0.5, reps: 5 }),
         t({ percent: 0.6, reps: "only 5" })
-      ]
+      ],
     ];
-
-    this.setState(calculatedTemplate);
   };
 
   handleWeight = event => {
@@ -77,7 +72,7 @@ class SetProfile extends Component {
         squatORM: this.refs.squat.value,
         deadliftORM: this.refs.deadlift.value,
         benchORM: this.refs.bench.value,
-        overheadPressORM: this.refs.overheadPress.value
+        overheadPressORM: this.refs.ohp.value
       }
     });
   };
@@ -94,10 +89,10 @@ class SetProfile extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    let squatTemplate = this.weeklyTemplate(parseInt(this.refs.squat.value))
-    let deadliftTemplate = this.weeklyTemplate(parseInt(this.refs.deadlift.value))
-    let benchTemplate = this.weeklyTemplate(parseInt(this.refs.bench.value))
-    let overheadPressTemplate = this.weeklyTemplate(parseInt(this.refs.overheadPress.value))
+    const Deadlift = this.weeklyTemplate(this.refs.deadlift.value);
+    const Bench = this.weeklyTemplate(this.refs.bench.value);
+    const Squat = this.weeklyTemplate(this.refs.squat.value);
+    const Overhead = this.weeklyTemplate(this.refs.ohp.value);
     if (!this.props.state.OneRep) {
       Popup.alert('Fill out all your stats bro', 'All stats not filled out');
     } else {
@@ -105,9 +100,6 @@ class SetProfile extends Component {
       if (thisUser != null) {
         var uid = thisUser.uid;
       }
-
-      this.props.setTemplate(squatTemplate, deadliftTemplate, benchTemplate, overheadPressTemplate);
-      console.log("SQUAT TEMPLATE", squatTemplate)
 
       const date = Date();
 
@@ -118,11 +110,11 @@ class SetProfile extends Component {
           oneRepMax: this.state.oneRepMax,
           fullName: this.state.fullName,
           date: date
-        })
-        .then(() => {
+        }).then(() => {
           this.props.history.push('/GoalsUpdate');
         });
     }
+    this.props.oneRep(Bench, Overhead, Deadlift, Squat)
   };
 
   render() {
@@ -135,6 +127,8 @@ class SetProfile extends Component {
         this.overheadPress.value = calculatedMax.overhead;
       }
     }
+
+    console.log("set profile props", this.props)
 
     return (
       <div className="update-profile">
@@ -180,33 +174,41 @@ class SetProfile extends Component {
             />
             <span className="highlight"></span>
             <span className="bar"></span>
-            <label className="textinput">Bench Press</label>
+            <label className="textinput">Bench Press Weight</label>
           </div>
-          <label>Overhead Press: </label>
-          <input
-            type="text"
-            ref='ohp'
-            placeholder="Weight (lbs)"
-            onChange={event => this.handleOneRepMax(event)}
-          />
-          <br />
-
-          <label>Deadlift: </label>
-          <input
-            type="text"
-            placeholder="Weight (lbs)"
-            ref='deadlift'
-            onChange={event => this.handleOneRepMax(event)}
-          />
-          <br />
-
-          <label>Squats: </label>
-          <input
-            type="text"
-            ref='squat'
-            placeholder="Weight (lbs)"
-            onChange={event => this.handleOneRepMax(event)}
-          />
+          <div className="group">
+            <input
+              required
+              type="text"
+              ref='ohp'
+              onChange={event => this.handleOneRepMax(event)}
+            />
+            <span className="highlight"></span>
+            <span className="bar"></span>
+            <label className="textinput">Overhead Press Weight</label>
+          </div>
+          <div className="group">
+            <input
+              required
+              type="text"
+              ref='deadlift'
+              onChange={event => this.handleOneRepMax(event)}
+            />
+            <span className="highlight"></span>
+            <span className="bar"></span>
+            <label className="textinput">Deadlift Weight</label>
+          </div>
+          <div className="group">
+            <input
+              required
+              type="text"
+              ref='squat'
+              onChange={event => this.handleOneRepMax(event)}
+            />
+            <span className="highlight"></span>
+            <span className="bar"></span>
+            <label className="textinput">Squat Weight</label>
+          </div>
           <br />
           </div>
           <button type="submit" className="btn btn-primary">

@@ -20,6 +20,7 @@ class GoalUpdate extends Component {
         const thisUser = firebase.auth().currentUser;
 
         this.props.loggedIn();
+        this.props.fetchCalendar();
       }
     });
   }
@@ -63,23 +64,45 @@ class GoalUpdate extends Component {
       }
       const date = Date();
       console.log('SET STATE', this.state);
+      const currentLocation = window.location.href
+      if(this.props.state.OneRep.Bench){
       firebaseDb
         .ref('users/' + uid + '/calendar/')
         .push({
             selectedDay: this.state.selectedDay,
             selectedWeekday: this.state.selectedWeekday,
             selectedExercise: this.state.selectedExercise,
+            benchTemplate: this.props.state.OneRep.Bench,
+            deadliftTemplate: this.props.state.OneRep.Deadlift,
+            squatTemplate: this.props.state.OneRep.Squat,
+            ohpTemplate: this.props.state.OneRep.Overhead,
             date: date
         })
-        .then(() => {
-          if(window.location.href){
-            this.props.history.push('/Dashboard');
-          } else {
-            Popup.alert('Your workout plan has been updated.');            
-          }
-        });
+        .then(
+          () => {if(currentLocation){
+            this.props.history.push('/Dashboard')
+          }else {
+            Popup.alert("Your workout has been updated")
+          }}           
+        )
+      } else {
+        firebaseDb
+        .ref('users/' + uid + '/calendar/')
+        .push({
+            selectedDay: this.state.selectedDay,
+            selectedWeekday: this.state.selectedWeekday,
+            selectedExercise: this.state.selectedExercise,
+            date: date
+        }).then(
+          () => {if(currentLocation){
+            this.props.history.push('/Dashboard')
+          }else {
+            Popup.alert("Your workout has been updated")
+          }}    
+        )
+      }
     }
-    console.log(this.state);
+
   };
 
   render() {

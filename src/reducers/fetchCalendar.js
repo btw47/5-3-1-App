@@ -9,6 +9,10 @@ export const fetchCalendar = (state = {}, action) =>{
                     selectedDay: action.selectedDay,
                     selectedWeekday: action.selectedWeekday,
                     selectedExercise: action.selectedExercise,
+                    benchTemplate: action.benchTemplate,
+                    deadliftTemplate: action.deadliftTemplate,
+                    ohpTemplate: action.ohpTemplate,
+                    squatTemplate: action.squatTemplate,
                     date: action.date
                     }
             };

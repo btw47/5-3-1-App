@@ -20,7 +20,7 @@ const authError = error => {
   };
 };
 
-export const OneRep = (Bench, Overhead, Deadlift, Squat) => {
+export const oneRep = (Bench, Overhead, Deadlift, Squat) => {
   return {
     type: actionTypes.ONE_REP,
     Bench: Bench,
@@ -136,13 +136,21 @@ export function fetchCalendar(thisUser) {
       const selectedDay = lastUpload.selectedDay;
       const selectedWeekday = lastUpload.selectedWeekday;
       const selectedExercise = lastUpload.selectedExercise;
+      const benchTemplate = lastUpload.benchTemplate;
+      const deadliftTemplate = lastUpload.deadliftTemplate;
+      const ohpTemplate = lastUpload.ohpTemplate;
+      const squatTemplate =  lastUpload.squatTemplate;
 
       dispatch({
         date: date,
         type: actionTypes.FETCH_CALENDAR,
         selectedDay: selectedDay,
         selectedWeekday: selectedWeekday,
-        selectedExercise: selectedExercise
+        selectedExercise: selectedExercise,
+        benchTemplate: benchTemplate,
+        deadliftTemplate: deadliftTemplate,
+        ohpTemplate: ohpTemplate,
+        squatTemplate: squatTemplate
       });
     });
   };
