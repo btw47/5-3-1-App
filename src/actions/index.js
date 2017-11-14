@@ -2,6 +2,10 @@ import React from 'react';
 import { firebaseApp, firebaseDb } from '../server/firebase';
 import actionTypes from '../actionTypes';
 
+//-----USE IF CREATING ADMIN ACCOUNT-----
+// import firebase from 'firebase';
+// import * as admin from 'firebase-admin';
+
 //ACTION CREATORS-------------------
 const updateProfile = () => {
   window.location = '/SetProfile';
@@ -20,7 +24,7 @@ const authError = error => {
   };
 };
 
-export const OneRep = (Bench, Overhead, Deadlift, Squat) => {
+export const oneRep = (Bench, Overhead, Deadlift, Squat) => {
   return {
     type: actionTypes.ONE_REP,
     Bench: Bench,
@@ -57,6 +61,13 @@ export const createUser = (email, password) => {
     firebaseApp
       .auth()
       .createUserWithEmailAndPassword(email, password)
+      //------UNCOMMENT IF YOU WANT TO CREATE ADMIN ACCOUNT-----
+      // .then(() => {
+      //   const thisUser = firebase.auth().currentUser;
+      //   const uid = thisUser.uid;
+      //   admin.auth().setCustomUserClaims(uid, { admin: true });
+      // })
+      //---------------------------------------------------------
       .then(() => updateProfile())
       .catch(error => {
         dispatch(authError(error));
@@ -136,26 +147,39 @@ export function fetchCalendar(thisUser) {
       const selectedDay = lastUpload.selectedDay;
       const selectedWeekday = lastUpload.selectedWeekday;
       const selectedExercise = lastUpload.selectedExercise;
+      const benchTemplate = lastUpload.benchTemplate;
+      const deadliftTemplate = lastUpload.deadliftTemplate;
+      const ohpTemplate = lastUpload.ohpTemplate;
+      const squatTemplate =  lastUpload.squatTemplate;
 
       dispatch({
         date: date,
         type: actionTypes.FETCH_CALENDAR,
         selectedDay: selectedDay,
         selectedWeekday: selectedWeekday,
-        selectedExercise: selectedExercise
+        selectedExercise: selectedExercise,
+        benchTemplate: benchTemplate,
+        deadliftTemplate: deadliftTemplate,
+        ohpTemplate: ohpTemplate,
+        squatTemplate: squatTemplate
       });
     });
   };
 }
 
-export function setTemplate(squatTemplate, deadliftTemplate, benchTemplate, overheadPressTemplate) {
+export function setTemplate(
+  squatTemplate,
+  deadliftTemplate,
+  benchTemplate,
+  overheadPressTemplate
+) {
   return {
     type: actionTypes.SET_TEMPLATE,
     squat: squatTemplate,
     deadlift: deadliftTemplate,
     bench: benchTemplate,
     ohp: overheadPressTemplate
-  }
+  };
 }
 
 export function fetchUser(thisUser) {
@@ -326,8 +350,6 @@ export const fetchUserImages = uid => {
           uploadList.push(firebaseOutput[pushList[i]]);
         }
       }
-
-      console.log('UPLOAD LIST', uploadList);
 
       if (uploadList.length === 0) {
         dispatch({

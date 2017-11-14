@@ -58,19 +58,11 @@ export default class SignUp extends Component {
     if (this.props.error) {
       switch (this.props.error.code) {
         case 'auth/invalid-email':
-          return <div style={{ color: 'white' }}>enter a real email idiot</div>;
+          return <div>enter a real email idiot</div>;
         case 'auth/weak-password':
-          return (
-            <div style={{ color: 'white' }}>
-              you wanna get hacked? enter a longer password
-            </div>
-          );
+          return <div>you wanna get hacked? enter a longer password</div>;
         case 'auth/email-already-in-use':
-          return (
-            <div style={{ color: 'white' }}>
-              sorry this email has already been registered
-            </div>
-          );
+          return <div>sorry this email has already been registered</div>;
       }
     }
   };
@@ -84,32 +76,32 @@ export default class SignUp extends Component {
           <FormGroup
             style={{ padding: '0 30vw', textAlign: 'center' }}
             bsSize="large">
-          <div className="container">
-            <div className="group">
-              <FormControl
-                required
-                type="text"
-                inputRef={ref => {
-                  this.email = ref;
-                }}
-                onChange={event => this.handleUser(event)}
-              />
-              <span className="highlight"></span>
-              <span className="bar"></span>
-              <label className="textinput">Email</label>
+            <div className="container">
+              <div className="group">
+                <FormControl
+                  required
+                  type="text"
+                  inputRef={ref => {
+                    this.email = ref;
+                  }}
+                  onChange={event => this.handleUser(event)}
+                />
+                <span className="highlight" />
+                <span className="bar" />
+                <label className="textinput">Email</label>
+              </div>
+              <br />
+              <div className="group">
+                <FormControl
+                  required
+                  type="password"
+                  onChange={event => this.handlePassword(event)}
+                />
+                <span className="highlight" />
+                <span className="bar" />
+                <label className="textinput">Password</label>
+              </div>
             </div>
-            <br />
-            <div className="group">
-              <FormControl
-                required
-                type="password"
-                onChange={event => this.handlePassword(event)}
-              />
-              <span className="highlight"></span>
-              <span className="bar"></span>
-              <label className="textinput">Password</label>
-            </div>
-          </div>
             <br />
             <ButtonToolbar>
               <Button
@@ -123,7 +115,7 @@ export default class SignUp extends Component {
             <br />
             {this.renderError()}
             <NavLink to="/SignIn">
-              <h4 style={{ color: 'white' }}>Sign In</h4>
+              <h4>Sign In</h4>
             </NavLink>
           </FormGroup>
         </form>
