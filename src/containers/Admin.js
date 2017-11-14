@@ -25,21 +25,22 @@ class Admin extends Component {
   };
 
   componentWillMount() {
-    // firebase.auth().onAuthStateChanged(user => {
-    //   if (!user) {
-    //     this.props.history.push('/');
-    //   } else if (user) {
-    //     console.log('USERRRR');
-    //     const thisUser = firebase.auth().currentUser;
-    //
-    //     this.props.fetchCalendar(thisUser);
-    //     this.props.fetchProfileImage(thisUser.uid);
-    //     this.props.fetchUser(thisUser);
-    //     this.props.fetchOldStats(thisUser);
-    //     this.props.fetchProgress(thisUser);
-    //     this.props.loggedIn();
-    //   }
-    // });
+    firebase.auth().onAuthStateChanged(user => {
+      if (!user) {
+        this.props.history.push('/');
+      } else if (user) {
+        console.log('USERRRR', user);
+        const thisUser = firebase.auth().currentUser;
+        const uid = thisUser.uid;
+
+        this.props.fetchCalendar(thisUser);
+        this.props.fetchProfileImage(uid);
+        this.props.fetchUser(thisUser);
+        this.props.fetchOldStats(thisUser);
+        this.props.fetchProgress(thisUser);
+        this.props.loggedIn();
+      }
+    });
     //-----FETCH USER LIST-----
     let users = [];
 
@@ -73,19 +74,6 @@ class Admin extends Component {
     this.setState({
       users
     });
-
-    //   //-----VERIFY ADMIN STATUS-----
-    //   const thisUser = firebase.auth().currentUser;
-    //   const uid = thisUser.uid;
-    //
-    //   if (thisUser.customClaims) {
-    //     console.log('THIS USER CUSTOMCLAIMS');
-    //     if (!thisUser.customClaims.admin) {
-    //       this.props.history.push('/');
-    //     } else {
-    //       console.log('ADMIN LOGGED IN');
-    //     }
-    //   }
   }
 
   handleDelete = (event, uid) => {
@@ -118,67 +106,87 @@ class Admin extends Component {
     this.setState({ searchTerm: term });
   };
 
-  render() {
-    console.log('THIS STATE ADMIN', this.state);
-
-    const KEYS_TO_FILTERS = ['uid', 'username', 'email'];
+  renderPage = () => {
+    let userAdmin;
+    const KEYS_TO_FILTERS = ['uid', 'displayName', 'email'];
     const filteredUsers = this.state.users.filter(
       createFilter(this.state.searchTerm, KEYS_TO_FILTERS)
     );
 
-    return (
-      <div style={{ width: '75vw', margin: 'auto' }}>
-        <SearchInput className="search-input" onChange={this.searchUpdated} />
+    //-----VERIFY ADMIN STATUS-----
+    for (let i = 0; i < this.state.users.length; i++) {
+      if (this.props.state.user.uid === this.state.users[i].uid) {
+        if (!this.state.users[i].customClaims) {
+          this.props.history.push('/');
+        } else {
+          userAdmin = true;
+        }
+      }
+    }
 
-        {this.state.rendered && (
-          <Table
-            striped
-            bordered
-            condensed
-            hover
-            style={{ background: 'white' }}>
-            <thead>
-              <tr>
-                <th>UID</th>
-                <th>Username</th>
-                <th>Email</th>
-                <th>User Type</th>
-              </tr>
-            </thead>
-            {/* {this.state.users.map(a => { */}
-            {filteredUsers.map(a => {
-              const uid = a.uid;
-              let isAdmin;
+    //-----RENDER PAGE IF ADMIN-----
+    if (userAdmin) {
+      return (
+        <div style={{ width: '75vw', margin: 'auto' }}>
+          <SearchInput className="search-input" onChange={this.searchUpdated} />
 
-              if (a.customClaims) {
-                if (a.customClaims.admin) {
-                  isAdmin = 'admin';
-                }
-              } else {
-                isAdmin = 'user';
-              }
-
-              return (
-                <tr key={a.uid}>
-                  <td>{a.uid}</td>
-                  <td>{a.displayName}</td>
-                  <td>{a.email}</td>
-                  <td>{isAdmin}</td>
-                  <td>
-                    <button
-                      onClick={event => {
-                        this.handleDelete(event, uid);
-                      }}>
-                      X
-                    </button>
-                  </td>
+          {this.state.rendered && (
+            <Table
+              striped
+              bordered
+              condensed
+              hover
+              style={{ background: 'white' }}>
+              <thead>
+                <tr>
+                  <th>UID</th>
+                  <th>Username</th>
+                  <th>Email</th>
+                  <th>User Type</th>
                 </tr>
-              );
-            })};
-          </Table>
-        )}
-      </div>
-    );
+              </thead>
+              <tbody>
+                {filteredUsers.map(a => {
+                  const uid = a.uid;
+                  let isAdmin;
+
+                  if (a.customClaims) {
+                    if (a.customClaims.admin) {
+                      isAdmin = 'admin';
+                    }
+                  } else {
+                    isAdmin = 'user';
+                  }
+
+                  return (
+                    <tr key={a.uid}>
+                      <td>{a.uid}</td>
+                      <td>{a.displayName}</td>
+                      <td>{a.email}</td>
+                      <td>{isAdmin}</td>
+                      <td>
+                        <button
+                          onClick={event => {
+                            this.handleDelete(event, uid);
+                          }}>
+                          X
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })};
+              </tbody>
+            </Table>
+          )}
+        </div>
+      );
+    }
+  };
+
+  render() {
+    console.log('THIS STATE ADMIN', this.state);
+
+    return <div>{this.renderPage()}</div>;
   }
 }
 
