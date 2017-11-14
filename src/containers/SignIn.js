@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
-import firebase from 'firebase';
-import { NavLink } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { FormGroup, FormControl, ButtonToolbar, Button } from 'react-bootstrap';
-import 'firebaseui/dist/firebaseui.css';
-
-import logo from '../images/weight-lifting-logo.png';
-import * as actions from '../actions';
+import React, { Component } from "react";
+import firebase from "firebase";
+import { NavLink } from "react-router-dom";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { FormGroup, FormControl, ButtonToolbar, Button } from "react-bootstrap";
+import "firebaseui/dist/firebaseui.css";
+import SignUp from "../components/auth/SignUp";
+import logo from "../images/better-button-logo-best.png";
+import * as actions from "../actions";
 
 class SignIn extends Component {
   componentWillMount() {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        this.props.history.push('/Dashboard');
+        this.props.history.push("/Dashboard");
       }
     });
   }
@@ -22,8 +22,8 @@ class SignIn extends Component {
     const { authUI } = this.props.state.auth;
 
     let uiConfig = {
-      signInSuccessUrl: '/Dashboard',
-      signInFlow: 'popup',
+      signInSuccessUrl: "/Dashboard",
+      signInFlow: "popup",
       signInOptions: [
         // firebase.auth.EmailAuthProvider.PROVIDER_ID,
         // firebase.auth.GithubAuthProvider.PROVIDER_ID,
@@ -34,7 +34,7 @@ class SignIn extends Component {
     };
 
     if (this.widget) {
-      authUI.start('#firebaseui-auth-container', uiConfig);
+      authUI.start("#firebaseui-auth-container", uiConfig);
     }
   }
 
@@ -59,13 +59,13 @@ class SignIn extends Component {
   validationState = () => {
     if (this.props.state.auth.error) {
       switch (this.props.state.auth.error.code) {
-        case 'auth/wrong-password':
-          return 'error';
-        case 'auth/invalid-email':
-          return 'error';
+        case "auth/wrong-password":
+          return "error";
+        case "auth/invalid-email":
+          return "error";
 
-        case 'auth/user-not-found':
-          return 'error';
+        case "auth/user-not-found":
+          return "error";
         default:
           return <div />;
       }
@@ -75,21 +75,21 @@ class SignIn extends Component {
   renderError = () => {
     if (this.props.state.auth.error) {
       switch (this.props.state.auth.error.code) {
-        case 'auth/wrong-password':
+        case "auth/wrong-password":
           return (
-            <h4 style={{ color: 'white', textAlign: 'center' }}>
+            <h4 style={{ color: "white", textAlign: "center" }}>
               Sorry, wrong email or password
             </h4>
           );
-        case 'auth/invalid-email':
+        case "auth/invalid-email":
           return (
-            <h4 style={{ color: 'white', textAlign: 'center' }}>
+            <h4 style={{ color: "white", textAlign: "center" }}>
               Please enter a valid email
             </h4>
           );
-        case 'auth/user-not-found':
+        case "auth/user-not-found":
           return (
-            <h4 style={{ color: 'white', textAlign: 'center' }}>
+            <h4 style={{ color: "white", textAlign: "center" }}>
               Sorry, this user was not found.
             </h4>
           );
@@ -100,48 +100,65 @@ class SignIn extends Component {
   };
 
   renderSignIn = () => {
-    if (window.location.search === '?mode=select') {
+    if (window.location.search === "?mode=select") {
       return <div />;
     } else {
+      const { createUser, state } = this.props;
+      console.log(this.props);
       return (
-        <form onSubmit={event => this.handleSubmit(event)}>
-          <FormGroup
-            style={{ padding: '0 30vw', textAlign: 'center' }}
-            bsSize="large"
-            validationState={this.validationState()}>
-            <FormControl
-              type="text"
-              placeholder="email"
-              ref={ref => (this.email = ref)}
-              onChange={event => this.handleUser(event)}
-            />
-            <br />
-
-            <FormControl
-              type="password"
-              placeholder="password"
-              onChange={event => this.handlePassword(event)}
-            />
-            <br />
-            {this.renderError()}
-            <ButtonToolbar>
-              <Button
-                bsSize="large"
-                type="submit"
-                style={{ display: 'block', margin: 'auto' }}>
-                Log In
-              </Button>
-            </ButtonToolbar>
-            <br />
-            <NavLink to="/">
-              <h4 style={{ color: 'white' }}>Sign Up</h4>
-            </NavLink>
-            <br />
-            <NavLink to="/ForgotPassword">
-              <h5 style={{ color: 'white' }}>forgot your password?</h5>
-            </NavLink>
-          </FormGroup>
-        </form>
+        <div>
+          <form onSubmit={event => this.handleSubmit(event)}>
+            <FormGroup
+              className="centerhomepage"
+              bsSize="large"
+              validationState={this.validationState()}
+            >
+              <div className="centerhomepage">
+                <div className="group"> </div>
+                <FormControl
+                  type="text"
+                  placeholder="email"
+                  ref={ref => (this.email = ref)}
+                  onChange={event => this.handleUser(event)}
+                />
+                <span className="highlight" />
+                <span className="bar" />
+                <label className="textinput">Email</label>
+              </div>
+              <br />
+              <div className="group">
+                <FormControl
+                  type="password"
+                  placeholder="password"
+                  onChange={event => this.handlePassword(event)}
+                />
+                <span className="highlight" />
+                <span className="bar" />
+                <label className="textinput">Password</label>
+              </div>
+              <br />
+              {this.renderError()}
+              <ButtonToolbar className="centerhomepage">
+                <Button
+                  bsSize="large"
+                  type="submit"
+                  bsStyle="primary"
+                  style={{ display: "inline-block", margin: "auto" }}
+                >
+                  Log In
+                </Button>
+              </ButtonToolbar>
+              <br />
+              <NavLink to="/">
+                <h4 style={{ color: "white" }}>Sign Up</h4>
+              </NavLink>
+              <br />
+              <NavLink to="/ForgotPassword">
+                <h5 style={{ color: "white" }}>forgot your password?</h5>
+              </NavLink>
+            </FormGroup>
+          </form>
+        </div>
       );
     }
   };
@@ -154,7 +171,7 @@ class SignIn extends Component {
           src={logo}
           className="logo"
           alt="logo"
-          style={{ display: 'block', margin: 'auto' }}
+          style={{ display: "block", margin: "auto" }}
         />
         {this.renderSignIn()}
         <div id="firebaseui-auth-container" ref={ref => (this.widget = ref)} />

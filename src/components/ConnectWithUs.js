@@ -20,13 +20,13 @@ class ConnectWithUs extends Component {
       <div className="container">
         <div className="logo" />
         <div className="content" style={styles}>
-          <div>
+          <div className="centerhomepage">
             <h1 className="cwtitle">
               <span>The 5-3-1 Pro Team</span>
             </h1>
             <h2>
               <div className="lineright">
-                <ul className="myrow">
+                <ul className="centerhomepage">
                   <li className="aboutus">
                     <div>
                       <h3>

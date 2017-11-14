@@ -5,15 +5,12 @@ import "../css/App.css";
 class Forums extends Component {
   render() {
     return (
-      <div className="jumbotron special newnew">
+      <div>
         <div className="contentp">
-          <div
-            className="container"
-            style={{ width: "100vw", height: "100vh" }}
-          >
-            <div>
-              <h2>Sexy Forums Page</h2>
-              <p>
+          <div className="container">
+            <div className="card">
+              <h2 className="titlesleft">Sexy Forums Page</h2>
+              <p className="contentinfo">
                 We saw there were a lot of differentt apps out there for 5/3/1
                 but most of them are just logs of your workouts instead of a
                 full intergrated app that the user interacts with on a daily
@@ -22,8 +19,8 @@ class Forums extends Component {
                 routines and eating habbits.
               </p>
               <br />
-              <h2>Our Vision</h2>
-              <p>
+              <h2 className="titlesleft">Our Vision</h2>
+              <p className="contentinfo">
                 To provide the community with a training template app that
                 follows the 5/3/1 program principles Lorem ipsum dolor sit amet,
                 consectetur adipiscing elit. Eorum enim omnium multa

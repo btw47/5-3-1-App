@@ -6,7 +6,7 @@ import {
   NavLink
 } from "react-router-dom";
 
-import logo from "../images/weight-lifting-logo.png";
+import logo from "../images/better-logo-greybest.png";
 import actionTypes from "../actionTypes";
 import SignOut from "./auth/SignOut";
 
@@ -31,7 +31,7 @@ class NavBar extends Component {
 
   render() {
     return (
-      <nav className="navbar navbar-default">
+      <nav className="navbar navbar-inverse">
         <div className="container-fluid">
           <div className="navbar-header">
             <button
@@ -44,65 +44,77 @@ class NavBar extends Component {
               <span className="icon-bar" />
               <span className="icon-bar" />
             </button>
-            <a className="navbar-brand" href="#" />
-            5-3-1 Work Out App
+            <a class="navbar-brand" href="#" />
+            <img
+              src={logo}
+              className="logo2"
+              alt="logo"
+              style={{ width: "85px" }}
+            />
           </div>
-
-          <div className="collapse navbar-collapse" id="myNavBar">
+          <div className="collapse navbar-collapse" id="myNavbar">
             <ul className="nav navbar-nav">
-              <li>
-                <NavLink className="navbar-brand" to="/">
+              <li className="nav1buttons">
+                <a href="/" className="nav1buttons">
                   <i className="em  em-house" />
-                  Home <span class="sr-only">(current)</span>
-                </NavLink>
+                  Home
+                </a>
               </li>
               <li>
-                <NavLink className="navbar-brand" to="/Today">
+                <a href="/Today">
                   <i className="em em-date" />
                   Today
-                </NavLink>
+                </a>
               </li>
               <li>
-                <NavLink className="navbar-brand" to="/Leaderboards">
+                <a href="/Leaderboards">
                   <i className="em  em-trophy" />
                   Leaderboards
-                </NavLink>
+                </a>
               </li>
               <li>
-                <NavLink className="navbar-brand" to="/Progress">
+                <a href="/Progress">
                   <i className="em em-muscle" />
                   MY GAINZ
-                </NavLink>
+                </a>
               </li>
               <li>
-                <NavLink className="navbar-brand" to="/Forums">
+                <a href="/Forums">
                   <i className="em  em-pencil" />
                   Forums
-                </NavLink>
+                </a>
               </li>
               <li>
-                <NavLink className="navbar-brand" to="/Dashboard">
+                <a href="/Dashboard">
                   <i className="em  em-chart_with_upwards_trend" />
                   Dashboard
-                </NavLink>
+                </a>
               </li>
               <li>
-                <NavLink className="navbar-brand" to="/ConnectWithUs">
+                <a href="/ConnectWithUs">
                   <i className="em em-sunglasses" />
                   Ladies Come Connect With Us!
-                </NavLink>
+                </a>
               </li>
               <li>
-                <NavLink className="navbar-brand" to="/LiveChat">
+                <a href="/LiveChat">
                   <i className="em  em-interrobang" />
                   Live Chat!
-                </NavLink>
+                </a>
               </li>
             </ul>
-            <div
-              class="collapse navbar-collapse"
-              id="#bs-example-navbar-collapse-1"
-            />
+            <ul className="nav navbar-nav navbar-right">
+              <li>
+                <a href="/SignUp">
+                  <span className="glyphicon glyphicon-user" /> Sign Up
+                </a>
+              </li>
+              <li>
+                <a href="/SignIn">
+                  <span className="glyphicon glyphicon-log-in" /> Login
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </nav>

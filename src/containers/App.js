@@ -1,23 +1,23 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { connect } from "react-redux";
 
-import Home from './Home';
-import Dashboard from './DashboardContainer';
-import SignIn from './SignIn';
-import SetProfile from './SetProfile';
-import Today from '../components/Today';
-import Progress from '../components/Progress';
-import Leaderboards from '../components/Leaderboards';
-import Forums from '../components/Fourms';
-import EmailSupport from '../components/EmailSupport';
-import LiveChat from '../components/LiveChat';
-import NavBar from '../components/NavBar';
-import ConnectWithUs from '../components/ConnectWithUs';
-import ForgotPassword from '../components/auth/ForgotPassword';
-import GoalsUpdate from './GoalsUpdate';
-import WeeklyTemplate from '../components/weeklyTemplate';
-import DetailedProgress from './DetailedProgress';
+import Home from "./Home";
+import Dashboard from "./DashboardContainer";
+import SignIn from "./SignIn";
+import SetProfile from "./SetProfile";
+import Today from "../components/Today";
+import Progress from "../components/Progress";
+import Leaderboards from "../components/Leaderboards";
+import Forums from "../components/Fourms";
+import EmailSupport from "../components/EmailSupport";
+import LiveChat from "../components/LiveChat";
+import NavBar from "../components/NavBar";
+import ConnectWithUs from "../components/ConnectWithUs";
+import ForgotPassword from "../components/auth/ForgotPassword";
+import GoalsUpdate from "./GoalsUpdate";
+import WeeklyTemplate from "../components/weeklyTemplate";
+import DetailedProgress from "./DetailedProgress";
 
 class App extends Component {
   render() {
