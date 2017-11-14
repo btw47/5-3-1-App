@@ -7,7 +7,7 @@ function BBB4days(props) {
       allDay: true,
       start: moment().weekday(props.day1),
       end: moment().weekday(props.day1),
-      desc: "kasjdlfhas"
+      desc: "Weight/Reps: " + props.deadliftW1D0 + ", " + props.deadliftW1D1 + ", " + props.deadliftW1D2
     },
     {
       title: 'DeadLift 5x10',
@@ -28,14 +28,14 @@ function BBB4days(props) {
       allDay: true,
       start: moment().weekday(props.day2),
       end: moment().weekday(props.day2),
-      desc: "Do Work"
+      desc: "Weight/Reps: " + props.benchW1D0 + ", " + props.benchW1D1 + ", " + props.benchW1D2
     },
     {
       title: 'Bench Press 5x10',
       allDay: true,
       start: moment().weekday(props.day2),
       end: moment().weekday(props.day2),
-      desc: "Do Work"
+      desc: "Sets/Reps: 5 x 10"
     },
     {
       title: 'Accessory 5x',
@@ -49,7 +49,7 @@ function BBB4days(props) {
       allDay: true,
       start: moment().weekday(props.day3),
       end: moment().weekday(props.day3),
-      desc: "Do Work"
+      desc: "Weight/Reps: " + props.squatW1D0 + ", " + props.squatW1D1 + ", " + props.squatW1D2
     },
     {
       title: 'Squat 5x10',
@@ -70,7 +70,7 @@ function BBB4days(props) {
       allDay: true,
       start: moment().weekday(props.day4),
       end: moment().weekday(props.day4),
-      desc: "Do Work"
+      desc: "Weight/Reps: " + props.ohpW1D0 + ", " + props.ohpW1D1 + ", " + props.ohpW1D2
     },
     {
       title: 'Overhead Press 5x10',
@@ -91,7 +91,7 @@ function BBB4days(props) {
       allDay: true,
       start: moment().weekday(props.day1 + 7),
       end: moment().weekday(props.day1 + 7),
-      desc: "Do Work"
+      desc: "Weight/Reps: " + props.deadliftW2D0 + ", " + props.deadliftW2D1 + ", " + props.deadliftW2D2
     },
     {
       title: 'DeadLift 5x10',
@@ -112,7 +112,7 @@ function BBB4days(props) {
       allDay: true,
       start: moment().weekday(props.day2 + 7),
       end: moment().weekday(props.day2 + 7),
-      desc: "Do Work"
+      desc: "Weight/Reps: " + props.benchW2D0 + ", " + props.benchW2D1 + ", " + props.benchW2D2
     },
     {
       title: 'Bench Press 5x10',
@@ -133,7 +133,7 @@ function BBB4days(props) {
       allDay: true,
       start: moment().weekday(props.day3 + 7),
       end: moment().weekday(props.day3 + 7),
-      desc: "Do Work"
+      desc: "Weight/Reps: " + props.squatW2D0 + ", " + props.squatW2D1 + ", " + props.squatW2D2
     },
     {
       title: 'Squat 5x10',
@@ -154,7 +154,7 @@ function BBB4days(props) {
       allDay: true,
       start: moment().weekday(props.day4 + 7),
       end: moment().weekday(props.day4 + 7),
-      desc: "Do Work"
+      desc: "Weight/Reps: " + props.ohpW2D0 + ", " + props.ohpW2D1 + ", " + props.ohpW2D2
     },
     {
       title: 'Overhead Press 5x10',
@@ -175,7 +175,7 @@ function BBB4days(props) {
       allDay: true,
       start: moment().weekday(props.day1 + 14),
       end: moment().weekday(props.day1 + 14),
-      desc: "Do Work"
+      desc: "Weight/Reps: " + props.deadliftW3D0 + ", " + props.deadliftW3D1 + ", " + props.deadliftW3D2
     },
     {
       title: 'DeadLift 5x10',
@@ -196,7 +196,7 @@ function BBB4days(props) {
       allDay: true,
       start: moment().weekday(props.day2 + 14),
       end: moment().weekday(props.day2 + 14),
-      desc: "Do Work"
+      desc: "Weight/Reps: " + props.benchW3D0 + ", " + props.benchW3D1 + ", " + props.benchW3D2
     },
     {
       title: 'Bench Press 5x10',
@@ -217,7 +217,7 @@ function BBB4days(props) {
       allDay: true,
       start: moment().weekday(props.day3 + 14),
       end: moment().weekday(props.day3 + 14),
-      desc: "Do Work"
+      desc: "Weight/Reps: " + props.squatW3D0 + ", " + props.squatW3D1 + ", " + props.squatW3D2
     },
     {
       title: 'Squat 5x10',
@@ -238,7 +238,7 @@ function BBB4days(props) {
       allDay: true,
       start: moment().weekday(props.day4 + 14),
       end: moment().weekday(props.day4 + 14),
-      desc: "Do Work"
+      desc: "Weight/Reps: " + props.ohpW3D0 + ", " + props.ohpW3D1 + ", " + props.ohpW3D2
     },
     {
       title: 'Overhead Press 5x10',
@@ -259,7 +259,7 @@ function BBB4days(props) {
       allDay: true,
       start: moment().weekday(props.day1 + 21),
       end: moment().weekday(props.day1 + 21),
-      desc: "Do Work"
+      desc: "Weight/Reps: " + props.deadliftW4D0 + ", " + props.deadliftW4D1 + ", " + props.deadliftW4D2
     },
     {
       title: 'DeadLift 5x10',
@@ -280,7 +280,7 @@ function BBB4days(props) {
       allDay: true,
       start: moment().weekday(props.day2 + 21),
       end: moment().weekday(props.day2 + 21),
-      desc: "Do Work"
+      desc: "Weight/Reps: " + props.benchW4D0 + ", " + props.benchW4D1 + ", " + props.benchW4D2
     },
     {
       title: 'Bench Press 5x10',
@@ -301,7 +301,7 @@ function BBB4days(props) {
       allDay: true,
       start: moment().weekday(props.day3 + 21),
       end: moment().weekday(props.day3 + 21),
-      desc: "Do Work"
+      desc: "Weight/Reps: " + props.squatW4D0 + ", " + props.squatW4D1 + ", " + props.squatW4D2
     },
     {
       title: 'Squat 5x10',
@@ -322,14 +322,14 @@ function BBB4days(props) {
       allDay: true,
       start: moment().weekday(props.day4 + 21),
       end: moment().weekday(props.day4 + 21),
-      desc: "Do Work"
+      desc: "Weight/Reps: " + props.ohpW4D0 + ", " + props.ohpW4D1 + ", " + props.ohpW4D2
     },
     {
-      title: 'Overhead Press 5x10',
+      title: 'Overhead Press Repeated',
       allDay: true,
       start: moment().weekday(props.day4 + 21),
       end: moment().weekday(props.day4 + 21),
-      desc: "Do Work"
+      desc: "Weight/Reps: " + props.ohpW4D0 + ", " + props.ohpW4D1 + ", " + props.ohpW4D2
     },
     {
       title: 'Accessory 5x',
@@ -344,6 +344,27 @@ function BBB4days(props) {
 function BBB3days(props){
   return [
     {
+      title: 'DeadLift',
+      allDay: true,
+      start: moment().weekday(props.day1),
+      end: moment().weekday(props.day1),
+      desc: "Weight/Reps: " + props.deadliftW1D0 + ", " + props.deadliftW1D1 + ", " + props.deadliftW1D2
+    },
+    {
+      title: 'Bench',
+      allDay: true,
+      start: moment().weekday(props.day1),
+      end: moment().weekday(props.day1),
+      desc: "Do Work"
+    },
+    {
+      title: 'Overhead Press',
+      allDay: true,
+      start: moment().weekday(props.day1),
+      end: moment().weekday(props.day1),
+      desc: "Do Work"
+    },
+    {
       title: '3x5',
       allDay: true,
       start: moment().weekday(props.day1),
@@ -351,28 +372,7 @@ function BBB3days(props){
       desc: "Do Work"
     },
     {
-      title: 'DeadLift 3x5',
-      allDay: true,
-      start: moment().weekday(props.day1),
-      end: moment().weekday(props.day1),
-      desc: "Do Work"
-    },
-    {
-      title: 'Bench 3x5',
-      allDay: true,
-      start: moment().weekday(props.day1),
-      end: moment().weekday(props.day1),
-      desc: "Do Work"
-    },
-    {
-      title: 'Military',
-      allDay: true,
-      start: moment().weekday(props.day1),
-      end: moment().weekday(props.day1),
-      desc: "Do Work"
-    },
-    {
-      title: 'Military',
+      title: 'Overhead Press',
       allDay: true,
       start: moment().weekday(props.day2),
       end: moment().weekday(props.day2),
@@ -400,7 +400,7 @@ function BBB3days(props){
       desc: "Do Work"
     },
     {
-      title: 'Military',
+      title: 'Overhead Press',
       allDay: true,
       start: moment().weekday(props.day3),
       end: moment().weekday(props.day3),
@@ -432,10 +432,10 @@ function BBB3days(props){
       allDay: true,
       start: moment().weekday(props.day1 + 7),
       end: moment().weekday(props.day1 + 7),
-      desc: "Do Work"
+      desc: "Weight/Reps: " + props.squatW2D0 + ", " + props.squatW2D1 + ", " + props.squatW2D2
     },
     {
-      title: 'Military 3x5',
+      title: 'Overhead Press 3x5',
       allDay: true,
       start: moment().weekday(props.day1 + 7),
       end: moment().weekday(props.day1 + 7),
@@ -463,7 +463,7 @@ function BBB3days(props){
       desc: "Do Work"
     },
     {
-      title: 'Military 3x5',
+      title: 'Overhead Press 3x5',
       allDay: true,
       start: moment().weekday(props.day2 + 7),
       end: moment().weekday(props.day2 + 7),
@@ -491,7 +491,7 @@ function BBB3days(props){
       desc: "Do Work"
     },
     {
-      title: 'Military 3x5',
+      title: 'Overhead Press 3x5',
       allDay: true,
       start: moment().weekday(props.day3 + 7),
       end: moment().weekday(props.day3 + 7),
@@ -526,7 +526,7 @@ function BBB3days(props){
       desc: "Do Work"
     },
     {
-      title: 'Military 3x3',
+      title: 'Overhead Press 3x3',
       allDay: true,
       start: moment().weekday(props.day1 + 14),
       end: moment().weekday(props.day1 + 14),
@@ -554,7 +554,7 @@ function BBB3days(props){
       desc: "Do Work"
     },
     {
-      title: 'Military 3x3',
+      title: 'Overhead Press 3x3',
       allDay: true,
       start: moment().weekday(props.day2 + 14),
       end: moment().weekday(props.day2 + 14),
@@ -582,7 +582,7 @@ function BBB3days(props){
       desc: "Do Work"
     },
     {
-      title: 'Military 3x3',
+      title: 'Overhead Press 3x3',
       allDay: true,
       start: moment().weekday(props.day3 + 14),
       end: moment().weekday(props.day3 + 14),
@@ -680,7 +680,7 @@ function BBB3days(props){
       desc: "Do Work"
     },
     {
-      title: 'Military/Deadlift',
+      title: 'Overhead Press/Deadlift',
       allDay: true,
       start: moment().weekday(props.day1 + 28),
       end: moment().weekday(props.day1 + 28),
@@ -708,7 +708,7 @@ function BBB3days(props){
       desc: "Do Work"
     },
     {
-      title: 'Military/Deadlift',
+      title: 'Overhead Press/Deadlift',
       allDay: true,
       start: moment().weekday(props.day2 + 28),
       end: moment().weekday(props.day2 + 28),
@@ -736,7 +736,7 @@ function BBB3days(props){
       desc: "Do Work"
     },
     {
-      title: 'Military/Deadlift',
+      title: 'Overhead Press/Deadlift',
       allDay: true,
       start: moment().weekday(props.day3 + 28),
       end: moment().weekday(props.day3 + 28),
