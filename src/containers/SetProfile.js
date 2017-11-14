@@ -37,26 +37,26 @@ class SetProfile extends Component {
       [
         t({ percent: 0.65, reps: 5 }),
         t({ percent: 0.75, reps: 5 }),
-        t({ percent: 0.85, reps: "5+" })
+        t({ percent: 0.85, reps: '5+' })
       ],
       // week 2
       [
         t({ percent: 0.7, reps: 3 }),
         t({ percent: 0.8, reps: 3 }),
-        t({ percent: 0.9, reps: "3+" })
+        t({ percent: 0.9, reps: '3+' })
       ],
       // week 3
       [
         t({ percent: 0.75, reps: 5 }),
         t({ percent: 0.85, reps: 3 }),
-        t({ percent: 0.95, reps: "1+" })
+        t({ percent: 0.95, reps: '1+' })
       ],
       // week 4
       [
         t({ percent: 0.4, reps: 5 }),
         t({ percent: 0.5, reps: 5 }),
-        t({ percent: 0.6, reps: "only 5" })
-      ],
+        t({ percent: 0.6, reps: 'only 5' })
+      ]
     ];
   };
 
@@ -89,10 +89,14 @@ class SetProfile extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const Deadlift = this.weeklyTemplate(this.refs.deadlift.value);
-    const Bench = this.weeklyTemplate(this.refs.bench.value);
-    const Squat = this.weeklyTemplate(this.refs.squat.value);
-    const Overhead = this.weeklyTemplate(this.refs.ohp.value);
+    let squatTemplate = this.weeklyTemplate(parseInt(this.refs.squat.value));
+    let deadliftTemplate = this.weeklyTemplate(
+      parseInt(this.refs.deadlift.value)
+    );
+    let benchTemplate = this.weeklyTemplate(parseInt(this.refs.bench.value));
+    let overheadPressTemplate = this.weeklyTemplate(
+      parseInt(this.refs.ohp.value)
+    );
     if (!this.props.state.OneRep) {
       Popup.alert('Fill out all your stats bro', 'All stats not filled out');
     } else {
@@ -101,7 +105,19 @@ class SetProfile extends Component {
         var uid = thisUser.uid;
       }
 
+      this.props.setTemplate(
+        squatTemplate,
+        deadliftTemplate,
+        benchTemplate,
+        overheadPressTemplate
+      );
+      console.log('SQUAT TEMPLATE', squatTemplate);
+
       const date = Date();
+
+      thisUser.updateProfile({
+        displayName: this.state.fullName
+      });
 
       firebaseDb
         .ref('users/' + uid + '/user')
@@ -128,7 +144,7 @@ class SetProfile extends Component {
       }
     }
 
-    console.log("set profile props", this.props)
+    console.log('SET PROFILE', this.state);
 
     return (
       <div className="update-profile">
@@ -241,7 +257,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SetProfile);
-
 
 // <div id="one-rep-max">
 // <button

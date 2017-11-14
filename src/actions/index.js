@@ -2,6 +2,10 @@ import React from 'react';
 import { firebaseApp, firebaseDb } from '../server/firebase';
 import actionTypes from '../actionTypes';
 
+//-----USE IF CREATING ADMIN ACCOUNT-----
+// import firebase from 'firebase';
+// import * as admin from 'firebase-admin';
+
 //ACTION CREATORS-------------------
 const updateProfile = () => {
   window.location = '/SetProfile';
@@ -57,6 +61,13 @@ export const createUser = (email, password) => {
     firebaseApp
       .auth()
       .createUserWithEmailAndPassword(email, password)
+      //------UNCOMMENT IF YOU WANT TO CREATE ADMIN ACCOUNT-----
+      // .then(() => {
+      //   const thisUser = firebase.auth().currentUser;
+      //   const uid = thisUser.uid;
+      //   admin.auth().setCustomUserClaims(uid, { admin: true });
+      // })
+      //---------------------------------------------------------
       .then(() => updateProfile())
       .catch(error => {
         dispatch(authError(error));
@@ -156,14 +167,19 @@ export function fetchCalendar(thisUser) {
   };
 }
 
-export function setTemplate(squatTemplate, deadliftTemplate, benchTemplate, overheadPressTemplate) {
+export function setTemplate(
+  squatTemplate,
+  deadliftTemplate,
+  benchTemplate,
+  overheadPressTemplate
+) {
   return {
     type: actionTypes.SET_TEMPLATE,
     squat: squatTemplate,
     deadlift: deadliftTemplate,
     bench: benchTemplate,
     ohp: overheadPressTemplate
-  }
+  };
 }
 
 export function fetchUser(thisUser) {
@@ -334,8 +350,6 @@ export const fetchUserImages = uid => {
           uploadList.push(firebaseOutput[pushList[i]]);
         }
       }
-
-      console.log('UPLOAD LIST', uploadList);
 
       if (uploadList.length === 0) {
         dispatch({
