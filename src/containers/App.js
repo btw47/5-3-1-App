@@ -18,6 +18,7 @@ import ForgotPassword from '../components/auth/ForgotPassword';
 import GoalsUpdate from './GoalsUpdate';
 import WeeklyTemplate from '../components/weeklyTemplate';
 import DetailedProgress from './DetailedProgress';
+import Admin from './Admin';
 
 class App extends Component {
   render() {
@@ -42,6 +43,7 @@ class App extends Component {
             <Route path="/GoalsUpdate" component={GoalsUpdate} />
             <Route path="/WeeklyTemplate" component={WeeklyTemplate} />
             <Route path="/DetailedProgress" component={DetailedProgress} />
+            <Route path="/Admin" component={Admin} />
           </Switch>
         </div>
       </Router>
