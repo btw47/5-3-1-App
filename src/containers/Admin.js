@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
+import firebase from 'firebase';
 import { Table } from 'react-bootstrap';
-import admin from 'firebase-admin';
+import * as admin from 'firebase-admin';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import { firebaseDb } from '../server/firebase';
+import * as actions from '../actions';
 
 class Admin extends Component {
+  state = {};
+
   renderUser = event => {
     this.setState({
       query: event.target.value
@@ -10,6 +18,22 @@ class Admin extends Component {
   };
 
   componentWillMount() {
+    // firebase.auth().onAuthStateChanged(user => {
+    //   if (!user) {
+    //     this.props.history.push('/');
+    //   } else if (user) {
+    //     console.log('USERRRR');
+    //     const thisUser = firebase.auth().currentUser;
+    //
+    //     this.props.fetchCalendar(thisUser);
+    //     this.props.fetchProfileImage(thisUser.uid);
+    //     this.props.fetchUser(thisUser);
+    //     this.props.fetchOldStats(thisUser);
+    //     this.props.fetchProgress(thisUser);
+    //     this.props.loggedIn();
+    //   }
+    // });
+    //-----FETCH USER LIST-----
     let users = [];
 
     const listAllUsers = (event, nextPageToken) => {
@@ -27,6 +51,12 @@ class Admin extends Component {
           //   this.listAllUsers(listUsersResult.pageToken);
           // }
         })
+        .then(() => this.renderUsers())
+        .then(() =>
+          this.setState({
+            rendered: true
+          })
+        )
         .catch(function(error) {
           console.log('Error listing users:', error);
         });
@@ -37,27 +67,52 @@ class Admin extends Component {
     this.setState({
       users
     });
+
+    //   //-----VERIFY ADMIN STATUS-----
+    //   const thisUser = firebase.auth().currentUser;
+    //   const uid = thisUser.uid;
+    //
+    //   if (thisUser.customClaims) {
+    //     console.log('THIS USER CUSTOMCLAIMS');
+    //     if (!thisUser.customClaims.admin) {
+    //       this.props.history.push('/');
+    //     } else {
+    //       console.log('ADMIN LOGGED IN');
+    //     }
+    //   }
   }
 
-  renderUsers = event => {
-    event.preventDefault();
+  renderUsers = () => {
+    // event.preventDefault();
+    console.log('CALLED THIS STATE USERS', this.state.users);
 
     let newList = this.state.users.map(a => {
+      console.log(a);
       const uid = a.uid;
+      let isAdmin;
+
+      if (a.customClaims) {
+        if (a.customClaims.admin) {
+          isAdmin = 'admin';
+        }
+      } else {
+        isAdmin = 'user';
+      }
 
       return (
         <tr key={a.uid}>
           <td>{a.uid}</td>
           <td>{a.displayName}</td>
           <td>{a.email}</td>
-          {/* <td>
+          <td>{isAdmin}</td>
+          <td>
             <button
-              onClick={(event, uid) => {
-            this.handleDelete(event, uid);
+              onClick={event => {
+                this.handleDelete(event, uid);
               }}>
               X
             </button>
-          </td> */}
+          </td>
         </tr>
       );
     });
@@ -67,10 +122,9 @@ class Admin extends Component {
     });
   };
 
-  handleDelete = event => {
+  handleDelete = (event, uid) => {
     event.preventDefault();
-    console.log('UID TO DELETE', this.state.uid);
-    const uid = this.state.uid;
+
     admin
       .auth()
       .deleteUser(uid)
@@ -90,10 +144,10 @@ class Admin extends Component {
 
   render() {
     console.log('THIS STATE ADMIN', this.state);
+
     return (
       <div style={{ width: '75vw', margin: 'auto' }}>
         <form>
-          <button onClick={event => this.renderUsers(event)}>Load Users</button>
           <input type="text" placeholder="enter user id here" />
         </form>
         <form onSubmit={event => this.handleDelete(event)}>
@@ -116,7 +170,7 @@ class Admin extends Component {
                 <th>UID</th>
                 <th>Username</th>
                 <th>Email</th>
-                <th>Delete User</th>
+                <th>User Type</th>
               </tr>
             </thead>
             <tbody>{this.state.renderedList}</tbody>
@@ -127,4 +181,12 @@ class Admin extends Component {
   }
 }
 
-export default Admin;
+const mapStateToProps = state => {
+  return { state };
+};
+
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators(actions, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Admin);
