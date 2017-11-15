@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import firebase from 'firebase';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import Popup from 'react-popup';
-import '../css/setProfile.css';
-import Calculator from '../components/repMaxCalculator';
+import React, { Component } from "react";
+import firebase from "firebase";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import Popup from "react-popup";
+import "../css/setProfile.css";
+import Calculator from "../components/repMaxCalculator";
 
-import * as actions from '../actions';
-import { firebaseDb } from '../server/firebase';
+import * as actions from "../actions";
+import { firebaseDb } from "../server/firebase";
 
 class SetProfile extends Component {
   constructor() {
@@ -18,7 +18,7 @@ class SetProfile extends Component {
   componentWillMount() {
     firebase.auth().onAuthStateChanged(user => {
       if (!user) {
-        this.props.history.push('/');
+        this.props.history.push("/");
       } else if (user) {
         this.props.loggedIn();
       }
@@ -42,7 +42,6 @@ class SetProfile extends Component {
     });
   };
 
-
   handleFullName = event => {
     this.setState({
       fullName: event.target.value
@@ -53,7 +52,7 @@ class SetProfile extends Component {
     event.preventDefault();
 
     if (!this.props.state.OneRep) {
-      Popup.alert('Fill out all your stats bro', 'All stats not filled out');
+      Popup.alert("Fill out all your stats bro", "All stats not filled out");
     } else {
       const thisUser = firebase.auth().currentUser;
       if (thisUser != null) {
@@ -63,7 +62,7 @@ class SetProfile extends Component {
       const date = Date();
 
       firebaseDb
-        .ref('users/' + uid + '/user')
+        .ref("users/" + uid + "/user")
         .push({
           weight: this.state.weight,
           oneRepMax: this.state.oneRepMax,
@@ -71,7 +70,7 @@ class SetProfile extends Component {
           date: date
         })
         .then(() => {
-          this.props.history.push('/GoalsUpdate');
+          this.props.history.push("/GoalsUpdate");
         });
     }
   };
@@ -87,47 +86,56 @@ class SetProfile extends Component {
       }
     }
 
+    console.log("SET PROFILE STATE", this.state);
+
     return (
-      <div className="update-profile">
-      <div className="container">
-        <h2>Enter your info below</h2>
-        <form onSubmit={event => this.handleSubmit(event)}>
-          <div className="group">
-            <input
-              required
-              type="text"
-              onChange={event => this.handleFullName(event)}
-            />
-            <span className="highlight"></span>
-            <span className="bar"></span>
-            <label className="textinput">Full Name</label>
+      <div className="container3">
+        <div className="card3">
+          <div className="container3">
+            <h2 className="contentinfo">Enter stats below</h2>
+            <br />
+            <form onSubmit={event => this.handleSubmit(event)}>
+              <div className="group">
+                <input
+                  className="inputtext"
+                  required
+                  type="text"
+                  onChange={event => this.handleFullName(event)}
+                />
+                <span className="highlight" />
+                <span className="bar" />
+                <label className="textinput">Full Name</label>
+              </div>
+              <div className="group">
+                <input
+                  className="inputtext"
+                  required
+                  type="number"
+                  required
+                  min="1"
+                  onChange={event => this.handleWeight(event)}
+                />
+                <span className="highlight" />
+                <span className="bar" />
+                <label className="textinput">Current Weight (lbs)</label>
+              </div>
+              <br />
+              <Calculator />
+              <button type="submit" className="btn started">
+                <span className="md-thumb-up" /> Get Started!
+              </button>
+            </form>
           </div>
-          <div className="group">
-            <input
-              required
-              type="text"
-              onChange={event => this.handleWeight(event)}
-            />
-            <span className="highlight"></span>
-            <span className="bar"></span>
-            <label className="textinput">Current Weight (lbs)</label>
-          </div>
-          <br />
-          <Calculator/>
-          <button type="submit" className="btn btn-primary">
-            <span className="md-thumb-up" /> Get Started!
-          </button>
-        </form>
+          <Popup
+            className="mm-popup"
+            btnClass="btn started"
+            closeBtn={true}
+            closeHtml={null}
+            defaultOk="Ok"
+            defaultCancel="Cancel"
+            wildClasses={false}
+          />
         </div>
-        <Popup
-          className="mm-popup"
-          btnClass="mm-popup__btn"
-          closeBtn={true}
-          closeHtml={null}
-          defaultOk="Ok"
-          defaultCancel="Cancel"
-          wildClasses={false}
-        />
       </div>
     );
   }
@@ -144,7 +152,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SetProfile);
-
 
 // <div id="one-rep-max">
 // <button

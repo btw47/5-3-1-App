@@ -82,6 +82,37 @@ body {
   justify-content: center;
   text-align: center;
 }
+.card3 {
+  background-color: #a0a4b8;
+  border: 5px solid black;
+  opacity: 0.8;
+  box-shadow: rgba(0, 0, 0, 0.15);
+  position: center;
+  transition: all 0.2s ease-in-out;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  display: inline-block;
+}
+
+.container3 {
+  padding-left: 25px;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+  display: inline-block;
+  font-weight: 200px;
+}
+.container3 {
+  font-family: "Roboto";
+  width: 600px;
+  display: block;
+  text-align: center;
+  align-items: center;
+  position: center;
+}
 
 .landingpage {
   position: center;
@@ -250,7 +281,7 @@ input:focus {
 .textinput {
   color: rgb(54, 54, 54);
   font-size: 18px;
-  font-weight: normal;
+  font-weight: 100px;
   position: absolute;
   pointer-events: none;
   left: 5px;
@@ -258,6 +289,11 @@ input:focus {
   transition: 0.2s ease all;
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all;
+}
+
+.inputtext {
+  font-weight: bold;
+  font-size: 18px;
 }
 
 /* active state */

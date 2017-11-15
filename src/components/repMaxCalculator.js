@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as actions from '../actions';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as actions from "../actions";
 
 class Calculator extends Component {
   constructor(props) {
@@ -23,7 +23,7 @@ class Calculator extends Component {
     }
   }
 
-weeklyTemplate = (weight, reps) => {
+  weeklyTemplate = (weight, reps) => {
     weight = parseInt(weight);
     reps = parseInt(reps);
     let max = (weight * reps * 0.0333 + weight) * 0.9;
@@ -66,7 +66,7 @@ weeklyTemplate = (weight, reps) => {
     this.setState(calculatedTemplate);
   };
 
-oneRepMax = (weight, reps) => {
+  oneRepMax = (weight, reps) => {
     let max = (weight * reps * 0.0333 + weight) * 0.9;
     return Math.ceil(max);
   };
@@ -112,13 +112,14 @@ oneRepMax = (weight, reps) => {
           <button
             type="button"
             className="btn btn-primary"
-            onClick={event => this.FillinStats(event)}>
+            onClick={event => this.FillinStats(event)}
+          >
             <span className="md-" /> Fill in stats
           </button>
           <button
             type="button"
             className="btn"
-            style={{ float: 'right' }}
+            style={{ float: "right" }}
             onClick={() => {
               this.setState({
                 Bench: null,
@@ -126,7 +127,8 @@ oneRepMax = (weight, reps) => {
                 Deadlift: null,
                 Squat: null
               });
-            }}>
+            }}
+          >
             <span className="sm">back</span>
           </button>
         </div>
@@ -142,67 +144,124 @@ oneRepMax = (weight, reps) => {
             <h2 className="workouts">Bench Press</h2>
             <br />
             <div className="group">
-                <input required type="number" ref="BenchWeight" />
-                <span className="highlight"></span>
-                <span className="bar"></span>
-                <label className="textinput">Weight</label>
+              <input
+                required
+                type="number"
+                required
+                min="1"
+                ref="BenchWeight"
+                className="inputtext"
+              />
+              <span className="highlight" />
+              <span className="bar" />
+              <label className="textinput">Weight</label>
             </div>
             <div className="group">
-                <input required type="number" ref="BenchReps" />
-                <span className="highlight"></span>
-                <span className="bar"></span>
-                <label className="textinput">Reps</label>
+              <input
+                required
+                type="number"
+                required
+                min="1"
+                ref="BenchReps"
+                className="inputtext"
+              />
+              <span className="highlight" />
+              <span className="bar" />
+              <label className="textinput">Reps</label>
             </div>
             <h2 className="workouts">Overhead Press</h2>
             <br />
             <div className="group">
-                <input required type="number" ref="OverheadWeight" />
-                <span className="highlight"></span>
-                <span className="bar"></span>
-                <label className="textinput">Weight</label>
+              <input
+                required
+                type="number"
+                required
+                min="1"
+                ref="OverheadWeight"
+                className="inputtext"
+              />
+              <span className="highlight" />
+              <span className="bar" />
+              <label className="textinput">Weight</label>
             </div>
             <div className="group">
-                <input required type="number" ref="OverheadReps" />
-                <span className="highlight"></span>
-                <span className="bar"></span>
-                <label className="textinput">Reps</label>
+              <input
+                required
+                type="number"
+                required
+                min="1"
+                ref="OverheadReps"
+                className="inputtext"
+              />
+              <span className="highlight" />
+              <span className="bar" />
+              <label className="textinput">Reps</label>
             </div>
             <h2 className="workouts">Deadlift</h2>
             <br />
             <div className="group">
-                <input required type="number" ref="DeadliftWeight" />
-                <span className="highlight"></span>
-                <span className="bar"></span>
-                <label className="textinput">Weight</label>
+              <input
+                required
+                type="number"
+                required
+                min="1"
+                ref="DeadliftWeight"
+                className="inputtext"
+              />
+              <span className="highlight" />
+              <span className="bar" />
+              <label className="textinput">Weight</label>
             </div>
             <div className="group">
-                <input required type="number" ref="DeadliftReps" />
-                <span className="highlight"></span>
-                <span className="bar"></span>
-                <label className="textinput">Reps</label>
+              <input
+                required
+                type="number"
+                required
+                min="1"
+                ref="DeadliftReps"
+                className="inputtext"
+              />
+              <span className="highlight" />
+              <span className="bar" />
+              <label className="textinput">Reps</label>
             </div>
             <h2 className="workouts">Squat</h2>
             <br />
             <div className="group">
-                <input required type="number" ref="SquatWeight" />
-                <span className="highlight"></span>
-                <span className="bar"></span>
-                <label className="textinput">Weight</label>
+              <input
+                required
+                type="number"
+                required
+                min="1"
+                ref="SquatWeight"
+                className="inputtext"
+              />
+              <span className="highlight" />
+              <span className="bar" />
+              <label className="textinput">Weight</label>
             </div>
             <div className="group">
-                <input required type="number" ref="SquatReps" />
-                <span className="highlight"></span>
-                <span className="bar"></span>
-                <label className="textinput">Reps</label>
+              <input
+                required
+                type="number"
+                required
+                min="1"
+                ref="SquatReps"
+                className="inputtext"
+              />
+              <span className="highlight" />
+              <span className="bar" />
+              <label className="textinput">Reps</label>
             </div>
             <br />
             <button
               type="button"
               className="btn btn-primary"
-              onClick={event => this.onCalculate(event)}>
+              onClick={event => this.onCalculate(event)}
+            >
               <span className="md-" /> Calculate
             </button>
-        </div>
+          </div>
         )}
         <div>{this.renderMaxes()}</div>
       </div>
