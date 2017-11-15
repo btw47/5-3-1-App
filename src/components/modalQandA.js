@@ -1,12 +1,32 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
+import {
+  Popover,
+  Tooltip,
+  Button,
+  Modal,
+  OverlayTrigger
+} from 'react-bootstrap';
 
-export default class Modal extends React {
+export default class QAModal extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { isOpen: false }
+  }
+
+  showModal = () => {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
+
+
+
   render() {
     // Render nothing if the "show" prop is false
-    if (!this.props.show) {
-      return null;
-    }
+    // if (!this.props.show) {
+    //   return null;
+    // }
 
     // The gray background
     const backdropStyle = {
@@ -27,21 +47,44 @@ export default class Modal extends React {
       minHeight: "0 auto",
       padding: 30
     };
+
+
+
     return (
-      <div className="backdrop">
-        <div className="modal">
-          {this.props.children}
-          <div className="footer">
-            <button onClick={this.props.onClose}>Close</button>
-          </div>
-        </div>
-      </div>
+      <div>
+        <Button onClick={this.showModal} bsStyle="primary">
+          <h4>{this.props.qamessage}</h4>
+        </Button>
+        <Modal
+          show={this.state.isOpen}
+          onHide={this.close}
+          style={{
+            position: 'absolute',
+            display: 'block',
+            top: '20vh',
+            margin: 'auto',
+            transform: 'translate(-50%, -50%) !important'
+          }}>
+          <Modal.Header>
+            <Modal.Title>Update your profile</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <input type="textarea" />
+          </Modal.Body>
+          <Modal.Footer>
+            <Button onClick={this.showModal}>Close</Button>
+          </Modal.Footer>
+        </Modal>
+      </div >
     );
   }
 }
 
-Modal.propTypes = {
-  onClose: PropTypes.func.isRequired,
+QAModal.propTypes = {
+  //onClose: PropTypes.func.isRequired,
   show: PropTypes.bool,
   children: PropTypes.node
-};
+}
+
+// onClick={()=>this.showModal()}></button>
+//the extra parenthesis+fat arrow make this not run when the page loads

@@ -1,19 +1,17 @@
 import React, { Component } from "react";
 import { firebaseApp } from "../server/firebase";
 import "../css/App.css";
-import Popup from "react-popup";
+import QAModal from './modalQandA'
 
 export default class QandA extends Component {
   constructor(props) {
     super(props);
-    this.state = { messages: [] };
-  }
+    this.state = {
+      messages: [],
+      isOpen: false
+    };
 
-  toggleModal = () => {
-    this.setState({
-      isOpen: !this.state.isOpen
-    });
-  };
+  }
 
   //Every component has a state object and a props object. State is set using the setState method.
   //Calling setState triggers UI updates and is the bread and butter of React's interactivity.
@@ -43,16 +41,9 @@ export default class QandA extends Component {
   };
 
   handleClickedMessage = () => {
-    Popup.alert(
-      <div>
-        <input type="text" />
-        <button type="button" className="btn btn-dark">
-          Submit Answer
-        </button>
-      </div>
-    );
+    this.setState({ isOpen: true })
   };
-
+  //setState is a function, (),  that we want to be an object, {}
   render() {
     return (
       <div>
@@ -68,28 +59,24 @@ export default class QandA extends Component {
           <div>
             <ul className="QandABodyFont">
               {this.state.messages.map(message => (
-                <div key={message.id}>
-                  <label
-                    className="QandAHover"
-                    onClick={this.handleClickedMessage}
-                  >
-                    <li>{message.text}</li>
-                  </label>
-                </div>
+                // <div key={message.id}>
+                //   <label
+                //     className="QandAHover"
+                //     onClick={this.handleClickedMessage}
+                //   >
+                //     <li>{message.text}</li>
+                //   </label>
+                // </div>
+                <QAModal qamessage={message.text} />
               ))}
             </ul>
           </div>
         </form>
-        <Popup
-          className="mm-popup"
-          btnClass="mm-popup__btn"
-          closeBtn={true}
-          closeHtml={null}
-          defaultOk="Ok"
-          defaultCancel="Cancel"
-          wildClasses={false}
-        />
+
+        <QAModal />
       </div>
     );
   }
+
+
 }
