@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   Col,
   Row,
@@ -8,21 +8,21 @@ import {
   Nav,
   NavItem,
   Glyphicon
-} from 'react-bootstrap';
-import firebase from 'firebase';
-import { NavLink } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as actions from '../actions';
+} from "react-bootstrap";
+import firebase from "firebase";
+import { NavLink } from "react-router-dom";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as actions from "../actions";
 
-import DumbGraph from '../components/graphs/DumbAreaGraph';
-import ProgressGraphTab from '../components/graphs/ProgressGraphTab';
+import DumbGraph from "../components/graphs/DumbAreaGraph";
+import ProgressGraphTab from "../components/graphs/ProgressGraphTab";
 
 class ProgressGraph extends Component {
   componentWillMount() {
     firebase.auth().onAuthStateChanged(user => {
       if (!user) {
-        window.location = '/';
+        window.location = "/";
       } else if (user) {
         const thisUser = firebase.auth().currentUser;
 
@@ -55,9 +55,9 @@ class ProgressGraph extends Component {
     return (
       <div>
         <Jumbotron>
-          <NavLink style={{ float: 'left' }} to="/Dashboard">
+          <NavLink style={{ float: "left" }} to="/Dashboard">
             <span>
-              <Glyphicon style={{ height: '5vh' }} glyph="arrow-left" />{' '}
+              <Glyphicon style={{ height: "5vh" }} glyph="arrow-left" />{" "}
               Dashboard
             </span>
           </NavLink>
@@ -66,7 +66,8 @@ class ProgressGraph extends Component {
             defaultActiveKey={1}
             animation={false}
             id="noanim-tab-example"
-            style={{ borderBottom: '5px' }}>
+            style={{ borderBottom: "5px" }}
+          >
             <Tab eventKey={1} title="Overview">
               <DumbGraph
                 title="Weight"

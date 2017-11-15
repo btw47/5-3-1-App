@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
-import { FormGroup, FormControl, Button, ButtonToolbar } from 'react-bootstrap';
-import firebase from 'firebase';
+import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
+import { FormGroup, FormControl, Button, ButtonToolbar } from "react-bootstrap";
+import firebase from "firebase";
 
 export default class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
-      password: ''
+      email: "",
+      password: ""
     };
   }
 
@@ -19,8 +19,8 @@ export default class SignUp extends Component {
 
     // console.log("AUTHLINKS PROPS", authUI);
     let uiConfig = {
-      signInSuccessUrl: '/Dashboard',
-      signInFlow: 'popup',
+      signInSuccessUrl: "/Dashboard",
+      signInFlow: "popup",
       signInOptions: [
         // firebase.auth.EmailAuthProvider.PROVIDER_ID,
         // firebase.auth.GithubAuthProvider.PROVIDER_ID,
@@ -31,7 +31,7 @@ export default class SignUp extends Component {
     };
 
     if (this.widget) {
-      authUI.start('#firebaseui-auth-container', uiConfig);
+      authUI.start("#firebaseui-auth-container", uiConfig);
     }
   }
 
@@ -73,10 +73,8 @@ export default class SignUp extends Component {
     return (
       <div>
         <form onSubmit={event => this.handleSubmit(event)}>
-          <FormGroup
-            style={{ padding: '0 30vw', textAlign: 'center' }}
-            bsSize="large">
-            <div className="container">
+          <FormGroup className="centerhomepage" bsSize="large">
+            <div className="centerhomepage">
               <div className="group">
                 <FormControl
                   required
@@ -103,12 +101,13 @@ export default class SignUp extends Component {
               </div>
             </div>
             <br />
-            <ButtonToolbar>
+            <ButtonToolbar className="centerhomepage">
               <Button
                 bsSize="large"
                 type="submit"
                 bsStyle="primary"
-                style={{ display: 'block', margin: 'auto' }}>
+                style={{ display: "inline-block", margin: "auto" }}
+              >
                 Sign Up
               </Button>
             </ButtonToolbar>
