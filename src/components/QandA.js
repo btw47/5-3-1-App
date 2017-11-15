@@ -7,10 +7,8 @@ export default class QandA extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      messages: [],
       isOpen: false
     };
-
   }
 
   //Every component has a state object and a props object. State is set using the setState method.
@@ -18,6 +16,7 @@ export default class QandA extends Component {
 
   componentWillMount() {
     /* Create reference to messages in Firebase Database */
+    let postList = []
     let messagesRef = firebaseApp
       .database()
       .ref("messages")
@@ -25,9 +24,20 @@ export default class QandA extends Component {
       .limitToLast(100);
     messagesRef.on("child_added", snapshot => {
       /* Update React state when message is added at Firebase Database */
-      let message = { text: snapshot.val(), id: snapshot.key };
-      this.setState({ messages: [message].concat(this.state.messages) });
-    });
+      const thisPost = {}
+      let message = { text: snapshot.val().question, id: snapshot.key };
+      let answer = { text: snapshot.val().answers, id: snapshot.key };
+      thisPost['question'] = message;
+      thisPost['answers'] = answer;
+      postList.push(thisPost)
+      // this.setState({
+      //   messages: [message].concat(this.state.messages),
+      //   answers: [answer].concat(this.state.answers)
+      // });
+      this.setState({
+        postList
+      })
+    })
   }
 
   addMessage = e => {
@@ -36,7 +46,7 @@ export default class QandA extends Component {
     firebaseApp
       .database()
       .ref("messages")
-      .push(this.textInput.value);
+      .push({ question: this.textInput.value });
     this.textInput.value = "";
   };
 
@@ -44,6 +54,20 @@ export default class QandA extends Component {
     this.setState({ isOpen: true })
   };
   //setState is a function, (),  that we want to be an object, {}
+
+  renderAnswers = (message) => {
+    console.log("MESSAGE", message)
+    const answerList = []
+
+    for (let prop in message.answers.text) {
+      answerList.push(message.answers.text[prop].answer)
+    }
+
+    return answerList.map(a => {
+      return <p>{a}</p>
+    })
+  }
+
   render() {
     return (
       <div>
@@ -58,21 +82,20 @@ export default class QandA extends Component {
           <input type="submit" />
           <div>
             <ul className="QandABodyFont">
-              {this.state.messages.map(message => (
-                // <div key={message.id}>
-                //   <label
-                //     className="QandAHover"
-                //     onClick={this.handleClickedMessage}
-                //   >
-                //     <li>{message.text}</li>
-                //   </label>
-                // </div>
-                <QAModal qamessage={message.text} />
-              ))}
+              <li>
+                {this.state.postList && this.state.postList.map(message => {
+                  return (
+                    <div>
+                      <QAModal qamessage={message.question.text} firebaseId={message.question.id} />
+
+                      {this.renderAnswers(message)}
+                    </div>)
+                  //button is Modal, button name is message.text and Id
+                })}
+              </li>
             </ul>
           </div>
         </form>
-
         <QAModal />
       </div>
     );
