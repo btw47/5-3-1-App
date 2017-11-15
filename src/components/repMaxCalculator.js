@@ -23,7 +23,7 @@ class Calculator extends Component {
     }
   }
 
-oneRepMax = (weight, reps) => {
+  oneRepMax = (weight, reps) => {
     let max = (weight * reps * 0.0333 + weight) * 0.9;
     return Math.ceil(max);
   };
@@ -103,8 +103,7 @@ oneRepMax = (weight, reps) => {
             <div className="group">
               <input
                 required
-                type="number"
-                required
+                type="number ^[1-9]+$"
                 min="1"
                 ref="BenchWeight"
                 className="inputtext"

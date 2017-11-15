@@ -105,13 +105,13 @@ class NavBar extends Component {
             </ul>
             <ul className="nav navbar-nav navbar-right">
               <li>
-                <a href="/SignUp">
-                  <span className="glyphicon glyphicon-user" /> Sign Up
+                <a href="/SignIn">
+                  <span className="glyphicon glyphicon-log-in" /> Login
                 </a>
               </li>
               <li>
-                <a href="/SignIn">
-                  <span className="glyphicon glyphicon-log-in" /> Login
+                <a href="/SignOut">
+                  <span className="glyphicon glyphicon-log-out" /> Logout
                 </a>
               </li>
             </ul>
