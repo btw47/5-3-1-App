@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
-import { Fade} from 'react-reveal';
-
-import JD from '../images/JD.jpg';
-import Ryan from '../images/Ryan.jpg';
-import James from '../images/James.jpg';
-import Brad from '../images/Brad.jpg';
-import fbpic from '../images/fbpic.png';
-import github from '../images/git.jpg';
-import lkin from '../images/in.png';
-import logo from '../images/weight-lifting-logo.png';
-import NavBar2 from '../components/NavBar';
-import '../css/App.css';
+import React, { Component } from "react";
+import JD from "../images/JD.jpg";
+import Ryan from "../images/Ryan.jpg";
+import James from "../images/James.jpg";
+import Brad from "../images/Brad.jpg";
+import fbpic from "../images/fbpic.png";
+import github from "../images/git.jpg";
+import lkin from "../images/in.png";
+import logo from "../images/weight-lifting-logo.png";
+import NavBar2 from "../components/NavBar";
+import "../css/App.css";
 
 import { BrowserRouter as Router } from "react-router-dom";
 
@@ -19,16 +17,16 @@ class ConnectWithUs extends Component {
     var styles = {};
 
     return (
-      <Router>
-      <Fade>
+      <div className="container">
+        <div className="logo" />
         <div className="content" style={styles}>
-          <div>
+          <div className="centerhomepage">
             <h1 className="cwtitle">
               <span>The 5-3-1 Pro Team</span>
             </h1>
             <h2>
               <div className="lineright">
-                <ul className="myrow">
+                <ul className="centerhomepage">
                   <li className="aboutus">
                     <div>
                       <h3>
@@ -83,7 +81,7 @@ class ConnectWithUs extends Component {
                     <h3>
                       <b>James Bell</b>
                     </h3>
-                    "Its working as coded."
+                    "Its working as coded"
                     <br />
                     <br />
                     <img src={James} alt="James Picture" className="teamPics" />
@@ -130,8 +128,7 @@ class ConnectWithUs extends Component {
             </h2>
           </div>
         </div>
-        </Fade>
-      </Router>
+      </div>
     );
   }
 }
