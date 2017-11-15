@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
 
-import logo from '../images/better-button-logo-best.png';
-import SignUp from '../components/auth/SignUp';
-import ConnectWithUs from '../components/ConnectWithUs';
-import OurMission from '../components/OurMission';
-import Footer from '../components/Footer';
-import * as actions from '../actions';
-import '../css/App.css';
+import logo from "../images/better-button-logo-best.png";
+import SignUp from "../components/auth/SignUp";
+import ConnectWithUs from "../components/ConnectWithUs";
+import OurMission from "../components/OurMission";
+import Footer from "../components/Footer";
+import * as actions from "../actions";
+import "../css/App.css";
 
 class Home extends Component {
   handleError = () => {
@@ -23,30 +23,30 @@ class Home extends Component {
     const { createUser, state } = this.props;
     console.log(this.props);
     return (
-    <div>
-      <div className="container">
-        <div className="row">
-          <div>
-            <div className="card">
-              <div className="image">
-                <img
+      <div className="centerhomepage">
+        <div className="landingpage">
+          <div className="row">
+            <div className="centerhomepage">
+              <div className="card">
+                <div className="centerhomepage">
+                  <img
                     src={logo}
                     className="logo"
                     alt="logo"
-                    style={{ display: 'block', margin: 'auto' }}
-                    />
-              </div>
-              <div className="text">
-              <SignUp
-                createUser={createUser}
-                error={this.handleError()}
-                authUI={state.auth.authUI}
-              />
+                    style={{ display: "block", margin: "auto" }}
+                  />
+                </div>
+                <div className="text">
+                  <SignUp
+                    createUser={createUser}
+                    error={this.handleError()}
+                    authUI={state.auth.authUI}
+                  />
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
         <ConnectWithUs />
         <Footer />
       </div>

@@ -9,6 +9,8 @@ import App from "./containers/App";
 import registerServiceWorker from "./registerServiceWorker";
 import rootReducer from "./reducers/rootReducer";
 import "bootstrap/dist/css/bootstrap.css";
+import $ from "jquery";
+window.jQuery = window.$ = $;
 
 const logger = createLogger();
 

@@ -1,26 +1,25 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as actions from '../actions';
-import { Checkbox, CheckboxGroup } from 'react-checkbox-group';
-import { NavLink } from 'react-router-dom';
-import { firebaseDb } from '../server/firebase';
-import firebase from 'firebase';
-import Popup from 'react-popup';
-import '../css/GoalsUpdate.css';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as actions from "../actions";
+import { Checkbox, CheckboxGroup } from "react-checkbox-group";
+import { NavLink } from "react-router-dom";
+import { firebaseDb } from "../server/firebase";
+import firebase from "firebase";
+import Popup from "react-popup";
+import "../css/GoalsUpdate.css";
 
-import UserDescription from '../components/dashboard/UserDescription';
+import UserDescription from "../components/dashboard/UserDescription";
 
 class GoalUpdate extends Component {
   componentWillMount() {
     firebase.auth().onAuthStateChanged(user => {
       if (!user) {
-        this.props.history.push('/');
+        this.props.history.push("/");
       } else if (user) {
         const thisUser = firebase.auth().currentUser;
 
         this.props.loggedIn();
-        // this.props.fetchCalendar();
       }
     });
   }
@@ -56,19 +55,19 @@ class GoalUpdate extends Component {
       !this.state.selectedWeekday ||
       !this.state.selectedExercise
     ) {
-      Popup.alert('Fill out all your stats bro');
+      Popup.alert("Fill out all your stats bro");
     } else {
       const thisUser = firebase.auth().currentUser;
       if (thisUser != null) {
         var uid = thisUser.uid;
       }
       const date = Date();
-      console.log('SET STATE', this.state);
-      const currentLocation = window.location.href
-      if(this.props.state.OneRep.Bench){
-      firebaseDb
-        .ref('users/' + uid + '/calendar/')
-        .push({
+      console.log("SET STATE", this.state);
+      const currentLocation = window.location.href;
+      if (this.props.state.OneRep.Bench) {
+        firebaseDb
+          .ref("users/" + uid + "/calendar/")
+          .push({
             selectedDay: this.state.selectedDay,
             selectedWeekday: this.state.selectedWeekday,
             selectedExercise: this.state.selectedExercise,
@@ -87,22 +86,22 @@ class GoalUpdate extends Component {
         )
       } else {
         firebaseDb
-        .ref('users/' + uid + '/calendar/')
-        .push({
+          .ref("users/" + uid + "/calendar/")
+          .push({
             selectedDay: this.state.selectedDay,
             selectedWeekday: this.state.selectedWeekday,
             selectedExercise: this.state.selectedExercise,
             date: date
-        }).then(
-          () => {if(currentLocation){
-            this.props.history.push('/Dashboard')
-          }else {
-            Popup.alert("Your workout has been updated")
-          }}    
-        )
+          })
+          .then(() => {
+            if (currentLocation) {
+              this.props.history.push("/Dashboard");
+            } else {
+              Popup.alert("Your workout has been updated");
+            }
+          });
       }
     }
-
   };
 
   render() {
@@ -121,7 +120,7 @@ class GoalUpdate extends Component {
     //     }
     //   }
     // }
-    if (this.state.selectedDay === '2days') {
+    if (this.state.selectedDay === "2days") {
     }
     return (
       <div className="goalUpdate">
@@ -131,183 +130,222 @@ class GoalUpdate extends Component {
           {/* <h4>What is your overall fitness goal?</h4>
           <input type="text" placeholder="insert your goals here" /> */}
           <br />
-        <div className="row">
-         <div className="col-xs-12">
-          <h2 className="h2"><strong>Split (Lifting Days per Week)</strong></h2>
-          <div className="test-form">
-            <div className="custom-radio__wrapper">
-              <input
-                name="testcheck"
-                id="check1"
-                className="custom-radio__input"
-                ref="twoDays"
-                type="radio"
-                value="2days"
-                checked={this.state.selectedDay === '2days'}
-                onChange={this.handleDayChange}
-              />
-              <label htmlFor="check1" className="custom-radio__label">2 Days</label>
+          <div className="row">
+            <div className="col-xs-12">
+              <h2 className="h2">
+                <strong>Split (Lifting Days per Week)</strong>
+              </h2>
+              <div className="test-form">
+                <div className="custom-radio__wrapper">
+                  <input
+                    name="testcheck"
+                    id="check1"
+                    className="custom-radio__input"
+                    ref="twoDays"
+                    type="radio"
+                    value="2days"
+                    checked={this.state.selectedDay === "2days"}
+                    onChange={this.handleDayChange}
+                  />
+                  <label htmlFor="check1" className="custom-radio__label">
+                    2 Days
+                  </label>
+                </div>
+                <br />
+                <div className="custom-radio__wrapper">
+                  <input
+                    name="testcheck"
+                    id="check2"
+                    className="custom-radio__input"
+                    type="radio"
+                    ref="threeDays"
+                    value="3days"
+                    checked={this.state.selectedDay === "3days"}
+                    onChange={this.handleDayChange}
+                  />
+                  <label htmlFor="check2" className="custom-radio__label">
+                    3 Days
+                  </label>
+                </div>
+                <br />
+                <div className="custom-radio__wrapper">
+                  <input
+                    name="days"
+                    id="check3"
+                    className="custom-radio__input"
+                    type="radio"
+                    ref="fourDays"
+                    value="4days"
+                    checked={this.state.selectedDay === "4days"}
+                    onChange={this.handleDayChange}
+                  />
+                  <label htmlFor="check3" className="custom-radio__label">
+                    4 Days
+                  </label>
+                </div>
+              </div>
             </div>
-          <br />
-          <div className="custom-radio__wrapper">
-            <input
-              name="testcheck"
-              id="check2"
-              className="custom-radio__input"
-              type="radio"
-              ref="threeDays"
-              value="3days"
-              checked={this.state.selectedDay === '3days'}
-              onChange={this.handleDayChange}
-            />
-            <label htmlFor="check2" className="custom-radio__label">3 Days</label>
           </div>
-          <br />
-          <div className="custom-radio__wrapper">
-            <input
-              name="days"
-              id="check3"
-              className="custom-radio__input"
-              type="radio"
-              ref="fourDays"
-              value="4days"
-              checked={this.state.selectedDay === '4days'}
-              onChange={this.handleDayChange}
-            />
-            <label htmlFor="check3" className="custom-radio__label">4 Days</label>
-          </div>
-        </div>
-        </div>
-        </div>
-            
-        
-      
+
           {/* How do we make sure that our component's state changes when user clicks on our radio buttons?
 React offers onChange property that we can pass to our <input> components to handle changes. We then create an onChange
 function that updates the state of our buttons */}
 
           <br />
-          <h2 className="h2"><strong>That's great pansyboy! What days will you be exercising on?</strong></h2>
-          <h3><strong>Days of the week</strong></h3>
+          <h2 className="h2">
+            <strong>
+              That's great pansyboy! What days will you be exercising on?
+            </strong>
+          </h2>
+          <h3>
+            <strong>Days of the week</strong>
+          </h3>
           <br />
           <div className="row">
-          <div className="col-xs-12">
-          <CheckboxGroup
-            ref="weekdays"
-            name="checkBox"
-            value={this.state.selectedWeekday}
-            onChange={this.handleWeekdayChange}>
-            <div className="content">
-              <label className="checkBox">
-                <Checkbox id="ch2" name="checkBox" value={1} />
-                <div className="transition"></div>
-              </label>
-              <label htmlFor="ch2" className="checkBoxLabel">Monday</label>
-              <label className="checkBox">
-                <Checkbox id="ch2" name="checkBox" value={2} />
-                <div className="transition"></div>
-              </label>
-              <label htmlFor="ch2" className="checkBoxLabel">Tuesday</label>
-              <label className="checkBox">
-                <Checkbox id="ch3" name="checkBox" value={3} />
-                <div className="transition"></div>
-              </label>
-              <label htmlFor="ch3" className="checkBoxLabel">Wednesday</label>
-              <label className="checkBox">
-                <Checkbox id="ch4" name="checkBox" value={4} />
-                <div className="transition"></div>
-              </label>
-              <label htmlFor="ch4" className="checkBoxLabel">Thursday</label>              
-              <label className="checkBox">
-                <Checkbox id="ch5" name="checkBox" value={5} />
-                <div className="transition"></div>
-              </label>
-              <label htmlFor="ch5" className="checkBoxLabel">Friday</label>              
-              <label className="checkBox">
-                <Checkbox id="ch6" name="checkBox" value={6} />
-                <div className="transition"></div>
-              </label>
-              <label htmlFor ="ch6" className="checkBoxLabel">Saturday</label>              
-              <label className="checkBox">
-                <Checkbox id="ch7" name="checkBox" value={0} />
-                <div className="transition"></div>
-              </label>
-              <label htmlFor="ch7" className="checkBoxLabel">Sunday</label>              
+            <div className="col-xs-12">
+              <CheckboxGroup
+                ref="weekdays"
+                name="checkBox"
+                value={this.state.selectedWeekday}
+                onChange={this.handleWeekdayChange}
+              >
+                <div className="content">
+                  <label className="checkBox">
+                    <Checkbox id="ch2" name="checkBox" value={1} />
+                    <div className="transition" />
+                  </label>
+                  <label htmlFor="ch2" className="checkBoxLabel">
+                    Monday
+                  </label>
+                  <label className="checkBox">
+                    <Checkbox id="ch2" name="checkBox" value={2} />
+                    <div className="transition" />
+                  </label>
+                  <label htmlFor="ch2" className="checkBoxLabel">
+                    Tuesday
+                  </label>
+                  <label className="checkBox">
+                    <Checkbox id="ch3" name="checkBox" value={3} />
+                    <div className="transition" />
+                  </label>
+                  <label htmlFor="ch3" className="checkBoxLabel">
+                    Wednesday
+                  </label>
+                  <label className="checkBox">
+                    <Checkbox id="ch4" name="checkBox" value={4} />
+                    <div className="transition" />
+                  </label>
+                  <label htmlFor="ch4" className="checkBoxLabel">
+                    Thursday
+                  </label>
+                  <label className="checkBox">
+                    <Checkbox id="ch5" name="checkBox" value={5} />
+                    <div className="transition" />
+                  </label>
+                  <label htmlFor="ch5" className="checkBoxLabel">
+                    Friday
+                  </label>
+                  <label className="checkBox">
+                    <Checkbox id="ch6" name="checkBox" value={6} />
+                    <div className="transition" />
+                  </label>
+                  <label htmlFor="ch6" className="checkBoxLabel">
+                    Saturday
+                  </label>
+                  <label className="checkBox">
+                    <Checkbox id="ch7" name="checkBox" value={0} />
+                    <div className="transition" />
+                  </label>
+                  <label htmlFor="ch7" className="checkBoxLabel">
+                    Sunday
+                  </label>
+                </div>
+              </CheckboxGroup>
             </div>
-          </CheckboxGroup>
-          </div>
           </div>
           <br />
           <div className="row">
-          <div className="col-xs-12">
-          <h2 className="h2"><strong>Preferred Exercise Template</strong></h2>
-          <div className="test-form">
-            <div className="custom-radio__wrapper">
-              <input
-                name="exercise"
-                id="rd1"
-                className="custom-radio__input"
-                type="radio"
-                value="boringButBig"
-                checked={this.state.selectedExercise === 'boringButBig'}
-                onChange={this.handleExerciseChange}
-              />
-              <label htmlFor="rd1" className="custom-radio__label">Boring But Big</label>              
+            <div className="col-xs-12">
+              <h2 className="h2">
+                <strong>Preferred Exercise Template</strong>
+              </h2>
+              <div className="test-form">
+                <div className="custom-radio__wrapper">
+                  <input
+                    name="exercise"
+                    id="rd1"
+                    className="custom-radio__input"
+                    type="radio"
+                    value="boringButBig"
+                    checked={this.state.selectedExercise === "boringButBig"}
+                    onChange={this.handleExerciseChange}
+                  />
+                  <label htmlFor="rd1" className="custom-radio__label">
+                    Boring But Big
+                  </label>
+                </div>
+                <br />
+                <div className="custom-radio__wrapper">
+                  <input
+                    name="exercise"
+                    id="rd2"
+                    className="custom-radio__input"
+                    type="radio"
+                    value="triumvirate"
+                    checked={this.state.selectedExercise === "triumvirate"}
+                    onChange={this.handleExerciseChange}
+                  />
+                  <label htmlFor="rd2" className="custom-radio__label">
+                    Triumvirate
+                  </label>
+                </div>
+                <br />
+                <div className="custom-radio__wrapper">
+                  <input
+                    name="exercise"
+                    id="rd3"
+                    className="custom-radio__input"
+                    type="radio"
+                    value="jackShit"
+                    checked={this.state.selectedExercise === "jackShit"}
+                    onChange={this.handleExerciseChange}
+                  />
+                  <label htmlFor="rd3" className="custom-radio__label">
+                    I'm Not Doing Jack Shit
+                  </label>
+                </div>
+                <br />
+                <div className="custom-radio__wrapper">
+                  <input
+                    name="exercise"
+                    id="rd4"
+                    className="custom-radio__input"
+                    type="radio"
+                    value="perBible"
+                    checked={this.state.selectedExercise === "perBible"}
+                    onChange={this.handleExerciseChange}
+                  />
+                  <label htmlFor="rd4" className="custom-radio__label">
+                    Periodization Bible
+                  </label>
+                </div>
+                <br />
+                <div className="custom-radio__wrapper">
+                  <input
+                    name="exercise"
+                    id="rd5"
+                    className="custom-radio__input"
+                    type="radio"
+                    value="bodyweight"
+                    checked={this.state.selectedExercise === "bodyweight"}
+                    onChange={this.handleExerciseChange}
+                  />
+                  <label htmlFor="rd5" className="custom-radio__label">
+                    Bodyweight
+                  </label>
+                </div>
+              </div>
             </div>
-            <br />
-            <div className="custom-radio__wrapper">
-              <input
-                name="exercise"
-                id="rd2"
-                className="custom-radio__input"
-                type="radio"
-                value="triumvirate"
-                checked={this.state.selectedExercise === 'triumvirate'}
-                onChange={this.handleExerciseChange}
-              />
-              <label htmlFor="rd2" className="custom-radio__label">Triumvirate</label>              
-            </div>
-            <br />
-            <div className="custom-radio__wrapper">
-              <input
-                name="exercise"
-                id="rd3"
-                className="custom-radio__input"
-                type="radio"
-                value="jackShit"
-                checked={this.state.selectedExercise === 'jackShit'}
-                onChange={this.handleExerciseChange}
-              />
-              <label htmlFor="rd3" className="custom-radio__label">I'm Not Doing Jack Shit</label>              
-            </div>
-            <br />
-            <div className="custom-radio__wrapper">
-              <input
-                name="exercise"
-                id="rd4"
-                className="custom-radio__input"
-                type="radio"
-                value="perBible"
-                checked={this.state.selectedExercise === 'perBible'}
-                onChange={this.handleExerciseChange}
-              />
-              <label htmlFor="rd4" className="custom-radio__label">Periodization Bible</label>              
-            </div>
-            <br />
-            <div className="custom-radio__wrapper">
-              <input
-                name="exercise"
-                id="rd5"
-                className="custom-radio__input"
-                type="radio"
-                value="bodyweight"
-                checked={this.state.selectedExercise === 'bodyweight'}
-                onChange={this.handleExerciseChange}
-              />
-              <label htmlFor="rd5" className="custom-radio__label">Bodyweight</label>              
-            </div>
-          </div>
-          </div>
           </div>
           <br />
           <button type="submit" className="btn btn-primary">
