@@ -374,7 +374,7 @@ input:focus ~ .highlight {
   top: 10%;
   left: 50%;
   margin-left: -175px;
-  background: rgb(57, 58, 131);
+  background: #f5f5f5;
   box-shadow: 0px 5px 20px 0px rgba(126, 137, 140, 0.2);
   border-radius: 5px;
   border: 1px solid #b8c8cc;

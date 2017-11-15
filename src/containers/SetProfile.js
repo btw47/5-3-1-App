@@ -248,7 +248,7 @@ class SetProfile extends Component {
           btnClass="mm-popup__btn"
           closeBtn={true}
           closeHtml={null}
-          defaultOk="Ok"
+          defaultOk="Close"
           defaultCancel="Cancel"
           wildClasses={false}
         />
