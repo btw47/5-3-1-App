@@ -55,64 +55,64 @@ class NavBar extends Component {
           <div className="collapse navbar-collapse" id="myNavbar">
             <ul className="nav navbar-nav">
               <li className="nav1buttons">
-                <a href="/" className="nav1buttons">
+                <NavLink to="/" className="nav1buttons">
                   <i className="em  em-house" />
                   Home
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a href="/Today">
+                <NavLink to="/Today">
                   <i className="em em-date" />
                   Today
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a href="/Leaderboards">
+                <NavLink to="/Leaderboards">
                   <i className="em  em-trophy" />
                   Leaderboards
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a href="/Progress">
+                <NavLink to="/Progress">
                   <i className="em em-muscle" />
                   MY GAINZ
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a href="/Forums">
+                <NavLink to="/Forums">
                   <i className="em  em-pencil" />
                   Forums
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a href="/Dashboard">
+                <NavLink to="/Dashboard">
                   <i className="em  em-chart_with_upwards_trend" />
                   Dashboard
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a href="/ConnectWithUs">
+                <NavLink to="/ConnectWithUs">
                   <i className="em em-sunglasses" />
                   Ladies Come Connect With Us!
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a href="/LiveChat">
+                <NavLink to="/LiveChat">
                   <i className="em  em-interrobang" />
                   Live Chat!
-                </a>
+                </NavLink>
               </li>
             </ul>
             <ul className="nav navbar-nav navbar-right">
               <li>
-                <a href="/SignIn">
+                <NavLink to="/SignIn">
                   <span className="glyphicon glyphicon-log-in" /> Login
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a href="/SignOut">
+                <NavLink to="/SignOut">
                   <span className="glyphicon glyphicon-log-out" /> Logout
-                </a>
+                </NavLink>
               </li>
             </ul>
           </div>
