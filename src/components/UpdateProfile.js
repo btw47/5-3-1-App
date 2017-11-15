@@ -30,6 +30,41 @@ class SetProfile extends Component {
   componentDidMount() {
     this.weight.focus();
   }
+  weeklyTemplate = (inputValues) => {
+    let reps = 1
+    let max = parseInt(inputValues);
+    const oneRepMax = Math.ceil(max);
+    const t = ({ percent, reps }) =>
+      `${Math.round(percent * oneRepMax)} x ${reps}`;
+    //const t = ({ percent, reps }) => `${Math.round(percent * oneRepMax)}${unit} x ${reps}`;
+
+    return [
+      // week 1
+      [
+        t({ percent: 0.65, reps: 5 }),
+        t({ percent: 0.75, reps: 5 }),
+        t({ percent: 0.85, reps: "5+" })
+      ],
+      // week 2
+      [
+        t({ percent: 0.7, reps: 3 }),
+        t({ percent: 0.8, reps: 3 }),
+        t({ percent: 0.9, reps: "3+" })
+      ],
+      // week 3
+      [
+        t({ percent: 0.75, reps: 5 }),
+        t({ percent: 0.85, reps: 3 }),
+        t({ percent: 0.95, reps: "1+" })
+      ],
+      // week 4
+      [
+        t({ percent: 0.4, reps: 5 }),
+        t({ percent: 0.5, reps: 5 }),
+        t({ percent: 0.6, reps: "only 5" })
+      ],
+    ];
+  };
 
   handleEmail = event => {
     this.setState({
@@ -43,21 +78,14 @@ class SetProfile extends Component {
     });
   };
 
-  handleOneRepMax = event => {
-    this.setState({
-      oneRepMax: {
-        squatORM: this.squat.value,
-        deadliftORM: this.deadlift.value,
-        benchORM: this.bench.value,
-        overheadPressORM: this.overheadPress.value
-      }
-    });
-  };
-
+ //Weight/Reps: 98 x 5, 113 x 5, 128 x 5+
   handleSubmit = event => {
     event.preventDefault();
-
-    if (!this.state.weight || !this.state.oneRepMax) {
+    const Deadlift = this.weeklyTemplate(this.refs.deadlift.value);
+    const Bench = this.weeklyTemplate(this.refs.bench.value);
+    const Squat = this.weeklyTemplate(this.refs.squat.value);
+    const Overhead = this.weeklyTemplate(this.refs.ohp.value);
+    if (!this.state.weight) {
       Popup.alert('NOT FILLED OUT YO');
     } else {
       const thisUser = firebase.auth().currentUser;
@@ -72,7 +100,22 @@ class SetProfile extends Component {
         .ref('users/' + uid + '/user/')
         .push({
           weight: this.state.weight,
-          oneRepMax: this.state.oneRepMax,
+          OneRepMax:{
+            squatORM: this.refs.squat.value,
+            deadliftORM: this.refs.deadlift.value,
+            benchORM: this.refs.bench.value,
+            overheadPressORM: this.refs.ohp.value,
+          },
+          date: date
+        })
+
+        firebaseDb
+        .ref('users/' + uid + '/calendar/')
+        .push({
+          benchTemplate: Bench,
+          deadliftTemplate: Deadlift,
+          squatTemplate: Squat,
+          ohpTemplate: Overhead,
           date: date
         })
         .then(() => {
@@ -86,7 +129,7 @@ class SetProfile extends Component {
 
     return (
       <div className="update-profile">
-        <form onSubmit={event => this.handleSubmit(event)}>
+        <form >
           <FormGroup bsSize="small">
           <div className="container">
             <br/>
@@ -113,8 +156,7 @@ class SetProfile extends Component {
                 <FormControl
                   required
                   type="text"
-                  inputRef={ref => (this.bench = ref)}
-                  onChange={event => this.handleOneRepMax(event)}
+                  ref="bench"
                 />
                 <span className="highlight"></span>
                 <span className="bar"></span>
@@ -126,8 +168,7 @@ class SetProfile extends Component {
                 <FormControl
                   required
                   type="text"
-                  inputRef={ref => (this.overheadPress = ref)}
-                  onChange={event => this.handleOneRepMax(event)}
+                  ref="ohp"
                 />
                 <span className="highlight"></span>
                 <span className="bar"></span>
@@ -139,8 +180,7 @@ class SetProfile extends Component {
                 <FormControl
                   required
                   type="text"
-                  inputRef={ref => (this.deadlift = ref)}
-                  onChange={event => this.handleOneRepMax(event)}
+                  ref="deadlift"
                 />
                 <span className="highlight"></span>
                 <span className="bar"></span>
@@ -152,8 +192,7 @@ class SetProfile extends Component {
                 <FormControl
                   required
                   type="text"
-                  inputRef={ref => (this.squat = ref)}
-                  onChange={event => this.handleOneRepMax(event)}
+                  ref="squat"
                 />
                 <span className="highlight"></span>
                 <span className="bar"></span>
@@ -164,7 +203,8 @@ class SetProfile extends Component {
             <ButtonToolbar>
               <Button
                 bsSize="large"
-                type="submit"
+                type="button"
+                onClick={event => this.handleSubmit(event)}
                 bsStyle="primary"
                 style={{ display: 'block', margin: 'auto' }}>
                 Update

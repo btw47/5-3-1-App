@@ -103,6 +103,32 @@ class SetProfile extends Component {
 
       const date = Date();
 
+    }
+    if(window.location.pathname === '/Dashboard'){
+      const date = Date();
+      firebaseDb
+      .ref('users/' + uid + '/user')
+      .push({
+        weight: this.state.weight,
+        oneRepMax: this.state.oneRepMax,
+        fullName: this.state.fullName,
+        date: date
+      })
+
+      firebaseDb
+      .ref('users/' + uid + '/calendar')
+      .push({
+        benchTemplate: this.props.state.OneRep.Bench,
+        deadliftTemplate: this.props.state.OneRep.Deadlift,
+        squatTemplate: this.props.state.OneRep.Squat,
+        ohpTemplate: this.props.state.OneRep.Overhead,
+        date: date
+      }).then(
+        alert("Stats Updated")
+      )
+        
+      }else {
+      const date = Date();
       firebaseDb
         .ref('users/' + uid + '/user')
         .push({
@@ -111,11 +137,12 @@ class SetProfile extends Component {
           fullName: this.state.fullName,
           date: date
         }).then(() => {
-          this.props.history.push('/GoalsUpdate');
+            this.props.history.push('/GoalsUpdate');  
         });
+        this.props.oneRep(Bench, Overhead, Deadlift, Squat)
+      }
     }
-    this.props.oneRep(Bench, Overhead, Deadlift, Squat)
-  };
+
 
   render() {
     if (this.props.state.OneRep.calculatedMax) {

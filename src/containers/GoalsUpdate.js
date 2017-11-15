@@ -20,7 +20,7 @@ class GoalUpdate extends Component {
         const thisUser = firebase.auth().currentUser;
 
         this.props.loggedIn();
-        this.props.fetchCalendar();
+        // this.props.fetchCalendar();
       }
     });
   }
@@ -78,7 +78,7 @@ class GoalUpdate extends Component {
             ohpTemplate: this.props.state.OneRep.Overhead,
             date: date
         })
-        .then(
+        .then( 
           () => {if(currentLocation){
             this.props.history.push('/Dashboard')
           }else {
