@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { firebaseApp } from "../server/firebase"
 import PropTypes from "prop-types";
 import {
   Popover,
@@ -20,6 +21,13 @@ export default class QAModal extends Component {
     });
   }
 
+  answerQuestioninModal = e => {
+    let answerRef = firebaseApp.database().ref("messages/" + this.props.firebaseId + "/answers/")
+    answerRef.push({ answer: this.refs.textarea.value });
+    this.setState({
+      isOpen: this.state.isClosed
+    })
+  }
 
 
   render() {
@@ -49,7 +57,6 @@ export default class QAModal extends Component {
     };
 
 
-
     return (
       <div>
         <Button onClick={this.showModal} bsStyle="primary">
@@ -61,18 +68,19 @@ export default class QAModal extends Component {
           style={{
             position: 'absolute',
             display: 'block',
-            top: '20vh',
+            top: '25vh',
             margin: 'auto',
             transform: 'translate(-50%, -50%) !important'
           }}>
           <Modal.Header>
-            <Modal.Title>Update your profile</Modal.Title>
+            <Modal.Title>Answer the Question</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <input type="textarea" />
+            <input type="textarea" ref="textarea" />
           </Modal.Body>
           <Modal.Footer>
-            <Button onClick={this.showModal}>Close</Button>
+            <Button onClick={this.answerQuestioninModal}>Answer Question</Button>
+            <Button onClick={this.showModal}>Close this stupid fucking box</Button>
           </Modal.Footer>
         </Modal>
       </div >
