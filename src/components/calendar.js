@@ -41,7 +41,7 @@ class Dnd extends React.Component {
         var day4;
 
         for (
-          var i = 0;
+          let i = 0;
           i < state.fetchCalendar.calendar.selectedWeekday.length;
           i++
         ) {
@@ -60,7 +60,7 @@ class Dnd extends React.Component {
         var benchArray1;
         var benchArray2;
         var benchArray3;
-        for (var i = 0; i < state.fetchCalendar.calendar.benchTemplate.length; i++) {
+        for (let i = 0; i < state.fetchCalendar.calendar.benchTemplate.length; i++) {
           benchArray0 = state.fetchCalendar.calendar.benchTemplate[0];
           benchArray1 = state.fetchCalendar.calendar.benchTemplate[1];
           benchArray2 = state.fetchCalendar.calendar.benchTemplate[2];
@@ -69,7 +69,7 @@ class Dnd extends React.Component {
         var benchW1D0;
         var benchW1D1;
         var benchW1D2;
-        for (var i = 0; i < benchArray0.length; i++) {
+        for (let i = 0; i < benchArray0.length; i++) {
           benchW1D0 = benchArray0[0].toString();
           benchW1D1 = benchArray0[1];
           benchW1D2 = benchArray0[2];
@@ -77,7 +77,7 @@ class Dnd extends React.Component {
         var benchW2D0;
         var benchW2D1;
         var benchW2D2;
-        for (var i = 0; i < benchArray1.length; i++) {
+        for (let i = 0; i < benchArray1.length; i++) {
           benchW2D0 = benchArray1[0];
           benchW2D1 = benchArray1[1];
           benchW2D2 = benchArray1[2];
@@ -85,7 +85,7 @@ class Dnd extends React.Component {
         var benchW3D0;
         var benchW3D1;
         var benchW3D2;
-        for (var i = 0; i < benchArray2.length; i++) {
+        for (let i = 0; i < benchArray2.length; i++) {
           benchW3D0 = benchArray2[0];
           benchW3D1 = benchArray2[1];
           benchW3D2 = benchArray2[2];
@@ -93,7 +93,7 @@ class Dnd extends React.Component {
         var benchW4D0;
         var benchW4D1;
         var benchW4D2;
-        for (var i = 0; i < benchArray3.length; i++) {
+        for (let i = 0; i < benchArray3.length; i++) {
           benchW4D0 = benchArray3[0];
           benchW4D1 = benchArray3[1];
           benchW4D2 = benchArray3[2];
@@ -102,7 +102,7 @@ class Dnd extends React.Component {
         var deadliftArray1;
         var deadliftArray2;
         var deadliftArray3;
-        for (var i = 0; i < state.fetchCalendar.calendar.deadliftTemplate.length; i++) {
+        for (let i = 0; i < state.fetchCalendar.calendar.deadliftTemplate.length; i++) {
           deadliftArray0 = state.fetchCalendar.calendar.deadliftTemplate[0];
           deadliftArray1 = state.fetchCalendar.calendar.deadliftTemplate[1];
           deadliftArray2 = state.fetchCalendar.calendar.deadliftTemplate[2];
@@ -111,7 +111,7 @@ class Dnd extends React.Component {
         var deadliftW1D0;
         var deadliftW1D1;
         var deadliftW1D2;
-        for (var i = 0; i < deadliftArray0.length; i++) {
+        for (let i = 0; i < deadliftArray0.length; i++) {
           deadliftW1D0 = deadliftArray0[0];
           deadliftW1D1 = deadliftArray0[1];
           deadliftW1D2 = deadliftArray0[2];
@@ -119,7 +119,7 @@ class Dnd extends React.Component {
         var deadliftW2D0;
         var deadliftW2D1;
         var deadliftW2D2;
-        for (var i = 0; i < deadliftArray1.length; i++) {
+        for (let i = 0; i < deadliftArray1.length; i++) {
           deadliftW2D0 = deadliftArray1[0];
           deadliftW2D1 = deadliftArray1[1];
           deadliftW2D2 = deadliftArray1[2];
@@ -127,7 +127,7 @@ class Dnd extends React.Component {
         var deadliftW3D0;
         var deadliftW3D1;
         var deadliftW3D2;
-        for (var i = 0; i < deadliftArray2.length; i++) {
+        for (let i = 0; i < deadliftArray2.length; i++) {
           deadliftW3D0 = deadliftArray2[0];
           deadliftW3D1 = deadliftArray2[1];
           deadliftW3D2 = deadliftArray2[2];
@@ -135,7 +135,7 @@ class Dnd extends React.Component {
         var deadliftW4D0;
         var deadliftW4D1;
         var deadliftW4D2;
-        for (var i = 0; i < deadliftArray3.length; i++) {
+        for (let i = 0; i < deadliftArray3.length; i++) {
           deadliftW4D0 = deadliftArray3[0];
           deadliftW4D1 = deadliftArray3[1];
           deadliftW4D2 = deadliftArray3[2];
@@ -144,7 +144,7 @@ class Dnd extends React.Component {
         var ohpArray1;
         var ohpArray2;
         var ohpArray3;
-        for (var i = 0; i < state.fetchCalendar.calendar.ohpTemplate.length; i++) {
+        for (let i = 0; i < state.fetchCalendar.calendar.ohpTemplate.length; i++) {
           ohpArray0 = state.fetchCalendar.calendar.ohpTemplate[0];
           ohpArray1 = state.fetchCalendar.calendar.ohpTemplate[1];
           ohpArray2 = state.fetchCalendar.calendar.ohpTemplate[2];
@@ -153,7 +153,7 @@ class Dnd extends React.Component {
         var ohpW1D0;
         var ohpW1D1;
         var ohpW1D2;
-        for (var i = 0; i < ohpArray0.length; i++) {
+        for (let i = 0; i < ohpArray0.length; i++) {
           ohpW1D0 = ohpArray0[0];
           ohpW1D1 = ohpArray0[1];
           ohpW1D2 = ohpArray0[2];
@@ -161,7 +161,7 @@ class Dnd extends React.Component {
         var ohpW2D0;
         var ohpW2D1;
         var ohpW2D2;
-        for (var i = 0; i < ohpArray1.length; i++) {
+        for (let i = 0; i < ohpArray1.length; i++) {
           ohpW2D0 = ohpArray1[0];
           ohpW2D1 = ohpArray1[1];
           ohpW2D2 = ohpArray1[2];
@@ -169,7 +169,7 @@ class Dnd extends React.Component {
         var ohpW3D0;
         var ohpW3D1;
         var ohpW3D2;
-        for (var i = 0; i < ohpArray2.length; i++) {
+        for (let i = 0; i < ohpArray2.length; i++) {
           ohpW3D0 = ohpArray2[0];
           ohpW3D1 = ohpArray2[1];
           ohpW3D2 = ohpArray2[2];
@@ -177,7 +177,7 @@ class Dnd extends React.Component {
         var ohpW4D0;
         var ohpW4D1;
         var ohpW4D2;
-        for (var i = 0; i < ohpArray3.length; i++) {
+        for (let i = 0; i < ohpArray3.length; i++) {
           ohpW4D0 = ohpArray3[0];
           ohpW4D1 = ohpArray3[1];
           ohpW4D2 = ohpArray3[2];
@@ -186,7 +186,7 @@ class Dnd extends React.Component {
         var squatArray1;
         var squatArray2;
         var squatArray3;
-        for (var i = 0; i < state.fetchCalendar.calendar.squatTemplate.length; i++) {
+        for (let i = 0; i < state.fetchCalendar.calendar.squatTemplate.length; i++) {
           squatArray0 = state.fetchCalendar.calendar.squatTemplate[0];
           squatArray1 = state.fetchCalendar.calendar.squatTemplate[1];
           squatArray2 = state.fetchCalendar.calendar.squatTemplate[2];
@@ -195,7 +195,7 @@ class Dnd extends React.Component {
         var squatW1D0;
         var squatW1D1;
         var squatW1D2;
-        for (var i = 0; i < squatArray0.length; i++) {
+        for (let i = 0; i < squatArray0.length; i++) {
           squatW1D0 = squatArray0[0];
           squatW1D1 = squatArray0[1];
           squatW1D2 = squatArray0[2];
@@ -203,7 +203,7 @@ class Dnd extends React.Component {
         var squatW2D0;
         var squatW2D1;
         var squatW2D2;
-        for (var i = 0; i < squatArray1.length; i++) {
+        for (let i = 0; i < squatArray1.length; i++) {
           squatW2D0 = squatArray1[0];
           squatW2D1 = squatArray1[1];
           squatW2D2 = squatArray1[2];
@@ -211,7 +211,7 @@ class Dnd extends React.Component {
         var squatW3D0;
         var squatW3D1;
         var squatW3D2;
-        for (var i = 0; i < squatArray2.length; i++) {
+        for (let i = 0; i < squatArray2.length; i++) {
           squatW3D0 = squatArray2[0];
           squatW3D1 = squatArray2[1];
           squatW3D2 = squatArray2[2];
@@ -219,7 +219,7 @@ class Dnd extends React.Component {
         var squatW4D0;
         var squatW4D1;
         var squatW4D2;
-        for (var i = 0; i < squatArray3.length; i++) {
+        for (let i = 0; i < squatArray3.length; i++) {
           squatW4D0 = squatArray3[0];
           squatW4D1 = squatArray3[1];
           squatW4D2 = squatArray3[2];

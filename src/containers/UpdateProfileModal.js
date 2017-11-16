@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import {
-  Popover,
-  Tooltip,
   Button,
   Modal,
-  OverlayTrigger
 } from 'react-bootstrap';
 import UpdateProfile from '../components/UpdateProfile';
 

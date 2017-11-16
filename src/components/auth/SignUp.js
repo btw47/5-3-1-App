@@ -63,12 +63,14 @@ export default class SignUp extends Component {
           return <div>you wanna get hacked? enter a longer password</div>;
         case 'auth/email-already-in-use':
           return <div>sorry this email has already been registered</div>;
+        default:
+          return <div></div>;
       }
     }
   };
 
   render() {
-    const { loggedIn } = this.props;
+    // const { loggedIn } = this.props;
 
     return (
       <div>

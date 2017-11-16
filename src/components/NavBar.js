@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
   NavLink
 } from "react-router-dom";
 
@@ -36,7 +33,7 @@ class NavBar extends Component {
           <div className="navbar-header">
             <button
               type="button"
-              class="navbar-toggle"
+              className="navbar-toggle"
               data-toggle="collapse"
               data-target="#myNavbar"
             >
@@ -44,7 +41,7 @@ class NavBar extends Component {
               <span className="icon-bar" />
               <span className="icon-bar" />
             </button>
-            <a class="navbar-brand" href="#" />
+            <a className="navbar-brand" href="#" />
             <img
               src={logo}
               className="logo2"

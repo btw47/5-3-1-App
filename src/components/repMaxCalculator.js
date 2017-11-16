@@ -116,7 +116,7 @@ class Calculator extends Component {
               <input
                 required
                 type="number"
-                required
+
                 min="1"
                 ref="BenchReps"
                 className="inputtext"
@@ -131,7 +131,7 @@ class Calculator extends Component {
               <input
                 required
                 type="number"
-                required
+
                 min="1"
                 ref="OverheadWeight"
                 className="inputtext"
@@ -144,7 +144,7 @@ class Calculator extends Component {
               <input
                 required
                 type="number"
-                required
+
                 min="1"
                 ref="OverheadReps"
                 className="inputtext"
@@ -159,7 +159,7 @@ class Calculator extends Component {
               <input
                 required
                 type="number"
-                required
+
                 min="1"
                 ref="DeadliftWeight"
                 className="inputtext"
@@ -172,7 +172,7 @@ class Calculator extends Component {
               <input
                 required
                 type="number"
-                required
+
                 min="1"
                 ref="DeadliftReps"
                 className="inputtext"
@@ -187,7 +187,7 @@ class Calculator extends Component {
               <input
                 required
                 type="number"
-                required
+
                 min="1"
                 ref="SquatWeight"
                 className="inputtext"
@@ -200,7 +200,7 @@ class Calculator extends Component {
               <input
                 required
                 type="number"
-                required
+
                 min="1"
                 ref="SquatReps"
                 className="inputtext"

@@ -5,8 +5,6 @@ import {
   Col,
   Nav,
   NavItem,
-  NavDropdown,
-  MenuItem
 } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import firebase from 'firebase';
@@ -15,7 +13,6 @@ import { bindActionCreators } from 'redux';
 
 import Dashboard from '../components/dashboard/Dashboard';
 import Compare from '../components/dashboard/Compare';
-import DetailedProgress from './DetailedProgress';
 import Settings from '../components/dashboard/Settings';
 import Calendar from '../components/calendar';
 import PhotoGallery from '../components/dashboard/PhotoGallery';

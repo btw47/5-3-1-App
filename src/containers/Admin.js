@@ -5,8 +5,6 @@ import { Table } from 'react-bootstrap';
 import * as admin from 'firebase-admin';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-
-import { firebaseDb } from '../server/firebase';
 import * as actions from '../actions';
 
 class Admin extends Component {
@@ -49,8 +47,8 @@ class Admin extends Component {
       admin
         .auth()
         .listUsers(1000, nextPageToken)
-        .then(function(listUsersResult) {
-          listUsersResult.users.forEach(function(userRecord) {
+        .then(function (listUsersResult) {
+          listUsersResult.users.forEach(function (userRecord) {
             // console.log('user', userRecord.toJSON());
             users.push(userRecord.toJSON());
           });
@@ -64,7 +62,7 @@ class Admin extends Component {
             rendered: true
           })
         )
-        .catch(function(error) {
+        .catch(function (error) {
           console.log('Error listing users:', error);
         });
     };
@@ -82,17 +80,17 @@ class Admin extends Component {
     admin
       .auth()
       .deleteUser(uid)
-      .then(function() {
+      .then(function () {
         console.log('Successfully deleted user');
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log('Error deleting user:', error);
       });
 
     const newUserState = [];
 
     for (let i = 0; i < this.state.users.length; i++) {
-      if (this.state.users[i].uid != uid) {
+      if (this.state.users[i].uid !== uid) {
         newUserState.push(this.state.users[i]);
       }
     }
