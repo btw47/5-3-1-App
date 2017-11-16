@@ -158,7 +158,6 @@ class SetProfile extends Component {
                   className="inputtext"
                   required
                   type="number"
-                  required
                   min="1"
                   onChange={event => this.handleWeight(event)}
                 />
@@ -179,7 +178,6 @@ class SetProfile extends Component {
               <input
                 required
                 type="number"
-                required
                 min="1"
                 onChange={event => this.handleWeight(event)}
               />
@@ -203,7 +201,6 @@ class SetProfile extends Component {
               <input
                 required
                 type="number"
-                required
                 min="1"
                 ref="bench"
                 onChange={event => this.handleOneRepMax(event)}
@@ -216,7 +213,6 @@ class SetProfile extends Component {
               <input
                 required
                 type="number"
-                required
                 min="1"
                 ref="ohp"
                 onChange={event => this.handleOneRepMax(event)}
@@ -229,7 +225,6 @@ class SetProfile extends Component {
               <input
                 required
                 type="number"
-                required
                 min="1"
                 ref="deadlift"
                 onChange={event => this.handleOneRepMax(event)}
@@ -242,7 +237,6 @@ class SetProfile extends Component {
               <input
                 required
                 type="number"
-                required
                 min="1"
                 ref="squat"
                 onChange={event => this.handleOneRepMax(event)}

@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import logo from "../images/weight-lifting-logo.png";
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 
 class Footer extends Component {
   style = {

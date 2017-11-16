@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { FormGroup, FormControl, ButtonToolbar, Button } from "react-bootstrap";
 import "firebaseui/dist/firebaseui.css";
-import SignUp from "../components/auth/SignUp";
 import logo from "../images/better-button-logo-best.png";
 import * as actions from "../actions";
 
@@ -103,7 +102,7 @@ class SignIn extends Component {
     if (window.location.search === "?mode=select") {
       return <div />;
     } else {
-      const { createUser, state } = this.props;
+      // const { createUser, state } = this.props;
       console.log(this.props);
       return (
         <form onSubmit={event => this.handleSubmit(event)}>
@@ -154,7 +153,7 @@ class SignIn extends Component {
   };
 
   render() {
-    const { state } = this.props;
+    // const { state } = this.props;
     return (
       <div>
         <img

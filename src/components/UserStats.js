@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { Panel, PanelGroup, Popover } from 'react-bootstrap';
+import { Panel, PanelGroup } from 'react-bootstrap';
 
-import * as actions from '../actions';
 import profilePicture from '../images/anon-user.jpg';
-import UploadImage from './UploadImage';
 
 class UserStats extends Component {
   constructor(props) {
@@ -31,7 +27,7 @@ class UserStats extends Component {
 
       return (
         <div>
-          <img src={profilePicture} alt="profile pic" style={this.imageStyle} />
+          <img src={profilePicture} alt="profile pic" style={this.imageStyle} alt='' />
         </div>
       );
     } else {

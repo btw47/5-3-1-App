@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import logo from "../images/better-button-logo-best.png";
 import SignUp from "../components/auth/SignUp";
 import ConnectWithUs from "../components/ConnectWithUs";
-import OurMission from "../components/OurMission";
 import Footer from "../components/Footer";
 import * as actions from "../actions";
 import "../css/App.css";

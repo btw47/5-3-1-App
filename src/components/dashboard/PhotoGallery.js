@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import Gallery from './Gallery';
-import { firebaseDb } from '../../server/firebase';
 import * as actions from '../../actions';
 import '../../css/gallery.css';
 import UploadImage from '../UploadImage';
@@ -16,7 +15,7 @@ class PhotoGallery extends Component {
         this.props.history.push('/');
       } else if (user) {
         const thisUser = firebase.auth().currentUser;
-        const uid = thisUser.uid;
+        // const uid = thisUser.uid;
 
         this.props.fetchCalendar(thisUser);
         this.props.fetchUserImages(thisUser.uid);

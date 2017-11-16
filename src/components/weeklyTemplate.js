@@ -1,7 +1,4 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import * as actions from "../actions";
 import './weeklyTemplate.css';
 
 export default class WeeklyTemplate extends Component {
@@ -18,7 +15,7 @@ export default class WeeklyTemplate extends Component {
     const t = ({ percent, reps }) =>
       `${Math.round(percent * oneRepMax)} x ${reps}`;
     //const t = ({ percent, reps }) => `${Math.round(percent * oneRepMax)}${unit} x ${reps}`;
-     return [
+    return [
       // week 1
       [
         t({ percent: 0.65, reps: 5 }),
@@ -81,79 +78,79 @@ export default class WeeklyTemplate extends Component {
   };
 
   render() {
-      return (
-        <div className="WeeklyTemplate">
-          <form >
-            <h4>Deadlift Numbers</h4>
-            <input
-              name="liftName"
-              // onChange={event => this.handleWeightChange(event, "deadlift")}
-              type="text"
-              ref="DeadliftWeight"
-              placeholder="enter DEADLIFT weight"
-            />
-            <input
-              name="liftName"
-              // onChange={event => this.handleRepChange(event, "deadlift")}
-              type="text"
-              ref="DeadliftReps"
-              placeholder="enter DEADLIFT reps"
-            />
-            <br />
-            <h4>Bench Numbers</h4>
-            <input
-              name="liftName"
-              // onChange={event => this.handleWeightChange(event, "deadlift")}
-              type="text"
-              ref="BenchWeight"
-              placeholder="enter BENCH weight"
-            />
-            <input
-              name="liftName"
-              // onChange={event => this.handleRepChange(event, "deadlift")}
-              type="text"
-              ref="BenchReps"
-              placeholder="enter BENCH reps"
-            />
-            <br />
-            <h4>Squat Numbers</h4>
-            <input
-              name="liftName"
-              // onChange={event => this.handleWeightChange(event, "deadlift")}
-              type="text"
-              ref="SquatWeight"
-              placeholder="enter SQUAT weight"
-            />
-            <input
-              name="liftName"
-              // onChange={event => this.handleRepChange(event, "deadlift")}
-              type="text"
-              ref="SquatReps"
-              placeholder="enter SQUAT reps"
-            />
-            <br />
-            <h4>Overhead Press Numbers</h4>
-            <input
-              name="liftName"
-              ref="OverheadWeight"
-              // onChange={event => this.handleWeightChange(event, "deadlift")}
-              type="text"
-              placeholder="enter OHP weight"
-            />
-            <input
-              name="liftName"
-              // onChange={event => this.handleRepChange(event, "deadlift")}
-              type="text"
-              ref="OverheadReps"
-              placeholder="enter OHP reps"
-            />
-            <br />
-            <button type="button" onClick={event => this.handleSubmit(event)}>Calculate</button>
-          </form>
-        </div>
-      );
-    }
-  };
+    return (
+      <div className="WeeklyTemplate">
+        <form >
+          <h4>Deadlift Numbers</h4>
+          <input
+            name="liftName"
+            // onChange={event => this.handleWeightChange(event, "deadlift")}
+            type="text"
+            ref="DeadliftWeight"
+            placeholder="enter DEADLIFT weight"
+          />
+          <input
+            name="liftName"
+            // onChange={event => this.handleRepChange(event, "deadlift")}
+            type="text"
+            ref="DeadliftReps"
+            placeholder="enter DEADLIFT reps"
+          />
+          <br />
+          <h4>Bench Numbers</h4>
+          <input
+            name="liftName"
+            // onChange={event => this.handleWeightChange(event, "deadlift")}
+            type="text"
+            ref="BenchWeight"
+            placeholder="enter BENCH weight"
+          />
+          <input
+            name="liftName"
+            // onChange={event => this.handleRepChange(event, "deadlift")}
+            type="text"
+            ref="BenchReps"
+            placeholder="enter BENCH reps"
+          />
+          <br />
+          <h4>Squat Numbers</h4>
+          <input
+            name="liftName"
+            // onChange={event => this.handleWeightChange(event, "deadlift")}
+            type="text"
+            ref="SquatWeight"
+            placeholder="enter SQUAT weight"
+          />
+          <input
+            name="liftName"
+            // onChange={event => this.handleRepChange(event, "deadlift")}
+            type="text"
+            ref="SquatReps"
+            placeholder="enter SQUAT reps"
+          />
+          <br />
+          <h4>Overhead Press Numbers</h4>
+          <input
+            name="liftName"
+            ref="OverheadWeight"
+            // onChange={event => this.handleWeightChange(event, "deadlift")}
+            type="text"
+            placeholder="enter OHP weight"
+          />
+          <input
+            name="liftName"
+            // onChange={event => this.handleRepChange(event, "deadlift")}
+            type="text"
+            ref="OverheadReps"
+            placeholder="enter OHP reps"
+          />
+          <br />
+          <button type="button" onClick={event => this.handleSubmit(event)}>Calculate</button>
+        </form>
+      </div>
+    );
+  }
+};
 // -------------------------------------------
 
 // import React, { Component } from "react";
