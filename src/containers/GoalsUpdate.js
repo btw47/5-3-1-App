@@ -126,7 +126,7 @@ class GoalUpdate extends Component {
       <div className="goalUpdate">
         <h2 className="h2">Update goals below fam!</h2>
         <UserDescription />
-        <form ref="goalUpdateForm" onSubmit={event => this.handleSubmit(event)}>
+        <form ref="goalUpdateForm">
           {/* <h4>What is your overall fitness goal?</h4>
           <input type="text" placeholder="insert your goals here" /> */}
           <br />
@@ -348,7 +348,7 @@ function that updates the state of our buttons */}
             </div>
           </div>
           <br />
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary" onClick={event => this.handleSubmit(event)}>
             <span className="md-" /> Submit My Goals
           </button>
         </form>

@@ -206,7 +206,7 @@ class SetProfile extends Component {
                 type="button"
                 onClick={event => this.handleSubmit(event)}
                 bsStyle="primary"
-                style={{ display: 'block', margin: 'auto' }}>
+                style={{ display: 'block', margin: 'auto'}}>
                 Update
               </Button>
             </ButtonToolbar>

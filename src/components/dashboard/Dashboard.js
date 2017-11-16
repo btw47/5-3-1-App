@@ -8,11 +8,13 @@ import "../../css/Dashboard.css";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import WeekCalendar from "../calendar";
 import UserStats from "../UserStats";
+import UpdateProfile from '../../containers/SetProfile';
 import UploadImage from "../UploadImage";
 import DashboardGraph from "../graphs/DashboardGraph";
 import { firebaseDb } from "../../server/firebase";
 import UpdateProfileModal from "../../containers/UpdateProfileModal";
 import * as actions from "../../actions";
+import Popup from 'react-popup'
 
 class Dashboard extends Component {
   componentWillMount() {
@@ -49,6 +51,10 @@ class Dashboard extends Component {
   //   this.props.history.push('/GoalsUpdate');
   // }
 
+  onStatsUpdate(event){
+    Popup.alert(<UpdateProfile/>, "Update Stats")
+  }
+
   render() {
     const { state } = this.props;
     const thisUser = firebase.auth().currentUser;
@@ -66,7 +72,13 @@ class Dashboard extends Component {
               profileImage={state.user.profileImage}
             />
             <div>
-              <UpdateProfileModal style={{ display: "inline-block" }} />
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={event => this.onStatsUpdate(event)}
+            >
+              <span className="lg-" /> Update Stats
+            </button>
               <UploadImage
                 fetchProfileImage={this.props.fetchProfileImage}
                 userId={state.user.uid}
@@ -90,6 +102,16 @@ class Dashboard extends Component {
             />
           </Col>
         </Row>
+        <Popup
+        className="mm-popup"
+        btnClass="mm-popup__btn"
+        closeBtn={true}
+        closeHtml={null}
+        defaultOk="Close"
+        style={{width: '5em'}}
+        defaultCancel="Cancel"
+        wildClasses={false}
+      />
       </div>
     );
   }
