@@ -102,21 +102,50 @@ class SetProfile extends Component {
       }
 
       const date = Date();
-
-      firebaseDb
-        .ref("users/" + uid + "/user")
+      if(window.location.pathname === '/Dashboard'){
+        const date = Date();
+        console.log("YEEEEEAAHHH", this.state)
+        firebaseDb
+        .ref('users/' + uid + '/user')
         .push({
           weight: this.state.weight,
           oneRepMax: this.state.oneRepMax,
           fullName: this.state.fullName,
           date: date
         })
-        .then(() => {
-          this.props.history.push("/GoalsUpdate");
-        });
+  
+        firebaseDb
+        .ref('users/' + uid + '/calendar/')
+        .push({
+          selectedDay: this.props.state.fetchCalendar.calendar.selectedDay,
+          selectedWeekday: this.props.state.fetchCalendar.calendar.selectedWeekday,
+          selectedExercise: this.props.state.fetchCalendar.calendar.selectedExercise,
+          benchTemplate: Bench,
+          deadliftTemplate: Deadlift,
+          squatTemplate: Squat,
+          ohpTemplate: Overhead,
+          date: date
+        }).then(
+          alert("Stats Updated")
+        )
+          
+        }else if (window.location.pathname === '/SetProfile') {
+        const date = Date();
+        firebaseDb
+          .ref('users/' + uid + '/user')
+          .push({
+            weight: this.state.weight,
+            oneRepMax: this.state.oneRepMax,
+            fullName: this.state.fullName,
+            date: date
+          }).then(() => {
+              this.props.history.push('/GoalsUpdate');  
+          });
+          this.props.oneRep(Bench, Overhead, Deadlift, Squat)
+      }
     }
-    this.props.oneRep(Bench, Overhead, Deadlift, Squat);
-  };
+  }
+
 
   render() {
     if (this.props.state.OneRep.calculatedMax) {
@@ -166,91 +195,81 @@ class SetProfile extends Component {
                 <label className="textinput">Current Weight (lbs)</label>
               </div>
               <br />
-              <Calculator />
-              <button type="submit" className="btn started">
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={event => this.calculatorButton(event)}
+              >
+                <span className="md-" /> 1 Rep Max Calculator
+              </button>
+              <div id="one-rep-max">
+              <h4>What are your current one rep maxes?</h4>
+              <br />
+              <div className="group">
+                <input
+                  required
+                  type="number"
+                  min="1"
+                  ref="bench"
+                  onChange={event => this.handleOneRepMax(event)}
+                />
+                <span className="highlight" />
+                <span className="bar" />
+                <label className="textinput">Bench Press Weight</label>
+              </div>
+              <div className="group">
+                <input
+                  required
+                  type="number"
+                  min="1"
+                  ref="ohp"
+                  onChange={event => this.handleOneRepMax(event)}
+                />
+                <span className="highlight" />
+                <span className="bar" />
+                <label className="textinput">Overhead Press Weight</label>
+              </div>
+              <div className="group">
+                <input
+                  required
+                  type="number"
+                  min="1"
+                  ref="deadlift"
+                  onChange={event => this.handleOneRepMax(event)}
+                />
+                <span className="highlight" />
+                <span className="bar" />
+                <label className="textinput">Deadlift Weight</label>
+              </div>
+              <div className="group">
+                <input
+                  required
+                  type="number"
+                  min="1"
+                  ref="squat"
+                  onChange={event => this.handleOneRepMax(event)}
+                />
+                <span className="highlight" />
+                <span className="bar" />
+                <label className="textinput">Squat Weight</label>
+              </div>
+              <br />
+              </div>
+              <button type="submit" className="btn btn-primary">
                 <span className="md-thumb-up" /> Get Started!
               </button>
             </form>
           </div>
-          <br />
-          <div className="currentweighttab">
-            <div className="group">
-              <input
-                required
-                type="number"
-                min="1"
-                onChange={event => this.handleWeight(event)}
-              />
-              <span className="highlight" />
-              <span className="bar" />
-              <label className="textinput">Current Weight (lbs)</label>
-            </div>
-          </div>
-          <br />
-          <button
-            type="button"
-            className="btn btn-primary"
-            onClick={event => this.calculatorButton(event)}
-          >
-            <span className="md-" /> 1 Rep Max Calculator
-          </button>
-          <div id="one-rep-max">
-            <h4>What are your current one rep maxes?</h4>
-            <br />
-            <div className="group">
-              <input
-                required
-                type="number"
-                min="1"
-                ref="bench"
-                onChange={event => this.handleOneRepMax(event)}
-              />
-              <span className="highlight" />
-              <span className="bar" />
-              <label className="textinput">Bench Press Weight</label>
-            </div>
-            <div className="group">
-              <input
-                required
-                type="number"
-                min="1"
-                ref="ohp"
-                onChange={event => this.handleOneRepMax(event)}
-              />
-              <span className="highlight" />
-              <span className="bar" />
-              <label className="textinput">Overhead Press Weight</label>
-            </div>
-            <div className="group">
-              <input
-                required
-                type="number"
-                min="1"
-                ref="deadlift"
-                onChange={event => this.handleOneRepMax(event)}
-              />
-              <span className="highlight" />
-              <span className="bar" />
-              <label className="textinput">Deadlift Weight</label>
-            </div>
-            <div className="group">
-              <input
-                required
-                type="number"
-                min="1"
-                ref="squat"
-                onChange={event => this.handleOneRepMax(event)}
-              />
-              <span className="highlight" />
-              <span className="bar" />
-              <label className="textinput">Squat Weight</label>
-            </div>
-            <br />
-          </div>
-          <button type="submit" className="btn btn-primary">
-            <span className="md-thumb-up" /> Get Started!
-          </button>
         </div>
+        <Popup
+          className="mm-popup"
+          btnClass="mm-popup__btn"
+          closeBtn={true}
+          closeHtml={null}
+          defaultOk="Close"
+          defaultCancel="Cancel"
+          wildClasses={false}
+        />
       </div>
     );
   }

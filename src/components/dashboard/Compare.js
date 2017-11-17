@@ -24,10 +24,10 @@ class Compare extends Component {
           thisUser: thisUser
         });
 
-        this.props.fetchProfileImage(thisUser.uid);
-        this.props.fetchProgress(thisUser);
-        this.props.fetchUser(thisUser);
-        this.props.loggedIn();
+        // this.props.fetchProfileImage(thisUser.uid);
+        // this.props.fetchProgress(thisUser);
+        // this.props.fetchUser(thisUser);
+        // this.props.loggedIn();
       }
     });
   }

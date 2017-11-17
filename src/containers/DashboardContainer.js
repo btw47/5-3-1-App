@@ -37,16 +37,16 @@ class DashboardContainer extends Component {
             uploadList.push(prop);
           }
 
-          if (uploadList.length === 0) {
-            this.props.history.push('/SetProfile');
-          } else {
-            this.props.fetchCalendar(thisUser);
-            this.props.fetchProfileImage(thisUser.uid);
-            this.props.fetchUser(thisUser);
-            this.props.fetchOldStats(thisUser);
-            this.props.fetchProgress(thisUser);
-            this.props.loggedIn();
-          }
+          // if (uploadList.length === 0) {
+          //   this.props.history.push('/SetProfile');
+          // } else {
+          //   this.props.fetchCalendar(thisUser);
+          //   this.props.fetchProfileImage(thisUser.uid);
+          //   this.props.fetchUser(thisUser);
+          //   this.props.fetchOldStats(thisUser);
+          //   this.props.fetchProgress(thisUser);
+          //   this.props.loggedIn();
+          // }
         });
       }
     });

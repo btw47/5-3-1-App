@@ -63,7 +63,7 @@ class GoalUpdate extends Component {
       const date = Date();
       console.log("SET STATE", this.state);
       const currentLocation = window.location.href;
-      if (this.props.state.OneRep.Bench) {
+      if (window.location.pathname === '/GoalsUpdate') {
         firebaseDb
           .ref("users/" + uid + "/calendar/")
           .push({
@@ -75,27 +75,29 @@ class GoalUpdate extends Component {
             squatTemplate: this.props.state.OneRep.Squat,
             ohpTemplate: this.props.state.OneRep.Overhead,
             date: date
-          })
-          .then(() => {
-            if (currentLocation) {
-              this.props.history.push("/Dashboard");
-            } else {
-              Popup.alert("Your workout has been updated");
-            }
-          });
-      } else {
+        })
+        .then( 
+          () => {if(window.location.pathname === '/GoalsUpdate'){
+            this.props.history.push('/Dashboard')
+          }else {
+            Popup.alert("Your workout has been updated")
+          }}           
+        )
+      } else if(window.location.pathname === '/Dashboard') {
         firebaseDb
           .ref("users/" + uid + "/calendar/")
           .push({
             selectedDay: this.state.selectedDay,
             selectedWeekday: this.state.selectedWeekday,
             selectedExercise: this.state.selectedExercise,
+            benchTemplate: this.props.state.fetchCalendar.calendar.benchTemplate,
+            deadliftTemplate: this.props.state.fetchCalendar.calendar.deadliftTemplate,
+            squatTemplate: this.props.state.fetchCalendar.calendar.squatTemplate,
+            ohpTemplate: this.props.state.fetchCalendar.calendar.ohpTemplate,
             date: date
           })
           .then(() => {
-            if (currentLocation) {
-              this.props.history.push("/Dashboard");
-            } else {
+            if (window.location.pathname === '/Dashboard') {
               Popup.alert("Your workout has been updated");
             }
           });
@@ -125,7 +127,7 @@ class GoalUpdate extends Component {
       <div className="goalUpdate">
         <h2 className="h2">Update goals below fam!</h2>
         <UserDescription />
-        <form ref="goalUpdateForm" onSubmit={event => this.handleSubmit(event)}>
+        <form ref="goalUpdateForm">
           {/* <h4>What is your overall fitness goal?</h4>
           <input type="text" placeholder="insert your goals here" /> */}
           <br />
@@ -347,7 +349,7 @@ function that updates the state of our buttons */}
             </div>
           </div>
           <br />
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary" onClick={event => this.handleSubmit(event)}>
             <span className="md-" /> Submit My Goals
           </button>
         </form>

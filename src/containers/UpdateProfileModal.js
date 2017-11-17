@@ -3,7 +3,7 @@ import {
   Button,
   Modal,
 } from 'react-bootstrap';
-import UpdateProfile from '../components/UpdateProfile';
+import SetProfile from './SetProfile';
 
 class UpdateProfileModal extends Component {
   constructor(props) {
@@ -45,7 +45,7 @@ class UpdateProfileModal extends Component {
             <Modal.Title>Update your profile</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <UpdateProfile />
+            <SetProfile />
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.close}>Close</Button>
