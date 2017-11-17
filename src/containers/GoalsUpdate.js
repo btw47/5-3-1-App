@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actions from "../actions";
 import { Checkbox, CheckboxGroup } from "react-checkbox-group";
-import { NavLink } from "react-router-dom";
 import { firebaseDb } from "../server/firebase";
 import firebase from "firebase";
 import Popup from "react-popup";
@@ -17,7 +16,7 @@ class GoalUpdate extends Component {
       if (!user) {
         this.props.history.push("/");
       } else if (user) {
-        const thisUser = firebase.auth().currentUser;
+        // const thisUser = firebase.auth().currentUser;
 
         this.props.loggedIn();
       }

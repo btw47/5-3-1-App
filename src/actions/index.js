@@ -1,4 +1,3 @@
-import React from 'react';
 import { firebaseApp, firebaseDb } from '../server/firebase';
 import actionTypes from '../actionTypes';
 
@@ -150,7 +149,7 @@ export function fetchCalendar(thisUser) {
       const benchTemplate = lastUpload.benchTemplate;
       const deadliftTemplate = lastUpload.deadliftTemplate;
       const ohpTemplate = lastUpload.ohpTemplate;
-      const squatTemplate =  lastUpload.squatTemplate;
+      const squatTemplate = lastUpload.squatTemplate;
 
       dispatch({
         date: date,
@@ -269,7 +268,7 @@ export const fetchProgress = thisUser => {
       const uploadList = [];
       for (let i = 0; i < pushList.length; i++) {
         if (firebaseOutput[pushList[i]].weight) {
-          const date = firebaseOutput[pushList[i]].date;
+          // const date = firebaseOutput[pushList[i]].date;
           // uploadList[date] = firebaseOutput[pushList[i]].oneRepMax;
           uploadList.push(firebaseOutput[pushList[i]]);
         }

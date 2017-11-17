@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import firebase from "firebase";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { NavLink } from "react-router-dom";
-import { Row, Col, Pager } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import "../../css/Dashboard.css";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import WeekCalendar from "../calendar";
@@ -57,7 +56,7 @@ class Dashboard extends Component {
 
   render() {
     const { state } = this.props;
-    const thisUser = firebase.auth().currentUser;
+    // const thisUser = firebase.auth().currentUser;
 
     return (
       <div className="textlayout">

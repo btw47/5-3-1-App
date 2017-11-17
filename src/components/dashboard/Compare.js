@@ -4,9 +4,6 @@ import { Col, Row, Jumbotron } from 'react-bootstrap';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { NavLink } from 'react-router-dom';
-
-import UserStats from '../UserStats';
 import profilePicture from '../../images/anon-user.jpg';
 import * as actions from '../../actions';
 
@@ -71,6 +68,7 @@ class Compare extends Component {
           <img
             src={this.props.state.user.profileImage}
             style={{ width: '12vw' }}
+            alt=""
           />
         </div>
       );

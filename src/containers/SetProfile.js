@@ -184,7 +184,6 @@ class SetProfile extends Component {
                   className="inputtext"
                   required
                   type="number"
-                  required
                   min="1"
                   onChange={event => this.handleWeight(event)}
                 />

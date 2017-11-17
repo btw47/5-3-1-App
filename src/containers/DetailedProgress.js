@@ -5,8 +5,6 @@ import {
   Jumbotron,
   Tabs,
   Tab,
-  Nav,
-  NavItem,
   Glyphicon
 } from "react-bootstrap";
 import firebase from "firebase";
@@ -35,7 +33,7 @@ class ProgressGraph extends Component {
   }
 
   render() {
-    const formatter = value => `${value} lbs`;
+    // const formatter = value => `${value} lbs`;
     const {
       ormBench,
       ormDeadlift,
