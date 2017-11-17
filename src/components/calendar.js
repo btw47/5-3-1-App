@@ -29,12 +29,9 @@ class Dnd extends React.Component {
 
   render() {
     const { state } = this.props;
-    console.log('THIS STATE', this.state);
-    console.log('THIS PROPS', this.props);
-    let userEvents = [null];
+    let userEvents;
     if (state.fetchCalendar.calendar) {
       if (state.fetchCalendar.calendar.selectedWeekday) {
-        console.log('IF WORKING BITCH');
         var day1;
         var day2;
         var day3;
@@ -230,7 +227,6 @@ class Dnd extends React.Component {
     if (state.fetchCalendar.calendar) {
       if (state.fetchCalendar.calendar.selectedExercise === 'boringButBig') {
         if (state.fetchCalendar.calendar.selectedDay === '4days') {
-          console.log('COME ON BITCH', benchW1D0);
           userEvents = BBB4days({
             day1, day2, day3, day4,
             benchW1D0, benchW1D1, benchW1D2,
@@ -290,81 +286,80 @@ class Dnd extends React.Component {
             squatW3D0, squatW3D1, squatW3D2,
             squatW4D0, squatW4D1, squatW4D2,
           });
-        } else {
-          userEvents = [];
         }
       }
     }
     if (state.fetchCalendar.calendar) {
+        console.log("I KNOW THIS WORKS")
       if (state.fetchCalendar.calendar.selectedExercise === 'jackShit') {
-        if (state.fetchCalendar.calendar.selectedDay === '4days') {
-          console.log('COME ON BITCH', benchW1D0);
-          userEvents = jackShit4Days({
-            day1, day2, day3, day4,
-            benchW1D0, benchW1D1, benchW1D2,
-            benchW2D0, benchW2D1, benchW2D2,
-            benchW3D0, benchW3D1, benchW3D2,
-            benchW4D0, benchW4D1, benchW4D2,
-            deadliftW1D0, deadliftW1D1, deadliftW1D2,
-            deadliftW2D0, deadliftW2D1, deadliftW2D2,
-            deadliftW3D0, deadliftW3D1, deadliftW3D2,
-            deadliftW4D0, deadliftW4D1, deadliftW4D2,
-            ohpW1D0, ohpW1D1, ohpW1D2,
-            ohpW2D0, ohpW2D1, ohpW2D2,
-            ohpW3D0, ohpW3D1, ohpW3D2,
-            ohpW4D0, ohpW4D1, ohpW4D2,
-            squatW1D0, squatW1D1, squatW1D2,
-            squatW2D0, squatW2D1, squatW2D2,
-            squatW3D0, squatW3D1, squatW3D2,
-            squatW4D0, squatW4D1, squatW4D2,
-          });
+        console.log("JACKSHIT")
+          if (state.fetchCalendar.calendar.selectedDay === '4days') {
+            userEvents = jackShit4Days({
+              day1, day2, day3, day4,
+              benchW1D0, benchW1D1, benchW1D2,
+              benchW2D0, benchW2D1, benchW2D2,
+              benchW3D0, benchW3D1, benchW3D2,
+              benchW4D0, benchW4D1, benchW4D2,
+              deadliftW1D0, deadliftW1D1, deadliftW1D2,
+              deadliftW2D0, deadliftW2D1, deadliftW2D2,
+              deadliftW3D0, deadliftW3D1, deadliftW3D2,
+              deadliftW4D0, deadliftW4D1, deadliftW4D2,
+              ohpW1D0, ohpW1D1, ohpW1D2,
+              ohpW2D0, ohpW2D1, ohpW2D2,
+              ohpW3D0, ohpW3D1, ohpW3D2,
+              ohpW4D0, ohpW4D1, ohpW4D2,
+              squatW1D0, squatW1D1, squatW1D2,
+              squatW2D0, squatW2D1, squatW2D2,
+              squatW3D0, squatW3D1, squatW3D2,
+              squatW4D0, squatW4D1, squatW4D2,
+            });
         } else if (state.fetchCalendar.calendar.selectedDay === '3days') {
-          userEvents = jackShit3Days({
-            day1, day2, day3,
-            benchW1D0, benchW1D1, benchW1D2,
-            benchW2D0, benchW2D1, benchW2D2,
-            benchW3D0, benchW3D1, benchW3D2,
-            benchW4D0, benchW4D1, benchW4D2,
-            deadliftW1D0, deadliftW1D1, deadliftW1D2,
-            deadliftW2D0, deadliftW2D1, deadliftW2D2,
-            deadliftW3D0, deadliftW3D1, deadliftW3D2,
-            deadliftW4D0, deadliftW4D1, deadliftW4D2,
-            ohpW1D0, ohpW1D1, ohpW1D2,
-            ohpW2D0, ohpW2D1, ohpW2D2,
-            ohpW3D0, ohpW3D1, ohpW3D2,
-            ohpW4D0, ohpW4D1, ohpW4D2,
-            squatW1D0, squatW1D1, squatW1D2,
-            squatW2D0, squatW2D1, squatW2D2,
-            squatW3D0, squatW3D1, squatW3D2,
-            squatW4D0, squatW4D1, squatW4D2,
-          });
-        } else if (state.fetchCalendar.calendar.selectedDay === '2days') {
-          userEvents = jackShit2Days({
-            day1, day2,
-            benchW1D0, benchW1D1, benchW1D2,
-            benchW2D0, benchW2D1, benchW2D2,
-            benchW3D0, benchW3D1, benchW3D2,
-            benchW4D0, benchW4D1, benchW4D2,
-            deadliftW1D0, deadliftW1D1, deadliftW1D2,
-            deadliftW2D0, deadliftW2D1, deadliftW2D2,
-            deadliftW3D0, deadliftW3D1, deadliftW3D2,
-            deadliftW4D0, deadliftW4D1, deadliftW4D2,
-            ohpW1D0, ohpW1D1, ohpW1D2,
-            ohpW2D0, ohpW2D1, ohpW2D2,
-            ohpW3D0, ohpW3D1, ohpW3D2,
-            ohpW4D0, ohpW4D1, ohpW4D2,
-            squatW1D0, squatW1D1, squatW1D2,
-            squatW2D0, squatW2D1, squatW2D2,
-            squatW3D0, squatW3D1, squatW3D2,
-            squatW4D0, squatW4D1, squatW4D2,
-          });
-        } else {
-          userEvents = [];
+            userEvents = jackShit3Days({
+              day1, day2, day3,
+              benchW1D0, benchW1D1, benchW1D2,
+              benchW2D0, benchW2D1, benchW2D2,
+              benchW3D0, benchW3D1, benchW3D2,
+              benchW4D0, benchW4D1, benchW4D2,
+              deadliftW1D0, deadliftW1D1, deadliftW1D2,
+              deadliftW2D0, deadliftW2D1, deadliftW2D2,
+              deadliftW3D0, deadliftW3D1, deadliftW3D2,
+              deadliftW4D0, deadliftW4D1, deadliftW4D2,
+              ohpW1D0, ohpW1D1, ohpW1D2,
+              ohpW2D0, ohpW2D1, ohpW2D2,
+              ohpW3D0, ohpW3D1, ohpW3D2,
+              ohpW4D0, ohpW4D1, ohpW4D2,
+              squatW1D0, squatW1D1, squatW1D2,
+              squatW2D0, squatW2D1, squatW2D2,
+              squatW3D0, squatW3D1, squatW3D2,
+              squatW4D0, squatW4D1, squatW4D2,
+            });
+          } else if (state.fetchCalendar.calendar.selectedDay === '2days') {
+            userEvents = jackShit2Days({
+              day1, day2,
+              benchW1D0, benchW1D1, benchW1D2,
+              benchW2D0, benchW2D1, benchW2D2,
+              benchW3D0, benchW3D1, benchW3D2,
+              benchW4D0, benchW4D1, benchW4D2,
+              deadliftW1D0, deadliftW1D1, deadliftW1D2,
+              deadliftW2D0, deadliftW2D1, deadliftW2D2,
+              deadliftW3D0, deadliftW3D1, deadliftW3D2,
+              deadliftW4D0, deadliftW4D1, deadliftW4D2,
+              ohpW1D0, ohpW1D1, ohpW1D2,
+              ohpW2D0, ohpW2D1, ohpW2D2,
+              ohpW3D0, ohpW3D1, ohpW3D2,
+              ohpW4D0, ohpW4D1, ohpW4D2,
+              squatW1D0, squatW1D1, squatW1D2,
+              squatW2D0, squatW2D1, squatW2D2,
+              squatW3D0, squatW3D1, squatW3D2,
+              squatW4D0, squatW4D1, squatW4D2,
+            });
+          } else {
+            userEvents = [];
+          }
         }
       }
-    }
 
-    console.log('SELECTED DAYS', day1, day2, day3, day4);
+    console.log('Fucking userEvents', userEvents);
 
     return (
       <div>

@@ -1,6 +1,7 @@
 import moment from 'moment';
 
 //jackShit4Days needs to be fixed so that it renders 2 workouts per day
+moment().format("YYYY, MMMM, dddd")
 
 function jackShit4Days(props) {
     return [

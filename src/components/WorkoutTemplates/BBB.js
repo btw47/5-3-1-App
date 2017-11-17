@@ -1,5 +1,7 @@
 import moment from 'moment';
 
+moment().format("YYYY, MMMM, dddd")
+
 function BBB4days(props) {
   return [
     {
@@ -343,6 +345,7 @@ function BBB4days(props) {
 
 function BBB3days(props){
   return [
+    //-------------------------------------------Week 1------------------------------->
     {
       title: 'DeadLift',
       allDay: true,
@@ -351,18 +354,11 @@ function BBB3days(props){
       desc: "Weight/Reps: " + props.deadliftW1D0 + ", " + props.deadliftW1D1 + ", " + props.deadliftW1D2
     },
     {
-      title: 'Bench',
+      title: 'Deadlift Repeated',
       allDay: true,
       start: moment().weekday(props.day1),
       end: moment().weekday(props.day1),
-      desc: "Do Work"
-    },
-    {
-      title: 'Overhead Press',
-      allDay: true,
-      start: moment().weekday(props.day1),
-      end: moment().weekday(props.day1),
-      desc: "Do Work"
+      desc: "Weight/Reps: " + props.deadliftW1D0 + ", " + props.deadliftW1D1 + ", " + props.deadliftW1D2
     },
     {
       title: '3x5',
@@ -376,394 +372,320 @@ function BBB3days(props){
       allDay: true,
       start: moment().weekday(props.day2),
       end: moment().weekday(props.day2),
-      desc: "Do Work"
+      desc: "Weight/Reps: " + props.ohpW1D0 + ", " + props.ohpW1D1 + ", " + props.ohpW1D2
     },
     {
-      title: 'DeadLift 3x5',
+      title: 'Overhead Press Repeated',
       allDay: true,
       start: moment().weekday(props.day2),
       end: moment().weekday(props.day2),
-      desc: "Do Work"
-    },
-    {
-      title: 'Bench 3x5',
-      allDay: true,
-      start: moment().weekday(props.day2),
-      end: moment().weekday(props.day2),
-      desc: "Do Work"
+      desc: "Weight/Reps: " + props.ohpW1D0 + ", " + props.ohpW1D1 + ", " + props.ohpW1D2
     },
     {
       title: '3x5',
       allDay: true,
       start: moment().weekday(props.day2),
       end: moment().weekday(props.day2),
+      desc: "Do Work"
+    },
+    {
+      title: 'Squat',
+      allDay: true,
+      start: moment().weekday(props.day3),
+      end: moment().weekday(props.day3),
+      desc: "Weight/Reps: " + props.squatW1D0 + ", " + props.squatW1D1 + ", " + props.squatW1D2
+    },
+    {
+      title: 'Squat Repeated',
+      allDay: true,
+      start: moment().weekday(props.day3),
+      end: moment().weekday(props.day3),
+      desc: "Weight/Reps: " + props.squatW1D0 + ", " + props.squatW1D1 + ", " + props.squatW1D2
+    },
+    {
+      title: '3x5',
+      allDay: true,
+      start: moment().weekday(props.day3),
+      end: moment().weekday(props.day3),
+      desc: "Do Work"
+    },
+    {
+      title: 'Bench',
+      allDay: true,
+      start: moment().weekday(props.day1 + 7),
+      end: moment().weekday(props.day1 + 7),
+      desc: "Weight/Reps: " + props.deadliftW1D0 + ", " + props.deadliftW1D1 + ", " + props.deadliftW1D2
+    },
+    {
+      title: 'Bench Repeated',
+      allDay: true,
+      start: moment().weekday(props.day1 + 7),
+      end: moment().weekday(props.day1 + 7),
+      desc: "Weight/Reps: " + props.deadliftW1D0 + ", " + props.deadliftW1D1 + ", " + props.deadliftW1D2
+    },
+    {
+      title: '3x5',
+      allDay: true,
+      start: moment().weekday(props.day1 + 7),
+      end: moment().weekday(props.day1 + 7),
+      desc: "Do Work"
+    },
+    //------------------------------------------------------Week2-------------------------------------->
+    {
+      title: 'DeadLift',
+      allDay: true,
+      start: moment().weekday(props.day2 + 7),
+      end: moment().weekday(props.day2 + 7),
+      desc: "Weight/Reps: " + props.deadliftW1D0 + ", " + props.deadliftW1D1 + ", " + props.deadliftW1D2
+    },
+    {
+      title: 'Deadlift Repeated',
+      allDay: true,
+      start: moment().weekday(props.day2 + 7),
+      end: moment().weekday(props.day2 + 7),
+      desc: "Weight/Reps: " + props.deadliftW1D0 + ", " + props.deadliftW1D1 + ", " + props.deadliftW1D2
+    },
+    {
+      title: '3x5',
+      allDay: true,
+      start: moment().weekday(props.day2 + 7),
+      end: moment().weekday(props.day2 + 7),
       desc: "Do Work"
     },
     {
       title: 'Overhead Press',
       allDay: true,
-      start: moment().weekday(props.day3),
-      end: moment().weekday(props.day3),
-      desc: "Do Work"
+      start: moment().weekday(props.day3 + 7),
+      end: moment().weekday(props.day3 + 7),
+      desc: "Weight/Reps: " + props.ohpW1D0 + ", " + props.ohpW1D1 + ", " + props.ohpW1D2
     },
     {
-      title: 'DeadLift 3x5',
+      title: 'Overhead Press Repeated',
       allDay: true,
-      start: moment().weekday(props.day3),
-      end: moment().weekday(props.day3),
-      desc: "Do Work"
-    },
-    {
-      title: 'Bench 3x5',
-      allDay: true,
-      start: moment().weekday(props.day3),
-      end: moment().weekday(props.day3),
-      desc: "Do Work"
+      start: moment().weekday(props.day3 + 7),
+      end: moment().weekday(props.day3 + 7),
+      desc: "Weight/Reps: " + props.ohpW1D0 + ", " + props.ohpW1D1 + ", " + props.ohpW1D2
     },
     {
       title: '3x5',
       allDay: true,
-      start: moment().weekday(props.day3),
-      end: moment().weekday(props.day3),
+      start: moment().weekday(props.day3 + 7),
+      end: moment().weekday(props.day3 + 7),
       desc: "Do Work"
     },
     {
       title: 'Squat',
       allDay: true,
-      start: moment().weekday(props.day1 + 7),
-      end: moment().weekday(props.day1 + 7),
-      desc: "Weight/Reps: " + props.squatW2D0 + ", " + props.squatW2D1 + ", " + props.squatW2D2
+      start: moment().weekday(props.day1 + 14),
+      end: moment().weekday(props.day1 + 14),
+      desc: "Weight/Reps: " + props.squatW1D0 + ", " + props.squatW1D1 + ", " + props.squatW1D2
     },
     {
-      title: 'Overhead Press 3x5',
+      title: 'Squat Repeated',
       allDay: true,
-      start: moment().weekday(props.day1 + 7),
-      end: moment().weekday(props.day1 + 7),
+      start: moment().weekday(props.day1 + 14),
+      end: moment().weekday(props.day1 + 14),
+      desc: "Weight/Reps: " + props.squatW1D0 + ", " + props.squatW1D1 + ", " + props.squatW1D2
+    },
+    {
+      title: '3x5',
+      allDay: true,
+      start: moment().weekday(props.day1 + 14),
+      end: moment().weekday(props.day1 + 14),
+      desc: "Do Work"
+    },
+    //------------------------------------------------------------Week 3----------------------------------------->
+    {
+      title: 'Bench',
+      allDay: true,
+      start: moment().weekday(props.day2 + 14),
+      end: moment().weekday(props.day2 + 14),
+      desc: "Weight/Reps: " + props.squatW1D0 + ", " + props.squatW1D1 + ", " + props.squatW1D2
+    },
+    {
+      title: 'Bench Repeated',
+      allDay: true,
+      start: moment().weekday(props.day2 + 14),
+      end: moment().weekday(props.day2 + 14),
+      desc: "Weight/Reps: " + props.squatW1D0 + ", " + props.squatW1D1 + ", " + props.squatW1D2
+    },
+    {
+      title: '3x5',
+      allDay: true,
+      start: moment().weekday(props.day2 + 14),
+      end: moment().weekday(props.day2 + 14),
       desc: "Do Work"
     },
     {
-      title: 'Deadlift 3x3',
+      title: 'Deadlift',
       allDay: true,
-      start: moment().weekday(props.day1 + 7),
-      end: moment().weekday(props.day1 + 7),
+      start: moment().weekday(props.day3 + 14),
+      end: moment().weekday(props.day3 + 14),
+      desc: "Weight/Reps: " + props.deadliftW1D0 + ", " + props.deadliftW1D1 + ", " + props.deadliftW1D2
+    },
+    {
+      title: 'Deadlift Repeated',
+      allDay: true,
+      start: moment().weekday(props.day3 + 14),
+      end: moment().weekday(props.day3 + 14),
+      desc: "Weight/Reps: " + props.deadliftW1D0 + ", " + props.deadliftW1D1 + ", " + props.deadliftW1D2
+    },
+    {
+      title: '3x5',
+      allDay: true,
+      start: moment().weekday(props.day3 + 14),
+      end: moment().weekday(props.day3 + 14),
       desc: "Do Work"
     },
     {
-      title: '3x3',
+      title: 'Overhead Press',
       allDay: true,
-      start: moment().weekday(props.day1 + 7),
-      end: moment().weekday(props.day1 + 7),
+      start: moment().weekday(props.day1 + 21),
+      end: moment().weekday(props.day1 + 21),
+      desc: "Weight/Reps: " + props.squatW1D0 + ", " + props.squatW1D1 + ", " + props.squatW1D2
+    },
+    {
+      title: 'Overhead Press Repeated',
+      allDay: true,
+      start: moment().weekday(props.day1 + 21),
+      end: moment().weekday(props.day1 + 21),
+      desc: "Weight/Reps: " + props.squatW1D0 + ", " + props.squatW1D1 + ", " + props.squatW1D2
+    },
+    {
+      title: '3x5',
+      allDay: true,
+      start: moment().weekday(props.day1 + 21),
+      end: moment().weekday(props.day1 + 21),
+      desc: "Do Work"
+    },
+    //------------------------------------------------------------------Week 4----------------------------------->
+    {
+      title: 'Squat',
+      allDay: true,
+      start: moment().weekday(props.day2 + 21),
+      end: moment().weekday(props.day2 + 21),
+      desc: "Weight/Reps: " + props.squatW1D0 + ", " + props.squatW1D1 + ", " + props.squatW1D2
+    },
+    {
+      title: 'Squat Repeated',
+      allDay: true,
+      start: moment().weekday(props.day2 + 21),
+      end: moment().weekday(props.day2 + 21),
+      desc: "Weight/Reps: " + props.squatW1D0 + ", " + props.squatW1D1 + ", " + props.squatW1D2
+    },
+    {
+      title: '3x5',
+      allDay: true,
+      start: moment().weekday(props.day2 + 21),
+      end: moment().weekday(props.day2 + 21),
+      desc: "Do Work"
+    },
+    {
+      title: 'Bench',
+      allDay: true,
+      start: moment().weekday(props.day3 + 21),
+      end: moment().weekday(props.day3 + 21),
+      desc: "Weight/Reps: " + props.squatW1D0 + ", " + props.squatW1D1 + ", " + props.squatW1D2
+    },
+    {
+      title: 'Bench Repeated',
+      allDay: true,
+      start: moment().weekday(props.day3 + 21),
+      end: moment().weekday(props.day3 + 21),
+      desc: "Weight/Reps: " + props.squatW1D0 + ", " + props.squatW1D1 + ", " + props.squatW1D2
+    },
+    {
+      title: '3x5',
+      allDay: true,
+      start: moment().weekday(props.day3 + 21),
+      end: moment().weekday(props.day3 + 21),
+      desc: "Do Work"
+    },
+    {
+      title: 'DeadLift',
+      allDay: true,
+      start: moment().weekday(props.day1 + 28),
+      end: moment().weekday(props.day1 + 28),
+      desc: "Weight/Reps: " + props.deadliftW1D0 + ", " + props.deadliftW1D1 + ", " + props.deadliftW1D2
+    },
+    {
+      title: 'Deadlift Repeated',
+      allDay: true,
+      start: moment().weekday(props.day1 + 28),
+      end: moment().weekday(props.day1 + 28),
+      desc: "Weight/Reps: " + props.deadliftW1D0 + ", " + props.deadliftW1D1 + ", " + props.deadliftW1D2
+    },
+    {
+      title: '3x5',
+      allDay: true,
+      start: moment().weekday(props.day1 + 28),
+      end: moment().weekday(props.day1 + 28),
+      desc: "Do Work"
+    },
+    //----------------------------------------------------------------Week 5-------------------------------------->
+    {
+      title: 'Overhead Press',
+      allDay: true,
+      start: moment().weekday(props.day2 + 28),
+      end: moment().weekday(props.day2 + 28),
+      desc: "Weight/Reps: " + props.ohpW1D0 + ", " + props.ohpW1D1 + ", " + props.ohpW1D2
+    },
+    {
+      title: 'Overhead Press Repeated',
+      allDay: true,
+      start: moment().weekday(props.day2 + 28),
+      end: moment().weekday(props.day2 + 28),
+      desc: "Weight/Reps: " + props.ohpW1D0 + ", " + props.ohpW1D1 + ", " + props.ohpW1D2
+    },
+    {
+      title: '3x5',
+      allDay: true,
+      start: moment().weekday(props.day2 + 28),
+      end: moment().weekday(props.day2 + 28),
       desc: "Do Work"
     },
     {
       title: 'Squat',
       allDay: true,
-      start: moment().weekday(props.day2 + 7),
-      end: moment().weekday(props.day2 + 7),
-      desc: "Do Work"
+      start: moment().weekday(props.day3 + 28),
+      end: moment().weekday(props.day3 + 28),
+      desc: "Weight/Reps: " + props.squatW1D0 + ", " + props.squatW1D1 + ", " + props.squatW1D2
     },
     {
-      title: 'Overhead Press 3x5',
+      title: 'Squat Repeated',
       allDay: true,
-      start: moment().weekday(props.day2 + 7),
-      end: moment().weekday(props.day2 + 7),
-      desc: "Do Work"
+      start: moment().weekday(props.day3 + 28),
+      end: moment().weekday(props.day3 + 28),
+      desc: "Weight/Reps: " + props.squatW1D0 + ", " + props.squatW1D1 + ", " + props.squatW1D2
     },
     {
-      title: 'Deadlift 3x3',
+      title: '3x5',
       allDay: true,
-      start: moment().weekday(props.day2 + 7),
-      end: moment().weekday(props.day2 + 7),
-      desc: "Do Work"
-    },
-    {
-      title: '3x3',
-      allDay: true,
-      start: moment().weekday(props.day2 + 7),
-      end: moment().weekday(props.day2 + 7),
-      desc: "Do Work"
-    },
-    {
-      title: 'Squat',
-      allDay: true,
-      start: moment().weekday(props.day3 + 7),
-      end: moment().weekday(props.day3 + 7),
-      desc: "Do Work"
-    },
-    {
-      title: 'Overhead Press 3x5',
-      allDay: true,
-      start: moment().weekday(props.day3 + 7),
-      end: moment().weekday(props.day3 + 7),
-      desc: "Do Work"
-    },
-    {
-      title: 'Deadlift 3x3',
-      allDay: true,
-      start: moment().weekday(props.day3 + 7),
-      end: moment().weekday(props.day3 + 7),
-      desc: "Do Work"
-    },
-    {
-      title: '3x3',
-      allDay: true,
-      start: moment().weekday(props.day3 + 7),
-      end: moment().weekday(props.day3 + 7),
+      start: moment().weekday(props.day3 + 28),
+      end: moment().weekday(props.day3 + 28),
       desc: "Do Work"
     },
     {
       title: 'Bench',
       allDay: true,
-      start: moment().weekday(props.day1 + 14),
-      end: moment().weekday(props.day1 + 14),
-      desc: "Do Work"
+      start: moment().weekday(props.day1 + 35),
+      end: moment().weekday(props.day1 + 35),
+      desc: "Weight/Reps: " + props.squatW1D0 + ", " + props.squatW1D1 + ", " + props.squatW1D2
     },
     {
-      title: 'Squat 3x3',
+      title: 'Bench Repeated',
       allDay: true,
-      start: moment().weekday(props.day1 + 14),
-      end: moment().weekday(props.day1 + 14),
-      desc: "Do Work"
+      start: moment().weekday(props.day1 + 35),
+      end: moment().weekday(props.day1 + 35),
+      desc: "Weight/Reps: " + props.squatW1D0 + ", " + props.squatW1D1 + ", " + props.squatW1D2
     },
     {
-      title: 'Overhead Press 3x3',
+      title: '3x5',
       allDay: true,
-      start: moment().weekday(props.day1 + 14),
-      end: moment().weekday(props.day1 + 14),
+      start: moment().weekday(props.day1 + 35),
+      end: moment().weekday(props.day1 + 35),
       desc: "Do Work"
     },
-    {
-      title: '5/3/1',
-      allDay: true,
-      start: moment().weekday(props.day1 + 14),
-      end: moment().weekday(props.day1 + 14),
-      desc: "Do Work"
-    },
-    {
-      title: 'Bench',
-      allDay: true,
-      start: moment().weekday(props.day2 + 14),
-      end: moment().weekday(props.day2 + 14),
-      desc: "Do Work"
-    },
-    {
-      title: 'Squat 3x3',
-      allDay: true,
-      start: moment().weekday(props.day2 + 14),
-      end: moment().weekday(props.day2 + 14),
-      desc: "Do Work"
-    },
-    {
-      title: 'Overhead Press 3x3',
-      allDay: true,
-      start: moment().weekday(props.day2 + 14),
-      end: moment().weekday(props.day2 + 14),
-      desc: "Do Work"
-    },
-    {
-      title: '5/3/1',
-      allDay: true,
-      start: moment().weekday(props.day2 + 14),
-      end: moment().weekday(props.day2 + 14),
-      desc: "Do Work"
-    },
-    {
-      title: 'Bench',
-      allDay: true,
-      start: moment().weekday(props.day3 + 14),
-      end: moment().weekday(props.day3 + 14),
-      desc: "Do Work"
-    },
-    {
-      title: 'Squat 3x3',
-      allDay: true,
-      start: moment().weekday(props.day3 + 14),
-      end: moment().weekday(props.day3 + 14),
-      desc: "Do Work"
-    },
-    {
-      title: 'Overhead Press 3x3',
-      allDay: true,
-      start: moment().weekday(props.day3 + 14),
-      end: moment().weekday(props.day3 + 14),
-      desc: "Do Work"
-    },
-    {
-      title: '5/3/1',
-      allDay: true,
-      start: moment().weekday(props.day3 + 14),
-      end: moment().weekday(props.day3 + 14),
-      desc: "Do Work"
-    },
-    {
-      title: 'Deadlift',
-      allDay: true,
-      start: moment().weekday(props.day1 + 21),
-      end: moment().weekday(props.day1 + 21),
-      desc: "Do Work"
-    },
-    {
-      title: '5/3/1 Bench',
-      allDay: true,
-      start: moment().weekday(props.day1 + 21),
-      end: moment().weekday(props.day1 + 21),
-      desc: "Do Work"
-    },
-    {
-      title: '5/3/1 Squat',
-      allDay: true,
-      start: moment().weekday(props.day1 + 21),
-      end: moment().weekday(props.day1 + 21),
-      desc: "Do Work"
-    },
-    {
-      title: '5/3/1',
-      allDay: true,
-      start: moment().weekday(props.day1 + 21),
-      end: moment().weekday(props.day1 + 21),
-      desc: "Do Work"
-    },
-    {
-      title: 'Deadlift',
-      allDay: true,
-      start: moment().weekday(props.day2 + 21),
-      end: moment().weekday(props.day2 + 21),
-      desc: "Do Work"
-    },
-    {
-      title: '5/3/1 Bench',
-      allDay: true,
-      start: moment().weekday(props.day2 + 21),
-      end: moment().weekday(props.day2 + 21),
-      desc: "Do Work"
-    },
-    {
-      title: '5/3/1 Squat',
-      allDay: true,
-      start: moment().weekday(props.day2 + 21),
-      end: moment().weekday(props.day2 + 21),
-      desc: "Do Work"
-    },
-    {
-      title: '5/3/1',
-      allDay: true,
-      start: moment().weekday(props.day2 + 21),
-      end: moment().weekday(props.day2 + 21),
-      desc: "Do Work"
-    },
-    {
-      title: 'Deadlift',
-      allDay: true,
-      start: moment().weekday(props.day3 + 21),
-      end: moment().weekday(props.day3 + 21),
-      desc: "Do Work"
-    },
-    {
-      title: '5/3/1 Bench',
-      allDay: true,
-      start: moment().weekday(props.day3 + 21),
-      end: moment().weekday(props.day3 + 21),
-      desc: "Do Work"
-    },
-    {
-      title: '5/3/1 Squat',
-      allDay: true,
-      start: moment().weekday(props.day3 + 21),
-      end: moment().weekday(props.day3 + 21),
-      desc: "Do Work"
-    },
-    {
-      title: '5/3/1',
-      allDay: true,
-      start: moment().weekday(props.day3 + 21),
-      end: moment().weekday(props.day3 + 21),
-      desc: "Do Work"
-    },
-    {
-      title: 'Overhead Press/Deadlift',
-      allDay: true,
-      start: moment().weekday(props.day1 + 28),
-      end: moment().weekday(props.day1 + 28),
-      desc: "Do Work"
-    },
-    {
-      title: 'Deload Bench',
-      allDay: true,
-      start: moment().weekday(props.day1 + 28),
-      end: moment().weekday(props.day1 + 28),
-      desc: "Do Work"
-    },
-    {
-      title: 'Deload Squat',
-      allDay: true,
-      start: moment().weekday(props.day1 + 28),
-      end: moment().weekday(props.day1 + 28),
-      desc: "Do Work"
-    },
-    {
-      title: 'Deload',
-      allDay: true,
-      start: moment().weekday(props.day1 + 28),
-      end: moment().weekday(props.day1 + 28),
-      desc: "Do Work"
-    },
-    {
-      title: 'Overhead Press/Deadlift',
-      allDay: true,
-      start: moment().weekday(props.day2 + 28),
-      end: moment().weekday(props.day2 + 28),
-      desc: "Do Work"
-    },
-    {
-      title: 'Deload Bench',
-      allDay: true,
-      start: moment().weekday(props.day2 + 28),
-      end: moment().weekday(props.day2 + 28),
-      desc: "Do Work"
-    },
-    {
-      title: 'Deload Squat',
-      allDay: true,
-      start: moment().weekday(props.day2 + 28),
-      end: moment().weekday(props.day2 + 28),
-      desc: "Do Work"
-    },
-    {
-      title: 'Deload',
-      allDay: true,
-      start: moment().weekday(props.day2 + 28),
-      end: moment().weekday(props.day2 + 28),
-      desc: "Do Work"
-    },
-    {
-      title: 'Overhead Press/Deadlift',
-      allDay: true,
-      start: moment().weekday(props.day3 + 28),
-      end: moment().weekday(props.day3 + 28),
-      desc: "Do Work"
-    },
-    {
-      title: 'Deload Bench',
-      allDay: true,
-      start: moment().weekday(props.day3 + 28),
-      end: moment().weekday(props.day3 + 28),
-      desc: "Do Work"
-    },
-    {
-      title: 'Deload Squat',
-      allDay: true,
-      start: moment().weekday(props.day3 + 28),
-      end: moment().weekday(props.day3 + 28),
-      desc: "Do Work"
-    },
-    {
-      title: 'Deload',
-      allDay: true,
-      start: moment().weekday(props.day3 + 28),
-      end: moment().weekday(props.day3 + 28),
-      desc: "Do Work"
-    },
-    
   ];
 }
 

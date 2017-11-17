@@ -31,7 +31,7 @@ class Admin extends Component {
         const thisUser = firebase.auth().currentUser;
         const uid = thisUser.uid;
 
-        this.props.fetchCalendar(thisUser);
+        // this.props.fetchCalendar(thisUser);
         this.props.fetchProfileImage(uid);
         this.props.fetchUser(thisUser);
         this.props.fetchOldStats(thisUser);

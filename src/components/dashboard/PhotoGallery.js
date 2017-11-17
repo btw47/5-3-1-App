@@ -17,13 +17,13 @@ class PhotoGallery extends Component {
         const thisUser = firebase.auth().currentUser;
         // const uid = thisUser.uid;
 
-        this.props.fetchCalendar(thisUser);
-        this.props.fetchUserImages(thisUser.uid);
-        this.props.fetchProfileImage(thisUser.uid);
-        this.props.fetchUser(thisUser);
-        this.props.fetchOldStats(thisUser);
-        this.props.fetchProgress(thisUser);
-        this.props.loggedIn();
+        // this.props.fetchCalendar(thisUser);
+        // this.props.fetchUserImages(thisUser.uid);
+        // this.props.fetchProfileImage(thisUser.uid);
+        // this.props.fetchUser(thisUser);
+        // this.props.fetchOldStats(thisUser);
+        // this.props.fetchProgress(thisUser);
+        // this.props.loggedIn();
       }
     });
   }

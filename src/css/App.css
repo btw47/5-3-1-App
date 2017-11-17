@@ -1,5 +1,5 @@
 .logo {
-  width: 550px;
+  width: 350px;
   height: auto;
   padding-top: 30px;
 }
@@ -113,8 +113,6 @@ body {
   display: inline-block;
   font-weight: 200px;
   padding-bottom: 30px;
-}
-.container3 {
   font-family: "Roboto";
   width: 600px;
   display: block;
@@ -653,3 +651,5 @@ input:focus ~ .highlight {
   background-color: black;
   color: white;
 }
+
+ 

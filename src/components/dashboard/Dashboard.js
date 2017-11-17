@@ -7,11 +7,13 @@ import "../../css/Dashboard.css";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import WeekCalendar from "../calendar";
 import UserStats from "../UserStats";
+import UpdateProfile from '../../containers/SetProfile';
 import UploadImage from "../UploadImage";
 import DashboardGraph from "../graphs/DashboardGraph";
 import { firebaseDb } from "../../server/firebase";
 import UpdateProfileModal from "../../containers/UpdateProfileModal";
 import * as actions from "../../actions";
+import Popup from 'react-popup'
 
 class Dashboard extends Component {
   componentWillMount() {
@@ -44,9 +46,38 @@ class Dashboard extends Component {
       }
     });
   }
+  // componentDidUpdate(){
+  //   firebase.auth().onAuthStateChanged(user => {
+  //     if (!user) {
+  //       this.props.history.push("/");
+  //     } else if (user) {
+  //       const thisUser = firebase.auth().currentUser;
+  //       const uid = thisUser.uid;
+
+  //       firebaseDb.ref("users/" + uid + "/user/").on("value", snapshot => {
+  //         const firebaseOutput = snapshot.val();
+
+  //         const uploadList = [];
+  //         for (let prop in firebaseOutput) {
+  //           uploadList.push(prop);
+  //         }
+
+  //         if (uploadList.length === 0) {
+  //           this.props.history.push("/SetProfile");
+  //         } else {
+  //           this.props.fetchCalendar(thisUser);
+  //         }
+  //       });
+  //     }
+  //   });
+  // }
   // changeWorkout = event => {
   //   this.props.history.push('/GoalsUpdate');
   // }
+
+  onStatsUpdate(event){
+    Popup.alert(<UpdateProfile/>, "Update Stats")
+  }
 
   render() {
     const { state } = this.props;
@@ -65,7 +96,13 @@ class Dashboard extends Component {
               profileImage={state.user.profileImage}
             />
             <div>
-              <UpdateProfileModal style={{ display: "inline-block" }} />
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={event => this.onStatsUpdate(event)}
+            >
+              <span className="lg-" /> Update Stats
+            </button>
               <UploadImage
                 fetchProfileImage={this.props.fetchProfileImage}
                 userId={state.user.uid}
@@ -89,6 +126,16 @@ class Dashboard extends Component {
             />
           </Col>
         </Row>
+        <Popup
+        className="mm-popup"
+        btnClass="mm-popup__btn"
+        closeBtn={true}
+        closeHtml={null}
+        defaultOk="Close"
+        style={{width: '5em'}}
+        defaultCancel="Cancel"
+        wildClasses={false}
+      />
       </div>
     );
   }
