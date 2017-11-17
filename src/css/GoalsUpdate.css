@@ -71,7 +71,10 @@
   font-family: Helvetica, Arial, sans-serif;
   transition: color 300ms;
   font-size: 1.2em;
-  color: black;
+}
+
+.checkBoxLabel.hover {
+  color: blue;
 }
 
 .clear {
