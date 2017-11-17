@@ -39,13 +39,13 @@ body {
   background-attachment: fixed;
   background-size: cover;
 }
-
+/* 
 div,
 body {
   margin: 0;
   padding: 0;
   font-family: exo, sans-serif;
-}
+} */
 .wrapper {
   height: 100%;
   width: 100%;
@@ -58,6 +58,46 @@ body {
   list-style-type: none;
 }
 
+* {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+ }
+ 
+navLink {
+  background: #f0f0f0;
+  display: inline;
+	color: #000;
+	font-family: ubuntu;
+	height: 70px;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+ }
+ 
+	nav > div {
+		background: inherit;
+		cursor: pointer;
+		display: inline-block;
+		float: left;
+		height: inherit;
+		line-height: 70px;
+		margin: 0;
+		padding: 0;
+		text-align: center;
+		width: 25%;
+	 }
+ 
+		nav > div:hover {
+			background: #D0D0D0;
+			border-bottom: 5px solid #545454;
+			border-left: 10px solid #939393;
+			border-right: 10px solid #939393;
+			border-top: 5px solid #545454;
+			line-height: 60px;
+			transition: .3s;
+		 }
 /*    FRONT CARD */
 .card {
   background-color: #a0a4b8;
@@ -92,19 +132,19 @@ body {
 .card3 {
   background-color: #a0a4b8;
   border: 5px solid black;
-  opacity: 0.8;
   box-shadow: rgba(0, 0, 0, 0.15);
   position: relative;
+  opacity: 1;
   transition: all 0.2s ease-in-out;
   align-items: center;
   justify-content: center;
   text-align: center;
   display: inline-block;
-  padding-bottom: 10px;
+  padding-left: 3em;
+  padding-right: 3em;
 }
 
 .container3 {
-  padding-left: 25px;
   position: relative;
   align-items: center;
   justify-content: center;
@@ -112,13 +152,9 @@ body {
   margin: auto;
   display: inline-block;
   font-weight: 200px;
-  padding-bottom: 30px;
   font-family: "Roboto";
-  width: 600px;
+  width: auto;
   display: block;
-  text-align: center;
-  align-items: center;
-  position: center;
 }
 
 .landingpage {
@@ -481,13 +517,17 @@ input:focus ~ .highlight {
   width: 300px;
   position: absolute;
   top: 10%;
-  left: 50%;
+  left: 30%;
   background: #f5f5f5;
   box-shadow: 0px 5px 20px 0px rgba(126, 137, 140, 0.2);
   border-radius: 5px;
   border: 1px solid #b8c8cc;
   overflow: hidden;
   z-index: 100;
+}
+
+.mm-popup:hover{
+  opacity: 10;
 }
 
 .mm-popup__box__header {

@@ -132,7 +132,6 @@ class Dashboard extends Component {
         closeBtn={true}
         closeHtml={null}
         defaultOk="Close"
-        style={{width: '5em'}}
         defaultCancel="Cancel"
         wildClasses={false}
       />

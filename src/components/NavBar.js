@@ -45,11 +45,12 @@ class NavBar extends Component {
             <img
               src={logo}
               className="logo2"
-              alt="logo"
+              alt=""
               style={{ width: "85px" }}
             />
           </div>
           <div className="collapse navbar-collapse" id="myNavbar">
+            <nav>
             <ul className="nav navbar-nav">
               <li className="nav1buttons">
                 <NavLink to="/" className="nav1buttons">
@@ -112,6 +113,7 @@ class NavBar extends Component {
                 </NavLink>
               </li>
             </ul>
+            </nav>
           </div>
         </div>
       </nav>

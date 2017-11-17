@@ -4,3 +4,16 @@
   margin: 0 auto;
   outline: 1px solid gray;
 }
+
+.mm-popup__box{
+  width: 50em;
+  justify-content: center;
+}
+
+.mm-popup{
+
+}
+
+.mm-popup.hover{
+  opacity: 10;
+}
