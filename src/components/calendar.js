@@ -29,12 +29,9 @@ class Dnd extends React.Component {
 
   render() {
     const { state } = this.props;
-    console.log('THIS STATE', this.state);
-    console.log('THIS PROPS', this.props);
-    let userEvents = [null];
+    let userEvents;
     if (state.fetchCalendar.calendar) {
       if (state.fetchCalendar.calendar.selectedWeekday) {
-        console.log('IF WORKING BITCH');
         var day1;
         var day2;
         var day3;
@@ -230,7 +227,6 @@ class Dnd extends React.Component {
     if (state.fetchCalendar.calendar) {
       if (state.fetchCalendar.calendar.selectedExercise === 'boringButBig') {
         if (state.fetchCalendar.calendar.selectedDay === '4days') {
-          console.log('COME ON BITCH', benchW1D0);
           userEvents = BBB4days({
             day1, day2, day3, day4,
             benchW1D0, benchW1D1, benchW1D2,
@@ -292,7 +288,11 @@ class Dnd extends React.Component {
           });
         }
       }
-      else if (state.fetchCalendar.calendar.selectedExercise === 'jackShit') {
+    }
+    if (state.fetchCalendar.calendar) {
+        console.log("I KNOW THIS WORKS")
+      if (state.fetchCalendar.calendar.selectedExercise === 'jackShit') {
+        console.log("JACKSHIT")
           if (state.fetchCalendar.calendar.selectedDay === '4days') {
             userEvents = jackShit4Days({
               day1, day2, day3, day4,
@@ -359,7 +359,7 @@ class Dnd extends React.Component {
         }
       }
 
-    console.log('SELECTED DAYS', day1, day2, day3, day4);
+    console.log('Fucking userEvents', userEvents);
 
     return (
       <div>

@@ -1,5 +1,7 @@
 import moment from 'moment';
 
+moment().format("YYYY, MMMM, dddd")
+
 function BBB4days(props) {
   return [
     {

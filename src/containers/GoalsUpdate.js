@@ -63,7 +63,7 @@ class GoalUpdate extends Component {
       const date = Date();
       console.log("SET STATE", this.state);
       const currentLocation = window.location.href;
-      if (this.props.state.OneRep.Bench) {
+      if (window.location.pathname === '/GoalsUpdate') {
         firebaseDb
           .ref("users/" + uid + "/calendar/")
           .push({
@@ -77,25 +77,27 @@ class GoalUpdate extends Component {
             date: date
         })
         .then( 
-          () => {if(currentLocation){
+          () => {if(window.location.pathname === '/GoalsUpdate'){
             this.props.history.push('/Dashboard')
           }else {
             Popup.alert("Your workout has been updated")
           }}           
         )
-      } else {
+      } else if(window.location.pathname === '/Dashboard') {
         firebaseDb
           .ref("users/" + uid + "/calendar/")
           .push({
             selectedDay: this.state.selectedDay,
             selectedWeekday: this.state.selectedWeekday,
             selectedExercise: this.state.selectedExercise,
+            benchTemplate: this.props.state.fetchCalendar.calendar.benchTemplate,
+            deadliftTemplate: this.props.state.fetchCalendar.calendar.deadliftTemplate,
+            squatTemplate: this.props.state.fetchCalendar.calendar.squatTemplate,
+            ohpTemplate: this.props.state.fetchCalendar.calendar.ohpTemplate,
             date: date
           })
           .then(() => {
-            if (currentLocation) {
-              this.props.history.push("/Dashboard");
-            } else {
+            if (window.location.pathname === '/Dashboard') {
               Popup.alert("Your workout has been updated");
             }
           });

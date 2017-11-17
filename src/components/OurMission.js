@@ -41,7 +41,7 @@ class OurMission extends Component {
                         lifting. Our app will calculate your 1 Rep Max, all we
                         need to know is what days you'd like to workout and
                         we'll develope your workout program for you. It's just
-                        that fucking easy. Now get to work and enjoy the 5/3/1
+                        that easy. Now get to work and enjoy the 5/3/1
                         gains.
                       </p>
                     </Fade>

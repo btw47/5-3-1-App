@@ -46,6 +46,31 @@ class Dashboard extends Component {
       }
     });
   }
+  // componentDidUpdate(){
+  //   firebase.auth().onAuthStateChanged(user => {
+  //     if (!user) {
+  //       this.props.history.push("/");
+  //     } else if (user) {
+  //       const thisUser = firebase.auth().currentUser;
+  //       const uid = thisUser.uid;
+
+  //       firebaseDb.ref("users/" + uid + "/user/").on("value", snapshot => {
+  //         const firebaseOutput = snapshot.val();
+
+  //         const uploadList = [];
+  //         for (let prop in firebaseOutput) {
+  //           uploadList.push(prop);
+  //         }
+
+  //         if (uploadList.length === 0) {
+  //           this.props.history.push("/SetProfile");
+  //         } else {
+  //           this.props.fetchCalendar(thisUser);
+  //         }
+  //       });
+  //     }
+  //   });
+  // }
   // changeWorkout = event => {
   //   this.props.history.push('/GoalsUpdate');
   // }
