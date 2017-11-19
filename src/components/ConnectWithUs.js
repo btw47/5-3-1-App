@@ -51,9 +51,9 @@ class ConnectWithUs extends Component {
                   <li className="aboutus">
                     <div>
                       <h3>
-                        <b>JD Headbanger</b>
+                        <b>Jd Richard H. Scarberry</b>
                       </h3>
-                      " "
+                      "Is it lunchtime yet?"
                       <br />
                       <br />
                       <img src={JD} alt="JD Picture" className="teamPics" alt="" />

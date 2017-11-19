@@ -70,6 +70,9 @@ class NavBar extends Component {
                   Connect With Us!
                 </NavLink>
               </li>
+              <li>
+                <NavLink to='/QandA'>Q and A</NavLink>
+              </li>
             </ul>
             <ul className="nav navbar-nav navbar-right">
               <li>
@@ -82,6 +85,7 @@ class NavBar extends Component {
                   <span className="glyphicon glyphicon-log-out" /> Logout
                 </NavLink>
               </li>
+
             </ul>
           </div>
         </div>
