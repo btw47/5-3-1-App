@@ -12,6 +12,7 @@
     "firebase": "^4.6.0",
     "firebase-admin": "^5.5.0",
     "firebaseui": "^2.4.1",
+    "firestore": "^1.1.6",
     "fusioncharts": "^3.12.2",
     "global": "^4.3.2",
     "jquery": "^3.2.1",

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actions from "../actions";
 import { Checkbox, CheckboxGroup } from "react-checkbox-group";
+import { ButtonToolbar, Button } from "react-bootstrap";
 import { firebaseDb } from "../server/firebase";
 import firebase from "firebase";
 import Popup from "react-popup";
@@ -213,49 +214,49 @@ function that updates the state of our buttons */}
                 <div className="content">
                   <label className="checkBox">
                     <Checkbox id="ch2" name="checkBox" value={1} />
-                    <div className="transition" />
+                    <div className="checkboxtransition" />
                   </label>
                   <label htmlFor="ch2" className="checkBoxLabel">
                     Monday
                   </label>
                   <label className="checkBox">
                     <Checkbox id="ch2" name="checkBox" value={2} />
-                    <div className="transition" />
+                    <div className="checkboxtransition" />
                   </label>
                   <label htmlFor="ch2" className="checkBoxLabel">
                     Tuesday
                   </label>
                   <label className="checkBox">
                     <Checkbox id="ch3" name="checkBox" value={3} />
-                    <div className="transition" />
+                    <div className="checkboxtransition" />
                   </label>
                   <label htmlFor="ch3" className="checkBoxLabel">
                     Wednesday
                   </label>
                   <label className="checkBox">
                     <Checkbox id="ch4" name="checkBox" value={4} />
-                    <div className="transition" />
+                    <div className="checkboxtransition" />
                   </label>
                   <label htmlFor="ch4" className="checkBoxLabel">
                     Thursday
                   </label>
                   <label className="checkBox">
                     <Checkbox id="ch5" name="checkBox" value={5} />
-                    <div className="transition" />
+                    <div className="checkboxtransition" />
                   </label>
                   <label htmlFor="ch5" className="checkBoxLabel">
                     Friday
                   </label>
                   <label className="checkBox">
                     <Checkbox id="ch6" name="checkBox" value={6} />
-                    <div className="transition" />
+                    <div className="checkboxtransition" />
                   </label>
                   <label htmlFor="ch6" className="checkBoxLabel">
                     Saturday
                   </label>
                   <label className="checkBox">
                     <Checkbox id="ch7" name="checkBox" value={0} />
-                    <div className="transition" />
+                    <div className="checkboxtransition" />
                   </label>
                   <label htmlFor="ch7" className="checkBoxLabel">
                     Sunday
@@ -349,9 +350,18 @@ function that updates the state of our buttons */}
             </div>
           </div>
           <br />
-          <button type="submit" className="btn btn-primary" onClick={event => this.handleSubmit(event)}>
-            <span className="md-" /> Submit My Goals
-          </button>
+          <ButtonToolbar className="centerhomepage">
+            <div className="btnwrap">
+              <Button 
+                type="submit" 
+                bsSize="large" 
+                className="coolbtn" 
+                onClick={event => this.handleSubmit(event)}
+              >
+              Submit Workout
+              </Button>
+            </div>
+          </ButtonToolbar>
         </form>
         <Popup
           className="mm-popup"

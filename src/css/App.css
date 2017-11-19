@@ -4,13 +4,19 @@
   padding-top: 30px;
 }
 .logo2 {
-  width: 40px;
-  padding-top: 5px;
+  width: 12em;
+  height: auto;
+  padding-right: 1em;
+  padding-top: .5em
 }
 
 .chart-img {
   width: 450px;
   height: auto;
+}
+
+.profilePic{
+  border-radius: 100px;
 }
 
 .teamPics {
@@ -29,7 +35,34 @@
 .navbar-inverse .navbar-nav > li > a {
   font-family: "Arial Black";
   font-style: "bold";
-  font-size: 13px;
+  font-size: .8em;
+  padding-top: .5em;
+  padding-bottom: .5em;
+}
+
+.navbar-inverse .navbar-nav > li{
+  display:inline-block;
+	
+	font:normal normal 300 1.3em 'Open Sans';
+	text-decoration:none;	
+	
+	color:#0062cc;;
+	background-color:transparent;
+	border:1px solid #0062cc;;
+	border-radius:100px;
+	
+	padding: .1em 1em;
+	margin:5px;
+			
+	background-size: 200% 100%;	
+	background-image: linear-gradient(to right, transparent 50%, #0062cc 50%);
+	transition: background-position .3s cubic-bezier(0.19, 1, 0.22, 1) .1s, color .5s ease 0s, background-color .5s ease;
+}
+
+.navbar-inverse .navbar-nav > li:hover{
+	color:rgba(255, 255, 255, 1);
+	background-color:#0062cc;
+	background-position: -100% 100%;
 }
 
 body {
@@ -58,58 +91,20 @@ body {
   list-style-type: none;
 }
 
-* {
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
- }
- 
-navLink {
-  background: #f0f0f0;
-  display: inline;
-	color: #000;
-	font-family: ubuntu;
-	height: 70px;
-	left: 0;
-	position: absolute;
-	top: 0;
-	width: 100%;
- }
- 
-	nav > div {
-		background: inherit;
-		cursor: pointer;
-		display: inline-block;
-		float: left;
-		height: inherit;
-		line-height: 70px;
-		margin: 0;
-		padding: 0;
-		text-align: center;
-		width: 25%;
-	 }
- 
-		nav > div:hover {
-			background: #D0D0D0;
-			border-bottom: 5px solid #545454;
-			border-left: 10px solid #939393;
-			border-right: 10px solid #939393;
-			border-top: 5px solid #545454;
-			line-height: 60px;
-			transition: .3s;
-		 }
 /*    FRONT CARD */
 .card {
   background-color: #a0a4b8;
   border: 5px solid black;
   opacity: 0.8;
   box-shadow: rgba(0, 0, 0, 0.15);
-  position: center;
   transition: all 0.2s ease-in-out;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding-right: 20px;
+  padding-right: 20em;
+  padding-left: 15em;
+  padding-bottom: 3em;
+  border-radius: 50px; 
 }
 .cardnobackground {
   position: center;
@@ -186,20 +181,26 @@ navLink {
 
 .cwtitle {
   display: inline-block;
-  padding: 25px;
-  margin: auto;
   text-align: center;
+  padding: .5em;
   font-weight: bold;
   font-size: 300%;
   font-family: "Verdana";
   font-style: italic;
   opacity: 0.8;
   filter: alpha(opacity=50);
-}
-.cwtitle span {
+  border-radius: 50px; 
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease-in-out;
   background-color: #a0a4b8;
   border: 5px solid black;
 }
+
+.cwtitle:hover{
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  opacity: 10;
+}
+
 .aboutus {
   display: inline-block;
   margin: auto;
@@ -214,6 +215,13 @@ navLink {
   height: auto;
   opacity: 0.8;
   filter: alpha(opacity=50);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease-in-out;
+  border-radius: 50px; 
+}
+.aboutus:hover{
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  opacity: 10;
 }
 .contentbox {
   color: white;
@@ -692,4 +700,37 @@ input:focus ~ .highlight {
   color: white;
 }
 
- 
+.btnwrap {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgb(87, 84, 234) 0%, rgb(109, 117, 236) 100%);
+  display: "inline-block";
+  border-radius: 45px;
+}
+
+.coolbtn {
+  width: 12em;
+  height: 2.5em;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #0062cc;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  }
+
+.coolbtn:hover {
+  background-color: #0062cc;
+      box-shadow: 0px 15px 20px rgba(2, 0, 119, 0.73);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+

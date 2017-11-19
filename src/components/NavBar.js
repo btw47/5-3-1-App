@@ -41,63 +41,33 @@ class NavBar extends Component {
               <span className="icon-bar" />
               <span className="icon-bar" />
             </button>
-            <a className="navbar-brand" href="#" />
+            <a className="navbar-brand" href="/Dashboard" />
             <img
               src={logo}
               className="logo2"
               alt=""
-              style={{ width: "85px" }}
             />
           </div>
           <div className="collapse navbar-collapse" id="myNavbar">
-            <nav>
             <ul className="nav navbar-nav">
               <li className="nav1buttons">
                 <NavLink to="/" className="nav1buttons">
-                  <i className="em  em-house" />
                   Home
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/Today">
-                  <i className="em em-date" />
-                  Today
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/Leaderboards">
-                  <i className="em  em-trophy" />
-                  Leaderboards
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/Progress">
-                  <i className="em em-muscle" />
-                  MY GAINZ
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/Forums">
-                  <i className="em  em-pencil" />
-                  Forums
+                <NavLink to="/QandA">
+                  Q & A
                 </NavLink>
               </li>
               <li>
                 <NavLink to="/Dashboard">
-                  <i className="em  em-chart_with_upwards_trend" />
                   Dashboard
                 </NavLink>
               </li>
               <li>
                 <NavLink to="/ConnectWithUs">
-                  <i className="em em-sunglasses" />
-                  Ladies Come Connect With Us!
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/LiveChat">
-                  <i className="em  em-interrobang" />
-                  Live Chat!
+                  Connect With Us!
                 </NavLink>
               </li>
             </ul>
@@ -108,12 +78,11 @@ class NavBar extends Component {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/SignOut">
+                <NavLink to="/">
                   <span className="glyphicon glyphicon-log-out" /> Logout
                 </NavLink>
               </li>
             </ul>
-            </nav>
           </div>
         </div>
       </nav>

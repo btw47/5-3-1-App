@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { firebaseApp } from "../server/firebase";
 import "../css/App.css";
 import QAModal from './modalQandA'
+import { Button, ButtonToolbar } from "react-bootstrap";
+import './QandA.css'
+import $ from 'jquery'
 
 export default class QandA extends Component {
   constructor(props) {
@@ -71,35 +74,58 @@ export default class QandA extends Component {
   render() {
     return (
       <div>
-        <h1>Questions and Answers Forum</h1>
-        <p>
-          An area for 5/3/1 members to post questions regarding their workouts
-          or fitness questions in general. Other members are encouraged to
-          provide answers to these questions.
-        </p>
-        <form onSubmit={this.addMessage}>
-          <input type="text" ref={el => (this.textInput = el)} />
-          <input type="submit" />
-          <div>
-            <ul className="QandABodyFont">
+        <div>
+          <h1>Questions and Answers Forum</h1>
+          <p>
+            An area for 5/3/1 members to post questions regarding their workouts
+            or fitness questions in general. Other members are encouraged to
+            provide answers to these questions.
+          </p>
+        </div>
+        <br />
+        <div>
+          <h3>New Question</h3>
+          <form onSubmit={this.addMessage}>
+            <input type="text" ref={el => (this.textInput = el)} />
+            <input type="submit" />
+          </form>
+        </div>
+        <br/>
+        <div className="">
+            <ul className="">
               <li>
                 {this.state.postList && this.state.postList.map(message => {
                   return (
-                    <div>
-                      <QAModal qamessage={message.question.text} firebaseId={message.question.id} />
-
-                      {this.renderAnswers(message)}
-                    </div>)
+                    <div className="faq-c">
+                      <div class="faq-q"><span class="faq-t">+</span>
+                        <QAModal qamessage={message.question.text} firebaseId={message.question.id} />
+                      </div>
+                      <div className="faq-a">
+                        {this.renderAnswers(message)}
+                      </div>
+                    </div>
+                  )
                   //button is Modal, button name is message.text and Id
                 })}
               </li>
             </ul>
-          </div>
-        </form>
+            {/* <ButtonToolbar className="centerhomepage">
+              <div className="btnwrap">
+                <Button
+                  bsSize="medium"
+                  type="button"
+                  className="coolbtn"
+                >
+                Answers
+                </Button>
+              </div>
+            </ButtonToolbar> */}
+            </div>
         <QAModal />
       </div>
     );
   }
-
-
 }
+
+
+

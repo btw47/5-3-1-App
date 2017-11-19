@@ -93,8 +93,8 @@
 }
 
 .checkBox div {
-  width: 40px;
-  height: 40px;
+  width: 4em;
+  height: 4em;
   background-color: #0062cc;
   top: -52px;
   left: -52px;
@@ -114,7 +114,7 @@
   visibility: hidden;
 }
 
-.transition {
+.checkboxtransition {
   transition: 300ms ease;
 }
 

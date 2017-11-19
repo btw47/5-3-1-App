@@ -52,10 +52,16 @@ const UploadImage = props => {
 
   return (
     <div className="class-name">
-      <ButtonToolbar>
-        <Button bsSize="small" onClick={() => renderPicker()}>
+      <ButtonToolbar className="centerhomepage">
+        <div className="uploadwrap">
+          <Button 
+            bsSize="small" 
+            onClick={() => renderPicker()}
+            className="uploadbtn"
+          >
           {props.caption}
-        </Button>
+          </Button>
+        </div>
       </ButtonToolbar>
     </div>
   );
