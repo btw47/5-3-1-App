@@ -20,13 +20,13 @@
 
 .rbc-allday-cell {
     background: lightgrey;
-    /* border-radius: 20px; */
+    border-radius: 20px;
 }
 
 .rbc-time-view {
     border-color: black;
     background-color: lightgrey;
-    /* border-radius: 20px; */
+    border-radius: 20px;
 }
 
 
@@ -35,26 +35,26 @@
     box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
     background-color: black;
     border-color: black;
-    /* border-radius: 20px; */
+    border-radius: 20px;
   }
 
 .rbc-toolbar button.rbc-active:focus {
     color: #373a3c;
     background-color: #d4d4d4;
     border-color: black;
-    /* border-radius: 20px; */
+    border-radius: 10px;
   }
   .rbc-toolbar button:focus {
     color: #373a3c;
     background-color: #e6e6e6;
     border-color: black;
-    /* border-radius: 20px; */
+    border-radius: 20px;
   }
   .rbc-toolbar button:hover {
     color: #373a3c;
     background-color: #e6e6e6;
     border-color: black;
-    /* border-radius: 20px; */
+    border-radius: 20px;
 }
 
 .rbc-day-bg + .rbc-day-bg {
@@ -68,7 +68,7 @@
 .rbc-btn-group{
     border-color: black;
     background-color: black;
-    /* border-radius: 20px; */
+    border-radius: 20px;
 }
 
 .rbc-toolbar button:active,
