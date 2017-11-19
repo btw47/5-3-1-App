@@ -70,9 +70,6 @@ class NavBar extends Component {
                   Connect With Us!
                 </NavLink>
               </li>
-              <li>
-                <NavLink to='/QandA'>Q and A</NavLink>
-              </li>
             </ul>
             <ul className="nav navbar-nav navbar-right">
               <li>
