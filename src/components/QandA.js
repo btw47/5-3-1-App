@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { firebaseApp } from "../server/firebase";
 import "../css/App.css";
-import QAModal from './modalQandA'
+import QAModal from './modalQandA';
+import '../css/Dashboard.css'
 
 export default class QandA extends Component {
   constructor(props) {
@@ -71,8 +72,8 @@ export default class QandA extends Component {
   render() {
     return (
       <div>
-        <h1>Questions and Answers Forum</h1>
-        <p>
+        <h1 className='QAtitle'>Questions and Answers Forum</h1>
+        <p className='QAfont'>
           An area for 5/3/1 members to post questions regarding their workouts
           or fitness questions in general. Other members are encouraged to
           provide answers to these questions.

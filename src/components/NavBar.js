@@ -99,9 +99,6 @@ class NavBar extends Component {
                   Live Chat!
                 </NavLink>
               </li>
-              <li>
-                <NavLink to='/QandA'>Q and A</NavLink>
-              </li>
             </ul>
             <ul className="nav navbar-nav navbar-right">
               <li>

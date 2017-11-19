@@ -13,6 +13,7 @@ import GoalsUpdate from "./GoalsUpdate";
 import WeeklyTemplate from "../components/weeklyTemplate";
 import DetailedProgress from "./DetailedProgress";
 import QandA from "../components/QandA";
+import Footer from '../components/footer'
 
 import Admin from "./Admin";
 
@@ -36,6 +37,7 @@ class App extends Component {
             <Route path="/Admin" component={Admin} />
             <Route path="/QandA" component={QandA} />
           </Switch>
+          <Footer />
         </div>
       </Router>
     );
