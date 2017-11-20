@@ -15,7 +15,7 @@ class NavBar extends Component {
       return (
         <li className="mycontenttext">
           <NavLink to="/SignIn" className="signin">
-            Log In
+            <span className="glyphicon glyphicon-log-in" /> Login
           </NavLink>
         </li>
       );
@@ -73,16 +73,8 @@ class NavBar extends Component {
             </ul>
             <ul className="nav navbar-nav navbar-right">
               <li>
-                <NavLink to="/SignIn">
-                  <span className="glyphicon glyphicon-log-in" /> Login
-                </NavLink>
+                {this.renderUserStatus()}
               </li>
-              <li>
-                <NavLink to="/">
-                  <span className="glyphicon glyphicon-log-out" /> Logout
-                </NavLink>
-              </li>
-
             </ul>
           </div>
         </div>

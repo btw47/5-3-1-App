@@ -107,45 +107,62 @@ class SignIn extends Component {
       return (
         <form onSubmit={event => this.handleSubmit(event)}>
           <FormGroup
-            style={{ padding: '0 30vw', textAlign: 'center' }}
+            style={{ textAlign: 'center' }}
             bsSize="large"
             validationState={this.validationState()}>
-            <FormControl
-              type="text"
-              placeholder="email"
-              ref={ref => (this.email = ref)}
-              onChange={event => this.handleUser(event)}
-            />
-            <br />
-
-            <FormControl
-              type="password"
-              placeholder="password"
-              onChange={event => this.handlePassword(event)}
-            />
-            <br />
+            <div className="centerhomepage">
+              <div className="group">
+                <FormControl
+                  type="text"
+                  required
+                  ref={ref => (this.email = ref)}
+                  onChange={event => this.handleUser(event)}
+                />
+                <span className="highlight" />
+                <span className="bar" />
+                <label className="textinput">Email</label>
+              </div>
+              <br />
+              <div className="group">
+                <FormControl
+                  type="password"
+                  required
+                  onChange={event => this.handlePassword(event)}
+                />
+                <span className="highlight" />
+                <span className="bar" />
+                <label className="textinput">Password</label>
+              </div>
+              <br />
             {this.renderError()}
-            <ButtonToolbar>
-              <Button
-                bsSize="large"
-                type="submit"
-                style={{ display: 'block', margin: 'auto' }}>
+            <ButtonToolbar className="centerhomepage">
+              <div className="btnwrap">
+                <Button
+                  bsSize="large"
+                  type="submit"
+                  className="coolbtn"
+                >
                 Log In
-              </Button>
+                </Button>
+              </div>
+              <br />
+              <div className="btnwrap">
+                <NavLink to="/">
+                  <Button
+                    bsSize="large"
+                    type="button"
+                    className="coolbtn"
+                  >
+                  Sign Up
+                  </Button>
+                </NavLink>
+              </div>
             </ButtonToolbar>
-            <br />
-            <NavLink to="/">
-              <Button
-                bsSize="large"
-                type="button"
-                style={{ display: 'block', margin: 'auto' }}>
-                Sign Up
-              </Button>
-            </NavLink>
             <br />
             <NavLink to="/ForgotPassword">
               <h5 style={{ color: '#0062CC' }}>forgot your password?</h5>
             </NavLink>
+            </div>
           </FormGroup>
         </form>
       );
@@ -155,15 +172,24 @@ class SignIn extends Component {
   render() {
     // const { state } = this.props;
     return (
-      <div>
-        <img
-          src={logo}
-          className="logo"
-          alt="logo"
-          style={{ display: "block", margin: "auto" }}
-        />
-        {this.renderSignIn()}
-        <div id="firebaseui-auth-container" ref={ref => (this.widget = ref)} />
+      <div className="centerhomepage">
+        <div className="landingpage">
+          <div className="row">
+            <div className="centerhomepage">
+              <div className="card">
+                <div className="centerhomepage">
+                  <img
+                    src={logo}
+                    className="logo"
+                    alt=""
+                  />
+                  {this.renderSignIn()}
+                  <div id="firebaseui-auth-container" ref={ref => (this.widget = ref)} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

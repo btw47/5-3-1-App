@@ -137,6 +137,7 @@ body {
   display: inline-block;
   padding-left: 3em;
   padding-right: 3em;
+  padding-bottom: 1em;
 }
 
 .container3 {
@@ -144,12 +145,14 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
+  border-radius: 50;
   margin: auto;
   display: inline-block;
   font-weight: 200px;
   font-family: "Roboto";
   width: auto;
   display: block;
+  padding-bottom: 3em;
 }
 
 .landingpage {
@@ -175,6 +178,7 @@ body {
 
 .workouts {
   font-weight: bold;
+  font-size: 1em;
 }
 
 /*ABOUT US*/
@@ -724,7 +728,7 @@ input:focus ~ .highlight {
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease 0s;
   cursor: pointer;
-  }
+}
 
 .coolbtn:hover {
   background-color: #0062cc;
