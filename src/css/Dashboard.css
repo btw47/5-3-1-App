@@ -5,6 +5,13 @@
   outline: 1px solid gray;
 }
 
+.QAfont{
+  color: yellow
+}
+
+.QAtitle{
+  color: white
+=======
 .mm-popup__box{
   width: 50em;
   justify-content: center;
