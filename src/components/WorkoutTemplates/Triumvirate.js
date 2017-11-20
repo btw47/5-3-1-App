@@ -342,7 +342,7 @@ function Tri4days(props) {
   ];
 }
 
-function IhaveNoIdeaWhatImDoing(props) {
+function Tri3days(props) {
   return [
     {
       title: "Deadlift",
@@ -663,4 +663,4 @@ function IhaveNoIdeaWhatImDoing(props) {
   ];
 }
 
-export { Tri4days };
+export { Tri4days, Tri3days };
