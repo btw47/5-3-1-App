@@ -11,6 +11,7 @@
     "filestack-js": "^0.9.11",
     "firebase": "^4.6.0",
     "firebase-admin": "^5.5.0",
+    "firebase-tools": "^3.15.2",
     "firebaseui": "^2.4.1",
     "firestore": "^1.1.6",
     "fusioncharts": "^3.12.2",
