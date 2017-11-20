@@ -13,7 +13,9 @@ import DashboardGraph from "../graphs/DashboardGraph";
 import { firebaseDb } from "../../server/firebase";
 import UpdateProfileModal from "../../containers/UpdateProfileModal";
 import * as actions from "../../actions";
-import Popup from 'react-popup'
+import Popup from 'react-popup';
+import { Button, ButtonToolbar } from "react-bootstrap";
+
 
 class Dashboard extends Component {
   componentWillMount() {
@@ -96,13 +98,17 @@ class Dashboard extends Component {
               profileImage={state.user.profileImage}
             />
             <div>
-            <button
-              type="button"
-              className="btn btn-primary"
-              onClick={event => this.onStatsUpdate(event)}
-            >
-              <span className="lg-" /> Update Stats
-            </button>
+            <ButtonToolbar className="centerhomepage">
+              <div className="btnwrap">
+                <Button
+                  type="button"
+                  className="coolbtn"
+                  onClick={event => this.onStatsUpdate(event)}
+                >
+                Update Stats
+                </Button>
+              </div>
+              <br />
               <UploadImage
                 fetchProfileImage={this.props.fetchProfileImage}
                 userId={state.user.uid}
@@ -111,6 +117,7 @@ class Dashboard extends Component {
                 fetchUserImages={this.props.fetchUserImages}
                 caption="Upload profile picture"
               />
+              </ButtonToolbar>
             </div>
           </Col>
           <Col md={6} mdOffset={2} small={12} style={{ paddingRight: "50px" }}>
@@ -132,7 +139,6 @@ class Dashboard extends Component {
         closeBtn={true}
         closeHtml={null}
         defaultOk="Close"
-        style={{width: '5em'}}
         defaultCancel="Cancel"
         wildClasses={false}
       />

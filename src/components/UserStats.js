@@ -27,13 +27,13 @@ class UserStats extends Component {
 
       return (
         <div>
-          <img src={profilePicture} alt="profile pic" style={this.imageStyle} alt='' />
+          <img src={profilePicture} alt="" style={this.imageStyle} className="profilePic" />
         </div>
       );
     } else {
       return (
         <div>
-          <img src={this.props.profileImage} style={this.imageStyle} />
+          <img src={this.props.profileImage} style={this.imageStyle} className="profilePic" />
         </div>
       );
     }

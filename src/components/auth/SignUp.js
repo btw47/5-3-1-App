@@ -104,20 +104,25 @@ export default class SignUp extends Component {
             </div>
             <br />
             <ButtonToolbar className="centerhomepage">
-              <Button
-                bsSize="large"
-                type="submit"
-                bsStyle="primary"
-                style={{ display: "inline-block", margin: "auto" }}
-              >
+              <div className="btnwrap">
+                <Button
+                  bsSize="large"
+                  type="submit"
+                  className="coolbtn"
+                >
                 Sign Up
-              </Button>
+                </Button>
+                </div>
+                <br />
+                {this.renderError()}
+                <div className="btnwrap">
+                  <Button className="coolbtn" bsSize="large">
+                    <NavLink to="/SignIn">
+                      Sign In
+                    </NavLink>
+                  </Button>
+                </div>
             </ButtonToolbar>
-            <br />
-            {this.renderError()}
-            <NavLink to="/SignIn">
-              <h4>Sign In</h4>
-            </NavLink>
           </FormGroup>
         </form>
         <div id="firebaseui-auth-container" ref={ref => (this.widget = ref)} />
