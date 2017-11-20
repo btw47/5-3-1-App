@@ -26,7 +26,6 @@ export default class Footer extends Component {
                         </li>
                         <li className="nav1buttons">
                             <a href='https://www.bodybuilding.com/exercises/finder'>Exercise Finder + Demonstration <img src={bodybuildingLogo} /></a>
-
                         </li>
                     </ul>
                 </div>
