@@ -33,15 +33,12 @@ class ConnectWithUs extends Component {
                       <br />
                       <img src={Brad} alt="Brad Picture" className="teamPics" alt='' />
                       <br />
-                      <a href="https://www.facebook.com/bradley.wong.50">
-                        <img src={fbpic} className="fb" alt="" />
-                      </a>
                       <a href="https://github.com/btw47">
                         <img src={github} className="fb" alt="" />
                       </a>
-                      {/* <a href="https://linkedin.com/in/bradleywong21">
+                      <a href="https://linkedin.com/in/bradleywong21">
                         <img src={lkin} className="fb" alt="" />
-                      </a> */}
+                      </a>
                       <br />
                       <a href="mailto:btw47@nau.edu" target="_top">
                         btw47@nau.edu
@@ -58,13 +55,13 @@ class ConnectWithUs extends Component {
                       <br />
                       <img src={JD} alt="JD Picture" className="teamPics" alt="" />
                       <br />
-                      <a href="https://www.facebook.com/headbangerjd">
-                        <img src={fbpic} className="fb" alt="" />
-                      </a>
+
                       <a href="https://github.com/JdScarberry1000">
                         <img src={github} className="fb" alt="" />
                       </a>
-
+                      <a href='https://www.linkedin.com/in/jd-scarberry-a97063151/'>
+                        <img src={lkin} className='fb' alt='' />
+                      </a>
                       <br />
                       <a href="mailto:JdScarberry1000@gmail.com" target="_top">
                         JdScarberry1000@gmail.com
