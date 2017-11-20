@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom'
-import amazonLogo from '../images/amazonLogo.png';
-import bodybuildingLogo from '../images/bodybuildingLogo.png';
-import myfitpalLogo from '../images/myfitpalLogo.png'
+import amazonLogo from '../images/amazon-logo.png';
+import bodybuildingLogo from '../images/bodybuilding-logo.png';
+import myfitpalLogo from '../images/myfitpal-logo.png'
 
 export default class Footer extends Component {
 
