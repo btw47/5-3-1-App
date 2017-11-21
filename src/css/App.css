@@ -92,6 +92,9 @@ body {
   font-size: 25px;
   list-style-type: none;
 }
+.nobullet {
+  list-style-type: none;
+}
 
 /*    FRONT CARD */
 .card {
@@ -169,6 +172,7 @@ body {
   margin: auto;
   display: inline-block;
   text-align: center;
+  padding-bottom: 25px;
 }
 
 .contentp {
