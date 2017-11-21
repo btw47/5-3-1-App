@@ -28,10 +28,15 @@ class ConnectWithUs extends Component {
                       <h3>
                         <b>Bradley Wong</b>
                       </h3>
-                      "Not npm, Yarn bro"
+                      " Not npm, Yarn bro "
                       <br />
                       <br />
-                      <img src={Brad} alt="Brad Picture" className="teamPics" alt='' />
+                      <img
+                        src={Brad}
+                        alt="Brad Picture"
+                        className="teamPics"
+                        alt=""
+                      />
                       <br />
                       <a href="https://github.com/btw47">
                         <img src={github} className="fb" alt="" />
@@ -50,17 +55,21 @@ class ConnectWithUs extends Component {
                       <h3>
                         <b>Jd Richard H. Scarberry</b>
                       </h3>
-                      "Is it lunchtime yet?"
+                      " Is it lunchtime yet? "
                       <br />
                       <br />
-                      <img src={JD} alt="JD Picture" className="teamPics" alt="" />
+                      <img
+                        src={JD}
+                        alt="JD Picture"
+                        className="teamPics"
+                        alt=""
+                      />
                       <br />
-
                       <a href="https://github.com/JdScarberry1000">
                         <img src={github} className="fb" alt="" />
                       </a>
-                      <a href='https://www.linkedin.com/in/jd-scarberry-a97063151/'>
-                        <img src={lkin} className='fb' alt='' />
+                      <a href="https://www.linkedin.com/in/jd-scarberry-a97063151/">
+                        <img src={lkin} className="fb" alt="" />
                       </a>
                       <br />
                       <a href="mailto:JdScarberry1000@gmail.com" target="_top">
@@ -72,10 +81,15 @@ class ConnectWithUs extends Component {
                     <h3>
                       <b>James Bell</b>
                     </h3>
-                    "Its working as coded"
+                    " Its working as coded "
                     <br />
                     <br />
-                    <img src={James} alt="James Picture" className="teamPics" alt="" />
+                    <img
+                      src={James}
+                      alt="James Picture"
+                      className="teamPics"
+                      alt=""
+                    />
                     <br />
                     <a href="https://www.facebook.com/JamesMB828">
                       <img src={fbpic} className="fb" alt="" />
@@ -95,10 +109,15 @@ class ConnectWithUs extends Component {
                     <h3>
                       <b>Ryan Fuchs</b>
                     </h3>
-                    " "
+                    " Look at my buttons "
                     <br />
                     <br />
-                    <img src={Ryan} alt="Ryans Picture" className="teamPics" alt="" />
+                    <img
+                      src={Ryan}
+                      alt="Ryans Picture"
+                      className="teamPics"
+                      alt=""
+                    />
                     <br />
                     <a href="https://www.facebook.com/ryan.fuchs.50">
                       <img src={fbpic} className="fb" alt="" />
