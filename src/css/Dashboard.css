@@ -5,11 +5,25 @@
   outline: 1px solid gray;
 }
 
+/* workoutApi css ------------------------*/
+
+
+.workoutApi{
+  color: white
+}
+
+
+/* QandA CSS----------------------------- */
+
 .QAfont{
   color: yellow
 }
 
 .QAtitle{
+  color: white
+}
+
+.NQ{
   color: white
 }
 
