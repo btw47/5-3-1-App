@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
 import SearchInput, { createFilter } from 'react-search-input';
+import { Checkbox, CheckboxGroup } from 'react-checkbox-group';
 import { Table } from 'react-bootstrap';
 import * as admin from 'firebase-admin';
 import { connect } from 'react-redux';
@@ -11,7 +12,8 @@ class Admin extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchTerm: ''
+      searchTerm: '',
+      selectedFilters: ['uid']
     };
     this.searchUpdated = this.searchUpdated.bind(this);
   }
@@ -47,8 +49,8 @@ class Admin extends Component {
       admin
         .auth()
         .listUsers(1000, nextPageToken)
-        .then(function (listUsersResult) {
-          listUsersResult.users.forEach(function (userRecord) {
+        .then(function(listUsersResult) {
+          listUsersResult.users.forEach(function(userRecord) {
             // console.log('user', userRecord.toJSON());
             users.push(userRecord.toJSON());
           });
@@ -62,7 +64,7 @@ class Admin extends Component {
             rendered: true
           })
         )
-        .catch(function (error) {
+        .catch(function(error) {
           console.log('Error listing users:', error);
         });
     };
@@ -80,10 +82,10 @@ class Admin extends Component {
     admin
       .auth()
       .deleteUser(uid)
-      .then(function () {
+      .then(function() {
         console.log('Successfully deleted user');
       })
-      .catch(function (error) {
+      .catch(function(error) {
         console.log('Error deleting user:', error);
       });
 
@@ -100,13 +102,20 @@ class Admin extends Component {
     });
   };
 
+  changeFilters = filters => {
+    this.setState({
+      selectedFilters: filters
+    });
+  };
+
   searchUpdated = term => {
     this.setState({ searchTerm: term });
   };
 
   renderPage = () => {
     let userAdmin;
-    const KEYS_TO_FILTERS = ['uid', 'displayName', 'email'];
+    // const KEYS_TO_FILTERS = ['uid', 'displayName', 'email'];
+    const KEYS_TO_FILTERS = this.state.selectedFilters;
     const filteredUsers = this.state.users.filter(
       createFilter(this.state.searchTerm, KEYS_TO_FILTERS)
     );
@@ -126,7 +135,86 @@ class Admin extends Component {
     if (userAdmin) {
       return (
         <div style={{ width: '75vw', margin: 'auto' }}>
-          <SearchInput className="search-input" onChange={this.searchUpdated} />
+          <div style={{ display: 'inline' }}>
+            <SearchInput
+              className="search-input"
+              onChange={this.searchUpdated}
+              style={{ marginBottom: '10px' }}
+            />
+            <div style={{ float: 'left' }}>
+              <CheckboxGroup
+                name="filters"
+                value={this.state.selectedFilters}
+                onChange={this.changeFilters}>
+                <label
+                  style={{
+                    color: 'white',
+                    display: 'block',
+                    paddingLeft: '20px',
+                    float: 'left'
+                  }}>
+                  <Checkbox
+                    value="uid"
+                    style={{
+                      width: '13px',
+                      height: '13px',
+                      float: 'left',
+                      paddingLeft: 5,
+                      margin: 0,
+                      verticalAlign: 'bottom',
+                      position: 'relative',
+                      float: 'left'
+                    }}
+                  />
+                  User-Id
+                </label>
+                <label
+                  style={{
+                    color: 'white',
+                    display: 'block',
+                    paddingLeft: '20px',
+                    float: 'left'
+                  }}>
+                  <Checkbox
+                    value="displayName"
+                    style={{
+                      width: '13px',
+                      height: '13px',
+                      float: 'left',
+                      paddingLeft: 5,
+                      margin: 0,
+                      verticalAlign: 'bottom',
+                      position: 'relative',
+                      float: 'left'
+                    }}
+                  />
+                  Username
+                </label>
+                <label
+                  style={{
+                    color: 'white',
+                    display: 'block',
+                    paddingLeft: '20px',
+                    float: 'left'
+                  }}>
+                  <Checkbox
+                    value="email"
+                    style={{
+                      width: '13px',
+                      height: '13px',
+                      float: 'left',
+                      paddingLeft: 5,
+                      margin: 0,
+                      verticalAlign: 'bottom',
+                      position: 'relative',
+                      float: 'left'
+                    }}
+                  />
+                  Email
+                </label>
+              </CheckboxGroup>
+            </div>
+          </div>
 
           {this.state.rendered && (
             <Table
