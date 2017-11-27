@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import {
-  NavLink
-} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import logo from "../images/better-logo-greybest.png";
 import actionTypes from "../actionTypes";
@@ -42,11 +40,7 @@ class NavBar extends Component {
               <span className="icon-bar" />
             </button>
             <a className="navbar-brand" href="/Dashboard" />
-            <img
-              src={logo}
-              className="logo2"
-              alt=""
-            />
+            <img src={logo} className="logo2" alt="" />
           </div>
           <div className="collapse navbar-collapse" id="myNavbar">
             <ul className="nav navbar-nav">
@@ -56,25 +50,17 @@ class NavBar extends Component {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/QandA">
-                  Q & A
-                </NavLink>
+                <NavLink to="/QandA">Q & A</NavLink>
               </li>
               <li>
-                <NavLink to="/Dashboard">
-                  Dashboard
-                </NavLink>
+                <NavLink to="/Dashboard">Dashboard</NavLink>
               </li>
               <li>
-                <NavLink to="/ConnectWithUs">
-                  Connect With Us!
-                </NavLink>
+                <NavLink to="/ConnectWithUs">Connect With Us!</NavLink>
               </li>
             </ul>
             <ul className="nav navbar-nav navbar-right">
-              <li>
-                {this.renderUserStatus()}
-              </li>
+              <li>{this.renderUserStatus()}</li>
             </ul>
           </div>
         </div>

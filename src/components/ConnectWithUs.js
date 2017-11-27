@@ -81,7 +81,7 @@ class ConnectWithUs extends Component {
                     <h3>
                       <b>James Bell</b>
                     </h3>
-                    " Its working as coded "
+                    " Winner Winner Chicken Dinner "
                     <br />
                     <br />
                     <img
