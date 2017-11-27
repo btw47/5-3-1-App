@@ -14,19 +14,21 @@
     background: rgb(48, 48, 48);
 }
 
+.rbc-month-view{
+    background-color: rgb(228, 228, 228);
+}
+
 .rbc-event.rbc-selected {
     background-color: #000000;
 }
 
 .rbc-allday-cell {
     background: lightgrey;
-    border-radius: 20px;
 }
 
 .rbc-time-view {
     border-color: black;
     background-color: lightgrey;
-    border-radius: 20px;
 }
 
 
