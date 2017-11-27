@@ -134,7 +134,7 @@ body {
   border: 5px solid black;
   box-shadow: rgba(0, 0, 0, 0.15);
   position: relative;
-  opacity: 1;
+  opacity: 0.8;
   transition: all 0.2s ease-in-out;
   align-items: center;
   justify-content: center;
@@ -143,6 +143,10 @@ body {
   padding-left: 3em;
   padding-right: 3em;
   padding-bottom: 1em;
+}
+
+.card3:hover {
+  opacity: 1;
 }
 
 .container3 {
@@ -157,7 +161,14 @@ body {
   font-family: "Roboto";
   width: auto;
   display: block;
-  padding-bottom: 3em;
+  padding-bottom: 75px;
+}
+
+.goalUpdate {
+  padding-bottom: 125px;
+}
+.centerdash {
+  padding-right: 250px;
 }
 
 .landingpage {
@@ -255,6 +266,7 @@ body {
 .textlayout {
   position: middle;
   padding-top: 50px;
+  padding-bottom: 50px;
   background-color: #a0a4b8;
   opacity: 0.8 !important;
   filter: alpha(opacity=50);
