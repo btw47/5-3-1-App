@@ -94,7 +94,7 @@ export default class QandA extends Component {
         </div>
         <br />
         <div>
-          <h3>New Question</h3>
+          <h3 className='NQ'>New Question</h3>
           <form>
             <input type="text" ref={el => (this.textInput = el)} />
             <input type="submit" onClick={this.addMessage} />
@@ -131,7 +131,7 @@ export default class QandA extends Component {
               </div>
             </ButtonToolbar> */}
         </div>
-        <QAModal />
+
       </div>
     );
   }
