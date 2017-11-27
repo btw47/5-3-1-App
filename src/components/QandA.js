@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { firebaseApp } from "../server/firebase";
 import "../css/App.css";
-import QAModal from './modalQandA'
+import QAModal from "./modalQandA";
 import { Button, ButtonToolbar } from "react-bootstrap";
-import './QandA.css'
-import $ from 'jquery'
+import "./QandA.css";
+import $ from "jquery";
 
 export default class QandA extends Component {
   constructor(props) {
@@ -19,7 +19,7 @@ export default class QandA extends Component {
 
   componentWillMount() {
     /* Create reference to messages in Firebase Database */
-    let postList = []
+    let postList = [];
     let messagesRef = firebaseApp
       .database()
       .ref("messages")
@@ -27,34 +27,34 @@ export default class QandA extends Component {
       .limitToLast(100);
     messagesRef.on("child_added", snapshot => {
       /* Update React state when message is added at Firebase Database */
-      const thisPost = {}
+      const thisPost = {};
       let message = { text: snapshot.val().question, id: snapshot.key };
       let answer = { text: snapshot.val().answers, id: snapshot.key };
-      thisPost['question'] = message;
-      thisPost['answers'] = answer;
-      postList.push(thisPost)
+      thisPost["question"] = message;
+      thisPost["answers"] = answer;
+      postList.push(thisPost);
       // this.setState({
       //   messages: [message].concat(this.state.messages),
       //   answers: [answer].concat(this.state.answers)
       // });
       this.setState({
         postList
-      })
-    })
+      });
+    });
   }
 
   addMessage = e => {
     e.preventDefault(); // <- prevent form submit from reloading the page
     /* Send the message to Firebase */
     let questCheck;
-    const questionArray = this.textInput.value.split('').lastIndexOf('?')
+    const questionArray = this.textInput.value.split("").lastIndexOf("?");
 
     if (questionArray === -1) {
-      questCheck = this.textInput.value + "?"
+      questCheck = this.textInput.value + "?";
     } else {
-      questCheck = this.textInput.value
+      questCheck = this.textInput.value;
     }
-    console.log('QARR', questCheck)
+    console.log("QARR", questCheck);
 
     firebaseApp
       .database()
@@ -64,27 +64,27 @@ export default class QandA extends Component {
   };
 
   handleClickedMessage = () => {
-    this.setState({ isOpen: true })
+    this.setState({ isOpen: true });
   };
   //setState is a function, (),  that we want to be an object, {}
 
-  renderAnswers = (message) => {
-    console.log("MESSAGE", message)
-    const answerList = []
+  renderAnswers = message => {
+    console.log("MESSAGE", message);
+    const answerList = [];
 
     for (let prop in message.answers.text) {
-      answerList.push(message.answers.text[prop].answer)
+      answerList.push(message.answers.text[prop].answer);
     }
 
     return answerList.map(a => {
-      return <p>{a}</p>
-    })
-  }
+      return <p>{a}</p>;
+    });
+  };
 
   render() {
     return (
-      <div>
-        <div className='QAfont'>
+      <div className="centerhomepage">
+        <div className="card">
           <h1>Questions and Answers Forum</h1>
           <p>
             An area for 5/3/1 members to post questions regarding their workouts
@@ -93,30 +93,37 @@ export default class QandA extends Component {
           </p>
         </div>
         <br />
-        <div>
-          <h3 className='NQ'>New Question</h3>
-          <form>
-            <input type="text" ref={el => (this.textInput = el)} />
-            <input type="submit" onClick={this.addMessage} />
-          </form>
+        <div className="centerhomepage">
+          <div className="card">
+            <h3>New Question</h3>
+            <form>
+              <input type="text" ref={el => (this.textInput = el)} />
+              <input type="submit" onClick={this.addMessage} />
+            </form>
+          </div>
         </div>
         <br />
-        <div className="">
-          <ul className="">
+        <div className="card">
+          <ul className="nobullet">
             <li>
-              {this.state.postList && this.state.postList.map(message => {
-                return (
-                  <div className="faq-c">
-                    <div class="faq-q"><span class="faq-t">+</span>
-                      <QAModal qamessage={message.question.text} firebaseId={message.question.id} />
+              {this.state.postList &&
+                this.state.postList.map(message => {
+                  return (
+                    <div className="faq-c">
+                      <div class="faq-q">
+                        <span class="faq-t" />
+                        <QAModal
+                          qamessage={message.question.text}
+                          firebaseId={message.question.id}
+                        />
+                      </div>
+                      <div className="QAfont">
+                        {this.renderAnswers(message)}
+                      </div>
                     </div>
-                    <div className="QAfont">
-                      {this.renderAnswers(message)}
-                    </div>
-                  </div>
-                )
-                //button is Modal, button name is message.text and Id
-              })}
+                  );
+                  //button is Modal, button name is message.text and Id
+                })}
             </li>
           </ul>
           {/* <ButtonToolbar className="centerhomepage">
@@ -131,11 +138,7 @@ export default class QandA extends Component {
               </div>
             </ButtonToolbar> */}
         </div>
-
       </div>
     );
   }
 }
-
-
-

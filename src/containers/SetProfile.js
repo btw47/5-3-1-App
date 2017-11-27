@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import firebase from "firebase";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import { ButtonToolbar, Button } from "react-bootstrap";
 import Popup from "react-popup";
 import "../css/setProfile.css";
 import Calculator from "../components/repMaxCalculator";
@@ -151,10 +152,10 @@ class SetProfile extends Component {
     if (this.props.state.OneRep.calculatedMax) {
       if (this.props.state.OneRep.calculatedMax.bench) {
         const calculatedMax = this.props.state.OneRep.calculatedMax;
-        this.squat.value = calculatedMax.squat;
-        this.deadlift.value = calculatedMax.deadlift;
-        this.bench.value = calculatedMax.bench;
-        this.overheadPress.value = calculatedMax.overhead;
+        this.refs.squat.value = calculatedMax.squat;
+        this.refs.deadlift.value = calculatedMax.deadlift;
+        this.refs.bench.value = calculatedMax.bench;
+        this.refs.ohp.value = calculatedMax.overhead;
       }
     }
 
@@ -163,7 +164,6 @@ class SetProfile extends Component {
     return (
       <div className="container3">
         <div className="card3">
-          <div className="container3">
             <h2 className="contentinfo">
               <b>
                 <u>Enter Stats Below</u>
@@ -195,13 +195,18 @@ class SetProfile extends Component {
                 <label className="textinput">Current Weight (lbs)</label>
               </div>
               <br />
-              <button
-                type="button"
-                className="btn btn-primary"
-                onClick={event => this.calculatorButton(event)}
-              >
-                <span className="md-" /> 1 Rep Max Calculator
-              </button>
+              <ButtonToolbar className="centerhomepage">
+                <div className="btnwrap">
+                  <Button
+                    type="button"
+                    bsSize="medium"
+                    className="coolbtn"
+                    onClick={event => this.calculatorButton(event)}
+                  >
+                  Calculator
+                  </Button>
+                </div>
+              </ButtonToolbar>
               <div id="one-rep-max">
               <h4>What are your current one rep maxes?</h4>
               <br />
@@ -255,11 +260,18 @@ class SetProfile extends Component {
               </div>
               <br />
               </div>
-              <button type="submit" className="btn btn-primary">
-                <span className="md-thumb-up" /> Get Started!
-              </button>
+              <ButtonToolbar className="centerhomepage">
+                <div className="btnwrap">
+                  <Button
+                    type="submit" 
+                    className="coolbtn"
+                    bsSize="medium"
+                  >
+                  Get Started!
+                  </Button>
+                </div>
+              </ButtonToolbar>
             </form>
-          </div>
         </div>
         <Popup
           className="mm-popup"
