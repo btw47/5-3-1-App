@@ -77,7 +77,7 @@ export default class QAModal extends Component {
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.answerQuestioninModal}>Answer Question</Button>
-            <Button onClick={this.showModal}>Close this stupid fucking box</Button>
+            <Button onClick={this.showModal}>Close this box</Button>
           </Modal.Footer>
         </Modal>
       </div >
