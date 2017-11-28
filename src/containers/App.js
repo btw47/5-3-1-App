@@ -14,6 +14,7 @@ import WeeklyTemplate from "../components/weeklyTemplate";
 import DetailedProgress from "./DetailedProgress";
 import QandA from "../components/QandA";
 import Footer from '../components/footer'
+import WorkoutApi from '../components/workoutApi'
 
 import Admin from "./Admin";
 
@@ -36,6 +37,7 @@ class App extends Component {
             <Route path="/DetailedProgress" component={DetailedProgress} />
             <Route path="/Admin" component={Admin} />
             <Route path="/QandA" component={QandA} />
+            <Route path="/WorkoutApi" component={WorkoutApi} />
           </Switch>
           <Footer />
         </div>
