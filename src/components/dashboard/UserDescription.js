@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
-import { FormGroup, FormControl, ControlLabel, Button } from 'react-bootstrap';
-import firebase from 'firebase';
-import Popup from 'react-popup';
+import React, { Component } from "react";
+import { FormGroup, FormControl, ControlLabel, Button } from "react-bootstrap";
+import firebase from "firebase";
+import Popup from "react-popup";
 
-import { firebaseDb } from '../../server/firebase';
+import { firebaseDb } from "../../server/firebase";
 
 class UserDescription extends Component {
   handleDesc = event => {
     event.preventDefault();
 
     if (!this.state.desc) {
-      Popup.Alert('NOT FILLED OUT YO');
+      Popup.Alert("NOT FILLED OUT YO");
     } else {
       const thisUser = firebase.auth().currentUser;
       if (thisUser != null) {
@@ -20,16 +20,16 @@ class UserDescription extends Component {
       const date = Date();
 
       firebaseDb
-        .ref('users/' + uid + '/user/')
+        .ref("users/" + uid + "/user/")
         .push({
           desc: this.state.desc,
           date: date
         })
         .then(() => {
-          alert('Your description has been updated.');
+          alert("Your description has been updated.");
         })
         .then(() => {
-          this.setState({ desc: '' });
+          this.setState({ desc: "" });
         });
     }
   };
@@ -42,11 +42,12 @@ class UserDescription extends Component {
 
   render() {
     return (
-      <div>
+      <div className="userdisbox">
         <h1>Settings</h1>
         <form
           onSubmit={event => this.handleDesc(event)}
-          style={{ width: '75vw' }}>
+          style={{ width: "75vw", left: "50", marginLeft: "12.5vw" }}
+        >
           <FormGroup controlId="formControlsTextarea">
             <ControlLabel>
               <h2>Tell us about yourself:</h2>

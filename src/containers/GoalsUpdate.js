@@ -64,7 +64,7 @@ class GoalUpdate extends Component {
       const date = Date();
       console.log("SET STATE", this.state);
       const currentLocation = window.location.href;
-      if (window.location.pathname === '/GoalsUpdate') {
+      if (window.location.pathname === "/GoalsUpdate") {
         firebaseDb
           .ref("users/" + uid + "/calendar/")
           .push({
@@ -76,29 +76,32 @@ class GoalUpdate extends Component {
             squatTemplate: this.props.state.OneRep.Squat,
             ohpTemplate: this.props.state.OneRep.Overhead,
             date: date
-        })
-        .then( 
-          () => {if(window.location.pathname === '/GoalsUpdate'){
-            this.props.history.push('/Dashboard')
-          }else {
-            Popup.alert("Your workout has been updated")
-          }}           
-        )
-      } else if(window.location.pathname === '/Dashboard') {
+          })
+          .then(() => {
+            if (window.location.pathname === "/GoalsUpdate") {
+              this.props.history.push("/Dashboard");
+            } else {
+              Popup.alert("Your workout has been updated");
+            }
+          });
+      } else if (window.location.pathname === "/Dashboard") {
         firebaseDb
           .ref("users/" + uid + "/calendar/")
           .push({
             selectedDay: this.state.selectedDay,
             selectedWeekday: this.state.selectedWeekday,
             selectedExercise: this.state.selectedExercise,
-            benchTemplate: this.props.state.fetchCalendar.calendar.benchTemplate,
-            deadliftTemplate: this.props.state.fetchCalendar.calendar.deadliftTemplate,
-            squatTemplate: this.props.state.fetchCalendar.calendar.squatTemplate,
+            benchTemplate: this.props.state.fetchCalendar.calendar
+              .benchTemplate,
+            deadliftTemplate: this.props.state.fetchCalendar.calendar
+              .deadliftTemplate,
+            squatTemplate: this.props.state.fetchCalendar.calendar
+              .squatTemplate,
             ohpTemplate: this.props.state.fetchCalendar.calendar.ohpTemplate,
             date: date
           })
           .then(() => {
-            if (window.location.pathname === '/Dashboard') {
+            if (window.location.pathname === "/Dashboard") {
               Popup.alert("Your workout has been updated");
             }
           });
@@ -213,11 +216,11 @@ function that updates the state of our buttons */}
               >
                 <div className="content">
                   <label className="checkBox">
-                    <Checkbox id="ch2" name="checkBox" value={1} />
+                    <Checkbox id="ch1" name="checkBox" value={1} />
                     <div className="checkboxtransition" />
                   </label>
-                  <label htmlFor="ch2" className="checkBoxLabel">
-                    Monday
+                  <label htmlFor="ch1" className="checkBoxLabel">
+                    <b>Monday</b>
                   </label>
                   <label className="checkBox">
                     <Checkbox id="ch2" name="checkBox" value={2} />
@@ -313,7 +316,7 @@ function that updates the state of our buttons */}
                     onChange={this.handleExerciseChange}
                   />
                   <label htmlFor="rd3" className="custom-radio__label">
-                    I'm Not Doing Jack Shit
+                    I'm Not Doing Jack Shit <b>-1 DAY MAX-</b>
                   </label>
                 </div>
                 <br />
@@ -352,13 +355,13 @@ function that updates the state of our buttons */}
           <br />
           <ButtonToolbar className="centerhomepage">
             <div className="btnwrap">
-              <Button 
-                type="submit" 
-                bsSize="large" 
-                className="coolbtn" 
+              <Button
+                type="submit"
+                bsSize="large"
+                className="coolbtn"
                 onClick={event => this.handleSubmit(event)}
               >
-              Submit Workout
+                Submit Workout
               </Button>
             </div>
           </ButtonToolbar>

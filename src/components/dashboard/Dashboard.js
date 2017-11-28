@@ -7,15 +7,14 @@ import "../../css/Dashboard.css";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import WeekCalendar from "../calendar";
 import UserStats from "../UserStats";
-import UpdateProfile from '../../containers/SetProfile';
+import UpdateProfile from "../../containers/SetProfile";
 import UploadImage from "../UploadImage";
 import DashboardGraph from "../graphs/DashboardGraph";
 import { firebaseDb } from "../../server/firebase";
 import UpdateProfileModal from "../../containers/UpdateProfileModal";
 import * as actions from "../../actions";
-import Popup from 'react-popup';
+import Popup from "react-popup";
 import { Button, ButtonToolbar } from "react-bootstrap";
-
 
 class Dashboard extends Component {
   componentWillMount() {
@@ -77,8 +76,8 @@ class Dashboard extends Component {
   //   this.props.history.push('/GoalsUpdate');
   // }
 
-  onStatsUpdate(event){
-    Popup.alert(<UpdateProfile/>, "Update Stats")
+  onStatsUpdate(event) {
+    Popup.alert(<UpdateProfile />, "Update Stats");
   }
 
   render() {
@@ -88,7 +87,7 @@ class Dashboard extends Component {
     return (
       <div className="textlayout">
         <br />
-        <Row>
+        <Row className="centerdash">
           <Col md={4} sm={12} style={{ paddingLeft: "50px" }}>
             <UserStats
               className="UserStats"
@@ -98,25 +97,25 @@ class Dashboard extends Component {
               profileImage={state.user.profileImage}
             />
             <div>
-            <ButtonToolbar className="centerhomepage">
-              <div className="btnwrap">
-                <Button
-                  type="button"
-                  className="coolbtn"
-                  onClick={event => this.onStatsUpdate(event)}
-                >
-                Update Stats
-                </Button>
-              </div>
-              <br />
-              <UploadImage
-                fetchProfileImage={this.props.fetchProfileImage}
-                userId={state.user.uid}
-                style={{ display: "inline-block" }}
-                type="profile"
-                fetchUserImages={this.props.fetchUserImages}
-                caption="Upload profile picture"
-              />
+              <ButtonToolbar className="centerhomepage">
+                <div className="btnwrap">
+                  <Button
+                    type="button"
+                    className="coolbtn"
+                    onClick={event => this.onStatsUpdate(event)}
+                  >
+                    Update Stats
+                  </Button>
+                </div>
+                <br />
+                <UploadImage
+                  fetchProfileImage={this.props.fetchProfileImage}
+                  userId={state.user.uid}
+                  style={{ display: "inline-block" }}
+                  type="profile"
+                  fetchUserImages={this.props.fetchUserImages}
+                  caption="Upload profile picture"
+                />
               </ButtonToolbar>
             </div>
           </Col>
@@ -134,14 +133,14 @@ class Dashboard extends Component {
           </Col>
         </Row>
         <Popup
-        className="mm-popup"
-        btnClass="mm-popup__btn"
-        closeBtn={true}
-        closeHtml={null}
-        defaultOk="Close"
-        defaultCancel="Cancel"
-        wildClasses={false}
-      />
+          className="mm-popup"
+          btnClass="mm-popup__btn"
+          closeBtn={true}
+          closeHtml={null}
+          defaultOk="Close"
+          defaultCancel="Cancel"
+          wildClasses={false}
+        />
       </div>
     );
   }
