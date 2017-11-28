@@ -9,7 +9,10 @@ export default class WorkoutApi extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        const exerciseUrl = `https://wger.de/api/v2/exercise/?name=${this.refs.textarea.value}`
+        const ta = this.refs.textarea.value;
+        console.log("TA", ta)
+        const exerciseUrl = `https://wger.de/api/v2/exercise/search/?term=${ta}`
+        console.log("URLLLL", exerciseUrl);
         const axiosReq = axios.get(exerciseUrl).then(res => console.log(res)).catch(error => console.log('error', error));
         console.log('AXXXX', axiosReq);
         // console.log("QUERY", )
