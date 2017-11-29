@@ -4,26 +4,31 @@ import axios from 'axios'
 
 export default class WorkoutApi extends Component {
     state = {
-        exercise: {}
+        exercise: null
     }
 
     handleSubmit = (e) => {
+        let data;
         e.preventDefault();
         const ta = this.refs.textarea.value;
-        console.log("TA", ta)
         const exerciseUrl = `https://wger.de/api/v2/exercise/search/?term=${ta}`
         console.log("URLLLL", exerciseUrl);
-        const axiosReq = axios.get(exerciseUrl).then(res => console.log(res)).catch(error => console.log('error', error));
+        const axiosReq = axios.get(exerciseUrl).then(res => {
+            data = res.data.suggestions
+            this.setState({ data });
+        }).catch(error => console.log('error', error));
         console.log('AXXXX', axiosReq);
         // console.log("QUERY", )
         this.refs.textarea.value = ''
+    }
+
+    renderPage = () => {
 
     }
 
-
     render() {
         const exercise = this.state.exercise;
-
+        console.log("STATE", this.state)
         return (
             <div>
                 <div className='workoutApi'>
@@ -41,6 +46,15 @@ export default class WorkoutApi extends Component {
                         <label className='workoutApi'>Here is the exercise image that you requested:</label>
                         {/* <span>{exercise}</span> */}
                     </div>
+                    {this.state.data && this.state.data.map(a => {
+                        return (
+                            <div>
+                                <label>{a.name}</label>
+                                <label>{a.image}</label>
+                                <label>{a.category}</label>
+                            </div>
+                        )
+                    })}
                 </div>
             </div>
         )

@@ -18,6 +18,10 @@ export default class QandA extends Component {
   //Calling setState triggers UI updates and is the bread and butter of React's interactivity.
 
   componentWillMount() {
+    this.fetchAnswer()
+  }
+
+  fetchAnswer = () => {
     /* Create reference to messages in Firebase Database */
     let postList = [];
     let messagesRef = firebaseApp
@@ -33,10 +37,6 @@ export default class QandA extends Component {
       thisPost["question"] = message;
       thisPost["answers"] = answer;
       postList.push(thisPost);
-      // this.setState({
-      //   messages: [message].concat(this.state.messages),
-      //   answers: [answer].concat(this.state.answers)
-      // });
       this.setState({
         postList
       });
@@ -113,6 +113,7 @@ export default class QandA extends Component {
                       <div class="faq-q">
                         <span class="faq-t" />
                         <QAModal
+                          fetchAnswer={this.fetchAnswer}
                           qamessage={message.question.text}
                           firebaseId={message.question.id}
                         />
