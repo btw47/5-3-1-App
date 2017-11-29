@@ -57,14 +57,14 @@ export default class SignUp extends Component {
   renderError = () => {
     if (this.props.error) {
       switch (this.props.error.code) {
-        case 'auth/invalid-email':
+        case "auth/invalid-email":
           return <div>enter a real email idiot</div>;
-        case 'auth/weak-password':
+        case "auth/weak-password":
           return <div>you wanna get hacked? enter a longer password</div>;
-        case 'auth/email-already-in-use':
+        case "auth/email-already-in-use":
           return <div>sorry this email has already been registered</div>;
         default:
-          return <div></div>;
+          return <div />;
       }
     }
   };
@@ -75,8 +75,8 @@ export default class SignUp extends Component {
     return (
       <div>
         <form onSubmit={event => this.handleSubmit(event)}>
-          <FormGroup className="centerhomepage" bsSize="large">
-            <div className="centerhomepage">
+          <FormGroup>
+            <div>
               <div className="group">
                 <FormControl
                   required
@@ -105,23 +105,17 @@ export default class SignUp extends Component {
             <br />
             <ButtonToolbar className="centerhomepage">
               <div className="btnwrap">
-                <Button
-                  bsSize="large"
-                  type="submit"
-                  className="coolbtn"
-                >
-                Sign Up
+                <Button bsSize="large" type="submit" className="coolbtn">
+                  Sign Up
                 </Button>
-                </div>
-                <br />
-                {this.renderError()}
-                <div className="btnwrap">
-                  <Button className="coolbtn" bsSize="large">
-                    <NavLink to="/SignIn">
-                      Sign In
-                    </NavLink>
-                  </Button>
-                </div>
+              </div>
+              <br />
+              {this.renderError()}
+              <div className="btnwrap">
+                <Button className="coolbtn" bsSize="large">
+                  <NavLink to="/SignIn">Sign In</NavLink>
+                </Button>
+              </div>
             </ButtonToolbar>
           </FormGroup>
         </form>
