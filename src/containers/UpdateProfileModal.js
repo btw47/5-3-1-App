@@ -3,7 +3,7 @@ import {
   Button,
   Modal,
 } from 'react-bootstrap';
-import SetProfile from './SetProfile';
+import SetProfile from '../components/UpdateProfile';
 
 class UpdateProfileModal extends Component {
   constructor(props) {
