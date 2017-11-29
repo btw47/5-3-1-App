@@ -18,7 +18,7 @@ export default class QandA extends Component {
   //Calling setState triggers UI updates and is the bread and butter of React's interactivity.
 
   componentWillMount() {
-    this.fetchAnswer()
+    this.fetchAnswer();
   }
 
   fetchAnswer = () => {
@@ -41,7 +41,7 @@ export default class QandA extends Component {
         postList
       });
     });
-  }
+  };
 
   addMessage = e => {
     e.preventDefault(); // <- prevent form submit from reloading the page
@@ -83,23 +83,15 @@ export default class QandA extends Component {
 
   render() {
     return (
-      <div className="centerhomepage">
-        <div className="card">
-          <h1>Questions and Answers Forum</h1>
-          <p>
-            An area for 5/3/1 members to post questions regarding their workouts
-            or fitness questions in general. Other members are encouraged to
-            provide answers to these questions.
-          </p>
-        </div>
-        <br />
+      <div className="container">
         <div className="centerhomepage">
           <div className="card">
-            <h3>New Question</h3>
-            <form>
-              <input type="text" ref={el => (this.textInput = el)} />
-              <input type="submit" onClick={this.addMessage} />
-            </form>
+            <h1>Questions and Answers Forum</h1>
+            <p>
+              An area for 5/3/1 members to post questions regarding their
+              workouts or fitness questions in general. Other members are
+              encouraged to provide answers to these questions.
+            </p>
           </div>
         </div>
         <br />
@@ -117,9 +109,6 @@ export default class QandA extends Component {
                           qamessage={message.question.text}
                           firebaseId={message.question.id}
                         />
-                      </div>
-                      <div className="QAfont">
-                        {this.renderAnswers(message)}
                       </div>
                     </div>
                   );

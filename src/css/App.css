@@ -106,7 +106,7 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding-right: 20em;
+  padding-right: 15em;
   padding-left: 15em;
   padding-bottom: 3em;
   border-radius: 50px;
@@ -184,6 +184,7 @@ body {
   display: inline-block;
   text-align: center;
   padding-bottom: 25px;
+  position: center;
 }
 
 .contentp {
@@ -261,7 +262,12 @@ body {
 }
 
 .container {
-  position: middle;
+  /* position: middle; */
+  margin: auto;
+  display: inline-block;
+  text-align: center;
+  padding-bottom: 25px;
+  position: center;
 }
 .textlayout {
   position: middle;

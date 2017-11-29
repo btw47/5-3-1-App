@@ -1,13 +1,13 @@
-import { firebaseApp, firebaseDb } from '../server/firebase';
-import actionTypes from '../actionTypes';
+import { firebaseApp, firebaseDb } from "../server/firebase";
+import actionTypes from "../actionTypes";
 
 //-----USE IF CREATING ADMIN ACCOUNT-----
-// import firebase from 'firebase';
-// import * as admin from 'firebase-admin';
+// import firebase from "firebase";
+// import * as admin from "firebase-admin";
 
 //ACTION CREATORS-------------------
 const updateProfile = () => {
-  window.location = '/SetProfile';
+  window.location = "/SetProfile";
 };
 
 export const loggedIn = () => {
@@ -80,7 +80,7 @@ export function fetchOldStats(thisUser, time) {
       var uid = thisUser.uid;
     }
 
-    firebaseDb.ref('users/' + uid + '/user/').on('value', snapshot => {
+    firebaseDb.ref("users/" + uid + "/user/").on("value", snapshot => {
       const firebaseOutput = snapshot.val();
 
       let pushList = [];
@@ -105,10 +105,10 @@ export function fetchOldStats(thisUser, time) {
         fullName: firstUpload.fullName,
         weight: firstUpload.weight,
         date: firstUpload.date,
-        ormBench: firstUpload.oneRepMax['benchORM'],
-        ormDeadlift: firstUpload.oneRepMax['deadliftORM'],
-        ormOverheadPress: firstUpload.oneRepMax['overheadPressORM'],
-        ormSquat: firstUpload.oneRepMax['squatORM']
+        ormBench: firstUpload.oneRepMax["benchORM"],
+        ormDeadlift: firstUpload.oneRepMax["deadliftORM"],
+        ormOverheadPress: firstUpload.oneRepMax["overheadPressORM"],
+        ormSquat: firstUpload.oneRepMax["squatORM"]
       });
     });
   };
@@ -120,7 +120,7 @@ export function fetchCalendar(thisUser) {
       var uid = thisUser.uid;
     }
 
-    firebaseDb.ref('users/' + uid + '/calendar/').on('value', snapshot => {
+    firebaseDb.ref("users/" + uid + "/calendar/").on("value", snapshot => {
       const firebaseOutput = snapshot.val();
 
       // console.log("FIREBASE OUTPUT", firebaseOutput)
@@ -187,7 +187,7 @@ export function fetchUser(thisUser) {
       var uid = thisUser.uid;
     }
 
-    firebaseDb.ref('users/' + uid + '/user/').on('value', snapshot => {
+    firebaseDb.ref("users/" + uid + "/user/").on("value", snapshot => {
       const firebaseOutput = snapshot.val();
 
       let pushList = [];
@@ -221,10 +221,10 @@ export function fetchUser(thisUser) {
           userID: uid,
           fullName: lastUpload.fullName,
           weight: lastUpload.weight,
-          ormBench: lastUpload.oneRepMax['benchORM'],
-          ormDeadlift: lastUpload.oneRepMax['deadliftORM'],
-          ormOverheadPress: lastUpload.oneRepMax['overheadPressORM'],
-          ormSquat: lastUpload.oneRepMax['squatORM'],
+          ormBench: lastUpload.oneRepMax["benchORM"],
+          ormDeadlift: lastUpload.oneRepMax["deadliftORM"],
+          ormOverheadPress: lastUpload.oneRepMax["overheadPressORM"],
+          ormSquat: lastUpload.oneRepMax["squatORM"],
           desc: lastDesc.desc
         });
       } else {
@@ -233,10 +233,10 @@ export function fetchUser(thisUser) {
           userID: uid,
           fullName: lastUpload.fullName,
           weight: lastUpload.weight,
-          ormBench: lastUpload.oneRepMax['benchORM'],
-          ormDeadlift: lastUpload.oneRepMax['deadliftORM'],
-          ormOverheadPress: lastUpload.oneRepMax['overheadPressORM'],
-          ormSquat: lastUpload.oneRepMax['squatORM']
+          ormBench: lastUpload.oneRepMax["benchORM"],
+          ormDeadlift: lastUpload.oneRepMax["deadliftORM"],
+          ormOverheadPress: lastUpload.oneRepMax["overheadPressORM"],
+          ormSquat: lastUpload.oneRepMax["squatORM"]
         });
       }
     });
@@ -257,7 +257,7 @@ export const fetchProgress = thisUser => {
       var uid = thisUser.uid;
     }
 
-    firebaseDb.ref('users/' + uid + '/user/').on('value', snapshot => {
+    firebaseDb.ref("users/" + uid + "/user/").on("value", snapshot => {
       const firebaseOutput = snapshot.val();
 
       let pushList = [];
@@ -275,16 +275,16 @@ export const fetchProgress = thisUser => {
       }
 
       const progressData = uploadList.map(a => {
-        const smallDate = a.date.split(' ').slice(1, 3);
-        const joinDate = smallDate.join(' ');
-        const fullDate = `${joinDate}, ${a.date.split(' ').slice(3, 4)}`;
+        const smallDate = a.date.split(" ").slice(1, 3);
+        const joinDate = smallDate.join(" ");
+        const fullDate = `${joinDate}, ${a.date.split(" ").slice(3, 4)}`;
         const rawDat = {};
-        rawDat['name'] = fullDate;
-        rawDat['Bench (ORM)'] = a.oneRepMax['benchORM'];
-        rawDat['Squat (ORM)'] = a.oneRepMax['squatORM'];
-        rawDat['Overhead Press (ORM)'] = a.oneRepMax['overheadPressORM'];
-        rawDat['Deadlift (ORM)'] = a.oneRepMax['deadliftORM'];
-        rawDat['Weight'] = a.weight;
+        rawDat["name"] = fullDate;
+        rawDat["Bench (ORM)"] = a.oneRepMax["benchORM"];
+        rawDat["Squat (ORM)"] = a.oneRepMax["squatORM"];
+        rawDat["Overhead Press (ORM)"] = a.oneRepMax["overheadPressORM"];
+        rawDat["Deadlift (ORM)"] = a.oneRepMax["deadliftORM"];
+        rawDat["Weight"] = a.weight;
         return rawDat;
       });
 
@@ -299,7 +299,7 @@ export const fetchProgress = thisUser => {
 //-----Filestack-----
 export const fetchProfileImage = uid => {
   return dispatch => {
-    firebaseDb.ref('users/' + uid + '/images/').on('value', snapshot => {
+    firebaseDb.ref("users/" + uid + "/images/").on("value", snapshot => {
       const firebaseOutput = snapshot.val();
 
       let pushList = [];
@@ -332,7 +332,7 @@ export const fetchProfileImage = uid => {
 
 export const fetchUserImages = uid => {
   return dispatch => {
-    firebaseDb.ref('users/' + uid + '/images/').on('value', snapshot => {
+    firebaseDb.ref("users/" + uid + "/images/").on("value", snapshot => {
       const firebaseOutput = snapshot.val();
 
       let pushList = [];
