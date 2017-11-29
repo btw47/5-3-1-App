@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import firebase from "firebase";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import { ButtonToolbar, Button } from "react-bootstrap";
-import Popup from "react-popup";
-import "../css/setProfile.css";
-import Calculator from "../components/repMaxCalculator";
+import React, { Component } from 'react';
+import firebase from 'firebase';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { ButtonToolbar, Button } from 'react-bootstrap';
+import Popup from 'react-popup';
+import '../css/setProfile.css';
+import Calculator from '../components/repMaxCalculator';
 
-import * as actions from "../actions";
-import { firebaseDb } from "../server/firebase";
+import * as actions from '../actions';
+import { firebaseDb } from '../server/firebase';
 
 class SetProfile extends Component {
   constructor() {
@@ -19,7 +19,7 @@ class SetProfile extends Component {
   componentWillMount() {
     firebase.auth().onAuthStateChanged(user => {
       if (!user) {
-        this.props.history.push("/");
+        this.props.history.push('/');
       } else if (user) {
         this.props.loggedIn();
       }
@@ -38,25 +38,25 @@ class SetProfile extends Component {
       [
         t({ percent: 0.65, reps: 5 }),
         t({ percent: 0.75, reps: 5 }),
-        t({ percent: 0.85, reps: "5+" })
+        t({ percent: 0.85, reps: '5+' })
       ],
       // week 2
       [
         t({ percent: 0.7, reps: 3 }),
         t({ percent: 0.8, reps: 3 }),
-        t({ percent: 0.9, reps: "3+" })
+        t({ percent: 0.9, reps: '3+' })
       ],
       // week 3
       [
         t({ percent: 0.75, reps: 5 }),
         t({ percent: 0.85, reps: 3 }),
-        t({ percent: 0.95, reps: "1+" })
+        t({ percent: 0.95, reps: '1+' })
       ],
       // week 4
       [
         t({ percent: 0.4, reps: 5 }),
         t({ percent: 0.5, reps: 5 }),
-        t({ percent: 0.6, reps: "only 5" })
+        t({ percent: 0.6, reps: 'only 5' })
       ]
     ];
   };
@@ -79,7 +79,7 @@ class SetProfile extends Component {
   };
 
   calculatorButton = event => {
-    Popup.alert(<Calculator />, "1 Rep Max Calculator");
+    Popup.alert(<Calculator />, '1 Rep Max Calculator');
   };
 
   handleFullName = event => {
@@ -95,58 +95,71 @@ class SetProfile extends Component {
     const Squat = this.weeklyTemplate(this.refs.squat.value);
     const Overhead = this.weeklyTemplate(this.refs.ohp.value);
     if (!this.props.state.OneRep) {
-      Popup.alert("Fill out all your stats bro", "All stats not filled out");
+      Popup.alert('Fill out all your stats bro', 'All stats not filled out');
     } else {
       const thisUser = firebase.auth().currentUser;
       if (thisUser != null) {
         var uid = thisUser.uid;
       }
 
+      let pushORM;
+
+      if (this.props.state.OneRep.calculatedMax) {
+        if (this.props.state.OneRep.calculatedMax.bench) {
+          pushORM = {
+            squatORM: this.refs.squat.value,
+            deadliftORM: this.refs.deadlift.value,
+            benchORM: this.refs.bench.value,
+            overheadPressORM: this.refs.ohp.value
+          };
+        }
+      } else {
+        pushORM = this.state.oneRepMax;
+      }
+
       const date = Date();
-      if(window.location.pathname === '/Dashboard'){
+      if (window.location.pathname === '/Dashboard') {
         const date = Date();
-        console.log("YEEEEEAAHHH", this.state)
-        firebaseDb
-        .ref('users/' + uid + '/user')
-        .push({
+        console.log('YEEEEEAAHHH', this.state);
+        firebaseDb.ref('users/' + uid + '/user').push({
           weight: this.state.weight,
           oneRepMax: this.state.oneRepMax,
           fullName: this.state.fullName,
           date: date
-        })
-  
+        });
+
         firebaseDb
-        .ref('users/' + uid + '/calendar/')
-        .push({
-          selectedDay: this.props.state.fetchCalendar.calendar.selectedDay,
-          selectedWeekday: this.props.state.fetchCalendar.calendar.selectedWeekday,
-          selectedExercise: this.props.state.fetchCalendar.calendar.selectedExercise,
-          benchTemplate: Bench,
-          deadliftTemplate: Deadlift,
-          squatTemplate: Squat,
-          ohpTemplate: Overhead,
-          date: date
-        }).then(
-          alert("Stats Updated")
-        )
-          
-        }else if (window.location.pathname === '/SetProfile') {
+          .ref('users/' + uid + '/calendar/')
+          .push({
+            selectedDay: this.props.state.fetchCalendar.calendar.selectedDay,
+            selectedWeekday: this.props.state.fetchCalendar.calendar
+              .selectedWeekday,
+            selectedExercise: this.props.state.fetchCalendar.calendar
+              .selectedExercise,
+            benchTemplate: Bench,
+            deadliftTemplate: Deadlift,
+            squatTemplate: Squat,
+            ohpTemplate: Overhead,
+            date: date
+          })
+          .then(alert('Stats Updated'));
+      } else if (window.location.pathname === '/SetProfile') {
         const date = Date();
         firebaseDb
           .ref('users/' + uid + '/user')
           .push({
             weight: this.state.weight,
-            oneRepMax: this.state.oneRepMax,
+            oneRepMax: pushORM,
             fullName: this.state.fullName,
             date: date
-          }).then(() => {
-              this.props.history.push('/GoalsUpdate');  
+          })
+          .then(() => {
+            this.props.history.push('/GoalsUpdate');
           });
-          this.props.oneRep(Bench, Overhead, Deadlift, Squat)
+        this.props.oneRep(Bench, Overhead, Deadlift, Squat);
       }
     }
-  }
-
+  };
 
   render() {
     if (this.props.state.OneRep.calculatedMax) {
@@ -159,55 +172,54 @@ class SetProfile extends Component {
       }
     }
 
-    console.log("set profile props", this.props);
+    console.log('set profile props', this.props);
 
     return (
       <div className="container3">
         <div className="card3">
-            <h2 className="contentinfo">
-              <b>
-                <u>Enter Stats Below</u>
-              </b>
-            </h2>
+          <h2 className="contentinfo">
+            <b>
+              <u>Enter Stats Below</u>
+            </b>
+          </h2>
+          <br />
+          <form onSubmit={event => this.handleSubmit(event)}>
+            <div className="group">
+              <input
+                className="inputtext"
+                required
+                type="text"
+                onChange={event => this.handleFullName(event)}
+              />
+              <span className="highlight" />
+              <span className="bar" />
+              <label className="textinput">Username</label>
+            </div>
+            <div className="group">
+              <input
+                className="inputtext"
+                required
+                type="number"
+                min="1"
+                onChange={event => this.handleWeight(event)}
+              />
+              <span className="highlight" />
+              <span className="bar" />
+              <label className="textinput">Current Weight (lbs)</label>
+            </div>
             <br />
-            <form onSubmit={event => this.handleSubmit(event)}>
-              <div className="group">
-                <input
-                  className="inputtext"
-                  required
-                  type="text"
-                  onChange={event => this.handleFullName(event)}
-                />
-                <span className="highlight" />
-                <span className="bar" />
-                <label className="textinput">Username</label>
-              </div>
-              <div className="group">
-                <input
-                  className="inputtext"
-                  required
-                  type="number"
-                  min="1"
-                  onChange={event => this.handleWeight(event)}
-                />
-                <span className="highlight" />
-                <span className="bar" />
-                <label className="textinput">Current Weight (lbs)</label>
-              </div>
-              <br />
-              <ButtonToolbar className="centerhomepage">
-                <div className="btnwrap">
-                  <Button
-                    type="button"
-                    bsSize="medium"
-                    className="coolbtn"
-                    onClick={event => this.calculatorButton(event)}
-                  >
+            <ButtonToolbar className="centerhomepage">
+              <div className="btnwrap">
+                <Button
+                  type="button"
+                  bsSize="medium"
+                  className="coolbtn"
+                  onClick={event => this.calculatorButton(event)}>
                   Calculator
-                  </Button>
-                </div>
-              </ButtonToolbar>
-              <div id="one-rep-max">
+                </Button>
+              </div>
+            </ButtonToolbar>
+            <div id="one-rep-max">
               <h4>What are your current one rep maxes?</h4>
               <br />
               <div className="group">
@@ -259,19 +271,15 @@ class SetProfile extends Component {
                 <label className="textinput">Squat Weight</label>
               </div>
               <br />
-              </div>
-              <ButtonToolbar className="centerhomepage">
-                <div className="btnwrap">
-                  <Button
-                    type="submit" 
-                    className="coolbtn"
-                    bsSize="medium"
-                  >
+            </div>
+            <ButtonToolbar className="centerhomepage">
+              <div className="btnwrap">
+                <Button type="submit" className="coolbtn" bsSize="medium">
                   Get Started!
-                  </Button>
-                </div>
-              </ButtonToolbar>
-            </form>
+                </Button>
+              </div>
+            </ButtonToolbar>
+          </form>
         </div>
         <Popup
           className="mm-popup"
