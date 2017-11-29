@@ -382,15 +382,6 @@ class SetProfile extends Component {
             </ButtonToolbar>
           </form>
       </div>
-      <Popup
-        className="mm-popup"
-        btnClass="mm-popup__btn"
-        closeBtn={true}
-        closeHtml={null}
-        defaultOk="Close"
-        defaultCancel="Cancel"
-        wildClasses={false}
-      />
     </div>
     )
   }
