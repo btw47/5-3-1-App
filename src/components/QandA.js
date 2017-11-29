@@ -18,7 +18,7 @@ export default class QandA extends Component {
   //Calling setState triggers UI updates and is the bread and butter of React's interactivity.
 
   componentWillMount() {
-    this.fetchAnswer()
+    this.fetchAnswer();
   }
 
   fetchAnswer = () => {
@@ -41,7 +41,7 @@ export default class QandA extends Component {
         postList
       });
     });
-  }
+  };
 
   addMessage = e => {
     e.preventDefault(); // <- prevent form submit from reloading the page
@@ -110,12 +110,13 @@ export default class QandA extends Component {
                           firebaseId={message.question.id}
                         />
                       </div>
-                    );
-                    //button is Modal, button name is message.text and Id
-                  })}
-              </li>
-            </ul>
-            {/* <ButtonToolbar className="centerhomepage">
+                    </div>
+                  );
+                  //button is Modal, button name is message.text and Id
+                })}
+            </li>
+          </ul>
+          {/* <ButtonToolbar className="centerhomepage">
               <div className="btnwrap">
                 <Button
                   bsSize="medium"
@@ -126,7 +127,6 @@ export default class QandA extends Component {
                 </Button>
               </div>
             </ButtonToolbar> */}
-          </div>
         </div>
       </div>
     );
