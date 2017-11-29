@@ -3364,9 +3364,9 @@ firebase-token-generator@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/firebase-token-generator/-/firebase-token-generator-2.0.0.tgz#9767d759ec13abdc99ba115fd5ea99d8b93d1206"
 
-firebase-tools@^3.15.2:
-  version "3.15.2"
-  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-3.15.2.tgz#56da40fc0537daae0f6485b5640d902ce6d4de05"
+firebase-tools@^3.15.3:
+  version "3.15.3"
+  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-3.15.3.tgz#fe04868bfa9b26528159731d46cc0a163da91495"
   dependencies:
     JSONStream "^1.2.1"
     archiver "^2.1.0"

@@ -7,7 +7,7 @@ import "../../css/Dashboard.css";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import WeekCalendar from "../calendar";
 import UserStats from "../UserStats";
-import UpdateProfile from "../../containers/SetProfile";
+import SetProfile from "../../containers/SetProfile";
 import UploadImage from "../UploadImage";
 import DashboardGraph from "../graphs/DashboardGraph";
 import { firebaseDb } from "../../server/firebase";
@@ -77,7 +77,7 @@ class Dashboard extends Component {
   // }
 
   onStatsUpdate(event) {
-    Popup.alert(<UpdateProfile />, "Update Stats");
+    Popup.alert(<SetProfile />, "Update Stats");
   }
 
   render() {

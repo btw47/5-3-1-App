@@ -26,9 +26,6 @@ class SetProfile extends Component {
     });
   }
 
-  componentDidMount() {
-    this.weight.focus();
-  }
   weeklyTemplate = (inputValues) => {
     let reps = 1
     let max = parseInt(inputValues);
@@ -80,12 +77,14 @@ class SetProfile extends Component {
  //Weight/Reps: 98 x 5, 113 x 5, 128 x 5+
   handleSubmit = event => {
     event.preventDefault();
-    const Deadlift = this.weeklyTemplate(this.refs.deadlift.value);
-    const Bench = this.weeklyTemplate(this.refs.bench.value);
-    const Squat = this.weeklyTemplate(this.refs.squat.value);
-    const Overhead = this.weeklyTemplate(this.refs.ohp.value);
-    if (!this.state.weight) {
-      Popup.alert('NOT FILLED OUT YO');
+    const Deadlift = this.weeklyTemplate(this.deadlift.value);
+    const Bench = this.weeklyTemplate(this.bench.value);
+    const Squat = this.weeklyTemplate(this.squat.value);
+    const Overhead = this.weeklyTemplate(this.ohp.value);
+
+    console.log("LIFTS", this.squat.value)
+    if (!this.weight) {
+      alert('STATS NOT FILLED OUT');
     } else {
       const thisUser = firebase.auth().currentUser;
       if (thisUser != null) {
@@ -96,14 +95,14 @@ class SetProfile extends Component {
       // const history = this.props.history;
 
       firebaseDb
-        .ref('users/' + uid + '/user/')
+        .ref('users/' + uid + '/user')
         .push({
-          weight: this.state.weight,
+          weight: this.weight.value,
           OneRepMax:{
-            squatORM: this.refs.squat.value,
-            deadliftORM: this.refs.deadlift.value,
-            benchORM: this.refs.bench.value,
-            overheadPressORM: this.refs.ohp.value,
+            squatORM: this.squat.value,
+            deadliftORM: this.deadlift.value,
+            benchORM: this.bench.value,
+            overheadPressORM: this.ohp.value,
           },
           date: date
         })
@@ -138,11 +137,23 @@ class SetProfile extends Component {
                 <FormControl
                   required
                   type="text"
-                  ref="bench"
+                  inputRef={ref => {this.weight = ref}}
                 />
                 <span className="highlight"></span>
                 <span className="bar"></span>
                 <label className="textinput">Current Weight: {state.user.weight + ' (lbs)'}</label>
+              </div>
+              <h2 className="workouts">Bench Press</h2>
+              <br />
+              <div className="group">
+                <FormControl
+                  required
+                  type="text"
+                  inputRef={ref => {this.bench = ref}}
+                />
+                <span className="highlight"></span>
+                <span className="bar"></span>
+                <label className="textinput">{state.user.ormBench + ' (lbs)'}</label>  
               </div>
               <h2 className="workouts">Overhead Press</h2>
               <br />
@@ -150,7 +161,7 @@ class SetProfile extends Component {
                 <FormControl
                   required
                   type="text"
-                  ref="ohp"
+                  inputRef={ref => {this.ohp = ref}}
                 />
                 <span className="highlight"></span>
                 <span className="bar"></span>
@@ -162,7 +173,7 @@ class SetProfile extends Component {
                 <FormControl
                   required
                   type="text"
-                  ref="deadlift"
+                  inputRef={ref => {this.deadlift = ref}}
                 />
                 <span className="highlight"></span>
                 <span className="bar"></span>
@@ -174,7 +185,7 @@ class SetProfile extends Component {
                 <FormControl
                   required
                   type="text"
-                  ref="squat"
+                  inputRef={ref => {this.squat = ref}}
                 />
                 <span className="highlight"></span>
                 <span className="bar"></span>

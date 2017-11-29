@@ -82,7 +82,7 @@ class Compare extends Component {
       return (
         <Col
           md={12}
-          style={{ 'text-align': 'center', display: 'inline', margin: 'auto' }}>
+          style={{ textAlign: 'center', display: 'inline', margin: 'auto' }}>
           <h2>Present Day</h2>
           <br />
           {this.renderImage()}
@@ -96,7 +96,7 @@ class Compare extends Component {
       );
     } else {
       return (
-        <Col md={6} style={{ 'text-align': 'center' }}>
+        <Col md={6} style={{ textAlign: 'center' }}>
           <h2>Present Day</h2>
           <br />
           {this.renderImage()}
@@ -117,10 +117,10 @@ class Compare extends Component {
     console.log('COMPARE PROPS', this.props);
 
     return (
-      <div className="Compare" style={{ 'text-align': 'center' }}>
+      <div className="Compare" style={{ textAlign: 'center' }}>
         <Jumbotron>
           <Row>
-            <Col md={6} style={{ 'text-align': 'center' }}>
+            <Col md={6} style={{ textAlign: 'center' }}>
               {this.state.compare && (
                 <div>
                   <h2>{this.state.compare}</h2>
