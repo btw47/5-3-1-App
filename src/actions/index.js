@@ -2,8 +2,8 @@ import { firebaseApp, firebaseDb } from "../server/firebase";
 import actionTypes from "../actionTypes";
 
 //-----USE IF CREATING ADMIN ACCOUNT-----
-import firebase from "firebase";
-import * as admin from "firebase-admin";
+// import firebase from "firebase";
+// import * as admin from "firebase-admin";
 
 //ACTION CREATORS-------------------
 const updateProfile = () => {
@@ -61,11 +61,11 @@ export const createUser = (email, password) => {
       .auth()
       .createUserWithEmailAndPassword(email, password)
       //------UNCOMMENT IF YOU WANT TO CREATE ADMIN ACCOUNT-----
-      .then(() => {
-        const thisUser = firebase.auth().currentUser;
-        const uid = thisUser.uid;
-        admin.auth().setCustomUserClaims(uid, { admin: true });
-      })
+      // .then(() => {
+      //   const thisUser = firebase.auth().currentUser;
+      //   const uid = thisUser.uid;
+      //   admin.auth().setCustomUserClaims(uid, { admin: true });
+      // })
       //---------------------------------------------------------
       .then(() => updateProfile())
       .catch(error => {
