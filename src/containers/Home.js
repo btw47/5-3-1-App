@@ -21,12 +21,12 @@ class Home extends Component {
     const { createUser, state } = this.props;
     console.log(this.props);
     return (
-      <div className="centerhomepage">
-        <div className="landingpage">
+      <div className="container">
+        <div className="content">
           <div className="row">
-            <div className="centerhomepage">
+            <div>
               <div className="card">
-                <div className="centerhomepage">
+                <div>
                   <img
                     src={logo}
                     className="logo"

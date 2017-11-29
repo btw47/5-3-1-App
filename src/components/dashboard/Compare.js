@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import firebase from 'firebase';
-import { Col, Row, Jumbotron } from 'react-bootstrap';
+import React, { Component } from "react";
+import firebase from "firebase";
+import { Col, Row, Jumbotron } from "react-bootstrap";
 
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import profilePicture from '../../images/anon-user.jpg';
-import * as actions from '../../actions';
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import profilePicture from "../../images/anon-user.jpg";
+import * as actions from "../../actions";
 
 class Compare extends Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class Compare extends Component {
   componentWillMount() {
     firebase.auth().onAuthStateChanged(user => {
       if (!user) {
-        this.props.history.push('/');
+        this.props.history.push("/");
       } else if (user) {
         const thisUser = firebase.auth().currentUser;
 
@@ -43,8 +43,9 @@ class Compare extends Component {
   renderCompare = () => {
     return (
       <select
-        style={{ margin: 'auto' }}
-        onChange={event => this.handleCompare(event)}>
+        style={{ margin: "auto" }}
+        onChange={event => this.handleCompare(event)}
+      >
         <option value="">Select a Time</option>
         <option value="Day One">Day One</option>
       </select>
@@ -58,7 +59,7 @@ class Compare extends Component {
           <img
             src={profilePicture}
             alt="profile pic"
-            style={{ width: '12vw' }}
+            style={{ width: "12vw" }}
           />
         </div>
       );
@@ -67,7 +68,7 @@ class Compare extends Component {
         <div>
           <img
             src={this.props.state.user.profileImage}
-            style={{ width: '12vw' }}
+            style={{ width: "12vw" }}
             alt=""
           />
         </div>
@@ -82,7 +83,8 @@ class Compare extends Component {
       return (
         <Col
           md={12}
-          style={{ 'text-align': 'center', display: 'inline', margin: 'auto' }}>
+          style={{ textalign: "center", display: "center", margin: "auto" }}
+        >
           <h2>Present Day</h2>
           <br />
           {this.renderImage()}
@@ -96,7 +98,7 @@ class Compare extends Component {
       );
     } else {
       return (
-        <Col md={6} style={{ 'text-align': 'center' }}>
+        <Col md={6} style={{ "text-align": "center" }}>
           <h2>Present Day</h2>
           <br />
           {this.renderImage()}
@@ -114,13 +116,13 @@ class Compare extends Component {
   render() {
     const { state } = this.props;
 
-    console.log('COMPARE PROPS', this.props);
+    console.log("COMPARE PROPS", this.props);
 
     return (
-      <div className="Compare" style={{ 'text-align': 'center' }}>
+      <div className="Compare" style={{ "text-align": "center" }}>
         <Jumbotron>
           <Row>
-            <Col md={6} style={{ 'text-align': 'center' }}>
+            <Col md={6} style={{ "text-align": "center" }}>
               {this.state.compare && (
                 <div>
                   <h2>{this.state.compare}</h2>

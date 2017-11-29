@@ -105,66 +105,61 @@ class SignIn extends Component {
       // const { createUser, state } = this.props;
       console.log(this.props);
       return (
-        <form onSubmit={event => this.handleSubmit(event)}>
-          <FormGroup
-            style={{ textAlign: 'center' }}
-            bsSize="large"
-            validationState={this.validationState()}>
-            <div className="centerhomepage">
-              <div className="group">
-                <FormControl
-                  type="text"
-                  required
-                  ref={ref => (this.email = ref)}
-                  onChange={event => this.handleUser(event)}
-                />
-                <span className="highlight" />
-                <span className="bar" />
-                <label className="textinput">Email</label>
-              </div>
-              <br />
-              <div className="group">
-                <FormControl
-                  type="password"
-                  required
-                  onChange={event => this.handlePassword(event)}
-                />
-                <span className="highlight" />
-                <span className="bar" />
-                <label className="textinput">Password</label>
-              </div>
-              <br />
-            {this.renderError()}
-            <ButtonToolbar className="centerhomepage">
-              <div className="btnwrap">
-                <Button
-                  bsSize="large"
-                  type="submit"
-                  className="coolbtn"
-                >
-                Log In
-                </Button>
-              </div>
-              <br />
-              <div className="btnwrap">
-                <NavLink to="/">
-                  <Button
-                    bsSize="large"
-                    type="button"
-                    className="coolbtn"
-                  >
-                  Sign Up
-                  </Button>
+        <div className="container">
+          <form onSubmit={event => this.handleSubmit(event)}>
+            <FormGroup
+              style={{ textAlign: "center" }}
+              bsSize="large"
+              validationState={this.validationState()}
+            >
+              <div className="centerhomepage">
+                <div className="group">
+                  <FormControl
+                    type="text"
+                    required
+                    ref={ref => (this.email = ref)}
+                    onChange={event => this.handleUser(event)}
+                  />
+                  <span className="highlight" />
+                  <span className="bar" />
+                  <label className="textinput">Email</label>
+                </div>
+                <br />
+                <div className="group">
+                  <FormControl
+                    type="password"
+                    required
+                    onChange={event => this.handlePassword(event)}
+                  />
+                  <span className="highlight" />
+                  <span className="bar" />
+                  <label className="textinput">Password</label>
+                </div>
+                <br />
+                {this.renderError()}
+                <ButtonToolbar className="centerhomepage">
+                  <div className="btnwrap">
+                    <Button bsSize="large" type="submit" className="coolbtn">
+                      Log In
+                    </Button>
+                  </div>
+                  <br />
+                  <div className="btnwrap">
+                    <NavLink to="/">
+                      <Button bsSize="large" type="button" className="coolbtn">
+                        Sign Up
+                      </Button>
+                    </NavLink>
+                  </div>
+                </ButtonToolbar>
+                <br />
+                <NavLink to="/ForgotPassword">
+                  <h5 style={{ color: "#0062CC" }}>forgot your password?</h5>
                 </NavLink>
               </div>
-            </ButtonToolbar>
-            <br />
-            <NavLink to="/ForgotPassword">
-              <h5 style={{ color: '#0062CC' }}>forgot your password?</h5>
-            </NavLink>
-            </div>
-          </FormGroup>
-        </form>
+            </FormGroup>
+          </form>
+        </div>
       );
     }
   };
@@ -178,13 +173,12 @@ class SignIn extends Component {
             <div className="centerhomepage">
               <div className="card">
                 <div className="centerhomepage">
-                  <img
-                    src={logo}
-                    className="logo"
-                    alt=""
-                  />
+                  <img src={logo} className="logo" alt="" />
                   {this.renderSignIn()}
-                  <div id="firebaseui-auth-container" ref={ref => (this.widget = ref)} />
+                  <div
+                    id="firebaseui-auth-container"
+                    ref={ref => (this.widget = ref)}
+                  />
                 </div>
               </div>
             </div>

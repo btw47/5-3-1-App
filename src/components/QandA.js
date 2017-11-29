@@ -83,50 +83,51 @@ export default class QandA extends Component {
 
   render() {
     return (
-      <div className="centerhomepage">
-        <div className="card">
-          <h1>Questions and Answers Forum</h1>
-          <p>
-            An area for 5/3/1 members to post questions regarding their workouts
-            or fitness questions in general. Other members are encouraged to
-            provide answers to these questions.
-          </p>
-        </div>
-        <br />
+      <div className="container">
         <div className="centerhomepage">
           <div className="card">
-            <h3>New Question</h3>
-            <form>
-              <input type="text" ref={el => (this.textInput = el)} />
-              <input type="submit" onClick={this.addMessage} />
-            </form>
+            <h1>Questions and Answers Forum</h1>
+            <p>
+              An area for 5/3/1 members to post questions regarding their
+              workouts or fitness questions in general. Other members are
+              encouraged to provide answers to these questions.
+            </p>
           </div>
-        </div>
-        <br />
-        <div className="card">
-          <ul className="nobullet">
-            <li>
-              {this.state.postList &&
-                this.state.postList.map(message => {
-                  return (
-                    <div className="faq-c">
-                      <div class="faq-q">
-                        <span class="faq-t" />
-                        <QAModal
-                          qamessage={message.question.text}
-                          firebaseId={message.question.id}
-                        />
+          <br />
+          <div className="centerhomepage">
+            <div className="card">
+              <h3>New Question</h3>
+              <form>
+                <input type="text" ref={el => (this.textInput = el)} />
+                <input type="submit" onClick={this.addMessage} />
+              </form>
+            </div>
+          </div>
+          <br />
+          <div className="card">
+            <ul className="nobullet">
+              <li>
+                {this.state.postList &&
+                  this.state.postList.map(message => {
+                    return (
+                      <div className="faq-c">
+                        <div class="faq-q">
+                          <span class="faq-t" />
+                          <QAModal
+                            qamessage={message.question.text}
+                            firebaseId={message.question.id}
+                          />
+                        </div>
+                        <div className="QAfont">
+                          {this.renderAnswers(message)}
+                        </div>
                       </div>
-                      <div className="QAfont">
-                        {this.renderAnswers(message)}
-                      </div>
-                    </div>
-                  );
-                  //button is Modal, button name is message.text and Id
-                })}
-            </li>
-          </ul>
-          {/* <ButtonToolbar className="centerhomepage">
+                    );
+                    //button is Modal, button name is message.text and Id
+                  })}
+              </li>
+            </ul>
+            {/* <ButtonToolbar className="centerhomepage">
               <div className="btnwrap">
                 <Button
                   bsSize="medium"
@@ -137,6 +138,7 @@ export default class QandA extends Component {
                 </Button>
               </div>
             </ButtonToolbar> */}
+          </div>
         </div>
       </div>
     );
