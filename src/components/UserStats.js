@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import { Panel, PanelGroup } from 'react-bootstrap';
+import React, { Component } from "react";
+import { Panel, PanelGroup } from "react-bootstrap";
 
-import profilePicture from '../images/anon-user.jpg';
+import profilePicture from "../images/anon-user.jpg";
 
 class UserStats extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeKey: '1'
+      activeKey: "1"
     };
   }
 
@@ -27,13 +27,22 @@ class UserStats extends Component {
 
       return (
         <div>
-          <img src={profilePicture} alt="" style={this.imageStyle} className="profilePic" />
+          <img
+            src={profilePicture}
+            alt=""
+            style={this.imageStyle}
+            className="profilePic"
+          />
         </div>
       );
     } else {
       return (
         <div>
-          <img src={this.props.profileImage} style={this.imageStyle} className="profilePic" />
+          <img
+            src={this.props.profileImage}
+            style={this.imageStyle}
+            className="profilePic"
+          />
         </div>
       );
     }
@@ -44,8 +53,9 @@ class UserStats extends Component {
       return (
         <h5
           style={{
-            'word-break': 'break-all'
-          }}>
+            "word-break": "break-all"
+          }}
+        >
           {this.props.user.desc}
         </h5>
       );
@@ -53,12 +63,12 @@ class UserStats extends Component {
   };
 
   style = {
-    height: '30vh',
-    width: '15vw'
+    height: "30vh",
+    width: "15vw"
   };
 
   imageStyle = {
-    width: '15vw'
+    width: "15vw"
   };
 
   render() {
@@ -70,12 +80,13 @@ class UserStats extends Component {
           activeKey={this.state.activeKey}
           onSelect={this.handleSelect}
           accordion
-          style={{ width: '15vw' }}>
+          style={{ width: "15vw" }}
+        >
           <Panel header="About Me" eventKey="1">
             {this.renderDesc()}
           </Panel>
           <Panel header="Current Stats" eventKey="2">
-            <h5>Current Weight: {user.weight}</h5>
+            <h5>Weight: {user.weight}</h5>
             <h5>Bench: {user.ormBench}</h5>
             <h5>Overhead Press: {user.ormOverheadPress}</h5>
             <h5>Squats: {user.ormSquat}</h5>
