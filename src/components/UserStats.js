@@ -27,13 +27,22 @@ class UserStats extends Component {
 
       return (
         <div>
-          <img src={profilePicture} alt="" style={this.imageStyle} className="profilePic" />
+          <img
+            src={profilePicture}
+            alt=""
+            style={this.imageStyle}
+            className="profilePic"
+          />
         </div>
       );
     } else {
       return (
         <div>
-          <img src={this.props.profileImage} style={this.imageStyle} className="profilePic" />
+          <img
+            src={this.props.profileImage}
+            style={this.imageStyle}
+            className="profilePic"
+          />
         </div>
       );
     }
@@ -75,11 +84,11 @@ class UserStats extends Component {
             {this.renderDesc()}
           </Panel>
           <Panel header="Current Stats" eventKey="2">
-            <h5>Current Weight: {user.weight}</h5>
-            <h5>Bench: {user.ormBench}</h5>
-            <h5>Overhead Press: {user.ormOverheadPress}</h5>
-            <h5>Squats: {user.ormSquat}</h5>
-            <h5>Deadlift: {user.ormDeadlift}</h5>
+            <h5>Current Weight: {user.weight} lbs</h5>
+            <h5>Bench: {user.ormBench} lbs</h5>
+            <h5>Overhead Press: {user.ormOverheadPress} lbs</h5>
+            <h5>Squats: {user.ormSquat} lbs</h5>
+            <h5>Deadlift: {user.ormDeadlift} lbs</h5>
           </Panel>
         </PanelGroup>
       </div>
