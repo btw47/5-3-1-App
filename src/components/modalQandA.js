@@ -18,9 +18,11 @@ export default class QAModal extends Component {
     });
   }
 
+
   answerQuestioninModal = e => {
     let answerRef = firebaseApp.database().ref("messages/" + this.props.firebaseId + "/answers/")
-    answerRef.push({ answer: this.refs.textarea.value });
+    answerRef.push({ answer: this.refs.textarea.value }).then(() => this.props.fetchAnswer()
+    );
     this.setState({
       isOpen: this.state.isClosed
     })
