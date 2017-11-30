@@ -30,7 +30,7 @@ export default class WorkoutApi extends Component {
         const exercise = this.state.exercise;
         console.log("STATE", this.state)
         return (
-            <div>
+            <div className='ryanIsGay'>
                 <div className='workoutApi'>
                     <h1>Exercise image search</h1>
                     <p>Don't know how to do a specific exercise? Try entering the name of the exercise in our search and get an image of what the exercise looks like.</p>
@@ -42,16 +42,14 @@ export default class WorkoutApi extends Component {
                         <button>Search Exercises</button>
                     </form>
                     <br />
-                    <div>
-                        <label className='workoutApi'>Here is the exercise image that you requested:</label>
-                        {/* <span>{exercise}</span> */}
-                    </div>
                     {this.state.data && this.state.data.map(a => {
                         return (
-                            <div>
-                                <label>{a.name}</label>
-                                <label>{a.image}</label>
-                                <label>{a.category}</label>
+                            <div className='workoutRender'>
+                                <label>{a.value}</label>
+                                <br />
+                                <img src={a.data.image} />
+                                <br />
+                                {/* <label>{a.data.category}</label> */}
                             </div>
                         )
                     })}
