@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import amazonLogo from "../images/amazon-logo.png";
 import bodybuildingLogo from "../images/bodybuilding-logo.png";
 import myfitpalLogo from "../images/myfitpal-logo.png";
+import WorkoutApi from './workoutApi'
 
 export default class Footer extends Component {
   render() {
@@ -32,6 +33,9 @@ export default class Footer extends Component {
                 <a href="https://www.bodybuilding.com/exercises/finder">
                   Exercise Finder + Demonstration <img src={bodybuildingLogo} />
                 </a>
+              </li>
+              <li>
+                <NavLink to='/workoutApi'>Exercise Image Search</NavLink>
               </li>
             </ul>
           </div>

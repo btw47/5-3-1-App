@@ -5,6 +5,7 @@
   outline: 1px solid gray;
 }
 
+
 /* workoutApi css ------------------------*/
 
 
@@ -12,6 +13,13 @@
   color: white
 }
 
+.workoutRender{
+  color: black; font-size: 1.5em; background-color: white
+}
+  
+.ryanIsGay{
+  background-color: black; opacity: .8 ;
+}
 
 /* QandA CSS----------------------------- */
 
