@@ -82,6 +82,7 @@ export default class QandA extends Component {
   };
 
   render() {
+    console.log("STATE", this.state)
     return (
       <div className="container">
         <div className="centerhomepage">
@@ -95,11 +96,22 @@ export default class QandA extends Component {
           </div>
         </div>
         <br />
+        <div className="centerhomepage">
+          <div className="card">
+            <h3>New Question</h3>
+            <form>
+              <input type="text" ref={el => (this.textInput = el)} />
+              <input type="submit" onClick={this.addMessage} />
+            </form>
+          </div>
+        </div>
+        <br />
         <div className="card">
           <ul className="nobullet">
             <li>
               {this.state.postList &&
                 this.state.postList.map(message => {
+                  console.log("MESSAGE", message)
                   return (
                     <div className="faq-c">
                       <div class="faq-q">
@@ -109,6 +121,9 @@ export default class QandA extends Component {
                           qamessage={message.question.text}
                           firebaseId={message.question.id}
                         />
+                      </div>
+                      <div>
+                        {this.renderAnswers(message)}
                       </div>
                     </div>
                   );
