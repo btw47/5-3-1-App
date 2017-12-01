@@ -18,7 +18,7 @@ class ConnectWithUs extends Component {
         <div className="content" style={styles}>
           <div className="centerhomepage">
             <h1 className="cwtitle">
-              <span>The 5-3-1 Pro Team</span>
+              <span>The 5-3-1 Master Team</span>
             </h1>
             <h2>
               <div className="lineright">

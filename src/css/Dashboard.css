@@ -40,8 +40,8 @@
   justify-content: center;
 }
 
-.mm-popup{
-
+.mm-popup__box__body{
+  font-size: 2em;
 }
 
 .mm-popup.hover{

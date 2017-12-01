@@ -102,19 +102,21 @@ class SetProfile extends Component {
         var uid = thisUser.uid;
       }
 
-      let pushORM;
+      if(window.location.pathname === "/SetProfile"){
+        var pushORM;
 
-      if (this.props.state.OneRep.calculatedMax) {
-        if (this.props.state.OneRep.calculatedMax.bench) {
-          pushORM = {
-            squatORM: this.refs.squat.value,
-            deadliftORM: this.refs.deadlift.value,
-            benchORM: this.refs.bench.value,
-            overheadPressORM: this.refs.ohp.value
-          };
+        if (this.props.state.OneRep.calculatedMax) {
+          if (this.props.state.OneRep.calculatedMax.bench) {
+            pushORM = {
+              squatORM: this.refs.squat.value,
+              deadliftORM: this.refs.deadlift.value,
+              benchORM: this.refs.bench.value,
+              overheadPressORM: this.refs.ohp.value
+            };
+          }
+        } else {
+          pushORM = this.state.oneRepMax;
         }
-      } else {
-        pushORM = this.state.oneRepMax;
       }
 
       const date = Date();
@@ -162,6 +164,7 @@ class SetProfile extends Component {
 
   
   render() {
+    if(window.location.pathname === "/SetProfile"){
     if (this.props.state.OneRep.calculatedMax) {
       if (this.props.state.OneRep.calculatedMax.bench) {
         const calculatedMax = this.props.state.OneRep.calculatedMax;
@@ -171,6 +174,7 @@ class SetProfile extends Component {
         this.refs.ohp.value = calculatedMax.overhead;
       }
     }
+  }
 
     console.log("set profile props", this.props);
     if(window.location.pathname === '/SetProfile'){
